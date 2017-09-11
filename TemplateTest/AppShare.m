@@ -7,7 +7,7 @@
 //
 
 #import "AppShare.h"
-#import "HWTabBarViewController.h"
+
 @implementation AppShare
 
 + (instancetype)shareInstance

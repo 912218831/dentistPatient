@@ -50,6 +50,8 @@
 #define kProductCenter              AppendHTML(@"/Products/Index")    //产品中心
 #define kUserHome                   AppendHTML(@"/Member/MemberNews")
 
+#define kLoginGainVertifyCode        @"" //获取验证码
+#define kLoginApp                    @"" //登录
 #endif
 
 

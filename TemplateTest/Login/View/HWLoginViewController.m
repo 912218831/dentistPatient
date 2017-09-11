@@ -13,26 +13,37 @@
 #import "HWLoginTranstionAnimation.h"
 #import "HWLoginTranstionAnimationRevert.h"
 #import "HWCustomDrawImg.h"
+#import "LoginViewModel.h"
+
 @interface HWLoginViewController ()<UIViewControllerTransitioningDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView * table;
 @property(strong,nonatomic)UIButton * loginBtn;
-
+@property(strong,nonatomic)LoginViewModel *viewModel;
 @end
 
 @implementation HWLoginViewController
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.titleView = [Utility navTitleView:@"登录"];
+}
+
+- (void)configContentView {
+    [super configContentView];
     
-    [self.view addSubview:self.table];
+    [self addSubview:self.table];
+}
+
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    
 }
 
 - (UITableView *)table
 {
     if (_table == nil) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT) style:UITableViewStylePlain];
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
         _table.delegate = self;
         _table.dataSource = self;
         _table.separatorStyle = UITableViewCellSeparatorStyleNone;

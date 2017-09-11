@@ -6,8 +6,8 @@
 //  Copyright © 2017年 caijingpeng.haowu. All rights reserved.
 //
 
-#import "HWBaseViewController.h"
+#import "BaseViewController.h"
 
-@interface HWLoginViewController : HWBaseViewController
+@interface HWLoginViewController : BaseViewController
 @property(assign,nonatomic)BOOL isPresent;
 @end

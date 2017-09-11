@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "HWCheckForceUpdateWidget.h"
 #import <JPush/JPUSHService.h>
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,JPUSHRegisterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -20,6 +21,5 @@
 @property (nonatomic, strong) HWCheckForceUpdateWidget *updataWidget;
 @property (strong,nonatomic)UIViewController * viewController;
 @property(assign,nonatomic)BOOL isAutoLogin;
-
 @end
 

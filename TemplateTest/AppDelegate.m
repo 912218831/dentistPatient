@@ -31,18 +31,7 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
-    if ([HWUserLogin currentUserLogin].userkey.length > 0) {
-        self.viewController = [[AppShare shareInstance] checkUserType];
-        [self.window setRootViewController:self.viewController];
-    }
-    else
-    {
-        HWGuideViewController * guideCtrl = [[HWGuideViewController alloc] init];
-        guideCtrl.isGuide = NO;
-        [self.window setRootViewController:guideCtrl];
-
-    }
-    
+    [[ViewControllersRouter shareInstance]luanchRootViewController];
     
     return YES;
 }

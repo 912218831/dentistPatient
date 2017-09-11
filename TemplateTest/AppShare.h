@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HWLoginUser+CoreDataProperties.h"
-#import "RDVTabBarController.h"
+#import "HWTabBarViewController.h"
+
 @interface AppShare : NSObject
 
 + (instancetype)shareInstance;
