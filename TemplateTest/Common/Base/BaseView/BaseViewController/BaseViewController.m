@@ -53,9 +53,10 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     
     self.navigationItem.rightBarButtonItem = [Utility navRightBackBtn:self action:@selector(rightAction) imageStr:@"rightImageName"];
-    
     self.contentView = [[UIView alloc]initWithFrame:self.frame];
     [self.view addSubview:self.contentView];
+
+    
 }
 
 - (void)reloadviewWhenDatasourceChange {

@@ -38,7 +38,6 @@
 {
     LoginViewModel *viewModel = [LoginViewModel new];
     [[ViewControllersRouter shareInstance]presentViewModel:viewModel animated:_isGuide completion:^(id targetVC) {
-        [targetVC performSelector:@selector(setIsPresent:) withObject:@true];
         [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
     }];
 }

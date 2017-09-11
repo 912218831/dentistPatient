@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface HWLoginViewController : BaseViewController
-@property(assign,nonatomic)BOOL isPresent;
+
 @end

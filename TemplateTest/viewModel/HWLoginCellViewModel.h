@@ -13,5 +13,6 @@
 @property(strong,nonatomic)NSString * telphone;
 @property(strong,nonatomic)NSString * verifyCode;
 @property(strong,nonatomic)RACCommand * verifyCodeCommand;
-
+@property(assign,nonatomic,readonly)BOOL canReGain; //是否可以重新点击
+@property(strong,nonatomic,readonly)NSString * title;//倒计时按钮的标题
 @end
