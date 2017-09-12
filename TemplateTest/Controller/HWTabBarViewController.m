@@ -123,7 +123,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.navigationItem.titleView = [Utility navTitleView:@"总览"];
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
