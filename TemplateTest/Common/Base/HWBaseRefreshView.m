@@ -54,6 +54,11 @@
     return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    self.baseTable.frame = self.bounds;
+}
+
 #pragma mark - 初始化视图
 
 - (UITableView *)baseTable
@@ -269,6 +274,19 @@
 }
 
 #pragma mark - tableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (self.footerHeight == nil) {
+        return 0.000001;
+    }
+    return self.footerHeight(section);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.headerHeight == nil) {
+        return 0.000001;
+    }
+    return self.headerHeight(section);
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.cellHeight==nil) {
@@ -295,8 +313,18 @@
     return nil;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.headerView) {
+        return self.headerView(section);
+    }
+    return nil;
+}
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.didSelected) {
+        self.didSelected(indexPath);
+    }
+}
 
 #pragma mark - showEmptyView
 

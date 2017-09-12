@@ -7,42 +7,57 @@
 //
 
 #import "BaseListViewController.h"
-#import "BaseListViewDataSource.h"
-#import "BaseListView.h"
 #import "BaseListViewModel.h"
-@interface BaseListViewController ()
-@property (nonatomic, strong, readwrite) BaseListView   *listView;
-@property (nonatomic, strong) BaseListViewDataSource *dataSource;
+
+@interface BaseListViewController () <UITableViewDataSource,
+                                     HWBaseRefreshViewObserverProtocol>
+@property (nonatomic, strong, readwrite) HWBaseRefreshView   *listView;
+@property (nonatomic, strong) BaseListViewModel *viewModel;
 @end
 
 @implementation BaseListViewController
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-- (void)bindViewModel {
-    if (self.viewModel == nil) {
-        self.viewModel = [[BaseListViewModel alloc]init];
-    }
-    
-    self.dataSource = [[BaseListViewDataSource alloc ]initWithViewModel:(BaseListViewModel *)self.viewModel reuseIdentifier:@"BaseListViewCell"];
-    [self.dataSource handleTableViewDataSourceAndDelegate:self.listView];
-    
-    
-}
-
 - (void)configContentView {
     [super configContentView];
     
-    self.listView = [BaseListView initializeInstanceObject];
-    self.listView.frame = self.bounds;
+    self.listView = [[HWBaseRefreshView alloc]initWithFrame:self.view.bounds];
     [self addSubview:self.listView];
-    
+    self.listView.baseTable.dataSource = self;
+    self.listView.baseTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.listView.isLastPage = true;
+    self.listView.currentPage = 1;
+    self.listView.isNeedHeadRefresh = true;
+    self.listView.observer = self;
+    self.listView.backgroundColor = self.view.backgroundColor;
+}
+
+- (void)sendAction:(NSString *)selectorString {
+    self.viewModel.currentPage = self.listView.currentPage;
+    [self.viewModel setActive:true];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.viewModel.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self respondsToSelector:@selector(tableViewCell:)]) {
+        return [self tableViewCell:indexPath];
+    }
+    return nil;
 }
 
 - (void)reloadviewWhenDatasourceChange {
-    [self.listView reloadData];
+    [self.listView.baseTable reloadData];
+}
+
+- (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 @end

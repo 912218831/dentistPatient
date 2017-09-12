@@ -24,10 +24,16 @@
 
 - (void)layoutSubViews {}
 
-- (void)initDefaultConfigs {}
+- (void)initDefaultConfigs {self.backgroundColor = COLOR_FFFFFF;}
 
 - (void)reloadCellWhenDataSource:(BaseListItemModel *)item {
     
+}
+
+- (void)setValueSignal:(RACSignal *)valueSignal {
+    _valueSignal = valueSignal;
+    
+    [self bindSignal];
 }
 
 @end

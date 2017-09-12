@@ -7,9 +7,10 @@
 //
 
 #import "BaseViewController.h"
-@class BaseListView;
+#import  "HWBaseRefreshView.h"
 
 @interface BaseListViewController : BaseViewController
-@property (nonatomic, strong, readonly) BaseListView   *listView;
+@property (nonatomic, strong, readonly) HWBaseRefreshView   *listView;
 
+- (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath;
 @end

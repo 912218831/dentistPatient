@@ -192,7 +192,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define CD_yellow                       UIColorFromRGB(0xFcE39D)//黄色
 
 //色调
-#define CD_MainColor                    UIColorFromRGB(0xff7e37)//主色调
+#define CD_MainColor                    UIColorFromRGB(0x28beff)//主色调
 #define CD_LineColor                    UIColorFromRGB(0xdedede)//线条颜色,画线
 #define CD_LIGHT_BACKGROUND             UIColorFromRGB(0xf9f9f9)//浅背景色
 

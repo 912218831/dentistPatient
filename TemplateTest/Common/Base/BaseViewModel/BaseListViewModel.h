@@ -9,5 +9,7 @@
 #import "BaseViewModel.h"
 
 @interface BaseListViewModel : BaseViewModel
+@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) BOOL isLastPage;
 @property (nonatomic, strong, readonly) NSMutableArray *dataArray;
 @end

@@ -9,5 +9,11 @@
 #import "HWTabbarViewModel.h"
 
 @implementation HWTabbarViewModel
-
+- (instancetype)init {
+    if (self = [super init]) {
+        self.homePageViewModel = [HWHomePageViewModel new];
+        self.casesViewModel = [HWCasesViewModel new];
+    }
+    return self;
+}
 @end

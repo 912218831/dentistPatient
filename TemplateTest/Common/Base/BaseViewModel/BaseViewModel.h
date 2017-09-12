@@ -11,6 +11,8 @@
 #import "BaseViewController.h"
 #import <ReactiveViewModel/ReactiveViewModel.h>
 
+#define Error [NSError errorWithDomain:error code:404 userInfo:nil]
+
 typedef  NS_ENUM(int, APIType) {
     UserLogin = 1,
     HomeList ,
@@ -20,6 +22,7 @@ typedef  NS_ENUM(int, APIType) {
 
 @class BaseViewController;
 @interface BaseViewModel : RVMViewModel
+@property (nonatomic, strong) RACSignal *requestSignal;
 
 @property (nonatomic, copy, readwrite)   NSString     *url;
 @property (nonatomic, copy, readwrite)   NSDictionary *params;

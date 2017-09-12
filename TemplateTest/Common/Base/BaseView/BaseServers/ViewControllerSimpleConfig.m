@@ -25,13 +25,13 @@
 
 + (NSDictionary *)map {
     return @{
-             
+             kCasesVM:self.caseVC,
              };
 }
 
-+ (NSDictionary *)homePage {
++ (NSDictionary *)caseVC {
     return @{
-             @"title":@"总览",
+             @"title":@"病历",
              };
 }
 

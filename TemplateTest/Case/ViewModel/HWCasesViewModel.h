@@ -1,13 +1,14 @@
 //
-//  HWCasesViewModel.m
+//  HWCasesViewModel.h
 //  TemplateTest
 //
 //  Created by 杨庆龙 on 2017/9/12.
 //  Copyright © 2017年 caijingpeng.haowu. All rights reserved.
 //
 
-#import "HWCasesViewModel.h"
+#import "BaseListViewModel.h"
+#import "CaseItemModel.h"
 
-@implementation HWCasesViewModel
+@interface HWCasesViewModel : BaseListViewModel
 
 @end

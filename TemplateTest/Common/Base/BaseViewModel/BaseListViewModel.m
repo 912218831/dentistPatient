@@ -22,19 +22,19 @@
     return self;
 }
 
-- (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure targetView:(UIView *)view message:(NSString *)message {
-    
-    NSDictionary *response = @{};
-    NSArray *dataArray = @[];
-    
-    [self.dataArray removeAllObjects];
+- (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
     @weakify(self);
-    [dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSMutableDictionary *middle = [NSMutableDictionary dictionaryWithCapacity:params.allKeys.count+1];
+    [middle setValuesForKeysWithDictionary:params];
+    [middle setObject:@(self.currentPage) forKey:@"page"];
+    [super post:url type:type params:middle success:^(id response) {
         @strongify(self);
-        BaseModel *item = [[BaseModel alloc]initWithDictionary:obj error:nil];
-        [self.dataArray addObject:item];
-        
-        //[self.vc reloadviewWhenDatasourceChange];
+        if (self.currentPage == 1) {
+            [self.dataArray removeAllObjects];
+        }
+        success(response);
+    } failure:^(NSString *error) {
+        failure(error);
     }];
 }
 

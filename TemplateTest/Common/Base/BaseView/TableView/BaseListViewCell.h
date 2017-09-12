@@ -10,7 +10,7 @@
 #import "BaseListItemModel.h"
 
 @interface BaseListViewCell : UITableViewCell<BindSignal, HWBaseViewProtocol>
-
+@property (nonatomic, strong) RACSignal *valueSignal;
 - (void)reloadCellWhenDataSource:(BaseListItemModel *)item;
 
 @end

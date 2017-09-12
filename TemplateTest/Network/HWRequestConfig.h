@@ -52,6 +52,7 @@
 
 #define kLoginGainVertifyCode        @"" //获取验证码
 #define kLoginApp                    @"" //登录
+#define kCaseList                    @"fam/loadCheckList" //病例列表
 #endif
 
 

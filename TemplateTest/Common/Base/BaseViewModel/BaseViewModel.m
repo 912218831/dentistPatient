@@ -12,32 +12,29 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        [[ProtocolTerminal sharedInstance]registerHttpProtocol:@protocol(HTTPProtocol) handler:self];
-        [[ProtocolTerminal sharedInstance]registerHttpProtocol:@protocol(ParserDataProtocol) handler:self];
-        [[ProtocolTerminal sharedInstance]registerHttpProtocol:@protocol(PersistentDataProtocol) handler:self];
+        
     }
     return self;
 }
 
 #pragma mark --- 请求方法
-- (void)get:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
-    [[ProtocolTerminal sharedInstance]get:url params:params success:^(id json) {
-        success(json);
-    } failure:^(NSString *error) {
-        failure(error);
-    }];
-}
 
 - (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
-    [[ProtocolTerminal sharedInstance]post:url params:params success:^(id json) {
+    @weakify(self);
+    [HWUserLogin currentUserLogin].userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
+    [self post:url params:params success:^(id json) {
+        @strongify(self);
+        if (!self) {
+            return;
+        }
         success(json);
     } failure:^(NSString *error) {
+        @strongify(self);
+        if (!self) {
+            return;
+        }
         failure(error);
     }];
-}
-
-- (void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    
 }
 
 - (void)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {

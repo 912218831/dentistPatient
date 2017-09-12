@@ -50,11 +50,9 @@
 		B07E7C111E8F95DE005189C9 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E7C101E8F95DE005189C9 /* UMMobClick.framework */; };
 		B07EE4951F678C4900FCA22D /* HWHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4941F678C4900FCA22D /* HWHomePageViewController.m */; };
 		B07EE4981F678C7F00FCA22D /* HWTabbarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4971F678C7F00FCA22D /* HWTabbarViewModel.m */; };
-		B07EE49E1F67B6D600FCA22D /* HWCasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE49D1F67B6D600FCA22D /* HWCasesViewController.m */; };
 		B07EE4A11F67B70400FCA22D /* HWAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */; };
 		B07EE4A41F67B71400FCA22D /* HWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4A31F67B71400FCA22D /* HWSettingViewController.m */; };
 		B07EE4A71F67B80100FCA22D /* HWHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4A61F67B80100FCA22D /* HWHomePageViewModel.m */; };
-		B07EE4AA1F67B81300FCA22D /* HWCasesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4A91F67B81300FCA22D /* HWCasesViewModel.m */; };
 		B07EE4AD1F67B82300FCA22D /* HWAppointmentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4AC1F67B82300FCA22D /* HWAppointmentViewModel.m */; };
 		B07EE4B01F67B83000FCA22D /* HWSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4AF1F67B83000FCA22D /* HWSettingViewModel.m */; };
 		B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B52C1F273803002FE127 /* EmptyControl.m */; };
@@ -146,6 +144,8 @@
 		C28BACB31B16B8C90048DE0A /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = C28BAC3B1B16B8C80048DE0A /* mztools.c */; };
 		C28BACB41B16B8C90048DE0A /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = C28BAC3D1B16B8C80048DE0A /* unzip.c */; };
 		C28BACB51B16B8C90048DE0A /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = C28BAC3F1B16B8C80048DE0A /* zip.c */; };
+		C50821221F682D47004B2221 /* CaseItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821211F682D47004B2221 /* CaseItemModel.m */; };
+		C50821251F6834B6004B2221 /* CaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821241F6834B6004B2221 /* CaseListCell.m */; };
 		C531FBA51F66D0390008A17A /* BaseListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FB851F66D0390008A17A /* BaseListItemModel.m */; };
 		C531FBA61F66D0390008A17A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FB871F66D0390008A17A /* BaseModel.m */; };
 		C531FBA71F66D0390008A17A /* ViewControllerSimpleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FB8B1F66D0390008A17A /* ViewControllerSimpleConfig.m */; };
@@ -166,6 +166,9 @@
 		C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBBE1F66D5E30008A17A /* HWUserLogin.m */; };
 		C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBC81F66D5E70008A17A /* LoginViewModel.m */; };
 		C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBCB1F66D6750008A17A /* HWLoginViewController.m */; };
+		C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0461F680DD3000C99A1 /* HWCasesViewController.m */; };
+		C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */; };
+		C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B04D1F681307000C99A1 /* CaseSegmentButton.m */; };
 		D2C28F0C1B7CC2AB00E2716D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */; };
 		D2C28F0E1B7CC5BB00E2716D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */; };
 		D2C28F101B7CC5D900E2716D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0F1B7CC5D900E2716D /* CoreGraphics.framework */; };
@@ -291,16 +294,12 @@
 		B07EE4941F678C4900FCA22D /* HWHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageViewController.m; sourceTree = "<group>"; };
 		B07EE4961F678C7F00FCA22D /* HWTabbarViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabbarViewModel.h; sourceTree = "<group>"; };
 		B07EE4971F678C7F00FCA22D /* HWTabbarViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabbarViewModel.m; sourceTree = "<group>"; };
-		B07EE49C1F67B6D600FCA22D /* HWCasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCasesViewController.h; sourceTree = "<group>"; };
-		B07EE49D1F67B6D600FCA22D /* HWCasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewController.m; sourceTree = "<group>"; };
 		B07EE49F1F67B70400FCA22D /* HWAppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointmentViewController.h; sourceTree = "<group>"; };
 		B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointmentViewController.m; sourceTree = "<group>"; };
 		B07EE4A21F67B71400FCA22D /* HWSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSettingViewController.h; sourceTree = "<group>"; };
 		B07EE4A31F67B71400FCA22D /* HWSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSettingViewController.m; sourceTree = "<group>"; };
 		B07EE4A51F67B80100FCA22D /* HWHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageViewModel.h; sourceTree = "<group>"; };
 		B07EE4A61F67B80100FCA22D /* HWHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageViewModel.m; sourceTree = "<group>"; };
-		B07EE4A81F67B81300FCA22D /* HWCasesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCasesViewModel.h; sourceTree = "<group>"; };
-		B07EE4A91F67B81300FCA22D /* HWCasesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewModel.m; sourceTree = "<group>"; };
 		B07EE4AB1F67B82300FCA22D /* HWAppointmentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointmentViewModel.h; sourceTree = "<group>"; };
 		B07EE4AC1F67B82300FCA22D /* HWAppointmentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointmentViewModel.m; sourceTree = "<group>"; };
 		B07EE4AE1F67B83000FCA22D /* HWSettingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSettingViewModel.h; sourceTree = "<group>"; };
@@ -452,6 +451,10 @@
 		C28BAC3F1B16B8C80048DE0A /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		C28BAC401B16B8C80048DE0A /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		C28BACED1B16B9930048DE0A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C50821201F682D47004B2221 /* CaseItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseItemModel.h; sourceTree = "<group>"; };
+		C50821211F682D47004B2221 /* CaseItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseItemModel.m; sourceTree = "<group>"; };
+		C50821231F6834B6004B2221 /* CaseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListCell.h; sourceTree = "<group>"; };
+		C50821241F6834B6004B2221 /* CaseListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseListCell.m; sourceTree = "<group>"; };
 		C531FB841F66D0390008A17A /* BaseListItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseListItemModel.h; sourceTree = "<group>"; };
 		C531FB851F66D0390008A17A /* BaseListItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseListItemModel.m; sourceTree = "<group>"; };
 		C531FB861F66D0390008A17A /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -493,6 +496,12 @@
 		C531FBC81F66D5E70008A17A /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		C531FBCA1F66D6750008A17A /* HWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLoginViewController.h; sourceTree = "<group>"; };
 		C531FBCB1F66D6750008A17A /* HWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLoginViewController.m; sourceTree = "<group>"; };
+		C546B0451F680DD3000C99A1 /* HWCasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCasesViewController.h; sourceTree = "<group>"; };
+		C546B0461F680DD3000C99A1 /* HWCasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewController.m; sourceTree = "<group>"; };
+		C546B0481F680DD3000C99A1 /* HWCasesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCasesViewModel.h; sourceTree = "<group>"; };
+		C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewModel.m; sourceTree = "<group>"; };
+		C546B04C1F681307000C99A1 /* CaseSegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseSegmentButton.h; sourceTree = "<group>"; };
+		C546B04D1F681307000C99A1 /* CaseSegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseSegmentButton.m; sourceTree = "<group>"; };
 		D2401FDB1E238EC90098B49E /* TemplateTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemplateTest.entitlements; sourceTree = "<group>"; };
 		D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -645,8 +654,6 @@
 				B0F6752D1F2BCDCA0019086E /* HWGuideViewController.m */,
 				B07EE4931F678C4900FCA22D /* HWHomePageViewController.h */,
 				B07EE4941F678C4900FCA22D /* HWHomePageViewController.m */,
-				B07EE49C1F67B6D600FCA22D /* HWCasesViewController.h */,
-				B07EE49D1F67B6D600FCA22D /* HWCasesViewController.m */,
 				B07EE49F1F67B70400FCA22D /* HWAppointmentViewController.h */,
 				B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */,
 				B07EE4A21F67B71400FCA22D /* HWSettingViewController.h */,
@@ -757,8 +764,6 @@
 				B07EE4971F678C7F00FCA22D /* HWTabbarViewModel.m */,
 				B07EE4A51F67B80100FCA22D /* HWHomePageViewModel.h */,
 				B07EE4A61F67B80100FCA22D /* HWHomePageViewModel.m */,
-				B07EE4A81F67B81300FCA22D /* HWCasesViewModel.h */,
-				B07EE4A91F67B81300FCA22D /* HWCasesViewModel.m */,
 				B07EE4AB1F67B82300FCA22D /* HWAppointmentViewModel.h */,
 				B07EE4AC1F67B82300FCA22D /* HWAppointmentViewModel.m */,
 				B07EE4AE1F67B83000FCA22D /* HWSettingViewModel.h */,
@@ -997,8 +1002,9 @@
 		C24E7DA61ADE51AA00BA8ECC /* TemplateTest */ = {
 			isa = PBXGroup;
 			children = (
-				B06506C21F66789E0069652A /* viewModel */,
 				D2401FDB1E238EC90098B49E /* TemplateTest.entitlements */,
+				C546B0421F680DD3000C99A1 /* Case */,
+				B06506C21F66789E0069652A /* viewModel */,
 				78B069561B42295800FC7A35 /* Resource */,
 				C24E7DDC1ADE5E9700BA8ECC /* ThirdParty */,
 				C24E7DD91ADE5E9700BA8ECC /* CoreData */,
@@ -1233,6 +1239,47 @@
 			children = (
 				C531FBC71F66D5E70008A17A /* LoginViewModel.h */,
 				C531FBC81F66D5E70008A17A /* LoginViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C546B0421F680DD3000C99A1 /* Case */ = {
+			isa = PBXGroup;
+			children = (
+				C546B0431F680DD3000C99A1 /* Model */,
+				C546B0441F680DD3000C99A1 /* View */,
+				C546B0471F680DD3000C99A1 /* ViewModel */,
+			);
+			path = Case;
+			sourceTree = "<group>";
+		};
+		C546B0431F680DD3000C99A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C50821201F682D47004B2221 /* CaseItemModel.h */,
+				C50821211F682D47004B2221 /* CaseItemModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C546B0441F680DD3000C99A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C546B0451F680DD3000C99A1 /* HWCasesViewController.h */,
+				C546B0461F680DD3000C99A1 /* HWCasesViewController.m */,
+				C546B04C1F681307000C99A1 /* CaseSegmentButton.h */,
+				C546B04D1F681307000C99A1 /* CaseSegmentButton.m */,
+				C50821231F6834B6004B2221 /* CaseListCell.h */,
+				C50821241F6834B6004B2221 /* CaseListCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C546B0471F680DD3000C99A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C546B0481F680DD3000C99A1 /* HWCasesViewModel.h */,
+				C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1717,7 +1764,6 @@
 				B0D26B081BDF7B920012A093 /* HWTextItem.m in Sources */,
 				DA3DFF361ADE7A4000C4E99A /* EGORefreshTableFooterView.m in Sources */,
 				DA3DFF1B1ADE78ED00C4E99A /* UIDevice+Utils.m in Sources */,
-				B07EE49E1F67B6D600FCA22D /* HWCasesViewController.m in Sources */,
 				B07EE4981F678C7F00FCA22D /* HWTabbarViewModel.m in Sources */,
 				C28BACB31B16B8C90048DE0A /* mztools.c in Sources */,
 				B0D26B051BDF7B920012A093 /* HWCustomViewItem.m in Sources */,
@@ -1752,9 +1798,11 @@
 				C531FBA51F66D0390008A17A /* BaseListItemModel.m in Sources */,
 				7552CE281D1240CB00A557EA /* DButton.m in Sources */,
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
+				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
 				C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */,
 				B06506BE1F6659050069652A /* CALayer+xibConfigure.m in Sources */,
+				C50821221F682D47004B2221 /* CaseItemModel.m in Sources */,
 				B0F8EF961EF3C55000F38770 /* HWCustomDrawImg.m in Sources */,
 				D2C8F8C01B67489A00628D96 /* HWCheckForceUpdateWidget.m in Sources */,
 				757A0B011D192B4800911407 /* HWBaseTableViewCell.m in Sources */,
@@ -1762,13 +1810,13 @@
 				FC24B4CA1DF5E7300036B461 /* HWCustomTextField.m in Sources */,
 				78DC42C51BE87E3300D42B7B /* HWBaseAlertView.m in Sources */,
 				7552CE2B1D1240CB00A557EA /* DTxtField.m in Sources */,
-				B07EE4AA1F67B81300FCA22D /* HWCasesViewModel.m in Sources */,
 				B0D26B001BDF7B920012A093 /* HWPickerCell.m in Sources */,
 				B0F8EF901EF3C39F00F38770 /* BaseGeometry.m in Sources */,
 				B0F6752E1F2BCDCA0019086E /* HWGuideViewController.m in Sources */,
 				C24E7DF91ADE826000BA8ECC /* HWGeneralControl.m in Sources */,
 				B0F8EF921EF3C39F00F38770 /* ImageUtils.m in Sources */,
 				C24E7E061ADF887900BA8ECC /* HWBaseViewController.m in Sources */,
+				C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */,
 				C28BACB41B16B8C90048DE0A /* unzip.c in Sources */,
 				DA3DFF1C1ADE78ED00C4E99A /* UILabel+Utils.m in Sources */,
 				B0DD980C1F6166BB00EDD17B /* HWLoginTelphoneCell.m in Sources */,
@@ -1799,10 +1847,12 @@
 				B0D55D431F288D6200D58E4B /* HWLoginUser+CoreDataClass.m in Sources */,
 				C531FBA91F66D0390008A17A /* BaseListViewController.m in Sources */,
 				B0F8EF8B1EF3C39F00F38770 /* BezierUtils.m in Sources */,
+				C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */,
 				DA3DFF371ADE7A4000C4E99A /* EGORefreshTableHeaderView.m in Sources */,
 				DA3DFF171ADE78ED00C4E99A /* NSDictionary+Utils.m in Sources */,
 				C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */,
 				B0D26B0B1BDF7B920012A093 /* HWTableViewSection.m in Sources */,
+				C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */,
 				B0B0B5381F2766E6002FE127 /* RDVTabBar.m in Sources */,
 				DA3DFF1E1ADE78ED00C4E99A /* UIView+Utils.m in Sources */,
 				B0F675221F2A39820019086E /* HWRegisterInfoModel.m in Sources */,
