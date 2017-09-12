@@ -334,7 +334,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kPhone6WidthLength(length)      ([UIScreen mainScreen].bounds.size.width / 375.0f) * length
 
 /*ViewModel 所有的类名*/
-#define kLoginVM                @"LoginViewModel"
+#define kLoginVM                @"HWLoginViewModel"
 
 #endif
 

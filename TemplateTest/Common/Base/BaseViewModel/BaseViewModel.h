@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseModel.h"
 #import "BaseViewController.h"
+#import <ReactiveViewModel/ReactiveViewModel.h>
 
 typedef  NS_ENUM(int, APIType) {
     UserLogin = 1,
@@ -18,7 +19,8 @@ typedef  NS_ENUM(int, APIType) {
 };
 
 @class BaseViewController;
-@interface BaseViewModel : NSObject
+@interface BaseViewModel : RVMViewModel
+
 @property (nonatomic, copy, readwrite)   NSString     *url;
 @property (nonatomic, copy, readwrite)   NSDictionary *params;
 @property (nonatomic, copy, readwrite)   NSString     *title;

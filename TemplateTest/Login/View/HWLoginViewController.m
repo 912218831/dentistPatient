@@ -13,12 +13,12 @@
 #import "HWLoginTranstionAnimation.h"
 #import "HWLoginTranstionAnimationRevert.h"
 #import "HWCustomDrawImg.h"
-#import "LoginViewModel.h"
-
+#import "HWLoginViewModel.h"
+#import "HWLoginTelphoneCell.h"
 @interface HWLoginViewController ()<UIViewControllerTransitioningDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView * table;
 @property(strong,nonatomic)UIButton * loginBtn;
-@property(strong,nonatomic)LoginViewModel *viewModel;
+@property(strong,nonatomic)HWLoginViewModel *viewModel;
 @end
 
 @implementation HWLoginViewController
@@ -36,8 +36,6 @@
 
 - (void)bindViewModel {
     [super bindViewModel];
-    
-    
 }
 
 - (UITableView *)table
@@ -103,7 +101,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"loginTelPhoneCell" forIndexPath:indexPath];
+    HWLoginTelphoneCell * cell = [tableView dequeueReusableCellWithIdentifier:@"loginTelPhoneCell" forIndexPath:indexPath];
+    self.viewModel.loginCellModel = cell.viewModel;
+    self.loginBtn.rac_command = self.viewModel.loginCommand;
+    [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [self.viewModel.loginCommand execute:nil];
+    }];
+    [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+    [self.viewModel.loginCommand.errors subscribeNext:^(NSError * error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [Utility showToastWithMessage:error.localizedDescription];
+        });
+    }];
+
+    return cell;
 }
 
 @end

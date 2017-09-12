@@ -41,7 +41,8 @@
 }
 
 - (void)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
-    [[HWHTTPSessionManger shareHttpClient]HWPOST:url parameters:params success:^(id responese) {
+    
+    [[HWHTTPSessionManger manager]HWPOST:url parameters:params success:^(id responese) {
         success(responese);
     } failure:^(NSString *code, NSString *error) {
         failure(error);

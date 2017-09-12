@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HWLoginCellViewModel.h"
 
 @interface HWLoginTelphoneCell : UITableViewCell
+
+@property(strong,nonatomic)HWLoginCellViewModel * viewModel;
 
 @end

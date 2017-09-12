@@ -7,13 +7,11 @@
 //
 
 #import "HWLoginTelphoneCell.h"
-#import "HWLoginCellViewModel.h"
 @interface HWLoginTelphoneCell()
 
 @property (weak, nonatomic) IBOutlet UITextField *telphoneTF;
 @property (weak, nonatomic) IBOutlet UIButton *verifyCodeBtn;
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeTF;
-@property(strong,nonatomic)HWLoginCellViewModel * viewModel;
 @end
 
 @implementation HWLoginTelphoneCell

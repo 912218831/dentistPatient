@@ -8,7 +8,7 @@
 
 #import <ReactiveViewModel/ReactiveViewModel.h>
 
-@interface HWLoginCellViewModel : RVMViewModel
+@interface HWLoginCellViewModel : BaseViewModel
 
 @property(strong,nonatomic)NSString * telphone;
 @property(strong,nonatomic)NSString * verifyCode;

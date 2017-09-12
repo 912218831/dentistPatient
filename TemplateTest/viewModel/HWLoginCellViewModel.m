@@ -48,10 +48,17 @@
                     self.canReGain = NO;
 
                 }
-//                NSLog(@"%@",self.title);
             }];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSMutableDictionary * params = [NSMutableDictionary dictionary];
+                [params setPObject:@"mobile" forKey:self.telphone];
+                [params setPObject:@"type" forKey:@"1"];
+                [self post:kGetVerifyCode type:1 params:params success:^(id response) {
+                    
+                } failure:^(NSString *error) {
+                    
+                }];
                 [subscriber sendNext:@"获取验证码成功"];
                 [subscriber sendCompleted];
             });

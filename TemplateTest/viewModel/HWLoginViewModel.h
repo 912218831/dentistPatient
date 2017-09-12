@@ -8,6 +8,8 @@
 
 #import <ReactiveViewModel/ReactiveViewModel.h>
 #import "HWLoginCellViewModel.h"
-@interface HWLoginViewModel : RVMViewModel
+@interface HWLoginViewModel : BaseViewModel
+
 @property(strong,nonatomic)HWLoginCellViewModel * loginCellModel;
+@property(strong,nonatomic)RACCommand * loginCommand;
 @end

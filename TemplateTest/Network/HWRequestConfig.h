@@ -20,7 +20,7 @@
 #define kStatusNetworkFailed            404
 
 
-#define kUrlBase                    @"http://116.62.202.152/api/mollin/h5/index.php/"
+#define kUrlBase                    @"http://116.62.202.152/api/mouth/pat/index.php/"
 
 #define kHtmlBase                   @"http://116.62.202.152/api/mollin/h5/index.php"
 //Https
@@ -34,9 +34,9 @@
 //请求域名接口
 #define kGetDomain                  @"index/getCustomerDomain.do"
 
-#define kLogin                      @"Account/DoLogin"//登录
-#define kRegister                   @"Account/DoRegister"//注册
-#define kGetVerifyCode              @"Account/DoSendSms"//获取验证码
+#define kLogin                      @"acc/loginByCode"//登录
+//#define kRegister                   @"Account/DoRegister"//注册
+#define kGetVerifyCode              @"acc/getVerifyCode"//获取验证码
 #define kModifyPassword             @"Member/DoUpMember" //修改密码
 #define kSupplementInfo             @"Member/DoUpMember"//完善账号信息
 //H5链接

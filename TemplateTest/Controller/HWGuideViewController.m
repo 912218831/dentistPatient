@@ -8,7 +8,7 @@
 
 #import "HWGuideViewController.h"
 #import "AppDelegate.h"
-#import "LoginViewModel.h"
+#import "HWLoginViewModel.h"
 
 @interface HWGuideViewController ()
 
@@ -36,7 +36,7 @@
 
 - (void)presentLoginViewController
 {
-    LoginViewModel *viewModel = [LoginViewModel new];
+    HWLoginViewModel *viewModel = [HWLoginViewModel new];
     [[ViewControllersRouter shareInstance]presentViewModel:viewModel animated:_isGuide completion:^(id targetVC) {
         [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
     }];
