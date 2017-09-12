@@ -55,6 +55,11 @@ static ViewControllersRouter *router;
 - (NSDictionary *)viewContollerWithViewMoldeMaps {
     return @{
              kLoginVM:objc_getClass("HWLoginViewController"),
+             kTabbarVM:objc_getClass("HWTabBarViewController"),
+             kHomePageVM:objc_getClass("HWHomePageViewController"),
+             kCasesVM:objc_getClass("HWCasesViewController"),
+             kAppointmentVM:objc_getClass("HWAppointmentViewController"),
+             kSettingVM:objc_getClass("HWSettingViewController"),
              };
 }
 
@@ -136,6 +141,7 @@ static ViewControllersRouter *router;
 - (void)presentViewModel:(BaseViewModel *)viewModel animated:(BOOL)animated completion:(VoidBlock)completion {
     UIViewController *vc = [BaseViewController currentViewController];
     Class vcClass = [self viewControllerClassNameForViewModel:NSStringFromClass(viewModel.class)];
+    
     BaseViewController *baseVC = [[vcClass alloc]initWithViewModel:viewModel];
     @weakify(baseVC);
     [vc presentViewController:baseVC animated:animated completion:^{

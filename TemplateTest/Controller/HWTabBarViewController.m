@@ -8,6 +8,11 @@
 
 #import "HWTabBarViewController.h"
 #import "RDVTabBarItem.h"
+#import "HWHomePageViewController.h"
+#import "HWCasesViewController.h"
+#import "HWAppointmentViewController.h"
+#import "HWSettingViewController.h"
+
 @interface HWTabBarViewController ()
 
 @end
@@ -18,24 +23,34 @@
 {
     self = [super init];
     if (self) {
+    }
+    return self;
+}
+
+- (instancetype)initWithViewModel:(HWTabbarViewModel *)viewModel
+{
+    self = [super init];
+    if (self) {
+        self.viewModel = viewModel;
         [self setUpControllers];
+
     }
     return self;
 }
 
 - (void)setUpControllers
 {
-    UIViewController *homePageController = [[UIViewController alloc] init];
+    UIViewController *homePageController = [[HWHomePageViewController alloc] initWithViewModel:self.viewModel.homePageViewModel];
     
-    UIViewController *secondViewController = [[UIViewController alloc] init];
+    UIViewController *caseViewController = [[HWCasesViewController alloc] initWithViewModel:self.viewModel.casesViewModel];
     
-    UIViewController *thirdViewController = [[UIViewController alloc] init];
-    UIViewController *fourViewController = [[UIViewController alloc] init];
+    UIViewController *appointmentViewController = [[HWAppointmentViewController alloc] initWithViewModel:self.viewModel.appointViewModel];
+    UIViewController *settingViewController = [[HWSettingViewController alloc] initWithViewModel:self.viewModel.settingViewModel];
     
     HWBaseNavigationController * firstNav = [[HWBaseNavigationController alloc] initWithRootViewController:homePageController];
-    HWBaseNavigationController * secondNav = [[HWBaseNavigationController alloc] initWithRootViewController:secondViewController];
-    HWBaseNavigationController * thirdNav = [[HWBaseNavigationController alloc] initWithRootViewController:thirdViewController];
-    HWBaseNavigationController * fourNav = [[HWBaseNavigationController alloc] initWithRootViewController:fourViewController];
+    HWBaseNavigationController * secondNav = [[HWBaseNavigationController alloc] initWithRootViewController:caseViewController];
+    HWBaseNavigationController * thirdNav = [[HWBaseNavigationController alloc] initWithRootViewController:appointmentViewController];
+    HWBaseNavigationController * fourNav = [[HWBaseNavigationController alloc] initWithRootViewController:settingViewController];
     
     [self setViewControllers:@[firstNav, secondNav,
                                thirdNav,fourNav]];
@@ -48,7 +63,7 @@
     UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
     
     NSArray *unSelectedImages = @[@"首页", @"订单", @"提成",@"我的"];
-    NSArray * titles = @[@"总览",@"订单",@"提成",@"我的"];
+    NSArray * titles = @[@"首页",@"病例",@"我的预约",@"设置"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];

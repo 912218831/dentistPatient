@@ -38,7 +38,9 @@
 {
     HWLoginViewModel *viewModel = [HWLoginViewModel new];
     [[ViewControllersRouter shareInstance]presentViewModel:viewModel animated:_isGuide completion:^(id targetVC) {
-        [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+        if (![targetVC isKindOfClass:[UINavigationController class]]) {
+            [SHARED_APP_DELEGATE.window setRootViewController:[[HWBaseNavigationController alloc] initWithRootViewController:targetVC]];
+        }
     }];
 }
 

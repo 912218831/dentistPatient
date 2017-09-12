@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.titleView  = [Utility navTitleView:@"手机号登录"];
 }
 
 - (void)configContentView {
@@ -105,10 +106,21 @@
     self.viewModel.loginCellModel = cell.viewModel;
     self.loginBtn.rac_command = self.viewModel.loginCommand;
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [self.viewModel.loginCommand execute:nil];
+        
+        //调试
+        HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
+        [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
+            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+        }];
+
+        
+//        [self.viewModel.loginCommand execute:nil];
     }];
     [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
-        NSLog(@"%@",x);
+        HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
+        [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
+            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+        }];
     }];
     [self.viewModel.loginCommand.errors subscribeNext:^(NSError * error) {
         dispatch_async(dispatch_get_main_queue(), ^{

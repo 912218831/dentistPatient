@@ -10,7 +10,7 @@
 @interface HWUserLogin : NSObject
 
 @property(strong,nonatomic)NSString * username;
-@property(strong,nonatomic)NSString * usertype;//BOSS MANAGER LES USER
+@property(strong,nonatomic)NSString * usertype;
 @property(strong,nonatomic)NSString * userkey;
 
 + (HWUserLogin *)currentUserLogin;

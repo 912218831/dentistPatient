@@ -7,7 +7,7 @@
 //
 
 #import "HWLoginViewModel.h"
-
+#import <YYModel/NSObject+YYModel.h>
 @implementation HWLoginViewModel
 
 - (instancetype)init
@@ -36,14 +36,17 @@
                 return nil;
             }
             NSMutableDictionary * params = [NSMutableDictionary dictionary];
-            [params setObject:@"mobile" forKey:_loginCellModel.telphone];
-            [params setObject:@"randCode" forKey:_loginCellModel.verifyCode];
+            [params setObject:_loginCellModel.telphone forKey:@"mobile"];
+            [params setObject:_loginCellModel.verifyCode forKey:@"randCode"];
+            
             [self post:kLogin type:1 params:params success:^(id response) {
+                [subscriber sendNext:@"登录成功"];
+                [[HWUserLogin currentUserLogin] yy_modelSetWithDictionary:[response dictionaryForKey:@"data"]];
                 
+
             } failure:^(NSString * error) {
-                
+                [subscriber sendError:[NSError errorWithDomain:@"com.getLoginCode" code:100 userInfo:@{NSLocalizedDescriptionKey:error}]];
             }];
-            [subscriber sendNext:@"登录成功"];
             return [RACDisposable disposableWithBlock:^{
                 NSLog(@"销毁");
             }];

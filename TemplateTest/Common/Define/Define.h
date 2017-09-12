@@ -247,6 +247,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define COLOR_FFFFFF                    UIColorFromRGB(0xFFFFFF)
 #define COLOR_F9FAFA                    UIColorFromRGB(0xF9FAFA)
 #define COLOR_144271                    UIColorFromRGB(0x144271)
+#define COLOR_28BEFF                    UIColorFromRGB(0x28beff)
 
 /*  字体
  TF For Text Font
@@ -335,6 +336,10 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 
 /*ViewModel 所有的类名*/
 #define kLoginVM                @"HWLoginViewModel"
-
+#define kTabbarVM               @"HWTabbarViewModel"
+#define kHomePageVM             @"HWHomePageViewModel"
+#define kCasesVM                @"HWCasesViewModel"
+#define kAppointmentVM          @"HWAppointmentViewModel"
+#define kSettingVM              @"HWSettingViewModel"
 #endif
 

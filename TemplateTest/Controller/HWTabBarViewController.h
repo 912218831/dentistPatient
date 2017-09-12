@@ -7,7 +7,8 @@
 //
 
 #import "RDVTabBarController.h"
-
+#import "HWTabbarViewModel.h"
 @interface HWTabBarViewController : RDVTabBarController
-
+@property(strong,nonatomic)HWTabbarViewModel * viewModel;
+- (instancetype)initWithViewModel:(HWTabbarViewModel *)viewModel;
 @end

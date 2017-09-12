@@ -39,7 +39,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    [self.navigationBar setBackgroundImage:[Utility imageWithColor:COLOR_F9FAFA andSize:CGSizeMake(kScreenWidth, (IOS7Later ? 64 : 44))] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[Utility imageWithColor:COLOR_28BEFF andSize:CGSizeMake(kScreenWidth, (IOS7Later ? 64 : 44))] forBarMetrics:UIBarMetricsDefault];
     
 }
 

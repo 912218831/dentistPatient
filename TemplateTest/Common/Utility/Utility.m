@@ -480,7 +480,7 @@
     lab.backgroundColor = [UIColor clearColor];
     lab.textAlignment = NSTextAlignmentCenter;
     lab.font = BOLDFONT(19);
-    lab.textColor = [UIColor blackColor];
+    lab.textColor = [UIColor whiteColor];
     if(title.length > 10){
         NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc]initWithString:title];
         [mutable replaceCharactersInRange:NSMakeRange(10,title.length - 10) withString:@"..."];

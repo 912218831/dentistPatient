@@ -38,9 +38,6 @@ static HWUserLogin *userLogin = nil;
     {
         loginUser = [HWLoginUser MR_createEntity];
     }
-    loginUser.userName = [dic stringObjectForKey:@"username"];
-    loginUser.userPhone = [dic stringObjectForKey:@""];
-    loginUser.userType = [dic stringObjectForKey:@"usertype"];
     loginUser.key = [dic stringObjectForKey:@"userkey"];
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
