@@ -42,6 +42,7 @@
         make.top.equalTo(headView).with.offset(kRate(8));
     }];
     //
+    self.contentView.backgroundColor = UIColorFromRGB(0xf0f0f0);
     headView.backgroundColor = CD_MainColor;
     self.segmentButton.backgroundColor = headView.backgroundColor;
     self.listView.top = headView.height;
