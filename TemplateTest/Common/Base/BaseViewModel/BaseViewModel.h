@@ -20,23 +20,15 @@ typedef  NS_ENUM(int, APIType) {
     PersonalInfo ,
 };
 
-@class BaseViewController;
 @interface BaseViewModel : RVMViewModel
+/*子类初始化*/
 @property (nonatomic, strong) RACSignal *requestSignal;
-
-@property (nonatomic, copy, readwrite)   NSString     *url;
-@property (nonatomic, copy, readwrite)   NSDictionary *params;
-@property (nonatomic, copy, readwrite)   NSString     *title;
-@property (nonatomic, copy, readwrite)   NSString     *rightImageName;
-@property (nonatomic, copy, readwrite)   NSString     *leftImageName;
-- (void)fetchRemoteServerData ;
-
-- (void)bindModel:(NSDictionary *)response ;
-
+/*子类重写*/
+- (void)initRequestSignal;
 - (void)bindViewWithSignal;
-
-- (void)get:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure;
 
 - (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure;
 
+/*激活 active，调用请求*/
+- (void)execute;
 @end
