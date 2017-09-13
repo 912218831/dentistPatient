@@ -10,6 +10,7 @@
 #import "HWCasesViewModel.h"
 #import "CaseSegmentButton.h"
 #import "CaseListCell.h"
+#import "CaseDetailViewModel.h"
 
 @interface HWCasesViewController ()
 @property (nonatomic, strong) HWCasesViewModel *viewModel;
@@ -25,6 +26,7 @@
 
 - (void)configContentView {
     [super configContentView];
+    @weakify(self);
     UIImage *shadowImage = [Utility imageWithColor:[UIColor clearColor] andSize:CGSizeMake(1, 1)];
     [[self rac_signalForSelector:@selector(viewWillAppear:)]subscribeNext:^(id x) {
         [self.navigationController.navigationBar setShadowImage:shadowImage];
@@ -49,6 +51,12 @@
     self.listView.height = self.view.height - 64 - 49 - headView.height;
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
         return (CGFloat)kRate(111);
+    };
+    self.listView.didSelected = ^(NSIndexPath *indexPath){
+        @strongify(self);
+        CaseDetailViewModel *vm = [CaseDetailViewModel new];
+        vm.caseModel = [self.viewModel.dataArray pObjectAtIndex:indexPath.row];
+        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     };
     self.segmentButton.titleLabel.text = @"儿子 - 小飞";
 }
