@@ -58,13 +58,14 @@
     [self.viewModel bindViewWithSignal];
     
     @weakify(self);
-    [self.viewModel.requestSignal subscribeNext:^(id x) {
+    [self.viewModel.requestSignal.switchToLatest subscribeNext:^(id x) {
         @strongify(self);
         [self.listView.baseTable reloadData];
         [self.listView doneLoadingTableViewData];
+    } error:^(NSError *error) {
+        [Utility showToastWithMessage:error.domain];
     }];
-    
-    self.viewModel.active = true;
+    [self.viewModel execute];
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {

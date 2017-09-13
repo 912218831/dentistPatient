@@ -67,8 +67,8 @@
 {
     if (_collectionView == nil) {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, CONTENT_HEIGHT) collectionViewLayout:[[HWHomePageLayout alloc] init]];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+//        _collectionView.delegate = self;
+//        _collectionView.dataSource = self;
         
         
     }

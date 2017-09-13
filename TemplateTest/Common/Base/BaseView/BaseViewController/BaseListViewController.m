@@ -38,7 +38,7 @@
 
 - (void)sendAction:(NSString *)selectorString {
     self.viewModel.currentPage = self.listView.currentPage;
-    [self.viewModel setActive:true];
+    [self.viewModel execute];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

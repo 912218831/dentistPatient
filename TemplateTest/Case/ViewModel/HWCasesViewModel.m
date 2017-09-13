@@ -8,14 +8,20 @@
 
 #import "HWCasesViewModel.h"
 
+@interface HWCasesViewModel ()
+
+@end
 @implementation HWCasesViewModel
+@dynamic requestSignal;
 
 - (void)bindViewWithSignal {
-    
+    [super bindViewWithSignal];
+}
+
+- (void)initRequestSignal {
     @weakify(self);
-    RACSignal *subject = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+    self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        self.active = false;
         [self post:kCaseList type:0 params:@{} success:^(NSDictionary* response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSArray *list = [data arrayObjectForKey:@"list"];
@@ -23,13 +29,12 @@
                 CaseItemModel *model = [[CaseItemModel alloc]initWithDictionary:[list pObjectAtIndex:i] error:nil];
                 [self.dataArray addObject:model];
             }
-            [subscriber sendNext:@1];
+            [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
-            [subscriber sendError:Error];
+            [subscriber sendNext:[RACSignal error:Error]];
         }];
         return nil;
     }];
-    self.requestSignal = [self forwardSignalWhileActive:subject];
 }
 
 @end
