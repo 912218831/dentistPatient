@@ -61,6 +61,19 @@
 		B07EE4B81F67CFFB00FCA22D /* 搜索@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4B71F67CFFB00FCA22D /* 搜索@2x.png */; };
 		B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4BA1F67D6ED00FCA22D /* HWHomePageLayout.m */; };
 		B07EE4C21F67DC6200FCA22D /* HWHomePageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4C01F67DC6200FCA22D /* HWHomePageHeader.m */; };
+		B07EE4C91F68D0F900FCA22D /* HWHomePageFuncBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4C71F68D0F900FCA22D /* HWHomePageFuncBtnCell.m */; };
+		B07EE4CF1F68D56B00FCA22D /* 记录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4CB1F68D56B00FCA22D /* 记录@2x.png */; };
+		B07EE4D01F68D56B00FCA22D /* 检测@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4CC1F68D56B00FCA22D /* 检测@2x.png */; };
+		B07EE4D11F68D56B00FCA22D /* 口腔问答@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4CD1F68D56B00FCA22D /* 口腔问答@2x.png */; };
+		B07EE4D21F68D56B00FCA22D /* 我的家庭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4CE1F68D56B00FCA22D /* 我的家庭@2x.png */; };
+		B07EE4D71F68D58F00FCA22D /* 记录@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4D31F68D58F00FCA22D /* 记录@3x.png */; };
+		B07EE4D81F68D58F00FCA22D /* 检测@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4D41F68D58F00FCA22D /* 检测@3x.png */; };
+		B07EE4D91F68D58F00FCA22D /* 口腔问答@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4D51F68D58F00FCA22D /* 口腔问答@3x.png */; };
+		B07EE4DA1F68D58F00FCA22D /* 我的家庭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4D61F68D58F00FCA22D /* 我的家庭@3x.png */; };
+		B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4DC1F68DCB100FCA22D /* HWHomePageSecondHeader.m */; };
+		B07EE4DF1F68DCB100FCA22D /* HWHomePageSecondHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4DD1F68DCB100FCA22D /* HWHomePageSecondHeader.xib */; };
+		B07EE4E31F68FC1E00FCA22D /* HWHomePageSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */; };
+		B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */; };
 		B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B52C1F273803002FE127 /* EmptyControl.m */; };
 		B0B0B5381F2766E6002FE127 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5331F2766E6002FE127 /* RDVTabBar.m */; };
 		B0B0B5391F2766E6002FE127 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5351F2766E6002FE127 /* RDVTabBarController.m */; };
@@ -318,6 +331,22 @@
 		B07EE4BA1F67D6ED00FCA22D /* HWHomePageLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageLayout.m; sourceTree = "<group>"; };
 		B07EE4BF1F67DC6200FCA22D /* HWHomePageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageHeader.h; sourceTree = "<group>"; };
 		B07EE4C01F67DC6200FCA22D /* HWHomePageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageHeader.m; sourceTree = "<group>"; };
+		B07EE4C61F68D0F900FCA22D /* HWHomePageFuncBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageFuncBtnCell.h; sourceTree = "<group>"; };
+		B07EE4C71F68D0F900FCA22D /* HWHomePageFuncBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageFuncBtnCell.m; sourceTree = "<group>"; };
+		B07EE4CB1F68D56B00FCA22D /* 记录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "记录@2x.png"; sourceTree = "<group>"; };
+		B07EE4CC1F68D56B00FCA22D /* 检测@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检测@2x.png"; sourceTree = "<group>"; };
+		B07EE4CD1F68D56B00FCA22D /* 口腔问答@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "口腔问答@2x.png"; sourceTree = "<group>"; };
+		B07EE4CE1F68D56B00FCA22D /* 我的家庭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的家庭@2x.png"; sourceTree = "<group>"; };
+		B07EE4D31F68D58F00FCA22D /* 记录@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "记录@3x.png"; sourceTree = "<group>"; };
+		B07EE4D41F68D58F00FCA22D /* 检测@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检测@3x.png"; sourceTree = "<group>"; };
+		B07EE4D51F68D58F00FCA22D /* 口腔问答@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "口腔问答@3x.png"; sourceTree = "<group>"; };
+		B07EE4D61F68D58F00FCA22D /* 我的家庭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的家庭@3x.png"; sourceTree = "<group>"; };
+		B07EE4DB1F68DCB100FCA22D /* HWHomePageSecondHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageSecondHeader.h; sourceTree = "<group>"; };
+		B07EE4DC1F68DCB100FCA22D /* HWHomePageSecondHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageSecondHeader.m; sourceTree = "<group>"; };
+		B07EE4DD1F68DCB100FCA22D /* HWHomePageSecondHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWHomePageSecondHeader.xib; sourceTree = "<group>"; };
+		B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageSecondCell.h; sourceTree = "<group>"; };
+		B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageSecondCell.m; sourceTree = "<group>"; };
+		B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWHomePageSecondCell.xib; sourceTree = "<group>"; };
 		B0A6A8361CFE7FF100910387 /* TemplateTest 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 5.xcdatamodel"; sourceTree = "<group>"; };
 		B0B0B52B1F273803002FE127 /* EmptyControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyControl.h; sourceTree = "<group>"; };
 		B0B0B52C1F273803002FE127 /* EmptyControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyControl.m; sourceTree = "<group>"; };
@@ -804,6 +833,10 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				B07EE4CB1F68D56B00FCA22D /* 记录@2x.png */,
+				B07EE4CC1F68D56B00FCA22D /* 检测@2x.png */,
+				B07EE4CD1F68D56B00FCA22D /* 口腔问答@2x.png */,
+				B07EE4CE1F68D56B00FCA22D /* 我的家庭@2x.png */,
 				B07EE4B71F67CFFB00FCA22D /* 搜索@2x.png */,
 				B07EE4B11F67CC4B00FCA22D /* arrow_down@2x.png */,
 				B0F675131F2A1FFB0019086E /* back@2x.png */,
@@ -827,6 +860,10 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				B07EE4D31F68D58F00FCA22D /* 记录@3x.png */,
+				B07EE4D41F68D58F00FCA22D /* 检测@3x.png */,
+				B07EE4D51F68D58F00FCA22D /* 口腔问答@3x.png */,
+				B07EE4D61F68D58F00FCA22D /* 我的家庭@3x.png */,
 				B07EE4B51F67CFEB00FCA22D /* 搜索@3x.png */,
 				B02AED231F4ED536009C25A7 /* 产品@3x.png */,
 				B07EE4B31F67CC5F00FCA22D /* arrow_down@3x.png */,
@@ -924,6 +961,14 @@
 				B0DD980B1F6166BB00EDD17B /* HWLoginTelphoneCell.xib */,
 				B07EE4BF1F67DC6200FCA22D /* HWHomePageHeader.h */,
 				B07EE4C01F67DC6200FCA22D /* HWHomePageHeader.m */,
+				B07EE4DB1F68DCB100FCA22D /* HWHomePageSecondHeader.h */,
+				B07EE4DC1F68DCB100FCA22D /* HWHomePageSecondHeader.m */,
+				B07EE4DD1F68DCB100FCA22D /* HWHomePageSecondHeader.xib */,
+				B07EE4C61F68D0F900FCA22D /* HWHomePageFuncBtnCell.h */,
+				B07EE4C71F68D0F900FCA22D /* HWHomePageFuncBtnCell.m */,
+				B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */,
+				B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */,
+				B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1605,8 +1650,10 @@
 			files = (
 				B02AED251F4ED536009C25A7 /* 产品@3x.png in Resources */,
 				C24E7DB61ADE51AA00BA8ECC /* Main.storyboard in Resources */,
+				B07EE4D71F68D58F00FCA22D /* 记录@3x.png in Resources */,
 				B02AED261F4ED536009C25A7 /* click产品@3x.png in Resources */,
 				FCF9CFA91D94C3020051BD5C /* Info.plist in Resources */,
+				B07EE4CF1F68D56B00FCA22D /* 记录@2x.png in Resources */,
 				B0B0B56C1F276EAA002FE127 /* tabbar_selected_background.png in Resources */,
 				B0B0B58D1F287302002FE127 /* click提成@2x.png in Resources */,
 				B0B0B58F1F287302002FE127 /* click首页@2x.png in Resources */,
@@ -1619,6 +1666,8 @@
 				B0DD980D1F6166BB00EDD17B /* HWLoginTelphoneCell.xib in Resources */,
 				DA3DFF411ADE7A4000C4E99A /* whiteArrow@2x.png in Resources */,
 				DA3DFF3F1ADE7A4000C4E99A /* loading1@3x.png in Resources */,
+				B07EE4D01F68D56B00FCA22D /* 检测@2x.png in Resources */,
+				B07EE4DA1F68D58F00FCA22D /* 我的家庭@3x.png in Resources */,
 				DA3DFF381ADE7A4000C4E99A /* blackArrow.png in Resources */,
 				B0B0B5911F287302002FE127 /* 我的@2x.png in Resources */,
 				B0E033971E24B7BC00281E49 /* https_14.cer in Resources */,
@@ -1640,14 +1689,19 @@
 				DA3DFF3A1ADE7A4000C4E99A /* blueArrow.png in Resources */,
 				B0B0B56B1F276EAA002FE127 /* tabbar_normal_background@2x.png in Resources */,
 				B0F6750F1F2A1D1C0019086E /* arrow@2x.png in Resources */,
+				B07EE4D11F68D56B00FCA22D /* 口腔问答@2x.png in Resources */,
 				B0B0B5971F287302002FE127 /* click提成@3x.png in Resources */,
 				B0B0B59D1F287302002FE127 /* 提成@3x.png in Resources */,
 				B02AED211F4ED518009C25A7 /* 产品@2x.png in Resources */,
 				B0B0B59B1F287302002FE127 /* 启动页@3x.png in Resources */,
+				B07EE4D21F68D56B00FCA22D /* 我的家庭@2x.png in Resources */,
 				B0B0B5621F276EAA002FE127 /* navigationbar_background_tall.png in Resources */,
 				DA3DFF391ADE7A4000C4E99A /* blackArrow@2x.png in Resources */,
+				B07EE4DF1F68DCB100FCA22D /* HWHomePageSecondHeader.xib in Resources */,
+				B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */,
 				DA3DFF3C1ADE7A4000C4E99A /* grayArrow.png in Resources */,
 				B0B0B58C1F287302002FE127 /* click我的@2x.png in Resources */,
+				B07EE4D81F68D58F00FCA22D /* 检测@3x.png in Resources */,
 				B0B0B56A1F276EAA002FE127 /* tabbar_normal_background.png in Resources */,
 				B0F675141F2A1FFC0019086E /* back@2x.png in Resources */,
 				B06506C11F66699C0069652A /* loginBG.png in Resources */,
@@ -1661,6 +1715,7 @@
 				B07EE4B61F67CFEB00FCA22D /* 搜索@3x.png in Resources */,
 				B0B0B59F1F287302002FE127 /* 订单@3x.png in Resources */,
 				B0B0B5991F287302002FE127 /* click首页@3x.png in Resources */,
+				B07EE4D91F68D58F00FCA22D /* 口腔问答@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1804,7 +1859,9 @@
 				B07EE4AD1F67B82300FCA22D /* HWAppointmentViewModel.m in Sources */,
 				29BC1DFC1B57788B00C7B1AD /* MTCustomActionSheet.m in Sources */,
 				C531FBC31F66D5E30008A17A /* HWLoginTranstionAnimation.m in Sources */,
+				B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */,
 				B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */,
+				B07EE4C91F68D0F900FCA22D /* HWHomePageFuncBtnCell.m in Sources */,
 				B07EE4A11F67B70400FCA22D /* HWAppointmentViewController.m in Sources */,
 				B07EE4A71F67B80100FCA22D /* HWHomePageViewModel.m in Sources */,
 				DA3DFF151ADE78ED00C4E99A /* HWBaseRefreshView.m in Sources */,
@@ -1881,6 +1938,7 @@
 				C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */,
 				B0D26B0B1BDF7B920012A093 /* HWTableViewSection.m in Sources */,
 				C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */,
+				B07EE4E31F68FC1E00FCA22D /* HWHomePageSecondCell.m in Sources */,
 				B0B0B5381F2766E6002FE127 /* RDVTabBar.m in Sources */,
 				DA3DFF1E1ADE78ED00C4E99A /* UIView+Utils.m in Sources */,
 				B0F675221F2A39820019086E /* HWRegisterInfoModel.m in Sources */,

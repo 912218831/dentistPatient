@@ -10,6 +10,9 @@
 #import "HWCustomDrawImg.h"
 #import "HWHomePageLayout.h"
 #import "HWHomePageHeader.h"
+#import "HWHomePageFuncBtnCell.h"
+#import "HWHomePageSecondHeader.h"
+#import "HWHomePageSecondCell.h"
 @interface HWHomePageViewController ()<UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 @property(strong,nonatomic)UIView * nav;
 @property(strong,nonatomic)UIButton * changeCityBtn;
@@ -67,12 +70,17 @@
 - (UICollectionView *)collectionView
 {
     if (_collectionView == nil) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, CONTENT_HEIGHT) collectionViewLayout:[[HWHomePageLayout alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, CONTENT_HEIGHT - 49) collectionViewLayout:[[HWHomePageLayout alloc] init]];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:[HWHomePageHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader"];
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collectionCell"];
-        _collectionView.backgroundColor = COLOR_F0F0F0;
+        
+        [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageSecondHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader"];
+        
+        [_collectionView registerClass:[HWHomePageFuncBtnCell class] forCellWithReuseIdentifier:@"HWHomePageFuncBtnCell"];
+        
+        [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageSecondCell" bundle:nil] forCellWithReuseIdentifier:@"HWHomePageSecondCell"];
+        _collectionView.backgroundColor = COLOR_FFFFFF;
         
     }
     return _collectionView;
@@ -82,28 +90,88 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    if (section == 0) {
+        return 1;
+    }
+    else
+    {
+        return 10;
+    }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(kScreenWidth, kRate(180));
+    if (section == 0) {
+        return CGSizeMake(kScreenWidth, kRate(180));
+    }
+    else
+    {
+        return CGSizeMake(kScreenWidth, 40);
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return CGSizeMake(kScreenWidth, 90);
+    }
+    else
+    {
+        return CGSizeMake((kScreenWidth-40)/2, 115);
+    }
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    if (section == 0) {
+        return UIEdgeInsetsZero;
+    }
+    else
+    {
+        return UIEdgeInsetsMake(10, 15, 15, 10);
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    return cell;
+    if (indexPath.section == 0) {
+        HWHomePageFuncBtnCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWHomePageFuncBtnCell" forIndexPath:indexPath];
+        return cell;
+
+    }
+    else
+    {
+        HWHomePageSecondCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWHomePageSecondCell" forIndexPath:indexPath];
+        return cell;
+    }
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        return [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader" forIndexPath:indexPath];
+        if (indexPath.section == 0) {
+            return [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader" forIndexPath:indexPath];
+
+        }
+        else
+        {
+            return [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader" forIndexPath:indexPath];
+
+        }
     }
     return nil;
 }
