@@ -70,10 +70,16 @@
 - (UICollectionView *)collectionView
 {
     if (_collectionView == nil) {
+<<<<<<< HEAD
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, CONTENT_HEIGHT - 49) collectionViewLayout:[[HWHomePageLayout alloc] init]];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:[HWHomePageHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader"];
+=======
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, CONTENT_HEIGHT) collectionViewLayout:[[HWHomePageLayout alloc] init]];
+//        _collectionView.delegate = self;
+//        _collectionView.dataSource = self;
+>>>>>>> 8a9a417329c0a91a61c48e6547518d0e87107d48
         
         [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageSecondHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader"];
         

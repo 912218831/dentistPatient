@@ -12,4 +12,7 @@
 @property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) BOOL isLastPage;
 @property (nonatomic, strong, readonly) NSMutableArray *dataArray;
+
+- (instancetype)initWithModel:(Class)modelClass;
+
 @end
