@@ -9,6 +9,7 @@
 #import "HWHomePageViewController.h"
 #import "HWCustomDrawImg.h"
 #import "HWHomePageLayout.h"
+#import "HWHomePageHeader.h"
 @interface HWHomePageViewController ()<UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 @property(strong,nonatomic)UIView * nav;
 @property(strong,nonatomic)UIButton * changeCityBtn;
@@ -69,7 +70,9 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, CONTENT_HEIGHT) collectionViewLayout:[[HWHomePageLayout alloc] init]];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        
+        [_collectionView registerClass:[HWHomePageHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader"];
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collectionCell"];
+        _collectionView.backgroundColor = COLOR_F0F0F0;
         
     }
     return _collectionView;
@@ -77,7 +80,33 @@
 
 #pragma CollectionDelegate && datasource
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 0;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(kScreenWidth, kRate(180));
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        return [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader" forIndexPath:indexPath];
+    }
+    return nil;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

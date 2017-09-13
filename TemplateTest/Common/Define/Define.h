@@ -248,6 +248,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define COLOR_F9FAFA                    UIColorFromRGB(0xF9FAFA)
 #define COLOR_144271                    UIColorFromRGB(0x144271)
 #define COLOR_28BEFF                    UIColorFromRGB(0x28beff)
+#define COLOR_F0F0F0                    UIColorFromRGB(0xf0f0f0)
 
 /*  字体
  TF For Text Font
