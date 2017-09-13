@@ -74,6 +74,8 @@
 		B07EE4DF1F68DCB100FCA22D /* HWHomePageSecondHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4DD1F68DCB100FCA22D /* HWHomePageSecondHeader.xib */; };
 		B07EE4E31F68FC1E00FCA22D /* HWHomePageSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */; };
 		B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */; };
+		B07EE4E81F69086E00FCA22D /* HWAppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */; };
+		B07EE4E91F69086E00FCA22D /* HWAppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */; };
 		B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B52C1F273803002FE127 /* EmptyControl.m */; };
 		B0B0B5381F2766E6002FE127 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5331F2766E6002FE127 /* RDVTabBar.m */; };
 		B0B0B5391F2766E6002FE127 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5351F2766E6002FE127 /* RDVTabBarController.m */; };
@@ -347,6 +349,9 @@
 		B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageSecondCell.h; sourceTree = "<group>"; };
 		B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageSecondCell.m; sourceTree = "<group>"; };
 		B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWHomePageSecondCell.xib; sourceTree = "<group>"; };
+		B07EE4E51F69086E00FCA22D /* HWAppointmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointmentCell.h; sourceTree = "<group>"; };
+		B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointmentCell.m; sourceTree = "<group>"; };
+		B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppointmentCell.xib; sourceTree = "<group>"; };
 		B0A6A8361CFE7FF100910387 /* TemplateTest 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 5.xcdatamodel"; sourceTree = "<group>"; };
 		B0B0B52B1F273803002FE127 /* EmptyControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyControl.h; sourceTree = "<group>"; };
 		B0B0B52C1F273803002FE127 /* EmptyControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyControl.m; sourceTree = "<group>"; };
@@ -969,6 +974,9 @@
 				B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */,
 				B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */,
 				B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */,
+				B07EE4E51F69086E00FCA22D /* HWAppointmentCell.h */,
+				B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */,
+				B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1675,6 +1683,7 @@
 				C24E7DBB1ADE51AA00BA8ECC /* LaunchScreen.xib in Resources */,
 				B0B0B59C1F287302002FE127 /* 我的@3x.png in Resources */,
 				B0B0B5631F276EAA002FE127 /* navigationbar_background_tall@2x.png in Resources */,
+				B07EE4E91F69086E00FCA22D /* HWAppointmentCell.xib in Resources */,
 				B0B0B56D1F276EAA002FE127 /* tabbar_selected_background@2x.png in Resources */,
 				B0B0B5A01F287302002FE127 /* 首页@3x.png in Resources */,
 				DA3DFF3D1ADE7A4000C4E99A /* grayArrow@2x.png in Resources */,
@@ -1858,6 +1867,7 @@
 				C24E7DB01ADE51AA00BA8ECC /* TemplateTest.xcdatamodeld in Sources */,
 				B07EE4AD1F67B82300FCA22D /* HWAppointmentViewModel.m in Sources */,
 				29BC1DFC1B57788B00C7B1AD /* MTCustomActionSheet.m in Sources */,
+				B07EE4E81F69086E00FCA22D /* HWAppointmentCell.m in Sources */,
 				C531FBC31F66D5E30008A17A /* HWLoginTranstionAnimation.m in Sources */,
 				B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */,
 				B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */,
