@@ -8,6 +8,17 @@
 
 #import "HWAppointmentCell.h"
 
+@interface HWAppointmentCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *headerImgV;
+
+@property (weak, nonatomic) IBOutlet UILabel *docNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *addressLab;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
+@property (weak, nonatomic) IBOutlet UILabel *complementStateLab;
+
+@end
+
 @implementation HWAppointmentCell
 
 - (void)awakeFromNib {

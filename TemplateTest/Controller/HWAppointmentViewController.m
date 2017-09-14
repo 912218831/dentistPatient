@@ -7,7 +7,7 @@
 //  预约
 
 #import "HWAppointmentViewController.h"
-
+#import "HWAppointmentFailViewController.h"
 @interface HWAppointmentViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(strong,nonatomic)UICollectionView * collectionView;
 @end
@@ -72,6 +72,24 @@
     return [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointmentCell" forIndexPath:indexPath];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //调试
+    if (indexPath.row == 0) {
+        //预约失败
+        HWAppointmentFailViewController * vc = [[HWAppointmentFailViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 1)
+    {
+        //预约成功
+    }
+    else if(indexPath.row == 2)
+    {
+        //预约中
+        
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
