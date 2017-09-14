@@ -20,5 +20,5 @@
 @property (nonatomic, strong) NSString *thumbnailUrl;
 @property (nonatomic, copy) NSString *doctor;
 @property (nonatomic, copy) NSString *clinicName;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSMutableArray *images;
 @end

@@ -163,6 +163,11 @@
 		C28BACB51B16B8C90048DE0A /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = C28BAC3F1B16B8C80048DE0A /* zip.c */; };
 		C50821221F682D47004B2221 /* CaseItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821211F682D47004B2221 /* CaseItemModel.m */; };
 		C50821251F6834B6004B2221 /* CaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821241F6834B6004B2221 /* CaseListCell.m */; };
+		C50899731F6AC2B60013AE02 /* RACSignal+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */; };
+		C508997A1F6ACD610013AE02 /* VirtualSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = C50899791F6ACD610013AE02 /* VirtualSignal.m */; };
+		C50899821F6AD82B0013AE02 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C508997D1F6AD82B0013AE02 /* PopoverAction.m */; };
+		C50899831F6AD82B0013AE02 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C508997F1F6AD82B0013AE02 /* PopoverView.m */; };
+		C50899841F6AD82B0013AE02 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50899811F6AD82B0013AE02 /* PopoverViewCell.m */; };
 		C531FBA51F66D0390008A17A /* BaseListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FB851F66D0390008A17A /* BaseListItemModel.m */; };
 		C531FBA61F66D0390008A17A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FB871F66D0390008A17A /* BaseModel.m */; };
 		C531FBA71F66D0390008A17A /* ViewControllerSimpleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FB8B1F66D0390008A17A /* ViewControllerSimpleConfig.m */; };
@@ -507,6 +512,16 @@
 		C50821211F682D47004B2221 /* CaseItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseItemModel.m; sourceTree = "<group>"; };
 		C50821231F6834B6004B2221 /* CaseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListCell.h; sourceTree = "<group>"; };
 		C50821241F6834B6004B2221 /* CaseListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseListCell.m; sourceTree = "<group>"; };
+		C50899711F6AC2B60013AE02 /* RACSignal+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+Extend.h"; sourceTree = "<group>"; };
+		C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+Extend.m"; sourceTree = "<group>"; };
+		C50899781F6ACD600013AE02 /* VirtualSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualSignal.h; sourceTree = "<group>"; };
+		C50899791F6ACD610013AE02 /* VirtualSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualSignal.m; sourceTree = "<group>"; };
+		C508997C1F6AD82B0013AE02 /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
+		C508997D1F6AD82B0013AE02 /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
+		C508997E1F6AD82B0013AE02 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		C508997F1F6AD82B0013AE02 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		C50899801F6AD82B0013AE02 /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		C50899811F6AD82B0013AE02 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		C531FB841F66D0390008A17A /* BaseListItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseListItemModel.h; sourceTree = "<group>"; };
 		C531FB851F66D0390008A17A /* BaseListItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseListItemModel.m; sourceTree = "<group>"; };
 		C531FB861F66D0390008A17A /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -1207,6 +1222,7 @@
 		C24E7DDC1ADE5E9700BA8ECC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				C508997B1F6AD82B0013AE02 /* PopoverView */,
 				C5CCBB661F6976B1003A4B8C /* ptotoBrowser */,
 				B0B0B5311F2766E6002FE127 /* RDVTabBarController */,
 				7552CE1C1D1240CB00A557EA /* DView */,
@@ -1231,6 +1247,28 @@
 				C28BAC401B16B8C80048DE0A /* zip.h */,
 			);
 			path = minizip;
+			sourceTree = "<group>";
+		};
+		C50899771F6ACD400013AE02 /* Plice */ = {
+			isa = PBXGroup;
+			children = (
+				C50899781F6ACD600013AE02 /* VirtualSignal.h */,
+				C50899791F6ACD610013AE02 /* VirtualSignal.m */,
+			);
+			path = Plice;
+			sourceTree = "<group>";
+		};
+		C508997B1F6AD82B0013AE02 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				C508997C1F6AD82B0013AE02 /* PopoverAction.h */,
+				C508997D1F6AD82B0013AE02 /* PopoverAction.m */,
+				C508997E1F6AD82B0013AE02 /* PopoverView.h */,
+				C508997F1F6AD82B0013AE02 /* PopoverView.m */,
+				C50899801F6AD82B0013AE02 /* PopoverViewCell.h */,
+				C50899811F6AD82B0013AE02 /* PopoverViewCell.m */,
+			);
+			path = PopoverView;
 			sourceTree = "<group>";
 		};
 		C531FB831F66D0390008A17A /* BaseModel */ = {
@@ -1508,6 +1546,8 @@
 				B06506BD1F6659050069652A /* CALayer+xibConfigure.m */,
 				C531FBB51F66D3580008A17A /* NSUserDefaults+UserDefaults.h */,
 				C531FBB61F66D3580008A17A /* NSUserDefaults+UserDefaults.m */,
+				C50899711F6AC2B60013AE02 /* RACSignal+Extend.h */,
+				C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1515,6 +1555,7 @@
 		DA3DFF061ADE78ED00C4E99A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				C50899771F6ACD400013AE02 /* Plice */,
 				FC24B4C71DF5E7300036B461 /* HWCustomTextField */,
 				FC200F571CF4B40200500482 /* HWVerticalAlignedLabel */,
 				B0D26AD91BDF7B920012A093 /* HWTableView */,
@@ -1925,8 +1966,10 @@
 				FC51FE3E1CBC5ED700B18DE2 /* CABasicAnimation+Helper.m in Sources */,
 				B07EE4A41F67B71400FCA22D /* HWSettingViewController.m in Sources */,
 				B0D26B031BDF7B920012A093 /* HWTitleAndLabelCell.m in Sources */,
+				C50899821F6AD82B0013AE02 /* PopoverAction.m in Sources */,
 				B06506C81F6679030069652A /* HWLoginCellViewModel.m in Sources */,
 				B0F8EF8E1EF3C39F00F38770 /* Drawing-Gradient.m in Sources */,
+				C50899831F6AD82B0013AE02 /* PopoverView.m in Sources */,
 				B034BEC91CAA2052008E8006 /* UIImage+Utils.m in Sources */,
 				B0D26B021BDF7B920012A093 /* HWTableViewTextCell.m in Sources */,
 				B0F8EF8C1EF3C39F00F38770 /* UIBezierPath+Elements.m in Sources */,
@@ -1950,6 +1993,7 @@
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
 				7552CE2C1D1240CB00A557EA /* DView.m in Sources */,
+				C50899841F6AD82B0013AE02 /* PopoverViewCell.m in Sources */,
 				B0DD98031F61654200EDD17B /* HWTabBarViewController.m in Sources */,
 				C5CCBB741F6976B1003A4B8C /* HZPhotoBrowserView.m in Sources */,
 				C531FBA71F66D0390008A17A /* ViewControllerSimpleConfig.m in Sources */,
@@ -1960,10 +2004,12 @@
 				C531FBC31F66D5E30008A17A /* HWLoginTranstionAnimation.m in Sources */,
 				B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */,
 				B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */,
+				C50899731F6AC2B60013AE02 /* RACSignal+Extend.m in Sources */,
 				B07EE4C91F68D0F900FCA22D /* HWHomePageFuncBtnCell.m in Sources */,
 				B07EE4A11F67B70400FCA22D /* HWAppointmentViewController.m in Sources */,
 				B07EE4A71F67B80100FCA22D /* HWHomePageViewModel.m in Sources */,
 				DA3DFF151ADE78ED00C4E99A /* HWBaseRefreshView.m in Sources */,
+				C508997A1F6ACD610013AE02 /* VirtualSignal.m in Sources */,
 				B0D26B0A1BDF7B920012A093 /* HWTableViewManger.m in Sources */,
 				7552CE2A1D1240CB00A557EA /* DLable.m in Sources */,
 				B0F8EF8A1EF3C39F00F38770 /* BezierFunctions.m in Sources */,

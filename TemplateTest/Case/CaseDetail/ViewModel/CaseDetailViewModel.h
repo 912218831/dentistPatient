@@ -18,4 +18,7 @@
 @property (nonatomic, strong) CaseDetailModel *model;
 @property (nonatomic, strong) CaseItemModel *caseModel;
 @property (nonatomic, assign) CGFloat imageCellHeight;
+
+@property (nonatomic, strong) UIImage *waitUploadImage;
+@property (nonatomic, strong) RACSignal *uploadImageSignal;
 @end

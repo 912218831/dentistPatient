@@ -34,6 +34,8 @@
 //请求域名接口
 #define kGetDomain                  @"index/getCustomerDomain.do"
 
+#define kUploadImage                 @"" //上传图片
+
 #define kLogin                      @"acc/loginByCode"//登录
 //#define kRegister                   @"Account/DoRegister"//注册
 #define kGetVerifyCode              @"acc/getVerifyCode"//获取验证码
@@ -54,6 +56,7 @@
 #define kLoginApp                    @"" //登录
 #define kCaseList                    @"fam/loadCheckList" //病例列表
 #define kCaseDetail                  @"fam/checkDetail" //病例详情
+
 #endif
 
 

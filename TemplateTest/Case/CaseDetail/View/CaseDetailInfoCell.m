@@ -7,6 +7,7 @@
 //
 
 #import "CaseDetailInfoCell.h"
+#import "CaseDetailModel.h"
 
 @interface CaseDetailInfoCell ()
 @property (nonatomic, strong) UIView *contentV;
@@ -130,6 +131,19 @@
     [self.uploadImageBtn setTitle:@"点击上传保存履历照片" forState:UIControlStateNormal];
     
     self.subjectLabel.text = @"儿子的牙龈检查";
+}
+
+- (void)bindSignal {
+    @weakify(self);
+    [self.valueSignal subscribeNext:^(CaseDetailModel *model) {
+        @strongify(self);
+        self.subjectLabel.text = model.patintName;
+        self.captureLabel.text = model.time;
+        self.doctorLabel.text = model.doctor;
+        self.clinicLabel.text = model.clinicName;
+    }];
+    
+    self.uploadImageSignal = [self.uploadImageBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

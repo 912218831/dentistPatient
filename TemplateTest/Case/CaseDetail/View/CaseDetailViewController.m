@@ -13,7 +13,8 @@
 #import "HZPhotoItem.h"
 
 @interface CaseDetailViewController () <UITableViewDelegate,
-                                    UITableViewDataSource>
+                                    UITableViewDataSource,
+                                    UIImagePickerControllerDelegate>
 @property (nonatomic, strong) CaseDetailViewModel *viewModel;
 @property (nonatomic, strong) UITableView *listView;
 @end
@@ -29,6 +30,7 @@
     [super configContentView];
     
     self.listView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.listView.height -= 49+10;
     self.listView.delegate = self;
     self.listView.dataSource = self;
     self.listView.backgroundColor = UIColorFromRGB(0xf0f0f0);
@@ -47,6 +49,21 @@
         [Utility showToastWithMessage:error.domain];
     }];
     
+    [self.viewModel.uploadImageSignal.newSwitchToLatest subscribeNext:^(id x) {
+        @strongify(self);
+        [Utility showMBProgress:self.contentView message:nil];
+    } error:^(NSError *error) {
+        @strongify(self);
+        [Utility hideMBProgress:self.contentView];
+        [Utility showToastWithMessage:error.domain];
+        [self.listView reloadData];
+    } completed:^{
+        @strongify(self);
+        [Utility hideMBProgress:self.contentView];
+        [Utility showToastWithMessage:@"履历照片上传成功"];
+        [self.listView reloadData];
+    }];
+    
     [self.viewModel execute];
 }
 
@@ -62,6 +79,14 @@
     if (!indexPath.row) {
         CaseDetailInfoCell *cell = [[CaseDetailInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
         cell.backgroundColor = self.listView.backgroundColor;
+        cell.valueSignal = [RACSignal return:self.viewModel.model];
+        @weakify(self);
+        [cell.uploadImageSignal subscribeNext:^(UIButton *sender) {
+            @strongify(self);
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+            imagePicker.delegate = self;
+            [self presentViewController:imagePicker animated:true completion:nil];
+        }];
         return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
@@ -81,6 +106,13 @@
         return cell;
     }
     return nil;
+}
+
+#pragma mark -- UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *originImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [picker dismissViewControllerAnimated:true completion:nil];
+    self.viewModel.waitUploadImage = originImage;
 }
 
 - (void)didReceiveMemoryWarning {

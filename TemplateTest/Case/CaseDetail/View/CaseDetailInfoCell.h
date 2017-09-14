@@ -9,5 +9,5 @@
 #import "BaseListViewCell.h"
 
 @interface CaseDetailInfoCell : BaseListViewCell
-
+@property (nonatomic, strong) RACSignal *uploadImageSignal;
 @end

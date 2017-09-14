@@ -12,6 +12,33 @@
 @dynamic model;
 
 
+- (void)bindViewWithSignal {
+    [super bindViewWithSignal];
+    
+    @weakify(self);
+    self.uploadImageSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [[RACObserve(self, waitUploadImage) filter:^BOOL(id value) {
+            return value;
+        }]subscribeNext:^(id x) {
+            [subscriber sendNext:[RACSignal return:@1]];
+            [[HWHTTPSessionManger shareHttpClient]HWPOSTImage:kUploadImage parameters:nil success:^(id responseObject) {
+                [subscriber sendNext:[RACSignal empty]];
+            } failure:^(NSString *error) {
+                
+                NSDictionary *imageItem = @{@"id": @"4",
+                                            @"ImgUrl": @"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"};
+                CaseDetailImageModel *imageModel = [[CaseDetailImageModel alloc]initWithDictionary:imageItem error:nil];
+                [self.model.images addObject:imageModel];
+                [self caculateCellHeight];
+                
+                [subscriber sendNext:[RACSignal error:Error]];
+            }];
+        }];
+        return nil;
+    }];
+}
+
 - (void)initRequestSignal {
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -31,7 +58,7 @@
                 CaseDetailImageModel *imageModel = [[CaseDetailImageModel alloc]initWithDictionary:imageItem error:nil];
                 [images addObject:imageModel];
             }
-            self.model.images = [images copy];
+            self.model.images = images;
             [self caculateCellHeight];
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
@@ -44,8 +71,8 @@
 - (void)caculateCellHeight {
     NSArray *images = self.model.images;
     CGFloat height = kPhotoTitleY;
-    NSInteger row = images.count/3+1;
-    height += row*(kPhotoHeight+(row-1)*kPhotoSpaceY);
+    NSInteger row = ceil(images.count/3.0);
+    height += row*(kPhotoHeight+kPhotoSpaceY)+kPhotoSpaceY;
     self.imageCellHeight = height;
 }
 
