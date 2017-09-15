@@ -8,6 +8,8 @@
 
 #import "HWHomePageFuncBtnCell.h"
 #import "HWCustomDrawImg.h"
+#import <IQUIView+Hierarchy.h>
+#import "HWDetectionSelectMemberViewController.h"
 @interface HWHomePageFuncBtnCell()
 
 @property(nonatomic,strong)NSMutableArray * btns;
@@ -42,6 +44,9 @@
             img = [HWCustomDrawImg drawCenterInReactImg:img contarinerRect:CGRectMake(0, 0, width, height)];
         }
         [btn setImage:img forState:UIControlStateNormal];
+        [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            [self.viewController.navigationController pushViewController:[HWDetectionSelectMemberViewController new] animated:YES];
+        }];
     }
 }
 

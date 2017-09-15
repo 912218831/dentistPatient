@@ -44,17 +44,6 @@
     return label;
 }
 
-+(HWVerticalAlignedLabel *)createLabel:(CGRect)generalRect font:(CGFloat)fontSize textAligment:(NSTextAlignment)textAligment labelColor:(UIColor *)labelColor text:(NSString *)text numberOfLines:(NSInteger)number{
-    
-    HWVerticalAlignedLabel *label = [[HWVerticalAlignedLabel alloc]initWithFrame:generalRect];
-    label.font = FONT(fontSize);
-    label.textAlignment = textAligment;
-    label.textColor = labelColor;
-    label.text = text;
-    label.numberOfLines = number;
-    
-    return label;
-}
 //创建通用的UIImageview
 +(UIImageView *)createImageView:(CGRect)generalRect image:(NSString *)ImageStr
 {
@@ -77,30 +66,6 @@
     return generalTextField;
 }
 
-+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:( id<UITextFieldDelegate>)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor  placeholder:(NSString *)placeholder{
-    
-    HWCustomTextField *generalTextField = [[HWCustomTextField alloc]initWithFrame:generalRect];
-    generalTextField.font = [UIFont fontWithName:FONTNAME size:fontSize];
-    generalTextField.textAlignment = textAligment;
-    generalTextField.textColor = textColor;
-    generalTextField.delegate = delegate;
-    generalTextField.placeholder = placeholder;
-    
-    return generalTextField;
-}
-+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id<UITextFieldDelegate>)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder clearButtonMode:(UITextFieldViewMode)clearButtonMode keyboardType:(UIKeyboardType)keyboardType{
-    HWCustomTextField *textField = [self createCustomTextFieldView:generalRect delegate:delegate textAligment:textAligment font:fontSize textColor:textColor placeholder:placeholder];
-    textField.keyboardType = keyboardType;
-    textField.clearButtonMode = clearButtonMode;
-    return textField;
-}
-+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id<UITextFieldDelegate>)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder clearButtonMode:(UITextFieldViewMode)clearButtonMode keyboardType:(UIKeyboardType)keyboardType borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth{
-    
-     HWCustomTextField *textField = [self createCustomTextFieldView:generalRect delegate:delegate textAligment:textAligment font:fontSize textColor:textColor placeholder:placeholder clearButtonMode:clearButtonMode keyboardType:keyboardType ];
-    textField.layer.borderColor = borderColor.CGColor;
-    textField.layer.borderWidth = borderWidth;
-    return textField;
-}
 
 
 +(UIButton *)createButtonWithFrame:(CGRect)frame{

@@ -8,6 +8,8 @@
 
 #import "HWAppointmentViewController.h"
 #import "HWAppointmentFailViewController.h"
+#import "HWAppointWaitingViewController.h"
+#import "HWAppointSuccessViewController.h"
 @interface HWAppointmentViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(strong,nonatomic)UICollectionView * collectionView;
 @end
@@ -83,11 +85,16 @@
     else if(indexPath.row == 1)
     {
         //预约成功
+        HWAppointSuccessViewController * vc = [[HWAppointSuccessViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+
     }
     else if(indexPath.row == 2)
     {
         //预约中
-        
+        HWAppointWaitingViewController * vc = [[HWAppointWaitingViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+
     }
 }
 

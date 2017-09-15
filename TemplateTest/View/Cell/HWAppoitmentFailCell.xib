@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HWAppoitmentFailCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw">
             <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="269.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="吴医生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB3-hD-DvN">
-                        <rect key="frame" x="55" y="24" width="282" height="16"/>
+                        <rect key="frame" x="55" y="24" width="175" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="xc3-bS-HIe"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="zWg-PX-dpn"/>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京口腔医院" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbk-aS-mAS">
-                        <rect key="frame" x="55" y="53.5" width="282" height="15"/>
+                        <rect key="frame" x="55" y="53.5" width="175" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="g99-q9-7Se"/>
                         </constraints>
@@ -61,7 +61,7 @@
                         <color key="textColor" red="0.15686274509803921" green="0.74509803921568629" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该时段不可用,请重新预约" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nk-s8-FLs">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该时段不可用,请重新预约" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="7nk-s8-FLs">
                         <rect key="frame" x="38" y="132" width="299" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="YR1-As-HVH"/>
@@ -132,6 +132,14 @@
                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEp-rD-WJh" customClass="HCSStarRatingView">
+                        <rect key="frame" x="240" y="24" width="105" height="16"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="YUf-S3-EHT"/>
+                            <constraint firstAttribute="height" constant="16" id="lsI-vl-hPR"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="djr-Ru-kNb" firstAttribute="leading" secondItem="5Zw-5X-wKT" secondAttribute="trailing" constant="10" id="0Yt-LJ-vfY"/>
@@ -139,6 +147,7 @@
                     <constraint firstItem="ZfM-Ux-ybJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="91H-2g-39G"/>
                     <constraint firstItem="WFD-zg-WQ4" firstAttribute="top" secondItem="jbk-aS-mAS" secondAttribute="bottom" id="9Ee-cn-U1D"/>
                     <constraint firstItem="djr-Ru-kNb" firstAttribute="centerY" secondItem="dWp-bI-ZKQ" secondAttribute="centerY" id="9Py-9m-zDE"/>
+                    <constraint firstAttribute="trailing" secondItem="XEp-rD-WJh" secondAttribute="trailing" constant="30" id="9YS-e1-giZ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WFD-zg-WQ4" secondAttribute="bottom" id="CJS-fd-Svt"/>
                     <constraint firstAttribute="bottom" secondItem="TgB-G8-mju" secondAttribute="bottom" id="CNS-07-cAS"/>
                     <constraint firstItem="5Zw-5X-wKT" firstAttribute="centerY" secondItem="dWp-bI-ZKQ" secondAttribute="centerY" id="DBq-C4-zqR"/>
@@ -147,9 +156,11 @@
                     <constraint firstAttribute="trailingMargin" secondItem="nPU-LD-zXw" secondAttribute="trailing" constant="30" id="JoX-vp-O74"/>
                     <constraint firstItem="jbk-aS-mAS" firstAttribute="centerY" secondItem="h8J-WI-dNv" secondAttribute="centerY" id="KSI-p1-MCG"/>
                     <constraint firstItem="7nk-s8-FLs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="KjD-TW-pMX"/>
+                    <constraint firstItem="XEp-rD-WJh" firstAttribute="centerY" secondItem="Rc9-kJ-pAj" secondAttribute="centerY" id="N1E-GR-T9G"/>
                     <constraint firstItem="5Zw-5X-wKT" firstAttribute="leading" secondItem="jbk-aS-mAS" secondAttribute="leading" id="NOI-gz-6aY"/>
                     <constraint firstItem="vB3-hD-DvN" firstAttribute="leading" secondItem="Rc9-kJ-pAj" secondAttribute="trailing" constant="10" id="OD8-Rc-pzf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="7nk-s8-FLs" secondAttribute="trailing" constant="30" id="Pc9-vM-UJp"/>
+                    <constraint firstItem="vB3-hD-DvN" firstAttribute="trailing" secondItem="XEp-rD-WJh" secondAttribute="leading" constant="-10" id="Qvn-Eg-8v9"/>
                     <constraint firstAttribute="trailing" secondItem="TgB-G8-mju" secondAttribute="trailing" id="SxF-lF-ycJ"/>
                     <constraint firstItem="vB3-hD-DvN" firstAttribute="centerY" secondItem="Rc9-kJ-pAj" secondAttribute="centerY" id="VET-Gn-of0"/>
                     <constraint firstItem="Rc9-kJ-pAj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="YWY-Ib-9Zj"/>
@@ -171,9 +182,9 @@
                     <constraint firstItem="ZfM-Ux-ybJ" firstAttribute="trailing" secondItem="WFD-zg-WQ4" secondAttribute="leading" constant="-10" id="yCe-pt-UQl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ZfM-Ux-ybJ" secondAttribute="bottom" constant="23" id="yDo-9w-Ex6"/>
                     <constraint firstItem="h8J-WI-dNv" firstAttribute="leading" secondItem="Rc9-kJ-pAj" secondAttribute="leading" id="yTe-l1-yBD"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vB3-hD-DvN" secondAttribute="trailing" constant="30" id="zM7-Y3-yrJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <point key="canvasLocation" x="67.5" y="60"/>
         </tableViewCell>
     </objects>
     <resources>
