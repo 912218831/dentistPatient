@@ -110,6 +110,7 @@
         //调试
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
+            SHARED_APP_DELEGATE.viewController = targetVC;
             [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
         }];
 
@@ -119,6 +120,7 @@
     [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
+            SHARED_APP_DELEGATE.viewController = targetVC;
             [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
         }];
     }];

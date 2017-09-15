@@ -340,7 +340,9 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kTabbarVM               @"HWTabbarViewModel"
 #define kHomePageVM             @"HWHomePageViewModel"
 #define kCasesVM                @"HWCasesViewModel"
+#define kCaseDetailVM           @"CaseDetailViewModel"
 #define kAppointmentVM          @"HWAppointmentViewModel"
 #define kSettingVM              @"HWSettingViewModel"
+
 #endif
 
