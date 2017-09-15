@@ -24,5 +24,6 @@
 #import "BaseViewController+Frame.h"
 #import "UITextField+Utils.h"
 #import "NSUserDefaults+UserDefaults.h"
+#import "RACSignal+Extend.h"
 
 #endif /* _CATEGORY_ */

@@ -44,6 +44,7 @@
 - (void)initDefaultConfigs {
     self.titleLabel.font = FONT(TF16);
     self.titleLabel.textColor = COLOR_FFFFFF;
+    self.iconImageView.image = [UIImage imageNamed:@"arrow_down"];
     
 }
 

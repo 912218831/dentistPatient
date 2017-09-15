@@ -26,12 +26,21 @@
 + (NSDictionary *)map {
     return @{
              kCasesVM:self.caseVC,
+             kCaseDetailVM:self.caseDetail
              };
 }
 
 + (NSDictionary *)caseVC {
     return @{
              @"title":@"病历",
+             };
+}
+
++ (NSDictionary *)caseDetail {
+    return @{
+             @"title":@"病例详情",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 

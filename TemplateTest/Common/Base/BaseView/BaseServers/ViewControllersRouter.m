@@ -49,6 +49,7 @@ static ViewControllersRouter *router;
 - (NSDictionary *)classWithViewMoldeMaps {
     return @{
              kLoginVM:objc_getClass(kLoginVM.UTF8String),
+             kCaseDetailVM:objc_getClass(kCaseDetailVM.UTF8String)
              };
 }
 
@@ -58,6 +59,7 @@ static ViewControllersRouter *router;
              kTabbarVM:objc_getClass("HWTabBarViewController"),
              kHomePageVM:objc_getClass("HWHomePageViewController"),
              kCasesVM:objc_getClass("HWCasesViewController"),
+             kCaseDetailVM:objc_getClass("CaseDetailViewController"),
              kAppointmentVM:objc_getClass("HWAppointmentViewController"),
              kSettingVM:objc_getClass("HWSettingViewController"),
              };
@@ -124,6 +126,7 @@ static ViewControllersRouter *router;
     UIViewController *vc = [BaseViewController currentViewController];
     Class vcClass = [self viewControllerClassNameForViewModel:NSStringFromClass(viewModel.class)];
     BaseViewController *baseVC = [[vcClass alloc]initWithViewModel:viewModel];
+    NSLog(@"%@",SHARED_APP_DELEGATE.viewController);
     [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setTabBarHidden:true];
     [vc.navigationController pushViewController:baseVC animated:YES];
     

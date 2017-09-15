@@ -34,6 +34,9 @@
     [self.contentV addSubview:self.actionLabel];
     self.dateLabel = [UILabel new];
     [self.contentV addSubview:self.dateLabel];
+
+    self.arrowImageView = [UIImageView new];
+    [self.contentV addSubview:self.arrowImageView];
 }
 
 - (void)layoutSubViews {
@@ -61,6 +64,11 @@
         make.left.mas_equalTo(offX);
         make.top.equalTo(self.actionLabel.mas_bottom).with.offset(kRate(6));
     }];
+    [self.arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.contentV);
+        make.size.mas_equalTo(CGSizeMake(kRate(8), kRate(15)));
+        make.right.mas_equalTo(-kRate(35));
+    }];
 }
 
 - (void)initDefaultConfigs {
@@ -83,6 +91,8 @@
     self.actionLabel.font = FONT(TF14);
     self.dateLabel.textColor = COLOR_999999;
     self.dateLabel.font =FONT(TF13);
+    
+    self.arrowImageView.image = [UIImage imageNamed:@"arrow"];
 }
 
 - (void)bindSignal {
