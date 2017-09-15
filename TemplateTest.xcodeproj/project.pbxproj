@@ -23,7 +23,17 @@
 		78B0698B1B42790B00FC7A35 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B0698A1B42790B00FC7A35 /* MapKit.framework */; };
 		78B0698D1B42791200FC7A35 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B0698C1B42791200FC7A35 /* CoreLocation.framework */; };
 		78DC42C51BE87E3300D42B7B /* HWBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DC42C41BE87E3300D42B7B /* HWBaseAlertView.m */; };
+		B007EA011F6A53B100498824 /* HWAppointWaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */; };
+		B007EA051F6A56D700498824 /* HWAppointSuccessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */; };
+		B007EA061F6A56D700498824 /* HWAppointSuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */; };
 		B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A28841CF294C9002480FE /* HWHTTPSessionManger.m */; };
+		B02770BA1F6A674C0044A417 /* 优惠券_选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */; };
+		B02770BB1F6A674C0044A417 /* 优惠券@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770B81F6A674B0044A417 /* 优惠券@2x.png */; };
+		B02770BC1F6A674C0044A417 /* 预约时间@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770B91F6A674B0044A417 /* 预约时间@2x.png */; };
+		B02770C01F6A68150044A417 /* 优惠券_选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770BD1F6A68150044A417 /* 优惠券_选中@3x.png */; };
+		B02770C11F6A68150044A417 /* 优惠券@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770BE1F6A68150044A417 /* 优惠券@3x.png */; };
+		B02770C21F6A68150044A417 /* 预约时间@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770BF1F6A68150044A417 /* 预约时间@3x.png */; };
+		B02770C91F6A75730044A417 /* HWDashView.m in Sources */ = {isa = PBXBuildFile; fileRef = B02770C81F6A75720044A417 /* HWDashView.m */; };
 		B0290DC11D82884B00F4B34F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B0290DC01D82884B00F4B34F /* libsqlite3.tbd */; };
 		B0290DC31D82885A00F4B34F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B0290DC21D82885A00F4B34F /* libz.1.tbd */; };
 		B0290DC51D82887F00F4B34F /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B0290DC41D82887F00F4B34F /* libc++.1.tbd */; };
@@ -40,6 +50,9 @@
 		B02AED261F4ED536009C25A7 /* click产品@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02AED241F4ED536009C25A7 /* click产品@3x.png */; };
 		B034BEC91CAA2052008E8006 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B034BEC81CAA2052008E8006 /* UIImage+Utils.m */; };
 		B042FA1F1DF6912B0017F689 /* HWEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B042FA1E1DF6912B0017F689 /* HWEmptyView.m */; };
+		B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0431C3D1F6A1619001A2FD4 /* HWAppointWaitingCell.m */; };
+		B0431C401F6A1619001A2FD4 /* HWAppointWaitingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0431C3E1F6A1619001A2FD4 /* HWAppointWaitingCell.xib */; };
+		B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0431C441F6A20D4001A2FD4 /* HCSStarRatingView.m */; };
 		B0476D231F3C9008000E0CF1 /* HWWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0476D221F3C9008000E0CF1 /* HWWebView.m */; };
 		B064A7B21EC068980064F727 /* HWFileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = B064A7B11EC068980064F727 /* HWFileManger.m */; };
 		B06506BE1F6659050069652A /* CALayer+xibConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = B06506BD1F6659050069652A /* CALayer+xibConfigure.m */; };
@@ -74,6 +87,29 @@
 		B07EE4DF1F68DCB100FCA22D /* HWHomePageSecondHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4DD1F68DCB100FCA22D /* HWHomePageSecondHeader.xib */; };
 		B07EE4E31F68FC1E00FCA22D /* HWHomePageSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */; };
 		B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */; };
+		B07EE4E81F69086E00FCA22D /* HWAppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */; };
+		B07EE4E91F69086E00FCA22D /* HWAppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */; };
+		B07EE4F31F692D5900FCA22D /* HWAppointmentFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4F11F692D5900FCA22D /* HWAppointmentFailViewController.m */; };
+		B07EE4F81F695E2F00FCA22D /* HWAppoitmentFailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B07EE4F61F695E2F00FCA22D /* HWAppoitmentFailCell.m */; };
+		B07EE4F91F695E2F00FCA22D /* HWAppoitmentFailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4F71F695E2F00FCA22D /* HWAppoitmentFailCell.xib */; };
+		B07EE4FB1F695F8500FCA22D /* 预约失败@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4FA1F695F8500FCA22D /* 预约失败@2x.png */; };
+		B07EE4FD1F695FA000FCA22D /* 预约失败@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B07EE4FC1F695FA000FCA22D /* 预约失败@3x.png */; };
+		B092538C1F69F4650074EEFF /* 预约失败地址@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09253891F69F4650074EEFF /* 预约失败地址@2x.png */; };
+		B092538D1F69F4650074EEFF /* 预约失败人数@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B092538A1F69F4650074EEFF /* 预约失败人数@2x.png */; };
+		B092538E1F69F4650074EEFF /* 预约失败姓名@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B092538B1F69F4650074EEFF /* 预约失败姓名@2x.png */; };
+		B09253921F69F4750074EEFF /* 预约失败地址@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B092538F1F69F4750074EEFF /* 预约失败地址@3x.png */; };
+		B09253931F69F4750074EEFF /* 预约失败人数@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09253901F69F4750074EEFF /* 预约失败人数@3x.png */; };
+		B09253941F69F4750074EEFF /* 预约失败姓名@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09253911F69F4750074EEFF /* 预约失败姓名@3x.png */; };
+		B09807CE1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09807CD1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m */; };
+		B09807D21F6ABF4F009C0FE1 /* HWAppointCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09807D01F6ABF4F009C0FE1 /* HWAppointCouponCell.m */; };
+		B09807D31F6ABF4F009C0FE1 /* HWAppointCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09807D11F6ABF4F009C0FE1 /* HWAppointCouponCell.xib */; };
+		B09807D61F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09807D51F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m */; };
+		B09807DA1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09807D81F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m */; };
+		B09807DB1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09807D91F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib */; };
+		B09807DE1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */; };
+		B09807DF1F6ACBCD009C0FE1 /* 检测成员@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09807DD1F6ACBCD009C0FE1 /* 检测成员@2x.png */; };
+		B09807E21F6ACC03009C0FE1 /* 检测成员_选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09807E01F6ACC03009C0FE1 /* 检测成员_选中@3x.png */; };
+		B09807E31F6ACC03009C0FE1 /* 检测成员@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B09807E11F6ACC03009C0FE1 /* 检测成员@3x.png */; };
 		B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B52C1F273803002FE127 /* EmptyControl.m */; };
 		B0B0B5381F2766E6002FE127 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5331F2766E6002FE127 /* RDVTabBar.m */; };
 		B0B0B5391F2766E6002FE127 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5351F2766E6002FE127 /* RDVTabBarController.m */; };
@@ -240,8 +276,6 @@
 		DA3DFF451ADE7A8900C4E99A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DFF441ADE7A8900C4E99A /* Reachability.m */; };
 		DA3DFF491ADE8DAE00C4E99A /* HWLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DFF481ADE8DAE00C4E99A /* HWLocationManager.m */; };
 		F8D47B8FBFB9E22E72924916 /* libPods-TemplateTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBCD6549C9F42925DE3091E /* libPods-TemplateTest.a */; };
-		FC200F5A1CF4B42A00500482 /* HWVerticalAlignedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC200F591CF4B42A00500482 /* HWVerticalAlignedLabel.m */; };
-		FC24B4CA1DF5E7300036B461 /* HWCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FC24B4C91DF5E7300036B461 /* HWCustomTextField.m */; };
 		FC51FE3E1CBC5ED700B18DE2 /* CABasicAnimation+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC51FE3D1CBC5ED700B18DE2 /* CABasicAnimation+Helper.m */; };
 		FCF9CFA91D94C3020051BD5C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCF9CFA81D94C3020051BD5C /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -289,8 +323,21 @@
 		78DC42C31BE87E3300D42B7B /* HWBaseAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWBaseAlertView.h; sourceTree = "<group>"; };
 		78DC42C41BE87E3300D42B7B /* HWBaseAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWBaseAlertView.m; sourceTree = "<group>"; };
 		8FBCD6549C9F42925DE3091E /* libPods-TemplateTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TemplateTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B007E9FF1F6A53B100498824 /* HWAppointWaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointWaitingViewController.h; sourceTree = "<group>"; };
+		B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointWaitingViewController.m; sourceTree = "<group>"; };
+		B007EA021F6A56D700498824 /* HWAppointSuccessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointSuccessCell.h; sourceTree = "<group>"; };
+		B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointSuccessCell.m; sourceTree = "<group>"; };
+		B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppointSuccessCell.xib; sourceTree = "<group>"; };
 		B00A28831CF294C9002480FE /* HWHTTPSessionManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHTTPSessionManger.h; sourceTree = "<group>"; };
 		B00A28841CF294C9002480FE /* HWHTTPSessionManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHTTPSessionManger.m; sourceTree = "<group>"; };
+		B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券_选中@2x.png"; sourceTree = "<group>"; };
+		B02770B81F6A674B0044A417 /* 优惠券@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券@2x.png"; sourceTree = "<group>"; };
+		B02770B91F6A674B0044A417 /* 预约时间@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约时间@2x.png"; sourceTree = "<group>"; };
+		B02770BD1F6A68150044A417 /* 优惠券_选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券_选中@3x.png"; sourceTree = "<group>"; };
+		B02770BE1F6A68150044A417 /* 优惠券@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券@3x.png"; sourceTree = "<group>"; };
+		B02770BF1F6A68150044A417 /* 预约时间@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约时间@3x.png"; sourceTree = "<group>"; };
+		B02770C71F6A75720044A417 /* HWDashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDashView.h; sourceTree = "<group>"; };
+		B02770C81F6A75720044A417 /* HWDashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDashView.m; sourceTree = "<group>"; };
 		B0290DC01D82884B00F4B34F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B0290DC21D82885A00F4B34F /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
 		B0290DC41D82887F00F4B34F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
@@ -311,6 +358,11 @@
 		B034BEC81CAA2052008E8006 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		B042FA1D1DF6912B0017F689 /* HWEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmptyView.h; sourceTree = "<group>"; };
 		B042FA1E1DF6912B0017F689 /* HWEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmptyView.m; sourceTree = "<group>"; };
+		B0431C3C1F6A1619001A2FD4 /* HWAppointWaitingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointWaitingCell.h; sourceTree = "<group>"; };
+		B0431C3D1F6A1619001A2FD4 /* HWAppointWaitingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointWaitingCell.m; sourceTree = "<group>"; };
+		B0431C3E1F6A1619001A2FD4 /* HWAppointWaitingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppointWaitingCell.xib; sourceTree = "<group>"; };
+		B0431C431F6A20D4001A2FD4 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
+		B0431C441F6A20D4001A2FD4 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
 		B0476D211F3C9008000E0CF1 /* HWWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWWebView.h; sourceTree = "<group>"; };
 		B0476D221F3C9008000E0CF1 /* HWWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWWebView.m; sourceTree = "<group>"; };
 		B064A7931EBF23080064F727 /* TemplateTest 6. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 6. 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -363,6 +415,36 @@
 		B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageSecondCell.h; sourceTree = "<group>"; };
 		B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageSecondCell.m; sourceTree = "<group>"; };
 		B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWHomePageSecondCell.xib; sourceTree = "<group>"; };
+		B07EE4E51F69086E00FCA22D /* HWAppointmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointmentCell.h; sourceTree = "<group>"; };
+		B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointmentCell.m; sourceTree = "<group>"; };
+		B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppointmentCell.xib; sourceTree = "<group>"; };
+		B07EE4F01F692D5900FCA22D /* HWAppointmentFailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointmentFailViewController.h; sourceTree = "<group>"; };
+		B07EE4F11F692D5900FCA22D /* HWAppointmentFailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointmentFailViewController.m; sourceTree = "<group>"; };
+		B07EE4F51F695E2F00FCA22D /* HWAppoitmentFailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppoitmentFailCell.h; sourceTree = "<group>"; };
+		B07EE4F61F695E2F00FCA22D /* HWAppoitmentFailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppoitmentFailCell.m; sourceTree = "<group>"; };
+		B07EE4F71F695E2F00FCA22D /* HWAppoitmentFailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppoitmentFailCell.xib; sourceTree = "<group>"; };
+		B07EE4FA1F695F8500FCA22D /* 预约失败@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败@2x.png"; sourceTree = "<group>"; };
+		B07EE4FC1F695FA000FCA22D /* 预约失败@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败@3x.png"; sourceTree = "<group>"; };
+		B09253891F69F4650074EEFF /* 预约失败地址@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败地址@2x.png"; sourceTree = "<group>"; };
+		B092538A1F69F4650074EEFF /* 预约失败人数@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败人数@2x.png"; sourceTree = "<group>"; };
+		B092538B1F69F4650074EEFF /* 预约失败姓名@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败姓名@2x.png"; sourceTree = "<group>"; };
+		B092538F1F69F4750074EEFF /* 预约失败地址@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败地址@3x.png"; sourceTree = "<group>"; };
+		B09253901F69F4750074EEFF /* 预约失败人数@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败人数@3x.png"; sourceTree = "<group>"; };
+		B09253911F69F4750074EEFF /* 预约失败姓名@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约失败姓名@3x.png"; sourceTree = "<group>"; };
+		B09807CC1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointSuccessViewController.h; sourceTree = "<group>"; };
+		B09807CD1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointSuccessViewController.m; sourceTree = "<group>"; };
+		B09807CF1F6ABF4F009C0FE1 /* HWAppointCouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointCouponCell.h; sourceTree = "<group>"; };
+		B09807D01F6ABF4F009C0FE1 /* HWAppointCouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointCouponCell.m; sourceTree = "<group>"; };
+		B09807D11F6ABF4F009C0FE1 /* HWAppointCouponCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppointCouponCell.xib; sourceTree = "<group>"; };
+		B09807D41F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDetectionSelectMemberViewController.h; sourceTree = "<group>"; };
+		B09807D51F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDetectionSelectMemberViewController.m; sourceTree = "<group>"; };
+		B09807D71F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDecetionSelectMemberCell.h; sourceTree = "<group>"; };
+		B09807D81F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDecetionSelectMemberCell.m; sourceTree = "<group>"; };
+		B09807D91F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWDecetionSelectMemberCell.xib; sourceTree = "<group>"; };
+		B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检测成员_选中@2x.png"; sourceTree = "<group>"; };
+		B09807DD1F6ACBCD009C0FE1 /* 检测成员@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检测成员@2x.png"; sourceTree = "<group>"; };
+		B09807E01F6ACC03009C0FE1 /* 检测成员_选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检测成员_选中@3x.png"; sourceTree = "<group>"; };
+		B09807E11F6ACC03009C0FE1 /* 检测成员@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检测成员@3x.png"; sourceTree = "<group>"; };
 		B0A6A8361CFE7FF100910387 /* TemplateTest 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 5.xcdatamodel"; sourceTree = "<group>"; };
 		B0B0B52B1F273803002FE127 /* EmptyControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyControl.h; sourceTree = "<group>"; };
 		B0B0B52C1F273803002FE127 /* EmptyControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyControl.m; sourceTree = "<group>"; };
@@ -652,10 +734,6 @@
 		DA3DFF441ADE7A8900C4E99A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		DA3DFF471ADE8DAE00C4E99A /* HWLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLocationManager.h; sourceTree = "<group>"; };
 		DA3DFF481ADE8DAE00C4E99A /* HWLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLocationManager.m; sourceTree = "<group>"; };
-		FC200F581CF4B42A00500482 /* HWVerticalAlignedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWVerticalAlignedLabel.h; sourceTree = "<group>"; };
-		FC200F591CF4B42A00500482 /* HWVerticalAlignedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWVerticalAlignedLabel.m; sourceTree = "<group>"; };
-		FC24B4C81DF5E7300036B461 /* HWCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCustomTextField.h; sourceTree = "<group>"; };
-		FC24B4C91DF5E7300036B461 /* HWCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCustomTextField.m; sourceTree = "<group>"; };
 		FC24B4E61DF73A910036B461 /* TemplateTest 6. 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 6. 2.xcdatamodel"; sourceTree = "<group>"; };
 		FC51FE3C1CBC5ED700B18DE2 /* CABasicAnimation+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CABasicAnimation+Helper.h"; sourceTree = "<group>"; };
 		FC51FE3D1CBC5ED700B18DE2 /* CABasicAnimation+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CABasicAnimation+Helper.m"; sourceTree = "<group>"; };
@@ -746,7 +824,15 @@
 				B07EE4931F678C4900FCA22D /* HWHomePageViewController.h */,
 				B07EE4941F678C4900FCA22D /* HWHomePageViewController.m */,
 				B07EE49F1F67B70400FCA22D /* HWAppointmentViewController.h */,
+				B09807D41F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.h */,
+				B09807D51F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m */,
 				B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */,
+				B07EE4F01F692D5900FCA22D /* HWAppointmentFailViewController.h */,
+				B07EE4F11F692D5900FCA22D /* HWAppointmentFailViewController.m */,
+				B007E9FF1F6A53B100498824 /* HWAppointWaitingViewController.h */,
+				B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */,
+				B09807CC1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.h */,
+				B09807CD1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m */,
 				B07EE4A21F67B71400FCA22D /* HWSettingViewController.h */,
 				B07EE4A31F67B71400FCA22D /* HWSettingViewController.m */,
 			);
@@ -829,6 +915,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B02770C61F6A75720044A417 /* HWDashView */ = {
+			isa = PBXGroup;
+			children = (
+				B02770C71F6A75720044A417 /* HWDashView.h */,
+				B02770C81F6A75720044A417 /* HWDashView.m */,
+			);
+			path = HWDashView;
+			sourceTree = "<group>";
+		};
+		B0431C411F6A1828001A2FD4 /* HWStarLevelView */ = {
+			isa = PBXGroup;
+			children = (
+				B0431C431F6A20D4001A2FD4 /* HCSStarRatingView.h */,
+				B0431C441F6A20D4001A2FD4 /* HCSStarRatingView.m */,
+			);
+			path = HWStarLevelView;
+			sourceTree = "<group>";
+		};
 		B064A7AF1EC068760064F727 /* HWFileManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -881,6 +985,15 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */,
+				B09807DD1F6ACBCD009C0FE1 /* 检测成员@2x.png */,
+				B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */,
+				B02770B81F6A674B0044A417 /* 优惠券@2x.png */,
+				B02770B91F6A674B0044A417 /* 预约时间@2x.png */,
+				B09253891F69F4650074EEFF /* 预约失败地址@2x.png */,
+				B092538A1F69F4650074EEFF /* 预约失败人数@2x.png */,
+				B092538B1F69F4650074EEFF /* 预约失败姓名@2x.png */,
+				B07EE4FA1F695F8500FCA22D /* 预约失败@2x.png */,
 				B07EE4CB1F68D56B00FCA22D /* 记录@2x.png */,
 				B07EE4CC1F68D56B00FCA22D /* 检测@2x.png */,
 				B07EE4CD1F68D56B00FCA22D /* 口腔问答@2x.png */,
@@ -908,7 +1021,19 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				B09807E01F6ACC03009C0FE1 /* 检测成员_选中@3x.png */,
+				B09807E11F6ACC03009C0FE1 /* 检测成员@3x.png */,
+				B02770BD1F6A68150044A417 /* 优惠券_选中@3x.png */,
+				B02770BE1F6A68150044A417 /* 优惠券@3x.png */,
+				B02770BF1F6A68150044A417 /* 预约时间@3x.png */,
+				B092538F1F69F4750074EEFF /* 预约失败地址@3x.png */,
+				B09253901F69F4750074EEFF /* 预约失败人数@3x.png */,
+				B09253911F69F4750074EEFF /* 预约失败姓名@3x.png */,
+				B07EE4FC1F695FA000FCA22D /* 预约失败@3x.png */,
+=======
 				C5CCBB4E1F696C2F003A4B8C /* TOP_ARROW@3x.png */,
+>>>>>>> 李强强
 				B07EE4D31F68D58F00FCA22D /* 记录@3x.png */,
 				B07EE4D41F68D58F00FCA22D /* 检测@3x.png */,
 				B07EE4D51F68D58F00FCA22D /* 口腔问答@3x.png */,
@@ -1017,6 +1142,24 @@
 				B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */,
 				B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */,
 				B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */,
+				B07EE4E51F69086E00FCA22D /* HWAppointmentCell.h */,
+				B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */,
+				B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */,
+				B07EE4F51F695E2F00FCA22D /* HWAppoitmentFailCell.h */,
+				B07EE4F61F695E2F00FCA22D /* HWAppoitmentFailCell.m */,
+				B07EE4F71F695E2F00FCA22D /* HWAppoitmentFailCell.xib */,
+				B0431C3C1F6A1619001A2FD4 /* HWAppointWaitingCell.h */,
+				B0431C3D1F6A1619001A2FD4 /* HWAppointWaitingCell.m */,
+				B0431C3E1F6A1619001A2FD4 /* HWAppointWaitingCell.xib */,
+				B007EA021F6A56D700498824 /* HWAppointSuccessCell.h */,
+				B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */,
+				B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */,
+				B09807CF1F6ABF4F009C0FE1 /* HWAppointCouponCell.h */,
+				B09807D01F6ABF4F009C0FE1 /* HWAppointCouponCell.m */,
+				B09807D11F6ABF4F009C0FE1 /* HWAppointCouponCell.xib */,
+				B09807D71F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.h */,
+				B09807D81F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m */,
+				B09807D91F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1555,9 +1698,14 @@
 		DA3DFF061ADE78ED00C4E99A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				B02770C61F6A75720044A417 /* HWDashView */,
+				B0431C411F6A1828001A2FD4 /* HWStarLevelView */,
+=======
 				C50899771F6ACD400013AE02 /* Plice */,
 				FC24B4C71DF5E7300036B461 /* HWCustomTextField */,
 				FC200F571CF4B40200500482 /* HWVerticalAlignedLabel */,
+>>>>>>> 李强强
 				B0D26AD91BDF7B920012A093 /* HWTableView */,
 			);
 			path = Custom;
@@ -1669,24 +1817,6 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
-		FC200F571CF4B40200500482 /* HWVerticalAlignedLabel */ = {
-			isa = PBXGroup;
-			children = (
-				FC200F581CF4B42A00500482 /* HWVerticalAlignedLabel.h */,
-				FC200F591CF4B42A00500482 /* HWVerticalAlignedLabel.m */,
-			);
-			path = HWVerticalAlignedLabel;
-			sourceTree = "<group>";
-		};
-		FC24B4C71DF5E7300036B461 /* HWCustomTextField */ = {
-			isa = PBXGroup;
-			children = (
-				FC24B4C81DF5E7300036B461 /* HWCustomTextField.h */,
-				FC24B4C91DF5E7300036B461 /* HWCustomTextField.m */,
-			);
-			path = HWCustomTextField;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1784,14 +1914,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09807E31F6ACC03009C0FE1 /* 检测成员@3x.png in Resources */,
 				B02AED251F4ED536009C25A7 /* 产品@3x.png in Resources */,
+				B07EE4FD1F695FA000FCA22D /* 预约失败@3x.png in Resources */,
 				C24E7DB61ADE51AA00BA8ECC /* Main.storyboard in Resources */,
 				B07EE4D71F68D58F00FCA22D /* 记录@3x.png in Resources */,
+				B07EE4F91F695E2F00FCA22D /* HWAppoitmentFailCell.xib in Resources */,
 				B02AED261F4ED536009C25A7 /* click产品@3x.png in Resources */,
 				FCF9CFA91D94C3020051BD5C /* Info.plist in Resources */,
+				B09253921F69F4750074EEFF /* 预约失败地址@3x.png in Resources */,
+				B09807E21F6ACC03009C0FE1 /* 检测成员_选中@3x.png in Resources */,
 				B07EE4CF1F68D56B00FCA22D /* 记录@2x.png in Resources */,
 				B0B0B56C1F276EAA002FE127 /* tabbar_selected_background.png in Resources */,
 				B0B0B58D1F287302002FE127 /* click提成@2x.png in Resources */,
+				B02770C21F6A68150044A417 /* 预约时间@3x.png in Resources */,
 				B0B0B58F1F287302002FE127 /* click首页@2x.png in Resources */,
 				B0B0B5961F287302002FE127 /* click我的@3x.png in Resources */,
 				B0B0B5901F287302002FE127 /* 启动页@2x.png in Resources */,
@@ -1801,6 +1937,7 @@
 				DA3DFF3E1ADE7A4000C4E99A /* loading1@2x.png in Resources */,
 				B0DD980D1F6166BB00EDD17B /* HWLoginTelphoneCell.xib in Resources */,
 				DA3DFF411ADE7A4000C4E99A /* whiteArrow@2x.png in Resources */,
+				B02770C01F6A68150044A417 /* 优惠券_选中@3x.png in Resources */,
 				DA3DFF3F1ADE7A4000C4E99A /* loading1@3x.png in Resources */,
 				B07EE4D01F68D56B00FCA22D /* 检测@2x.png in Resources */,
 				B07EE4DA1F68D58F00FCA22D /* 我的家庭@3x.png in Resources */,
@@ -1812,9 +1949,14 @@
 				C5CCBB781F6976B1003A4B8C /* whiteplaceholder.png in Resources */,
 				B0B0B59C1F287302002FE127 /* 我的@3x.png in Resources */,
 				B0B0B5631F276EAA002FE127 /* navigationbar_background_tall@2x.png in Resources */,
+				B07EE4E91F69086E00FCA22D /* HWAppointmentCell.xib in Resources */,
+				B02770BC1F6A674C0044A417 /* 预约时间@2x.png in Resources */,
+				B092538E1F69F4650074EEFF /* 预约失败姓名@2x.png in Resources */,
 				B0B0B56D1F276EAA002FE127 /* tabbar_selected_background@2x.png in Resources */,
+				B02770BB1F6A674C0044A417 /* 优惠券@2x.png in Resources */,
 				B0B0B5A01F287302002FE127 /* 首页@3x.png in Resources */,
 				DA3DFF3D1ADE7A4000C4E99A /* grayArrow@2x.png in Resources */,
+				B07EE4FB1F695F8500FCA22D /* 预约失败@2x.png in Resources */,
 				DA3DFF3B1ADE7A4000C4E99A /* blueArrow@2x.png in Resources */,
 				C5CCBB4F1F696C2F003A4B8C /* TOP_ARROW@3x.png in Resources */,
 				B0B0B5921F287302002FE127 /* 提成@2x.png in Resources */,
@@ -1822,35 +1964,47 @@
 				B0B0B5931F287302002FE127 /* 注册成功@2x.png in Resources */,
 				B0B0B58E1F287302002FE127 /* click订单@2x.png in Resources */,
 				B0F6750D1F2A1D100019086E /* arrow@3x.png in Resources */,
+				B092538C1F69F4650074EEFF /* 预约失败地址@2x.png in Resources */,
 				B0B0B5981F287302002FE127 /* click订单@3x.png in Resources */,
 				DA3DFF3A1ADE7A4000C4E99A /* blueArrow.png in Resources */,
 				B0B0B56B1F276EAA002FE127 /* tabbar_normal_background@2x.png in Resources */,
 				B0F6750F1F2A1D1C0019086E /* arrow@2x.png in Resources */,
 				B07EE4D11F68D56B00FCA22D /* 口腔问答@2x.png in Resources */,
+				B0431C401F6A1619001A2FD4 /* HWAppointWaitingCell.xib in Resources */,
+				B09253931F69F4750074EEFF /* 预约失败人数@3x.png in Resources */,
 				B0B0B5971F287302002FE127 /* click提成@3x.png in Resources */,
 				C5CCBB4D1F696C2C003A4B8C /* TOP_ARROW@2x.png in Resources */,
 				B0B0B59D1F287302002FE127 /* 提成@3x.png in Resources */,
+				B02770BA1F6A674C0044A417 /* 优惠券_选中@2x.png in Resources */,
 				B02AED211F4ED518009C25A7 /* 产品@2x.png in Resources */,
 				B0B0B59B1F287302002FE127 /* 启动页@3x.png in Resources */,
 				B07EE4D21F68D56B00FCA22D /* 我的家庭@2x.png in Resources */,
 				B0B0B5621F276EAA002FE127 /* navigationbar_background_tall.png in Resources */,
 				DA3DFF391ADE7A4000C4E99A /* blackArrow@2x.png in Resources */,
+				B09253941F69F4750074EEFF /* 预约失败姓名@3x.png in Resources */,
+				B092538D1F69F4650074EEFF /* 预约失败人数@2x.png in Resources */,
 				B07EE4DF1F68DCB100FCA22D /* HWHomePageSecondHeader.xib in Resources */,
 				B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */,
+				B09807DE1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png in Resources */,
 				DA3DFF3C1ADE7A4000C4E99A /* grayArrow.png in Resources */,
 				B0B0B58C1F287302002FE127 /* click我的@2x.png in Resources */,
 				B07EE4D81F68D58F00FCA22D /* 检测@3x.png in Resources */,
 				B0B0B56A1F276EAA002FE127 /* tabbar_normal_background.png in Resources */,
 				B06506C11F66699C0069652A /* loginBG.png in Resources */,
+				B09807DB1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib in Resources */,
 				B0B0B5651F276EAA002FE127 /* navigationbar_background@2x.png in Resources */,
 				B07EE4B41F67CC5F00FCA22D /* arrow_down@3x.png in Resources */,
 				B0B0B5641F276EAA002FE127 /* navigationbar_background.png in Resources */,
 				C24E7DB81ADE51AA00BA8ECC /* Images.xcassets in Resources */,
 				B07EE4B81F67CFFB00FCA22D /* 搜索@2x.png in Resources */,
 				B0B0B59A1F287302002FE127 /* Thumbs.db in Resources */,
+				B09807D31F6ABF4F009C0FE1 /* HWAppointCouponCell.xib in Resources */,
 				B0B0B5941F287302002FE127 /* 订单@2x.png in Resources */,
 				B07EE4B61F67CFEB00FCA22D /* 搜索@3x.png in Resources */,
+				B007EA061F6A56D700498824 /* HWAppointSuccessCell.xib in Resources */,
+				B02770C11F6A68150044A417 /* 优惠券@3x.png in Resources */,
 				B0B0B59F1F287302002FE127 /* 订单@3x.png in Resources */,
+				B09807DF1F6ACBCD009C0FE1 /* 检测成员@2x.png in Resources */,
 				B0B0B5991F287302002FE127 /* click首页@3x.png in Resources */,
 				B07EE4D91F68D58F00FCA22D /* 口腔问答@3x.png in Resources */,
 			);
@@ -1968,6 +2122,7 @@
 				B0D26B031BDF7B920012A093 /* HWTitleAndLabelCell.m in Sources */,
 				C50899821F6AD82B0013AE02 /* PopoverAction.m in Sources */,
 				B06506C81F6679030069652A /* HWLoginCellViewModel.m in Sources */,
+				B007EA051F6A56D700498824 /* HWAppointSuccessCell.m in Sources */,
 				B0F8EF8E1EF3C39F00F38770 /* Drawing-Gradient.m in Sources */,
 				C50899831F6AD82B0013AE02 /* PopoverView.m in Sources */,
 				B034BEC91CAA2052008E8006 /* UIImage+Utils.m in Sources */,
@@ -1975,8 +2130,11 @@
 				B0F8EF8C1EF3C39F00F38770 /* UIBezierPath+Elements.m in Sources */,
 				B0476D231F3C9008000E0CF1 /* HWWebView.m in Sources */,
 				C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */,
+<<<<<<< HEAD
+=======
 				C5CCBB521F696E93003A4B8C /* CaseDetailInfoCell.m in Sources */,
 				FC200F5A1CF4B42A00500482 /* HWVerticalAlignedLabel.m in Sources */,
+>>>>>>> 李强强
 				B0B0B5391F2766E6002FE127 /* RDVTabBarController.m in Sources */,
 				C24E7DAD1ADE51AA00BA8ECC /* AppDelegate.m in Sources */,
 				C531FBAD1F66D0390008A17A /* BaseView.m in Sources */,
@@ -1989,6 +2147,7 @@
 				B07EE4981F678C7F00FCA22D /* HWTabbarViewModel.m in Sources */,
 				C28BACB31B16B8C90048DE0A /* mztools.c in Sources */,
 				B0D26B051BDF7B920012A093 /* HWCustomViewItem.m in Sources */,
+				B09807D21F6ABF4F009C0FE1 /* HWAppointCouponCell.m in Sources */,
 				72230B151C21670D0040F496 /* ASDisplayNode+Utils.m in Sources */,
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
@@ -2001,6 +2160,7 @@
 				C24E7DB01ADE51AA00BA8ECC /* TemplateTest.xcdatamodeld in Sources */,
 				B07EE4AD1F67B82300FCA22D /* HWAppointmentViewModel.m in Sources */,
 				29BC1DFC1B57788B00C7B1AD /* MTCustomActionSheet.m in Sources */,
+				B07EE4E81F69086E00FCA22D /* HWAppointmentCell.m in Sources */,
 				C531FBC31F66D5E30008A17A /* HWLoginTranstionAnimation.m in Sources */,
 				B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */,
 				B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */,
@@ -2012,6 +2172,7 @@
 				C508997A1F6ACD610013AE02 /* VirtualSignal.m in Sources */,
 				B0D26B0A1BDF7B920012A093 /* HWTableViewManger.m in Sources */,
 				7552CE2A1D1240CB00A557EA /* DLable.m in Sources */,
+				B07EE4F31F692D5900FCA22D /* HWAppointmentFailViewController.m in Sources */,
 				B0F8EF8A1EF3C39F00F38770 /* BezierFunctions.m in Sources */,
 				DA3DFF211ADE78ED00C4E99A /* HWShareManager.m in Sources */,
 				C531FBAE1F66D0390008A17A /* BaseListViewDataSource.m in Sources */,
@@ -2024,10 +2185,12 @@
 				B0DD00141BF42729003FBDA2 /* WXImageView.m in Sources */,
 				B0F8EF8D1EF3C39F00F38770 /* Drawing-Block.m in Sources */,
 				B0F8EF891EF3C39F00F38770 /* BezierElement.m in Sources */,
+				B07EE4F81F695E2F00FCA22D /* HWAppoitmentFailCell.m in Sources */,
 				B0D26B061BDF7B920012A093 /* HWPickerItem.m in Sources */,
 				C531FBA51F66D0390008A17A /* BaseListItemModel.m in Sources */,
 				7552CE281D1240CB00A557EA /* DButton.m in Sources */,
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
+				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
 				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
 				C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */,
@@ -2038,7 +2201,6 @@
 				C5CCBB481F6968E1003A4B8C /* CaseDetailModel.m in Sources */,
 				757A0B011D192B4800911407 /* HWBaseTableViewCell.m in Sources */,
 				B06506CB1F6679240069652A /* HWLoginViewModel.m in Sources */,
-				FC24B4CA1DF5E7300036B461 /* HWCustomTextField.m in Sources */,
 				78DC42C51BE87E3300D42B7B /* HWBaseAlertView.m in Sources */,
 				7552CE2B1D1240CB00A557EA /* DTxtField.m in Sources */,
 				B0D26B001BDF7B920012A093 /* HWPickerCell.m in Sources */,
@@ -2048,13 +2210,20 @@
 				B0F8EF921EF3C39F00F38770 /* ImageUtils.m in Sources */,
 				C24E7E061ADF887900BA8ECC /* HWBaseViewController.m in Sources */,
 				C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */,
+				B007EA011F6A53B100498824 /* HWAppointWaitingViewController.m in Sources */,
 				C28BACB41B16B8C90048DE0A /* unzip.c in Sources */,
 				DA3DFF1C1ADE78ED00C4E99A /* UILabel+Utils.m in Sources */,
 				B0DD980C1F6166BB00EDD17B /* HWLoginTelphoneCell.m in Sources */,
+<<<<<<< HEAD
+				B09807DA1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m in Sources */,
+=======
 				C5CCBB421F6968A7003A4B8C /* CaseDetailViewModel.m in Sources */,
 				C5CCBB4B1F69698B003A4B8C /* CaseDetailImageModel.m in Sources */,
+>>>>>>> 李强强
 				C24E7DB31ADE51AA00BA8ECC /* ViewController.m in Sources */,
+				B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */,
 				B0D26B091BDF7B920012A093 /* HWTitleAndLabelItem.m in Sources */,
+				B09807D61F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m in Sources */,
 				B042FA1F1DF6912B0017F689 /* HWEmptyView.m in Sources */,
 				DA3DFF221ADE78ED00C4E99A /* Utility.m in Sources */,
 				C531FBB11F66D0390008A17A /* ProtocolTerminal.m in Sources */,
@@ -2066,6 +2235,7 @@
 				DA3DFF191ADE78ED00C4E99A /* UIAlertView+Utils.m in Sources */,
 				C531FBB71F66D3580008A17A /* NSUserDefaults+UserDefaults.m in Sources */,
 				7552CE291D1240CB00A557EA /* DImageV.m in Sources */,
+				B02770C91F6A75730044A417 /* HWDashView.m in Sources */,
 				DA3DFF181ADE78ED00C4E99A /* NSString+utils.m in Sources */,
 				C5CCBB761F6976B1003A4B8C /* HZPhotoItem.m in Sources */,
 				C531FBAB1F66D0390008A17A /* BaseListView.m in Sources */,
@@ -2086,6 +2256,7 @@
 				DA3DFF371ADE7A4000C4E99A /* EGORefreshTableHeaderView.m in Sources */,
 				DA3DFF171ADE78ED00C4E99A /* NSDictionary+Utils.m in Sources */,
 				C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */,
+				B09807CE1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m in Sources */,
 				B0D26B0B1BDF7B920012A093 /* HWTableViewSection.m in Sources */,
 				C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */,
 				C5CCBB771F6976B1003A4B8C /* HZWaitingView.m in Sources */,

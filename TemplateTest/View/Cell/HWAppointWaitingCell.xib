@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HWAppointWaitingCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="预约失败.png" translatesAutoresizingMaskIntoConstraints="NO" id="dtX-lC-nYX">
+                        <rect key="frame" x="8" y="8" width="359" height="220"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="预约失败姓名.png" translatesAutoresizingMaskIntoConstraints="NO" id="ueh-iI-H5O">
+                        <rect key="frame" x="38" y="32" width="13" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="39I-n5-oj1"/>
+                            <constraint firstAttribute="width" constant="13" id="3H7-xL-y0x"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="预约失败地址.png" translatesAutoresizingMaskIntoConstraints="NO" id="DPR-Bj-SG2">
+                        <rect key="frame" x="38" y="62" width="13" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="d8n-eT-4kx"/>
+                            <constraint firstAttribute="width" constant="13" id="eB9-wt-462"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="预约失败人数.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZI1-g2-LZD">
+                        <rect key="frame" x="38" y="92" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="VnJ-Ws-Als"/>
+                            <constraint firstAttribute="width" constant="15" id="cW0-3R-1bE"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-wD-2i3" customClass="HCSStarRatingView">
+                        <rect key="frame" x="232" y="32" width="105" height="16"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="52F-o2-Bal"/>
+                            <constraint firstAttribute="height" constant="16" id="6hp-9l-GcC"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="accurateHalfStars" value="NO"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starBorderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="吴医生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBV-Xk-ok5">
+                        <rect key="frame" x="61" y="32" width="161" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="SI1-hC-P5Q"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京口腔医院" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-NQ-r1N">
+                        <rect key="frame" x="61" y="63" width="276" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="muX-yM-fd7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约人数:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYi-s9-gvf">
+                        <rect key="frame" x="61" y="92" width="62" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="BJ9-ut-rBw"/>
+                            <constraint firstAttribute="height" constant="15" id="F8G-9a-9uY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.15686274510000001" green="0.74509803919999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymg-aq-RBQ">
+                        <rect key="frame" x="131" y="84" width="206" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="sGS-zm-PW7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="textColor" red="0.15686274510000001" green="0.74509803919999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在等待医生确认..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipe-bE-uzy">
+                        <rect key="frame" x="38" y="147" width="299" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="c0X-hi-Yor"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <color key="textColor" red="0.15686274510000001" green="0.74509803919999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="医生会尽快确认预约时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggW-kv-Ryh">
+                        <rect key="frame" x="38" y="183" width="299" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="6hP-eC-L7A"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pBV-Xk-ok5" firstAttribute="centerY" secondItem="ueh-iI-H5O" secondAttribute="centerY" id="5RC-iH-aTb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dtX-lC-nYX" secondAttribute="trailing" id="7fv-u2-ayi"/>
+                    <constraint firstItem="ZI1-g2-LZD" firstAttribute="top" secondItem="DPR-Bj-SG2" secondAttribute="bottom" constant="14" id="82m-LD-1Aa"/>
+                    <constraint firstItem="ZI1-g2-LZD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="8L7-ON-Svf"/>
+                    <constraint firstItem="Ymg-aq-RBQ" firstAttribute="leading" secondItem="pYi-s9-gvf" secondAttribute="trailing" constant="8" id="BGH-kN-Dl3"/>
+                    <constraint firstItem="pBV-Xk-ok5" firstAttribute="leading" secondItem="ueh-iI-H5O" secondAttribute="trailing" constant="10" id="Eaf-8B-a2v"/>
+                    <constraint firstItem="ggW-kv-Ryh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="H7p-cR-Bds"/>
+                    <constraint firstItem="pBV-Xk-ok5" firstAttribute="trailing" secondItem="rSI-wD-2i3" secondAttribute="leading" constant="-10" id="HRz-9P-zrP"/>
+                    <constraint firstItem="dtX-lC-nYX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="MK6-5i-UJp"/>
+                    <constraint firstItem="Ipe-bE-uzy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="Mhv-nu-6hc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rSI-wD-2i3" secondAttribute="trailing" constant="30" id="Pdf-OF-1Yu"/>
+                    <constraint firstItem="dtX-lC-nYX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Q9H-FU-j6S"/>
+                    <constraint firstItem="pYi-s9-gvf" firstAttribute="centerY" secondItem="ZI1-g2-LZD" secondAttribute="centerY" id="TJM-uD-bvf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ggW-kv-Ryh" secondAttribute="trailing" constant="30" id="Wwv-BH-MQh"/>
+                    <constraint firstItem="DPR-Bj-SG2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="XT8-li-hya"/>
+                    <constraint firstItem="Ipe-bE-uzy" firstAttribute="top" secondItem="ZI1-g2-LZD" secondAttribute="bottom" constant="40" id="Y1a-YY-sXh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ymg-aq-RBQ" secondAttribute="trailing" constant="30" id="Zjp-7B-su4"/>
+                    <constraint firstItem="pYi-s9-gvf" firstAttribute="leading" secondItem="pBV-Xk-ok5" secondAttribute="leading" id="aYN-VP-4A2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ipe-bE-uzy" secondAttribute="trailing" constant="30" id="b0j-53-pWA"/>
+                    <constraint firstItem="llZ-NQ-r1N" firstAttribute="centerY" secondItem="DPR-Bj-SG2" secondAttribute="centerY" id="csL-3P-ucu"/>
+                    <constraint firstItem="llZ-NQ-r1N" firstAttribute="leading" secondItem="pBV-Xk-ok5" secondAttribute="leading" id="cx8-2L-HdG"/>
+                    <constraint firstItem="ueh-iI-H5O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="egX-UX-LC5"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dtX-lC-nYX" secondAttribute="bottom" id="iIZ-a1-drS"/>
+                    <constraint firstItem="Ymg-aq-RBQ" firstAttribute="centerY" secondItem="ZI1-g2-LZD" secondAttribute="centerY" id="mKA-48-1iG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ggW-kv-Ryh" secondAttribute="bottom" constant="30" id="mvG-9T-fpx"/>
+                    <constraint firstItem="ueh-iI-H5O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="24" id="ndl-G7-bGq"/>
+                    <constraint firstItem="DPR-Bj-SG2" firstAttribute="top" secondItem="ueh-iI-H5O" secondAttribute="bottom" constant="14" id="orN-nR-mtz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="llZ-NQ-r1N" secondAttribute="trailing" constant="30" id="vks-fJ-hY7"/>
+                    <constraint firstItem="rSI-wD-2i3" firstAttribute="centerY" secondItem="ueh-iI-H5O" secondAttribute="centerY" id="xwO-In-apu"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="预约失败.png" width="375" height="302"/>
+        <image name="预约失败人数.png" width="14" height="14"/>
+        <image name="预约失败地址.png" width="12" height="16"/>
+        <image name="预约失败姓名.png" width="13" height="16"/>
+    </resources>
+</document>

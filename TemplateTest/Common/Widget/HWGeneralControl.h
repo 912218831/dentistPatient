@@ -14,8 +14,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "HWVerticalAlignedLabel.h"
-#import "HWCustomTextField.h"
 
 
 @interface HWGeneralControl : NSObject
@@ -28,7 +26,7 @@
 
 +(UILabel *)createLabel:(CGRect)generalRect font:(CGFloat)fontSize textAligment:(NSTextAlignment)textAligment labelColor:(UIColor *)labelColor text:(NSString *)text;
 
-+(HWVerticalAlignedLabel *)createLabel:(CGRect)generalRect font:(CGFloat)fontSize textAligment:(NSTextAlignment)textAligment labelColor:(UIColor *)labelColor text:(NSString *)text numberOfLines:(NSInteger)number;
+//+(HWVerticalAlignedLabel *)createLabel:(CGRect)generalRect font:(CGFloat)fontSize textAligment:(NSTextAlignment)textAligment labelColor:(UIColor *)labelColor text:(NSString *)text numberOfLines:(NSInteger)number;
 
 
 
@@ -37,11 +35,11 @@
 
 //创建通用的UITextField
 +(UITextField *)createTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor tag:(NSInteger)tag;
-+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder;
+//+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder;
 
-+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder clearButtonMode:(UITextFieldViewMode)clearButtonMode keyboardType:(UIKeyboardType)keyboardType;
-
-+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder clearButtonMode:(UITextFieldViewMode)clearButtonMode keyboardType:(UIKeyboardType)keyboardType borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
+//+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder clearButtonMode:(UITextFieldViewMode)clearButtonMode keyboardType:(UIKeyboardType)keyboardType;
+//
+//+(HWCustomTextField *)createCustomTextFieldView:(CGRect)generalRect delegate:(id)delegate textAligment:(NSTextAlignment)textAligment font:(CGFloat)fontSize textColor:(UIColor *)textColor placeholder:(NSString *)placeholder clearButtonMode:(UITextFieldViewMode)clearButtonMode keyboardType:(UIKeyboardType)keyboardType borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
 
 
 //创建通用的UIButton

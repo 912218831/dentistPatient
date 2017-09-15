@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HWDecetionSelectMemberCell">
+            <rect key="frame" x="0.0" y="0.0" width="108" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="108" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="检测成员_选中.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ixn-WD-dhg">
+                        <rect key="frame" x="0.0" y="0.0" width="108" height="120"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HCg-6w-LK0">
+                        <rect key="frame" x="27" y="19" width="54" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="54" id="8rL-UP-wbS"/>
+                            <constraint firstAttribute="width" constant="54" id="9HE-WI-U5V"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="27"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我自己" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-aK-ZwM">
+                        <rect key="frame" x="0.0" y="73" width="108" height="47"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="HYd-aK-ZwM" firstAttribute="top" secondItem="HCg-6w-LK0" secondAttribute="bottom" id="B9P-4e-IDr"/>
+                <constraint firstAttribute="trailing" secondItem="Ixn-WD-dhg" secondAttribute="trailing" id="CBB-eS-dty"/>
+                <constraint firstItem="Ixn-WD-dhg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KQc-hX-aU8"/>
+                <constraint firstItem="HCg-6w-LK0" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="PEw-lR-G58"/>
+                <constraint firstAttribute="bottom" secondItem="HYd-aK-ZwM" secondAttribute="bottom" id="V0n-Jv-qNB"/>
+                <constraint firstItem="Ixn-WD-dhg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YgV-Av-bS3"/>
+                <constraint firstAttribute="trailing" secondItem="HYd-aK-ZwM" secondAttribute="trailing" id="aVY-lE-fsz"/>
+                <constraint firstItem="HYd-aK-ZwM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rEQ-rb-09b"/>
+                <constraint firstItem="HCg-6w-LK0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="19" id="yP4-LL-sPn"/>
+                <constraint firstAttribute="bottom" secondItem="Ixn-WD-dhg" secondAttribute="bottom" id="yXU-Gf-FsZ"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="检测成员_选中.png" width="110" height="122"/>
+    </resources>
+</document>
