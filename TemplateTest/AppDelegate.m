@@ -33,6 +33,8 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
     [self.window makeKeyAndVisible];
     [[ViewControllersRouter shareInstance]luanchRootViewController];
     
+    [AMapServices sharedServices].apiKey = @"8b06485d0cb11f6130930a32a8461b5a";
+    
     return YES;
 }
 
