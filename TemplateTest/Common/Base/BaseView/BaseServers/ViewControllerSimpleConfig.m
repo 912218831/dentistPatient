@@ -26,7 +26,9 @@
 + (NSDictionary *)map {
     return @{
              kCasesVM:self.caseVC,
-             kCaseDetailVM:self.caseDetail
+             kCaseDetailVM:self.caseDetail,
+             kDetectionVM:self.detectionSelect,
+             kDetectionCaptureVM:self.detectionCapture
              };
 }
 
@@ -44,17 +46,19 @@
              };
 }
 
-+ (NSDictionary *)recoverPassword {
++ (NSDictionary *)detectionSelect {
     return @{
-             @"title":@"找回密码",
+             @"title":@"牙菌斑检测 - 选择",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
 }
 
-+ (NSDictionary *)reserverRecord {
++ (NSDictionary *)detectionCapture {
     return @{
-             @"title":@"我的病人",
+             @"title":@"牙菌斑检测",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 

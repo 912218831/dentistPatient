@@ -337,6 +337,8 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 
 /*ViewModel 所有的类名*/
 #define kLoginVM                @"HWLoginViewModel"
+#define kDetectionVM            @"HWDetectionSelectMemberViewModel"
+#define kDetectionCaptureVM     @"DetectionCaptureViewModel"
 #define kTabbarVM               @"HWTabbarViewModel"
 #define kHomePageVM             @"HWHomePageViewModel"
 #define kCasesVM                @"HWCasesViewModel"

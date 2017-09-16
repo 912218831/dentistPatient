@@ -54,6 +54,8 @@
 
 #define kLoginGainVertifyCode        @"" //获取验证码
 #define kLoginApp                    @"" //登录
+#define kDetectionCapturePhotos      @"chk/checkImageList" // 牙菌检测-已检测照片
+
 #define kCaseList                    @"fam/loadCheckList" //病例列表
 #define kCaseDetail                  @"fam/checkDetail" //病例详情
 
