@@ -30,7 +30,8 @@
              kDetectionVM:self.detectionSelect,
              kDetectionCaptureVM:self.detectionCapture,
              kTimeVideoVM:self.timeVideo,
-             kDetectionResultVM:self.detectionResult
+             kDetectionResultVM:self.detectionResult,
+             kRDoctorVM:self.recommandDoctor
              };
 }
 
@@ -80,10 +81,11 @@
              };
 }
 
-+ (NSDictionary *)setPassword {
++ (NSDictionary *)recommandDoctor {
     return @{
-             @"title":@"设置密码",
+             @"title":@"选择医生",
              @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 @end

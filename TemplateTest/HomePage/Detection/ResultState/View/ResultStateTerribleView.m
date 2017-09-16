@@ -76,7 +76,7 @@
         if (x.allObjects.count > 4) {
             [self.recommandNoteLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.bottom.equalTo(self);
-                make.top.mas_equalTo(offY+kRate(30));
+                make.top.mas_equalTo(offY+kRate(20));
             }];
         }
     }];

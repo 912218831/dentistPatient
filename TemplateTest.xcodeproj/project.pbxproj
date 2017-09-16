@@ -210,6 +210,13 @@
 		C50029E01F6CDB730064DFEE /* ResultStateGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029DF1F6CDB730064DFEE /* ResultStateGoodView.m */; };
 		C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029E21F6CE0620064DFEE /* ResultStateTerribleView.m */; };
 		C50029E61F6CE3840064DFEE /* DetectionIssueItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029E51F6CE3840064DFEE /* DetectionIssueItemModel.m */; };
+		C50029E81F6D0EA70064DFEE /* selectDoctor_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C50029E71F6D0EA70064DFEE /* selectDoctor_icon@3x.png */; };
+		C50029EA1F6D0EAC0064DFEE /* selectDoctor_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C50029E91F6D0EAC0064DFEE /* selectDoctor_icon@2x.png */; };
+		C50029ED1F6D0EE40064DFEE /* RecommandDoctorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029EC1F6D0EE40064DFEE /* RecommandDoctorVC.m */; };
+		C50029F01F6D0EF40064DFEE /* RecommandDoctorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029EF1F6D0EF40064DFEE /* RecommandDoctorViewModel.m */; };
+		C50029F31F6D0F030064DFEE /* RecommandDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029F21F6D0F030064DFEE /* RecommandDoctorModel.m */; };
+		C50029F61F6D12CE0064DFEE /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029F51F6D12CE0064DFEE /* MapView.m */; };
+		C50029F91F6D15570064DFEE /* RDoctorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029F81F6D15570064DFEE /* RDoctorListCell.m */; };
 		C50821221F682D47004B2221 /* CaseItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821211F682D47004B2221 /* CaseItemModel.m */; };
 		C50821251F6834B6004B2221 /* CaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821241F6834B6004B2221 /* CaseListCell.m */; };
 		C50899731F6AC2B60013AE02 /* RACSignal+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */; };
@@ -628,6 +635,18 @@
 		C50029E21F6CE0620064DFEE /* ResultStateTerribleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultStateTerribleView.m; sourceTree = "<group>"; };
 		C50029E41F6CE3840064DFEE /* DetectionIssueItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionIssueItemModel.h; sourceTree = "<group>"; };
 		C50029E51F6CE3840064DFEE /* DetectionIssueItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionIssueItemModel.m; sourceTree = "<group>"; };
+		C50029E71F6D0EA70064DFEE /* selectDoctor_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectDoctor_icon@3x.png"; sourceTree = "<group>"; };
+		C50029E91F6D0EAC0064DFEE /* selectDoctor_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectDoctor_icon@2x.png"; sourceTree = "<group>"; };
+		C50029EB1F6D0EE40064DFEE /* RecommandDoctorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommandDoctorVC.h; sourceTree = "<group>"; };
+		C50029EC1F6D0EE40064DFEE /* RecommandDoctorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandDoctorVC.m; sourceTree = "<group>"; };
+		C50029EE1F6D0EF40064DFEE /* RecommandDoctorViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommandDoctorViewModel.h; sourceTree = "<group>"; };
+		C50029EF1F6D0EF40064DFEE /* RecommandDoctorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandDoctorViewModel.m; sourceTree = "<group>"; };
+		C50029F11F6D0F030064DFEE /* RecommandDoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommandDoctorModel.h; sourceTree = "<group>"; };
+		C50029F21F6D0F030064DFEE /* RecommandDoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandDoctorModel.m; sourceTree = "<group>"; };
+		C50029F41F6D12CE0064DFEE /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		C50029F51F6D12CE0064DFEE /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		C50029F71F6D15570064DFEE /* RDoctorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDoctorListCell.h; sourceTree = "<group>"; };
+		C50029F81F6D15570064DFEE /* RDoctorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDoctorListCell.m; sourceTree = "<group>"; };
 		C50821201F682D47004B2221 /* CaseItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseItemModel.h; sourceTree = "<group>"; };
 		C50821211F682D47004B2221 /* CaseItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseItemModel.m; sourceTree = "<group>"; };
 		C50821231F6834B6004B2221 /* CaseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListCell.h; sourceTree = "<group>"; };
@@ -1025,6 +1044,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C50029E91F6D0EAC0064DFEE /* selectDoctor_icon@2x.png */,
 				C50029D61F6CD9250064DFEE /* detectionResult@2x.png */,
 				B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */,
 				B09807DD1F6ACBCD009C0FE1 /* 检测成员@2x.png */,
@@ -1062,6 +1082,7 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C50029E71F6D0EA70064DFEE /* selectDoctor_icon@3x.png */,
 				B09807E01F6ACC03009C0FE1 /* 检测成员_选中@3x.png */,
 				B09807E11F6ACC03009C0FE1 /* 检测成员@3x.png */,
 				B02770BD1F6A68150044A417 /* 优惠券_选中@3x.png */,
@@ -1502,6 +1523,8 @@
 		C50029B91F6C102B0064DFEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C50029F11F6D0F030064DFEE /* RecommandDoctorModel.h */,
+				C50029F21F6D0F030064DFEE /* RecommandDoctorModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1509,6 +1532,12 @@
 		C50029BA1F6C102B0064DFEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C50029EB1F6D0EE40064DFEE /* RecommandDoctorVC.h */,
+				C50029EC1F6D0EE40064DFEE /* RecommandDoctorVC.m */,
+				C50029F41F6D12CE0064DFEE /* MapView.h */,
+				C50029F51F6D12CE0064DFEE /* MapView.m */,
+				C50029F71F6D15570064DFEE /* RDoctorListCell.h */,
+				C50029F81F6D15570064DFEE /* RDoctorListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1516,6 +1545,8 @@
 		C50029BB1F6C102B0064DFEE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C50029EE1F6D0EF40064DFEE /* RecommandDoctorViewModel.h */,
+				C50029EF1F6D0EF40064DFEE /* RecommandDoctorViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2121,6 +2152,7 @@
 				B07EE4F91F695E2F00FCA22D /* HWAppoitmentFailCell.xib in Resources */,
 				B02AED261F4ED536009C25A7 /* click产品@3x.png in Resources */,
 				FCF9CFA91D94C3020051BD5C /* Info.plist in Resources */,
+				C50029EA1F6D0EAC0064DFEE /* selectDoctor_icon@2x.png in Resources */,
 				B09253921F69F4750074EEFF /* 预约失败地址@3x.png in Resources */,
 				B09807E21F6ACC03009C0FE1 /* 检测成员_选中@3x.png in Resources */,
 				B07EE4CF1F68D56B00FCA22D /* 记录@2x.png in Resources */,
@@ -2194,6 +2226,7 @@
 				B09807DB1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib in Resources */,
 				B0B0B5651F276EAA002FE127 /* navigationbar_background@2x.png in Resources */,
 				B07EE4B41F67CC5F00FCA22D /* arrow_down@3x.png in Resources */,
+				C50029E81F6D0EA70064DFEE /* selectDoctor_icon@3x.png in Resources */,
 				B0B0B5641F276EAA002FE127 /* navigationbar_background.png in Resources */,
 				C24E7DB81ADE51AA00BA8ECC /* Images.xcassets in Resources */,
 				B07EE4B81F67CFFB00FCA22D /* 搜索@2x.png in Resources */,
@@ -2330,6 +2363,7 @@
 				B0D26B021BDF7B920012A093 /* HWTableViewTextCell.m in Sources */,
 				B0F8EF8C1EF3C39F00F38770 /* UIBezierPath+Elements.m in Sources */,
 				B0476D231F3C9008000E0CF1 /* HWWebView.m in Sources */,
+				C50029F61F6D12CE0064DFEE /* MapView.m in Sources */,
 				C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */,
 				C5CCBB521F696E93003A4B8C /* CaseDetailInfoCell.m in Sources */,
 				B0B0B5391F2766E6002FE127 /* RDVTabBarController.m in Sources */,
@@ -2339,6 +2373,7 @@
 				C5CCBB751F6976B1003A4B8C /* HZPhotoGroup.m in Sources */,
 				B07EE4B01F67B83000FCA22D /* HWSettingViewModel.m in Sources */,
 				B0D26B081BDF7B920012A093 /* HWTextItem.m in Sources */,
+				C50029F91F6D15570064DFEE /* RDoctorListCell.m in Sources */,
 				DA3DFF361ADE7A4000C4E99A /* EGORefreshTableFooterView.m in Sources */,
 				DA3DFF1B1ADE78ED00C4E99A /* UIDevice+Utils.m in Sources */,
 				B07EE4981F678C7F00FCA22D /* HWTabbarViewModel.m in Sources */,
@@ -2393,6 +2428,7 @@
 				C531FBA51F66D0390008A17A /* BaseListItemModel.m in Sources */,
 				C50029C91F6C10970064DFEE /* DetectionCaptureViewModel.m in Sources */,
 				7552CE281D1240CB00A557EA /* DButton.m in Sources */,
+				C50029ED1F6D0EE40064DFEE /* RecommandDoctorVC.m in Sources */,
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
 				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
 				C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */,
@@ -2414,6 +2450,7 @@
 				C24E7DF91ADE826000BA8ECC /* HWGeneralControl.m in Sources */,
 				B0F8EF921EF3C39F00F38770 /* ImageUtils.m in Sources */,
 				C24E7E061ADF887900BA8ECC /* HWBaseViewController.m in Sources */,
+				C50029F01F6D0EF40064DFEE /* RecommandDoctorViewModel.m in Sources */,
 				C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */,
 				B007EA011F6A53B100498824 /* HWAppointWaitingViewController.m in Sources */,
 				C28BACB41B16B8C90048DE0A /* unzip.c in Sources */,
@@ -2421,6 +2458,7 @@
 				B0DD980C1F6166BB00EDD17B /* HWLoginTelphoneCell.m in Sources */,
 				B09807DA1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m in Sources */,
 				C5CCBB421F6968A7003A4B8C /* CaseDetailViewModel.m in Sources */,
+				C50029F31F6D0F030064DFEE /* RecommandDoctorModel.m in Sources */,
 				C5CCBB4B1F69698B003A4B8C /* CaseDetailImageModel.m in Sources */,
 				C24E7DB31ADE51AA00BA8ECC /* ViewController.m in Sources */,
 				B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */,

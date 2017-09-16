@@ -25,7 +25,6 @@
 
 - (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
     @weakify(self);
-    [HWUserLogin currentUserLogin].userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
     NSURLSessionDataTask *task = [self.tasks objectForKey:url];
     if (task.state != NSURLSessionTaskStateCompleted) {
         [task cancel];
@@ -48,7 +47,7 @@
 }
 
 - (NSURLSessionDataTask *)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
-    
+    [HWUserLogin currentUserLogin].userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
     NSURLSessionDataTask *task = [[HWHTTPSessionManger manager]HWPOST:url parameters:params success:^(id responese) {
         success(responese);
     } failure:^(NSString *code, NSString *error) {

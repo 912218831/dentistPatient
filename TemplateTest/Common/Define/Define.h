@@ -341,6 +341,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kDetectionCaptureVM     @"DetectionCaptureViewModel"
 #define kTimeVideoVM            @"TimeVideoViewModel"
 #define kDetectionResultVM      @"DetectionResultViewModel"
+#define kRDoctorVM              @"RecommandDoctorViewModel"
 #define kTabbarVM               @"HWTabbarViewModel"
 #define kHomePageVM             @"HWHomePageViewModel"
 #define kCasesVM                @"HWCasesViewModel"
