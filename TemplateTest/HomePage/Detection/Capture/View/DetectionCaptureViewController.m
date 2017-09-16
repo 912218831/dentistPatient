@@ -143,10 +143,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.viewModel.dataArray.count) {
-        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
         //启动图片浏览器
         HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
-        browser.sourceImagesContainerView = cell; // 原图的父控件
+        browser.sourceImagesContainerView = self.listView; // 原图的父控件
         browser.imageCount = self.viewModel.dataArray.count; // 图片总数
         browser.currentImageIndex = (int)indexPath.row;
         browser.delegate = self;

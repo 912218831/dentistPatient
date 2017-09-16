@@ -207,6 +207,9 @@
 		C50029D71F6CD9250064DFEE /* detectionResult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C50029D61F6CD9250064DFEE /* detectionResult@2x.png */; };
 		C50029DA1F6CD96A0064DFEE /* DetectionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */; };
 		C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029DC1F6CD9790064DFEE /* DetectionResultViewModel.m */; };
+		C50029E01F6CDB730064DFEE /* ResultStateGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029DF1F6CDB730064DFEE /* ResultStateGoodView.m */; };
+		C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029E21F6CE0620064DFEE /* ResultStateTerribleView.m */; };
+		C50029E61F6CE3840064DFEE /* DetectionIssueItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029E51F6CE3840064DFEE /* DetectionIssueItemModel.m */; };
 		C50821221F682D47004B2221 /* CaseItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821211F682D47004B2221 /* CaseItemModel.m */; };
 		C50821251F6834B6004B2221 /* CaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821241F6834B6004B2221 /* CaseListCell.m */; };
 		C50899731F6AC2B60013AE02 /* RACSignal+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */; };
@@ -619,6 +622,12 @@
 		C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionResultViewController.m; sourceTree = "<group>"; };
 		C50029DB1F6CD9790064DFEE /* DetectionResultViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionResultViewModel.h; sourceTree = "<group>"; };
 		C50029DC1F6CD9790064DFEE /* DetectionResultViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionResultViewModel.m; sourceTree = "<group>"; };
+		C50029DE1F6CDB730064DFEE /* ResultStateGoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultStateGoodView.h; sourceTree = "<group>"; };
+		C50029DF1F6CDB730064DFEE /* ResultStateGoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultStateGoodView.m; sourceTree = "<group>"; };
+		C50029E11F6CE0620064DFEE /* ResultStateTerribleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultStateTerribleView.h; sourceTree = "<group>"; };
+		C50029E21F6CE0620064DFEE /* ResultStateTerribleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultStateTerribleView.m; sourceTree = "<group>"; };
+		C50029E41F6CE3840064DFEE /* DetectionIssueItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionIssueItemModel.h; sourceTree = "<group>"; };
+		C50029E51F6CE3840064DFEE /* DetectionIssueItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionIssueItemModel.m; sourceTree = "<group>"; };
 		C50821201F682D47004B2221 /* CaseItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseItemModel.h; sourceTree = "<group>"; };
 		C50821211F682D47004B2221 /* CaseItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseItemModel.m; sourceTree = "<group>"; };
 		C50821231F6834B6004B2221 /* CaseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListCell.h; sourceTree = "<group>"; };
@@ -1524,6 +1533,8 @@
 		C50029BD1F6C102B0064DFEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C50029E41F6CE3840064DFEE /* DetectionIssueItemModel.h */,
+				C50029E51F6CE3840064DFEE /* DetectionIssueItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1533,6 +1544,10 @@
 			children = (
 				C50029D81F6CD96A0064DFEE /* DetectionResultViewController.h */,
 				C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */,
+				C50029DE1F6CDB730064DFEE /* ResultStateGoodView.h */,
+				C50029DF1F6CDB730064DFEE /* ResultStateGoodView.m */,
+				C50029E11F6CE0620064DFEE /* ResultStateTerribleView.h */,
+				C50029E21F6CE0620064DFEE /* ResultStateTerribleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2362,6 +2377,7 @@
 				B07EE4F31F692D5900FCA22D /* HWAppointmentFailViewController.m in Sources */,
 				B0F8EF8A1EF3C39F00F38770 /* BezierFunctions.m in Sources */,
 				DA3DFF211ADE78ED00C4E99A /* HWShareManager.m in Sources */,
+				C50029E61F6CE3840064DFEE /* DetectionIssueItemModel.m in Sources */,
 				C531FBAE1F66D0390008A17A /* BaseListViewDataSource.m in Sources */,
 				C28BACB51B16B8C90048DE0A /* zip.c in Sources */,
 				B064A7B21EC068980064F727 /* HWFileManger.m in Sources */,
@@ -2379,6 +2395,7 @@
 				7552CE281D1240CB00A557EA /* DButton.m in Sources */,
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
 				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
+				C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */,
 				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
 				C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */,
@@ -2440,6 +2457,7 @@
 				C50029D21F6CD79B0064DFEE /* TimeVideoViewController.m in Sources */,
 				C5CCBB451F6968D1003A4B8C /* CaseDetailViewController.m in Sources */,
 				DA3DFF371ADE7A4000C4E99A /* EGORefreshTableHeaderView.m in Sources */,
+				C50029E01F6CDB730064DFEE /* ResultStateGoodView.m in Sources */,
 				DA3DFF171ADE78ED00C4E99A /* NSDictionary+Utils.m in Sources */,
 				C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */,
 				C50029DA1F6CD96A0064DFEE /* DetectionResultViewController.m in Sources */,
