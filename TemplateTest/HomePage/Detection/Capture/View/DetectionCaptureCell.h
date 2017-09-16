@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DetectionCaptureCell : UICollectionViewCell
+@property (nonatomic, strong, readonly) UIImageView *photoImageView;
+@property (nonatomic, strong) UIButton *deleteBtn;
 @property (nonatomic, strong) RACSignal *valueSignal;
+@property (nonatomic, strong) RACSubject *deleteActionSubject;
 @end

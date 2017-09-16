@@ -202,6 +202,11 @@
 		C50029C91F6C10970064DFEE /* DetectionCaptureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029C81F6C10970064DFEE /* DetectionCaptureViewModel.m */; };
 		C50029CC1F6C1C8B0064DFEE /* DetectionCaptureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029CB1F6C1C8B0064DFEE /* DetectionCaptureCell.m */; };
 		C50029CF1F6C20F70064DFEE /* DetectionCaptureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029CE1F6C20F70064DFEE /* DetectionCaptureModel.m */; };
+		C50029D21F6CD79B0064DFEE /* TimeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D11F6CD79B0064DFEE /* TimeVideoViewController.m */; };
+		C50029D51F6CD7AE0064DFEE /* TimeVideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D41F6CD7AE0064DFEE /* TimeVideoViewModel.m */; };
+		C50029D71F6CD9250064DFEE /* detectionResult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C50029D61F6CD9250064DFEE /* detectionResult@2x.png */; };
+		C50029DA1F6CD96A0064DFEE /* DetectionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */; };
+		C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029DC1F6CD9790064DFEE /* DetectionResultViewModel.m */; };
 		C50821221F682D47004B2221 /* CaseItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821211F682D47004B2221 /* CaseItemModel.m */; };
 		C50821251F6834B6004B2221 /* CaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C50821241F6834B6004B2221 /* CaseListCell.m */; };
 		C50899731F6AC2B60013AE02 /* RACSignal+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */; };
@@ -605,6 +610,15 @@
 		C50029CB1F6C1C8B0064DFEE /* DetectionCaptureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionCaptureCell.m; sourceTree = "<group>"; };
 		C50029CD1F6C20F70064DFEE /* DetectionCaptureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionCaptureModel.h; sourceTree = "<group>"; };
 		C50029CE1F6C20F70064DFEE /* DetectionCaptureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionCaptureModel.m; sourceTree = "<group>"; };
+		C50029D01F6CD79B0064DFEE /* TimeVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeVideoViewController.h; sourceTree = "<group>"; };
+		C50029D11F6CD79B0064DFEE /* TimeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVideoViewController.m; sourceTree = "<group>"; };
+		C50029D31F6CD7AE0064DFEE /* TimeVideoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeVideoViewModel.h; sourceTree = "<group>"; };
+		C50029D41F6CD7AE0064DFEE /* TimeVideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVideoViewModel.m; sourceTree = "<group>"; };
+		C50029D61F6CD9250064DFEE /* detectionResult@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionResult@2x.png"; sourceTree = "<group>"; };
+		C50029D81F6CD96A0064DFEE /* DetectionResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionResultViewController.h; sourceTree = "<group>"; };
+		C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionResultViewController.m; sourceTree = "<group>"; };
+		C50029DB1F6CD9790064DFEE /* DetectionResultViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionResultViewModel.h; sourceTree = "<group>"; };
+		C50029DC1F6CD9790064DFEE /* DetectionResultViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionResultViewModel.m; sourceTree = "<group>"; };
 		C50821201F682D47004B2221 /* CaseItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseItemModel.h; sourceTree = "<group>"; };
 		C50821211F682D47004B2221 /* CaseItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseItemModel.m; sourceTree = "<group>"; };
 		C50821231F6834B6004B2221 /* CaseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListCell.h; sourceTree = "<group>"; };
@@ -1002,6 +1016,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C50029D61F6CD9250064DFEE /* detectionResult@2x.png */,
 				B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */,
 				B09807DD1F6ACBCD009C0FE1 /* 检测成员@2x.png */,
 				B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */,
@@ -1516,6 +1531,8 @@
 		C50029BE1F6C102B0064DFEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C50029D81F6CD96A0064DFEE /* DetectionResultViewController.h */,
+				C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1523,6 +1540,8 @@
 		C50029BF1F6C102B0064DFEE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C50029DB1F6CD9790064DFEE /* DetectionResultViewModel.h */,
+				C50029DC1F6CD9790064DFEE /* DetectionResultViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1547,6 +1566,8 @@
 		C50029C21F6C102B0064DFEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C50029D01F6CD79B0064DFEE /* TimeVideoViewController.h */,
+				C50029D11F6CD79B0064DFEE /* TimeVideoViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1554,6 +1575,8 @@
 		C50029C31F6C102B0064DFEE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C50029D31F6CD7AE0064DFEE /* TimeVideoViewModel.h */,
+				C50029D41F6CD7AE0064DFEE /* TimeVideoViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2148,6 +2171,7 @@
 				B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */,
 				B09807DE1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png in Resources */,
 				DA3DFF3C1ADE7A4000C4E99A /* grayArrow.png in Resources */,
+				C50029D71F6CD9250064DFEE /* detectionResult@2x.png in Resources */,
 				B0B0B58C1F287302002FE127 /* click我的@2x.png in Resources */,
 				B07EE4D81F68D58F00FCA22D /* 检测@3x.png in Resources */,
 				B0B0B56A1F276EAA002FE127 /* tabbar_normal_background.png in Resources */,
@@ -2309,10 +2333,12 @@
 				72230B151C21670D0040F496 /* ASDisplayNode+Utils.m in Sources */,
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
+				C50029D51F6CD7AE0064DFEE /* TimeVideoViewModel.m in Sources */,
 				7552CE2C1D1240CB00A557EA /* DView.m in Sources */,
 				C50899841F6AD82B0013AE02 /* PopoverViewCell.m in Sources */,
 				B0DD98031F61654200EDD17B /* HWTabBarViewController.m in Sources */,
 				C5CCBB741F6976B1003A4B8C /* HZPhotoBrowserView.m in Sources */,
+				C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */,
 				C531FBA71F66D0390008A17A /* ViewControllerSimpleConfig.m in Sources */,
 				DA3DFF491ADE8DAE00C4E99A /* HWLocationManager.m in Sources */,
 				C24E7DB01ADE51AA00BA8ECC /* TemplateTest.xcdatamodeld in Sources */,
@@ -2411,10 +2437,12 @@
 				C531FBA91F66D0390008A17A /* BaseListViewController.m in Sources */,
 				B0F8EF8B1EF3C39F00F38770 /* BezierUtils.m in Sources */,
 				C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */,
+				C50029D21F6CD79B0064DFEE /* TimeVideoViewController.m in Sources */,
 				C5CCBB451F6968D1003A4B8C /* CaseDetailViewController.m in Sources */,
 				DA3DFF371ADE7A4000C4E99A /* EGORefreshTableHeaderView.m in Sources */,
 				DA3DFF171ADE78ED00C4E99A /* NSDictionary+Utils.m in Sources */,
 				C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */,
+				C50029DA1F6CD96A0064DFEE /* DetectionResultViewController.m in Sources */,
 				B09807CE1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m in Sources */,
 				B0D26B0B1BDF7B920012A093 /* HWTableViewSection.m in Sources */,
 				C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */,

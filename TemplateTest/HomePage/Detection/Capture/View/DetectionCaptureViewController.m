@@ -10,9 +10,12 @@
 #import "DetectionCaptureCell.h"
 #import "HZPhotoBrowser.h"
 #import "DetectionCaptureViewModel.h"
+#import "TimeVideoViewModel.h"
+#import "DetectionResultViewModel.h"
 
 #define kOffX       (kRate(14))
 #define kHeaderId    @"headerId"
+#define kFooterId    @"footerId"
 #define kCellId      @"cellId"
 
 @interface DetectionCaptureViewController () <UICollectionViewDelegate,
@@ -20,6 +23,7 @@
                                             HZPhotoBrowserDelegate>
 @property (nonatomic, strong) UICollectionView *listView;
 @property (nonatomic, strong) DetectionCaptureViewModel *viewModel;
+@property (nonatomic, strong) UIButton *nextStep;
 @end
 
 @implementation DetectionCaptureViewController
@@ -43,6 +47,20 @@
     [self addSubview:self.listView];
     [self.listView registerClass:[DetectionCaptureCell class] forCellWithReuseIdentifier:kCellId];
     [self.listView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderId];
+    [self.listView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kFooterId];
+    
+    self.nextStep = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:self.nextStep];
+    [self.nextStep mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(kOffX);
+        make.bottom.mas_equalTo(-kRate(21));
+        make.right.mas_equalTo(-kOffX);
+        make.height.mas_equalTo(kRate(50));
+    }];
+    [self.nextStep setTitle:@"下一步" forState:UIControlStateNormal];
+    [self.nextStep setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
+    self.nextStep.backgroundColor = CD_MainColor;
+    self.nextStep.titleLabel.font = FONT(TF17);
 }
 
 - (void)bindViewModel {
@@ -59,6 +77,11 @@
         
     }];
     [self.viewModel execute];
+    
+    [[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        DetectionResultViewModel *vm = [DetectionResultViewModel new];
+        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -66,12 +89,13 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.viewModel.dataArray.count;
+    return self.viewModel.dataArray.count+1;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        return nil;
+        UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kFooterId forIndexPath:indexPath];
+        return footerView;
     }
     UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kHeaderId forIndexPath:indexPath];
     UILabel *titleLabel = [headerView viewWithTag:100];
@@ -92,19 +116,47 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DetectionCaptureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellId forIndexPath:indexPath];
-    cell.valueSignal = [RACSignal return:[self.viewModel.dataArray objectAtIndex:indexPath.row]];
+    if (indexPath.row < self.viewModel.dataArray.count) {
+        cell.deleteBtn.hidden = false;
+        cell.photoImageView.image = nil;
+        cell.valueSignal = [RACSignal return:[self.viewModel.dataArray objectAtIndex:indexPath.row]];
+        @weakify(self);
+        [cell.deleteActionSubject subscribeNext:^(id x) {
+            @strongify(self);
+            NSLog(@"删除啦");
+            // 删除
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (self.viewModel.dataArray.count > indexPath.row) {
+                    [self.viewModel.dataArray removeObjectAtIndex:indexPath.row];
+                }
+                [self.listView reloadData];
+            });
+        }];
+    } else {
+        cell.deleteBtn.hidden = true;
+        cell.photoImageView.image = nil;
+    }
+    
     cell.backgroundColor = self.listView.backgroundColor;
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //启动图片浏览器
-    HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
-    browser.sourceImagesContainerView = self.listView; // 原图的父控件
-    browser.imageCount = self.viewModel.dataArray.count; // 图片总数
-    browser.currentImageIndex = (int)indexPath.row;
-    browser.delegate = self;
-    [browser show];
+    if (indexPath.row < self.viewModel.dataArray.count) {
+        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        //启动图片浏览器
+        HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
+        browser.sourceImagesContainerView = cell; // 原图的父控件
+        browser.imageCount = self.viewModel.dataArray.count; // 图片总数
+        browser.currentImageIndex = (int)indexPath.row;
+        browser.delegate = self;
+        [browser show];
+    } else {
+        // 拍照
+        TimeVideoViewModel *vm = [TimeVideoViewModel new];
+        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:YES];
+    }
+    
 }
 
 - (UIImage *)photoBrowser:(HZPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {

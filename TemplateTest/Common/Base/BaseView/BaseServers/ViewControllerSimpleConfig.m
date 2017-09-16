@@ -28,7 +28,9 @@
              kCasesVM:self.caseVC,
              kCaseDetailVM:self.caseDetail,
              kDetectionVM:self.detectionSelect,
-             kDetectionCaptureVM:self.detectionCapture
+             kDetectionCaptureVM:self.detectionCapture,
+             kTimeVideoVM:self.timeVideo,
+             kDetectionResultVM:self.detectionResult
              };
 }
 
@@ -62,15 +64,19 @@
              };
 }
 
-+ (NSDictionary *)reserverDetail {
++ (NSDictionary *)timeVideo {
     return @{
+             @"title":@"请按快门",
              @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 
-+ (NSDictionary *)peopleCenter {
++ (NSDictionary *)detectionResult {
     return @{
-             @"title":@"设置",
+             @"title":@"选择诊所",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 

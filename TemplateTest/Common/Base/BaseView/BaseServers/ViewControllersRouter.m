@@ -51,7 +51,9 @@ static ViewControllersRouter *router;
              kLoginVM:objc_getClass(kLoginVM.UTF8String),
              kCaseDetailVM:objc_getClass(kCaseDetailVM.UTF8String),
              kDetectionVM:objc_getClass(kDetectionVM.UTF8String),
-             kDetectionCaptureVM:objc_getClass(kDetectionCaptureVM.UTF8String)
+             kDetectionCaptureVM:objc_getClass(kDetectionCaptureVM.UTF8String),
+             kTimeVideoVM:objc_getClass(kTimeVideoVM.UTF8String),
+             kDetectionResultVM:objc_getClass(kDetectionResultVM.UTF8String)
              };
 }
 
@@ -65,7 +67,9 @@ static ViewControllersRouter *router;
              kAppointmentVM:objc_getClass("HWAppointmentViewController"),
              kSettingVM:objc_getClass("HWSettingViewController"),
              kDetectionVM:objc_getClass("HWDetectionSelectMemberViewController"),
-             kDetectionCaptureVM:objc_getClass("DetectionCaptureViewController")
+             kDetectionCaptureVM:objc_getClass("DetectionCaptureViewController"),
+             kTimeVideoVM:objc_getClass("TimeVideoViewController"),
+             kDetectionResultVM:objc_getClass("DetectionResultViewController")
              };
 }
 

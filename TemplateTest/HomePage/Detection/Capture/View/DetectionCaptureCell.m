@@ -10,8 +10,7 @@
 #import "DetectionCaptureModel.h"
 
 @interface DetectionCaptureCell ()
-@property (nonatomic, strong) UIImageView *photoImageView;
-@property (nonatomic, strong) UIButton *deleteBtn;
+@property (nonatomic, strong, readwrite) UIImageView *photoImageView;
 @end
 
 @implementation DetectionCaptureCell
@@ -62,9 +61,26 @@
 
 - (void)bindSignal {
     @weakify(self);
+    [self.valueSignal ignoreValues];
     [self.valueSignal subscribeNext:^(DetectionCaptureModel *model) {
         @strongify(self);
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl]];
+    }];
+    
+    self.deleteActionSubject = [RACSubject subject];
+    
+    __block BOOL filter = false;
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [[[self.deleteBtn rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(id value) {
+            return !filter;
+        }]subscribeNext:^(UIButton *sender){
+            [subscriber sendNext:@1];
+            [self.deleteActionSubject sendNext:@1];
+        }];
+        return nil;
+    }]merge:self.deleteActionSubject]subscribeNext:^(NSNumber *x) {
+        filter = x.boolValue;
     }];
 }
 
