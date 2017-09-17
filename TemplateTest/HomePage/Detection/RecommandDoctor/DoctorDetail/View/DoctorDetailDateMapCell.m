@@ -38,9 +38,10 @@
 
 - (void)initDefaultConfigs {
     self.mapView.mapView.showsUserLocation = true;
-    [self.dateView setValueSignal:[RACSignal return:RACTuplePack(@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"")]];
-    
-    
+}
+
+- (void)setValueSignal:(RACSignal *)valueSignal {
+    [self.dateView setValueSignal:valueSignal];
 }
 
 @end

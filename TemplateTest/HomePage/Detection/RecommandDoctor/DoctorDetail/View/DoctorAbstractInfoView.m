@@ -73,8 +73,15 @@
     self.collectBtn.iconSize = CGSizeMake(kRate(20), kRate(18));
     [self.collectBtn setImage:[UIImage imageNamed:@"collect"]];
     
-    self.titleLabel.text = @"吴医生简介";
-    self.descripLabel.text = @"吴医生简介吴医生简介吴医生简介吴医生简介吴医生简介吴医生简介吴医生简介吴医生简介";
+}
+
+- (void)setValueSignal:(RACSignal *)valueSignal {
+    @weakify(self);
+    [valueSignal subscribeNext:^(RACTuple *x) {
+        @strongify(self);
+        self.titleLabel.text = [NSString stringWithFormat:@"%@简介",x.first];
+        self.descripLabel.text = x.second;
+    }];
 }
 
 @end

@@ -28,7 +28,7 @@
         if (indexPath.row == 0) {
             return (CGFloat)kRate(325);
         }
-        return (CGFloat)(self.viewModel.timesHeight+kRate(160)+kRate(272/2.0));
+        return (CGFloat)(self.viewModel.timesHeight+kRate(160));
     };
 }
 
@@ -53,9 +53,11 @@
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         DoctorDetailInfoCell *cell = [[DoctorDetailInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([DoctorDetailModel class])];
+        cell.valueSignal = [RACSignal return:self.viewModel.dataArray.firstObject];
         return cell;
     } else {
         DoctorDetailDateMapCell *cell = [[DoctorDetailDateMapCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([DoctorDetailTimeListModel class])];
+        cell.valueSignal = [RACSignal return:[RACTuple tupleWithObjectsFromArray:self.viewModel.dataArray.lastObject]];
         return cell;
     }
 }

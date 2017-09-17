@@ -17,7 +17,7 @@
         [self post:kRDoctorDetail type:0 params:@{@"dentistId":@"1"} success:^(NSDictionary *response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSDictionary *dentistInfo = [data dictionaryObjectForKey:@"dentistInfo"];
-            NSArray *datelist = [data arrayObjectForKey:@"dateList"];
+            NSArray *datelist = [data arrayObjectForKey:@"datelist"];
             DoctorDetailModel *model = [MTLJSONAdapter modelOfClass:[DoctorDetailModel class] fromJSONDictionary:dentistInfo error:nil];
             [self.dataArray addObject:model];
             NSMutableArray *dates = [NSMutableArray arrayWithCapacity:datelist.count];
@@ -25,8 +25,10 @@
                 DoctorDetailTimeListModel *timeModel = [[DoctorDetailTimeListModel alloc]initWithDictionary:time error:nil];
                 [dates addObject:timeModel];
             }
+            [dates removeLastObject];
             [self.dataArray addObject:dates];
             
+            self.timesHeight = ceil(dates.count/4.0)*kRate(45);
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
             [subscriber sendError:Error];

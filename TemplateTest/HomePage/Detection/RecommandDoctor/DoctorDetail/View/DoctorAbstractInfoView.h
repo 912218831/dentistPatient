@@ -9,7 +9,7 @@
 #import "BaseView.h"
 
 @interface DoctorAbstractInfoView : BaseView
-
+@property (nonatomic, strong) RACSignal *valueSignal;
 @end
 
 @interface DoctorAbstractButton : UIButton

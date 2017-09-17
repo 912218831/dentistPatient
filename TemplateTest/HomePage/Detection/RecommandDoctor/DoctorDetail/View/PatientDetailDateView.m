@@ -11,8 +11,7 @@
 #import "DoctorDetailTimeListModel.h"
 
 #define UIRectCornerNone (0)
-#define kRow (3)
-#define kCol (4)
+#define kCol (4.0)
 @interface PatientDetailDateView ()
 @property (nonatomic, strong) UIView *contentV;
 @property (nonatomic, strong) NSMutableArray *titleLables;
@@ -43,15 +42,16 @@
 
 - (void)setValueSignal:(RACSignal *)valueSignal {
     @weakify(self);
-    [valueSignal subscribeNext:^(RACTuple *tuple) {
+    [[valueSignal deliverOn:[RACScheduler mainThreadScheduler]]subscribeNext:^(RACTuple *tuple) {
         @strongify(self);
-        CGFloat w = (kScreenWidth)/kCol;
-        CGFloat h = (kPatientDetailDateCellHeight)/kRow;
+        NSInteger allRow = ceil(tuple.allObjects.count/kCol);
+        CGFloat w = self.width/kCol;
+        CGFloat h = self.height/allRow;
         __block CGFloat x = 0;
         __block CGFloat y = 0;
         [tuple.rac_sequence foldLeftWithStart:@0 reduce:^id(NSNumber *accumulator, DoctorDetailTimeListModel *value) {
             NSInteger row = accumulator.integerValue/kCol;
-            NSInteger col = accumulator.integerValue%kCol;
+            NSInteger col = accumulator.integerValue%(int)kCol;
             // 初始化
             UILabelWithCorner *label = [[UILabelWithCorner alloc]init];
             label.indexPath = [NSIndexPath indexPathForRow:row inSection:col];
@@ -64,7 +64,7 @@
             // 赋值
             label.font = FONT(TF14);
             label.textColor = CD_Text99;
-            label.text = @"上午（2）";
+            label.text = value.title;
             label.backgroundColor = COLOR_FFFFFF;
             label.textAlignment = NSTextAlignmentCenter;
             // 监听点击事件
@@ -80,7 +80,6 @@
             return @(accumulator.integerValue + 1);
         }];
         // 画线
-        NSInteger allRow = ceil(tuple.allObjects.count/kCol);
         for (int row=1; row<allRow; row++) {
             DashLineView *hLine = [[DashLineView alloc]initWithLineHeight:kScreenWidth - kRate(30) space:0 direction:Horizontal strokeColor:COLOR_999999];
             [self.contentV addSubview:hLine];

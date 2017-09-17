@@ -10,6 +10,8 @@
 #import "DashLineView.h"
 #import "DoctorAbstractInfoView.h"
 #import "DoctorDetailAttachedView.h"
+#import "DoctorDetailModel.h"
+
 @interface DoctorDetailInfoCell ()
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UIView *contentV;
@@ -129,19 +131,22 @@
     self.leftView.direction = Left;
     self.rightView.direction = Right;
     
-    self.nameLabel.text = @"吴医生";
-    self.hospitalLabel.text = @"北京口腔医院";
-    self.orderedLabel.text = @"34人预约过";
-    self.headImageView.backgroundColor = [UIColor redColor];
-    self.leftView.valueSignal = [RACSignal return:RACTuplePack(@"¥268",@"已有1234人预约成功")];
-    self.rightView.valueSignal = [RACSignal return:RACTuplePack(@"80",@"已有1234人预约成功")];
 }
 
 - (void)bindSignal {
     @weakify(self);
-    [self.valueSignal subscribeNext:^(id model) {
+    [self.valueSignal subscribeNext:^(DoctorDetailModel *model) {
         @strongify(self);
         [self.headImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"]];
+        self.nameLabel.text = model.name;
+        self.hospitalLabel.text = model.clinicName;
+        self.orderedLabel.text = [NSString stringWithFormat:@"%@人预约过",model.patientCount];
+        self.headImageView.backgroundColor = [UIColor redColor];
+        NSString *text = [NSString stringWithFormat:@"已有%@预约成功",model.patientCount];
+        NSString *price = [NSString stringWithFormat:@"¥%@",model.averagePaice];
+        self.leftView.valueSignal = [RACSignal return:RACTuplePack(price,text)];
+        self.rightView.valueSignal = [RACSignal return:RACTuplePack(@"80",@"门店结算时抵现金")];
+        self.doctorAbstractView.valueSignal = [RACSignal return:RACTuplePack(model.name, model.descrip)];
     }];
 }
 
