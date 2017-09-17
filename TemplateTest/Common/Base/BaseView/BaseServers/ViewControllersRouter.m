@@ -55,6 +55,7 @@ static ViewControllersRouter *router;
              kTimeVideoVM:objc_getClass(kTimeVideoVM.UTF8String),
              kDetectionResultVM:objc_getClass(kDetectionResultVM.UTF8String),
              kRDoctorVM:objc_getClass(kRDoctorVM.UTF8String),
+             kRDoctorDetailVM:objc_getClass(kRDoctorDetailVM.UTF8String)
              };
 }
 
@@ -71,7 +72,8 @@ static ViewControllersRouter *router;
              kDetectionCaptureVM:objc_getClass("DetectionCaptureViewController"),
              kTimeVideoVM:objc_getClass("TimeVideoViewController"),
              kDetectionResultVM:objc_getClass("DetectionResultViewController"),
-             kRDoctorVM:objc_getClass("RecommandDoctorVC")
+             kRDoctorVM:objc_getClass("RecommandDoctorVC"),
+             kRDoctorDetailVM:objc_getClass("DoctorDetailViewController")
              };
 }
 

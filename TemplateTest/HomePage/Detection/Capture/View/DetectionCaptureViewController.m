@@ -73,7 +73,7 @@
         @strongify(self);
         [self.listView reloadData];
     }error:^(NSError *error) {
-        
+        [Utility showToastWithMessage:error.domain];
     } completed:nil]finally:^{
         @strongify(self);
         [Utility hideMBProgress:self.contentView];

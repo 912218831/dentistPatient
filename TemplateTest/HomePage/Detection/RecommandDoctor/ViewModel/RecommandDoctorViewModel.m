@@ -25,7 +25,7 @@
         [self post:kRecommandDoctor type:0 params:@{} success:^(NSDictionary *response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSArray *clinicList = [data arrayObjectForKey:@"clinicList"];
-            [clinicList.rac_sequence foldLeftWithStart:@YES reduce:^id(id accumulator, NSDictionary *value) {
+            [clinicList.rac_sequence foldLeftWithStart:@0 reduce:^id(id accumulator, NSDictionary *value) {
                 RecommandDoctorModel *model = [MTLJSONAdapter modelOfClass:[RecommandDoctorModel class] fromJSONDictionary:value error:nil];
                 [self.dataArray addObject:model];
                 model.coordinated2D = CLLocationCoordinate2DMake(31.350536,121.564816);

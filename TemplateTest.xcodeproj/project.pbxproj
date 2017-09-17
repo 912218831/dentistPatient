@@ -247,11 +247,21 @@
 		C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0461F680DD3000C99A1 /* HWCasesViewController.m */; };
 		C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */; };
 		C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B04D1F681307000C99A1 /* CaseSegmentButton.m */; };
+		C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */; };
+		C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */; };
+		C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */; };
 		C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA141F6E5C170083E8C5 /* MapContentView.m */; };
 		C5B4AA1C1F6E71B20083E8C5 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */; };
 		C5B4AA1F1F6E71CA0083E8C5 /* DoctorDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1E1F6E71CA0083E8C5 /* DoctorDetailViewModel.m */; };
 		C5B4AA221F6E71E10083E8C5 /* DoctorDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA211F6E71E10083E8C5 /* DoctorDetailModel.m */; };
 		C5B4AA251F6E720C0083E8C5 /* DoctorDetailTimeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA241F6E720C0083E8C5 /* DoctorDetailTimeListModel.m */; };
+		C5B4AA271F6EACD70083E8C5 /* collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B4AA261F6EACD70083E8C5 /* collect@2x.png */; };
+		C5B4AA291F6EACDC0083E8C5 /* discounts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B4AA281F6EACDC0083E8C5 /* discounts@2x.png */; };
+		C5B4AA2B1F6EACE10083E8C5 /* discounts@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B4AA2A1F6EACE10083E8C5 /* discounts@3x.png */; };
+		C5B4AA2D1F6EACE50083E8C5 /* collect@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B4AA2C1F6EACE50083E8C5 /* collect@3x.png */; };
+		C5B4AA301F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA2F1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m */; };
+		C5B4AA331F6EAD500083E8C5 /* DoctorDetailDateMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */; };
+		C5B4AA361F6EB3350083E8C5 /* DashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA351F6EB3350083E8C5 /* DashLineView.m */; };
 		C5CCBB421F6968A7003A4B8C /* CaseDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB411F6968A7003A4B8C /* CaseDetailViewModel.m */; };
 		C5CCBB451F6968D1003A4B8C /* CaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB441F6968D1003A4B8C /* CaseDetailViewController.m */; };
 		C5CCBB481F6968E1003A4B8C /* CaseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB471F6968E1003A4B8C /* CaseDetailModel.m */; };
@@ -713,6 +723,12 @@
 		C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewModel.m; sourceTree = "<group>"; };
 		C546B04C1F681307000C99A1 /* CaseSegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseSegmentButton.h; sourceTree = "<group>"; };
 		C546B04D1F681307000C99A1 /* CaseSegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseSegmentButton.m; sourceTree = "<group>"; };
+		C587E3641F6EB9F0009509CB /* DoctorDetailAttachedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailAttachedView.h; sourceTree = "<group>"; };
+		C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailAttachedView.m; sourceTree = "<group>"; };
+		C587E3671F6EBA10009509CB /* DoctorAbstractInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorAbstractInfoView.h; sourceTree = "<group>"; };
+		C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorAbstractInfoView.m; sourceTree = "<group>"; };
+		C587E36A1F6ED88C009509CB /* PatientDetailDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientDetailDateView.h; sourceTree = "<group>"; };
+		C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientDetailDateView.m; sourceTree = "<group>"; };
 		C5B4AA131F6E5C170083E8C5 /* MapContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapContentView.h; sourceTree = "<group>"; };
 		C5B4AA141F6E5C170083E8C5 /* MapContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapContentView.m; sourceTree = "<group>"; };
 		C5B4AA1A1F6E71B20083E8C5 /* DoctorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailViewController.h; sourceTree = "<group>"; };
@@ -723,6 +739,16 @@
 		C5B4AA211F6E71E10083E8C5 /* DoctorDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailModel.m; sourceTree = "<group>"; };
 		C5B4AA231F6E720C0083E8C5 /* DoctorDetailTimeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailTimeListModel.h; sourceTree = "<group>"; };
 		C5B4AA241F6E720C0083E8C5 /* DoctorDetailTimeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailTimeListModel.m; sourceTree = "<group>"; };
+		C5B4AA261F6EACD70083E8C5 /* collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect@2x.png"; sourceTree = "<group>"; };
+		C5B4AA281F6EACDC0083E8C5 /* discounts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discounts@2x.png"; sourceTree = "<group>"; };
+		C5B4AA2A1F6EACE10083E8C5 /* discounts@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discounts@3x.png"; sourceTree = "<group>"; };
+		C5B4AA2C1F6EACE50083E8C5 /* collect@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect@3x.png"; sourceTree = "<group>"; };
+		C5B4AA2E1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailInfoCell.h; sourceTree = "<group>"; };
+		C5B4AA2F1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailInfoCell.m; sourceTree = "<group>"; };
+		C5B4AA311F6EAD500083E8C5 /* DoctorDetailDateMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailDateMapCell.h; sourceTree = "<group>"; };
+		C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailDateMapCell.m; sourceTree = "<group>"; };
+		C5B4AA341F6EB3350083E8C5 /* DashLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashLineView.h; sourceTree = "<group>"; };
+		C5B4AA351F6EB3350083E8C5 /* DashLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashLineView.m; sourceTree = "<group>"; };
 		C5CCBB401F6968A7003A4B8C /* CaseDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseDetailViewModel.h; sourceTree = "<group>"; };
 		C5CCBB411F6968A7003A4B8C /* CaseDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseDetailViewModel.m; sourceTree = "<group>"; };
 		C5CCBB431F6968D1003A4B8C /* CaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseDetailViewController.h; sourceTree = "<group>"; };
@@ -990,6 +1016,8 @@
 		B02770C61F6A75720044A417 /* HWDashView */ = {
 			isa = PBXGroup;
 			children = (
+				C5B4AA341F6EB3350083E8C5 /* DashLineView.h */,
+				C5B4AA351F6EB3350083E8C5 /* DashLineView.m */,
 				B02770C71F6A75720044A417 /* HWDashView.h */,
 				B02770C81F6A75720044A417 /* HWDashView.m */,
 			);
@@ -1059,6 +1087,8 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C5B4AA261F6EACD70083E8C5 /* collect@2x.png */,
+				C5B4AA281F6EACDC0083E8C5 /* discounts@2x.png */,
 				C50029E91F6D0EAC0064DFEE /* selectDoctor_icon@2x.png */,
 				C50029D61F6CD9250064DFEE /* detectionResult@2x.png */,
 				B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */,
@@ -1097,6 +1127,8 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C5B4AA2C1F6EACE50083E8C5 /* collect@3x.png */,
+				C5B4AA2A1F6EACE10083E8C5 /* discounts@3x.png */,
 				C50029E71F6D0EA70064DFEE /* selectDoctor_icon@3x.png */,
 				B09807E01F6ACC03009C0FE1 /* 检测成员_选中@3x.png */,
 				B09807E11F6ACC03009C0FE1 /* 检测成员@3x.png */,
@@ -1846,6 +1878,16 @@
 			children = (
 				C5B4AA1A1F6E71B20083E8C5 /* DoctorDetailViewController.h */,
 				C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */,
+				C5B4AA2E1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.h */,
+				C5B4AA2F1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m */,
+				C587E3641F6EB9F0009509CB /* DoctorDetailAttachedView.h */,
+				C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */,
+				C587E3671F6EBA10009509CB /* DoctorAbstractInfoView.h */,
+				C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */,
+				C5B4AA311F6EAD500083E8C5 /* DoctorDetailDateMapCell.h */,
+				C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */,
+				C587E36A1F6ED88C009509CB /* PatientDetailDateView.h */,
+				C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2247,6 +2289,7 @@
 				B07EE4FB1F695F8500FCA22D /* 预约失败@2x.png in Resources */,
 				DA3DFF3B1ADE7A4000C4E99A /* blueArrow@2x.png in Resources */,
 				C5CCBB4F1F696C2F003A4B8C /* TOP_ARROW@3x.png in Resources */,
+				C5B4AA2D1F6EACE50083E8C5 /* collect@3x.png in Resources */,
 				B0B0B5921F287302002FE127 /* 提成@2x.png in Resources */,
 				B07EE4B21F67CC4B00FCA22D /* arrow_down@2x.png in Resources */,
 				B0B0B5931F287302002FE127 /* 注册成功@2x.png in Resources */,
@@ -2262,9 +2305,11 @@
 				B09253931F69F4750074EEFF /* 预约失败人数@3x.png in Resources */,
 				B0B0B5971F287302002FE127 /* click提成@3x.png in Resources */,
 				C5CCBB4D1F696C2C003A4B8C /* TOP_ARROW@2x.png in Resources */,
+				C5B4AA291F6EACDC0083E8C5 /* discounts@2x.png in Resources */,
 				B0B0B59D1F287302002FE127 /* 提成@3x.png in Resources */,
 				B02770BA1F6A674C0044A417 /* 优惠券_选中@2x.png in Resources */,
 				B02AED211F4ED518009C25A7 /* 产品@2x.png in Resources */,
+				C5B4AA2B1F6EACE10083E8C5 /* discounts@3x.png in Resources */,
 				B0B0B59B1F287302002FE127 /* 启动页@3x.png in Resources */,
 				B07EE4D21F68D56B00FCA22D /* 我的家庭@2x.png in Resources */,
 				B0B0B5621F276EAA002FE127 /* navigationbar_background_tall.png in Resources */,
@@ -2284,6 +2329,7 @@
 				B0B0B5651F276EAA002FE127 /* navigationbar_background@2x.png in Resources */,
 				B07EE4B41F67CC5F00FCA22D /* arrow_down@3x.png in Resources */,
 				C50029E81F6D0EA70064DFEE /* selectDoctor_icon@3x.png in Resources */,
+				C5B4AA271F6EACD70083E8C5 /* collect@2x.png in Resources */,
 				B0B0B5641F276EAA002FE127 /* navigationbar_background.png in Resources */,
 				C24E7DB81ADE51AA00BA8ECC /* Images.xcassets in Resources */,
 				B07EE4B81F67CFFB00FCA22D /* 搜索@2x.png in Resources */,
@@ -2439,6 +2485,7 @@
 				C28BACB31B16B8C90048DE0A /* mztools.c in Sources */,
 				B0D26B051BDF7B920012A093 /* HWCustomViewItem.m in Sources */,
 				B09807D21F6ABF4F009C0FE1 /* HWAppointCouponCell.m in Sources */,
+				C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */,
 				72230B151C21670D0040F496 /* ASDisplayNode+Utils.m in Sources */,
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
@@ -2465,6 +2512,7 @@
 				B07EE4A71F67B80100FCA22D /* HWHomePageViewModel.m in Sources */,
 				DA3DFF151ADE78ED00C4E99A /* HWBaseRefreshView.m in Sources */,
 				C508997A1F6ACD610013AE02 /* VirtualSignal.m in Sources */,
+				C5B4AA361F6EB3350083E8C5 /* DashLineView.m in Sources */,
 				B0D26B0A1BDF7B920012A093 /* HWTableViewManger.m in Sources */,
 				7552CE2A1D1240CB00A557EA /* DLable.m in Sources */,
 				C50029B11F6C0BF20064DFEE /* HWDetectionSelectMemberViewModel.m in Sources */,
@@ -2481,6 +2529,7 @@
 				C531FBB41F66D3330008A17A /* BaseViewController+Frame.m in Sources */,
 				B0D26AFD1BDF7B920012A093 /* HWCountDownCell.m in Sources */,
 				B0DD00141BF42729003FBDA2 /* WXImageView.m in Sources */,
+				C5B4AA301F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m in Sources */,
 				B0F8EF8D1EF3C39F00F38770 /* Drawing-Block.m in Sources */,
 				B0F8EF891EF3C39F00F38770 /* BezierElement.m in Sources */,
 				B07EE4F81F695E2F00FCA22D /* HWAppoitmentFailCell.m in Sources */,
@@ -2492,6 +2541,7 @@
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
 				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
 				C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */,
+				C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */,
 				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
 				C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */,
@@ -2524,8 +2574,10 @@
 				C24E7DB31ADE51AA00BA8ECC /* ViewController.m in Sources */,
 				B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */,
 				B0D26B091BDF7B920012A093 /* HWTitleAndLabelItem.m in Sources */,
+				C5B4AA331F6EAD500083E8C5 /* DoctorDetailDateMapCell.m in Sources */,
 				B09807D61F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m in Sources */,
 				B042FA1F1DF6912B0017F689 /* HWEmptyView.m in Sources */,
+				C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */,
 				DA3DFF221ADE78ED00C4E99A /* Utility.m in Sources */,
 				C531FBB11F66D0390008A17A /* ProtocolTerminal.m in Sources */,
 				B0D26B011BDF7B920012A093 /* HWTableViewCell.m in Sources */,

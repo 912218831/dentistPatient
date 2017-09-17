@@ -8,6 +8,7 @@
 
 #import "BaseView.h"
 
-@interface MapContentView : BaseView
+@interface MapContentView : UIButton
+@property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) RACSignal *annotationsSignal;
 @end

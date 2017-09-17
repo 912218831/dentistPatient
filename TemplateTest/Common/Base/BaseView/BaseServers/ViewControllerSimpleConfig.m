@@ -31,7 +31,8 @@
              kDetectionCaptureVM:self.detectionCapture,
              kTimeVideoVM:self.timeVideo,
              kDetectionResultVM:self.detectionResult,
-             kRDoctorVM:self.recommandDoctor
+             kRDoctorVM:self.recommandDoctor,
+             kRDoctorDetailVM:self.doctorDetail
              };
 }
 
@@ -84,6 +85,14 @@
 + (NSDictionary *)recommandDoctor {
     return @{
              @"title":@"选择医生",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
+
++ (NSDictionary *)doctorDetail {
+    return @{
+             @"title":@"医生详情",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };

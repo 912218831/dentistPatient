@@ -10,6 +10,7 @@
 #import "MapView.h"
 #import "RecommandDoctorViewModel.h"
 #import "RDoctorListCell.h"
+#import "DoctorDetailViewModel.h"
 
 @interface RecommandDoctorVC ()
 @property (nonatomic, strong) MapView *mapView;
@@ -27,6 +28,13 @@
     self.listView.backgroundColor = [UIColor clearColor];
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
         return indexPath.row==0?kRate(308):(CGFloat)kRate(108);
+    };
+    @weakify(self);
+    self.listView.didSelected = ^(NSIndexPath *indexPath){
+        @strongify(self);
+        DoctorDetailViewModel *model = [DoctorDetailViewModel new];
+        model.doctorModel = self.viewModel.dataArray[indexPath.row];
+        [[ViewControllersRouter shareInstance]pushViewModel:model animated:YES];
     };
     self.listView.baseTable.layer.masksToBounds = false;
 }
@@ -68,12 +76,6 @@
     }
     cell.valueSignal = [RACSignal return:self.viewModel.dataArray[indexPath.row]];
     return cell;
-}
-
-- (void)backMethod {
-    [super backMethod];
-    UIView *wrapView = [self.listView.baseTable.subviews firstObject];
-    NSLog(@"%@",wrapView.subviews);
 }
 
 - (void)didReceiveMemoryWarning {

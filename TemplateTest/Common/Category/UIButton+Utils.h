@@ -40,7 +40,4 @@ typedef void (^ActionBlock)(void);
  */
 - (void)handleControlEvent:(UIControlEvents)event withBlock:(ActionBlock)block;
 
-
-
-
 @end

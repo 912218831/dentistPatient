@@ -10,8 +10,11 @@
 
 @implementation DoctorDetailModel
 
-+ (Class)classForParsingJSONDictionary:(NSDictionary *)JSONDictionary {
-    return nil;
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    NSMutableDictionary *dic = (NSMutableDictionary *)[super JSONKeyPathsByPropertyKey];
+    dic[@"descrip"] = @"description";
+    dic[@"lon"] = @"long";
+    return dic;
 }
 
 @end

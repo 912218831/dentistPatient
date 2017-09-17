@@ -20,8 +20,17 @@
 @implementation MapView
 
 
+- (instancetype)init {
+    if (self = [super init]) {
+        [self initSubViews];
+        [self layoutSubViews];
+        [self initDefaultConfigs];
+    }
+    return self;
+}
+
 - (void)initSubViews {
-    self.contentV = [[MapContentView alloc]init];
+    self.contentV = [MapContentView buttonWithType:UIButtonTypeCustom];
     [self addSubview:self.contentV];
     
     self.shadowImageView = [UIImageView new];
@@ -52,6 +61,7 @@
     self.contentV.backgroundColor = [UIColor redColor];
     self.backgroundColor = [UIColor clearColor];
     self.cell.backgroundColor = [UIColor clearColor];
+    self.cell.userInteractionEnabled = false;
 }
 
 - (void)bindSignal {
@@ -62,5 +72,4 @@
         [self.contentV setAnnotationsSignal:[RACSignal return:RACTupleArray(x.second)]];
     }];
 }
-
 @end

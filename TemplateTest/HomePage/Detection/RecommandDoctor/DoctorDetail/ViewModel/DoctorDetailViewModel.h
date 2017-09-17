@@ -7,7 +7,10 @@
 //
 
 #import "BaseListViewModel.h"
+#import "RecommandDoctorModel.h"
+#import "DoctorDetailModel.h"
 
 @interface DoctorDetailViewModel : BaseListViewModel
-
+@property (nonatomic, strong) RecommandDoctorModel *doctorModel;
+@property (nonatomic, assign) CGFloat timesHeight;
 @end

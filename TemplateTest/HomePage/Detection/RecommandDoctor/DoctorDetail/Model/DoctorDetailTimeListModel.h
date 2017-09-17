@@ -9,5 +9,7 @@
 #import "BaseModel.h"
 
 @interface DoctorDetailTimeListModel : BaseModel
-
+@property (nonatomic, copy) NSString* amPm;
+@property (nonatomic, copy) NSString* date;
+@property (nonatomic, copy) NSString* title;
 @end

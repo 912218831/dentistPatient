@@ -9,12 +9,20 @@
 #import "MapContentView.h"
 
 @interface MapContentView () <MAMapViewDelegate>
-@property (nonatomic, strong) MAMapView *mapView;
+
 @property (nonatomic, strong) NSMutableArray *annotations;
 @property (nonatomic, assign) BOOL settedRegion;
 @end
 
 @implementation MapContentView
+
++ (instancetype)buttonWithType:(UIButtonType)buttonType {
+    MapContentView *btn = [super buttonWithType:buttonType];
+    [btn initSubViews];
+    [btn layoutSubViews];
+    [btn initDefaultConfigs];
+    return btn;
+}
 
 - (void)initSubViews {
     self.mapView = [[MAMapView alloc]initWithFrame:self.bounds];
