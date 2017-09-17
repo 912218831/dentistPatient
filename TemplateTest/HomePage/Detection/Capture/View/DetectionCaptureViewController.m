@@ -67,14 +67,16 @@
     [super bindViewModel];
     [self.viewModel bindViewWithSignal];
     
+    [Utility showMBProgress:self.contentView message:nil];
     @weakify(self);
-    [self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
+    [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
         [self.listView reloadData];
     }error:^(NSError *error) {
         
-    } completed:^{
-        
+    } completed:nil]finally:^{
+        @strongify(self);
+        [Utility hideMBProgress:self.contentView];
     }];
     [self.viewModel execute];
     
@@ -121,11 +123,11 @@
         cell.photoImageView.image = nil;
         cell.valueSignal = [RACSignal return:[self.viewModel.dataArray objectAtIndex:indexPath.row]];
         @weakify(self);
-        [cell.deleteActionSubject subscribeNext:^(id x) {
+        [cell.deleteActionSubject subscribeCompleted:^{
             @strongify(self);
             NSLog(@"删除啦");
             // 删除
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (self.viewModel.dataArray.count > indexPath.row) {
                     [self.viewModel.dataArray removeObjectAtIndex:indexPath.row];
                 }

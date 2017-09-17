@@ -18,4 +18,7 @@
 @property (nonatomic, copy) NSString *telephone;
 @property (nonatomic, copy) NSString *mobile;
 @property (nonatomic, copy) NSString *distance;
+@property (nonatomic, copy) NSString *latitude;
+@property (nonatomic, copy) NSString *longitude;
+@property (nonatomic) CLLocationCoordinate2D coordinated2D;
 @end

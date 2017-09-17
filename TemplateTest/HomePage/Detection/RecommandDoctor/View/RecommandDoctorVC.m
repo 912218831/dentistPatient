@@ -11,7 +11,7 @@
 #import "RecommandDoctorViewModel.h"
 #import "RDoctorListCell.h"
 
-@interface RecommandDoctorVC () <UITableViewDataSource>
+@interface RecommandDoctorVC ()
 @property (nonatomic, strong) MapView *mapView;
 @property (nonatomic, strong) RecommandDoctorViewModel *viewModel;
 @end
@@ -51,10 +51,6 @@
     [self.viewModel execute];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.dataArray.count;
-}
-
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         MapView *cell = self.mapView;
@@ -62,7 +58,7 @@
             cell = [[MapView alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([MapView class])];
             self.mapView = cell;
         }
-        cell.valueSignal = [RACSignal return:self.viewModel.dataArray.firstObject];
+        cell.valueSignal = [RACSignal return:RACTuplePack(self.viewModel.dataArray.firstObject, self.viewModel.annotations)];
         return cell;
     }
     RDoctorListCell *cell = [self.listView.baseTable dequeueReusableCellWithIdentifier:kRDoctorVM];

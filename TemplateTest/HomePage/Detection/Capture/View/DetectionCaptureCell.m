@@ -75,8 +75,7 @@
         [[[self.deleteBtn rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(id value) {
             return !filter;
         }]subscribeNext:^(UIButton *sender){
-            [subscriber sendNext:@1];
-            [self.deleteActionSubject sendNext:@1];
+            [self.deleteActionSubject sendCompleted];
         }];
         return nil;
     }]merge:self.deleteActionSubject]subscribeNext:^(NSNumber *x) {

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @class VirtualSignal;
+@class VirtualSubscriber;
+
 @protocol VirtualSignalProtocol <NSObject>
 
 + (VirtualSignal *)createSignal:(void (^)(id<RACSubscriber> subscriber))didSubscribe;
 
-- (void)subscribeNext:(void (^)(id x))nextBlock error:(void (^)(NSError *error))errorBlock completed:(void (^)(void))completedBlock;
+- (VirtualSubscriber *)subscribeNext:(void (^)(id x))nextBlock error:(void (^)(NSError *error))errorBlock completed:(void (^)(void))completedBlock;
 
 @end
 
@@ -25,4 +27,7 @@
 @property (nonatomic, copy) void (^nextBlock)(id);
 @property (nonatomic, copy) void (^errorBlock)(NSError *);
 @property (nonatomic, copy) void (^completedBlock)(void);
+
+- (void)finally:(void (^)())finallyBlock;
+
 @end

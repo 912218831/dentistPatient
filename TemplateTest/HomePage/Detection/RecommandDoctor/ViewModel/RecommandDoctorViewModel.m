@@ -11,6 +11,13 @@
 
 @implementation RecommandDoctorViewModel
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.annotations = [NSMutableArray array];
+    }
+    return self;
+}
+
 - (void)initRequestSignal {
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -19,7 +26,13 @@
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSArray *clinicList = [data arrayObjectForKey:@"clinicList"];
             [clinicList.rac_sequence foldLeftWithStart:@YES reduce:^id(id accumulator, NSDictionary *value) {
-                [self.dataArray addObject:[MTLJSONAdapter modelOfClass:[RecommandDoctorModel class] fromJSONDictionary:value error:nil]];
+                RecommandDoctorModel *model = [MTLJSONAdapter modelOfClass:[RecommandDoctorModel class] fromJSONDictionary:value error:nil];
+                [self.dataArray addObject:model];
+                model.coordinated2D = CLLocationCoordinate2DMake(31.350536,121.564816);
+                MAPointAnnotation *a1 = [[MAPointAnnotation alloc] init];
+                a1.coordinate = model.coordinated2D;
+                a1.title      = [NSString stringWithFormat:@"anno: %@", accumulator];
+                [self.annotations addObject:a1];
                 return @([accumulator integerValue]+1);
             }];
             [subscriber sendNext:[RACSignal return:@1]];

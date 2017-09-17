@@ -9,5 +9,5 @@
 #import "BaseListViewModel.h"
 
 @interface RecommandDoctorViewModel : BaseListViewModel
-
+@property (nonatomic, strong) NSMutableArray *annotations;
 @end
