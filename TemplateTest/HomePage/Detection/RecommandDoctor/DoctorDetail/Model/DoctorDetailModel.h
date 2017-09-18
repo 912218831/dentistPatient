@@ -24,4 +24,5 @@
 @property (nonatomic, copy) NSString* mobile;
 @property (nonatomic, copy) NSString* name;
 @property (nonatomic, copy) NSString* patientCount;
+@property (nonatomic) CLLocationCoordinate2D coordinated2D;
 @end

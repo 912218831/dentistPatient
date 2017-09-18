@@ -13,4 +13,5 @@
 @property (nonatomic, strong) UIButton *deleteBtn;
 @property (nonatomic, strong) RACSignal *valueSignal;
 @property (nonatomic, strong) RACSubject *deleteActionSubject;
+@property (nonatomic, assign) BOOL needBorder;
 @end

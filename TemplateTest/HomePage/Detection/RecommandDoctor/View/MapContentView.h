@@ -9,6 +9,6 @@
 #import "BaseView.h"
 
 @interface MapContentView : UIButton
-@property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) RACSignal *annotationsSignal;
+@property (nonatomic, assign) BOOL needAnnotationCenter;
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "BaseListViewCell.h"
+#import "PatientDetailDateView.h"
 
 @interface DoctorDetailDateMapCell : BaseListViewCell
-
+@property (nonatomic, strong) RACSignal *datesSignal;
+@property (nonatomic, strong, readonly) PatientDetailDateView *dateView;
 @end

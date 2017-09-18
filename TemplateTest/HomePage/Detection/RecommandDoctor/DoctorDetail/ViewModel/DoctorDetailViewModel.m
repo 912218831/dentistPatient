@@ -14,7 +14,7 @@
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self post:kRDoctorDetail type:0 params:@{@"dentistId":@"1"} success:^(NSDictionary *response) {
+        [self post:kRDoctorDetail type:0 params:@{@"dentistId":self.doctorModel.dentistId} success:^(NSDictionary *response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSDictionary *dentistInfo = [data dictionaryObjectForKey:@"dentistInfo"];
             NSArray *datelist = [data arrayObjectForKey:@"datelist"];
@@ -25,8 +25,13 @@
                 DoctorDetailTimeListModel *timeModel = [[DoctorDetailTimeListModel alloc]initWithDictionary:time error:nil];
                 [dates addObject:timeModel];
             }
-            [dates removeLastObject];
             [self.dataArray addObject:dates];
+            
+            MAPointAnnotation *a1 = [[MAPointAnnotation alloc] init];
+            a1.coordinate = model.coordinated2D;
+            a1.coordinate = CLLocationCoordinate2DMake(31.350536, 121.564817);
+            a1.title      = model.clinicName;
+            self.annotation = a1;
             
             self.timesHeight = ceil(dates.count/4.0)*kRate(45);
             [subscriber sendNext:[RACSignal return:@1]];

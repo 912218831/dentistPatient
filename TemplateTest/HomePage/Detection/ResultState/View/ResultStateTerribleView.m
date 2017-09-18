@@ -43,7 +43,7 @@
 }
 
 - (void)initDefaultConfigs {
-    self.iconImageView.backgroundColor = [UIColor redColor];
+    self.iconImageView.image = [UIImage imageNamed:@"detectionResultT"];
     
     self.titleLabel.font = FONT(TF15);
     self.titleLabel.textColor = CD_Text33;

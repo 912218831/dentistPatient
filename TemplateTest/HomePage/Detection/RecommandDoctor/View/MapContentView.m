@@ -9,7 +9,7 @@
 #import "MapContentView.h"
 
 @interface MapContentView () <MAMapViewDelegate>
-
+@property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) NSMutableArray *annotations;
 @property (nonatomic, assign) BOOL settedRegion;
 @end
@@ -62,6 +62,12 @@
         @strongify(self);
         [[RACScheduler mainThreadScheduler]schedule:^{
             [self.mapView addAnnotations:x.allObjects];
+            if (self.needAnnotationCenter) {
+                MACoordinateSpan span = MACoordinateSpanMake(0.004913, 0.013695);
+                MAPointAnnotation *an = x.first;
+                MACoordinateRegion region = MACoordinateRegionMake(an.coordinate, span);
+                self.mapView.region = region;
+            }
         }];
         
     }];
@@ -93,7 +99,7 @@
 
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation {
     // 定位
-    if (!self.settedRegion) {
+    if (!self.settedRegion&&!self.needAnnotationCenter) {
         MACoordinateSpan span = MACoordinateSpanMake(0.004913, 0.013695);
         MACoordinateRegion region = MACoordinateRegionMake(mapView.centerCoordinate, span);
         self.mapView.region = region;

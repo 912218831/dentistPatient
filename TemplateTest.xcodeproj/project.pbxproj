@@ -204,7 +204,6 @@
 		C50029CF1F6C20F70064DFEE /* DetectionCaptureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029CE1F6C20F70064DFEE /* DetectionCaptureModel.m */; };
 		C50029D21F6CD79B0064DFEE /* TimeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D11F6CD79B0064DFEE /* TimeVideoViewController.m */; };
 		C50029D51F6CD7AE0064DFEE /* TimeVideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D41F6CD7AE0064DFEE /* TimeVideoViewModel.m */; };
-		C50029D71F6CD9250064DFEE /* detectionResult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C50029D61F6CD9250064DFEE /* detectionResult@2x.png */; };
 		C50029DA1F6CD96A0064DFEE /* DetectionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */; };
 		C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029DC1F6CD9790064DFEE /* DetectionResultViewModel.m */; };
 		C50029E01F6CDB730064DFEE /* ResultStateGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50029DF1F6CDB730064DFEE /* ResultStateGoodView.m */; };
@@ -250,6 +249,16 @@
 		C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */; };
 		C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */; };
 		C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */; };
+		C587E36E1F6F63DD009509CB /* RDSelectDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E36D1F6F63DD009509CB /* RDSelectDate@2x.png */; };
+		C587E3701F6F63E2009509CB /* RDSelectDate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E36F1F6F63E2009509CB /* RDSelectDate@3x.png */; };
+		C587E3721F6F67FC009509CB /* detectionResult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E3711F6F67FC009509CB /* detectionResult@2x.png */; };
+		C587E3741F6F6801009509CB /* detectionResult@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E3731F6F6801009509CB /* detectionResult@3x.png */; };
+		C587E3761F6F68B8009509CB /* detectionResultT@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E3751F6F68B8009509CB /* detectionResultT@2x.png */; };
+		C587E3781F6F68BE009509CB /* detectionResultT@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E3771F6F68BE009509CB /* detectionResultT@3x.png */; };
+		C587E37A1F6F6A5E009509CB /* detectionCapture@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E3791F6F6A5E009509CB /* detectionCapture@3x.png */; };
+		C587E37C1F6F6A62009509CB /* detectionPhotoDelete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */; };
+		C587E37E1F6F6A68009509CB /* detectionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */; };
+		C587E3801F6F6A6F009509CB /* detectionPhotoDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */; };
 		C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA141F6E5C170083E8C5 /* MapContentView.m */; };
 		C5B4AA1C1F6E71B20083E8C5 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */; };
 		C5B4AA1F1F6E71CA0083E8C5 /* DoctorDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1E1F6E71CA0083E8C5 /* DoctorDetailViewModel.m */; };
@@ -639,7 +648,6 @@
 		C50029D11F6CD79B0064DFEE /* TimeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVideoViewController.m; sourceTree = "<group>"; };
 		C50029D31F6CD7AE0064DFEE /* TimeVideoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeVideoViewModel.h; sourceTree = "<group>"; };
 		C50029D41F6CD7AE0064DFEE /* TimeVideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVideoViewModel.m; sourceTree = "<group>"; };
-		C50029D61F6CD9250064DFEE /* detectionResult@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionResult@2x.png"; sourceTree = "<group>"; };
 		C50029D81F6CD96A0064DFEE /* DetectionResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionResultViewController.h; sourceTree = "<group>"; };
 		C50029D91F6CD96A0064DFEE /* DetectionResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionResultViewController.m; sourceTree = "<group>"; };
 		C50029DB1F6CD9790064DFEE /* DetectionResultViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionResultViewModel.h; sourceTree = "<group>"; };
@@ -729,6 +737,16 @@
 		C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorAbstractInfoView.m; sourceTree = "<group>"; };
 		C587E36A1F6ED88C009509CB /* PatientDetailDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientDetailDateView.h; sourceTree = "<group>"; };
 		C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientDetailDateView.m; sourceTree = "<group>"; };
+		C587E36D1F6F63DD009509CB /* RDSelectDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RDSelectDate@2x.png"; sourceTree = "<group>"; };
+		C587E36F1F6F63E2009509CB /* RDSelectDate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RDSelectDate@3x.png"; sourceTree = "<group>"; };
+		C587E3711F6F67FC009509CB /* detectionResult@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionResult@2x.png"; sourceTree = "<group>"; };
+		C587E3731F6F6801009509CB /* detectionResult@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionResult@3x.png"; sourceTree = "<group>"; };
+		C587E3751F6F68B8009509CB /* detectionResultT@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionResultT@2x.png"; sourceTree = "<group>"; };
+		C587E3771F6F68BE009509CB /* detectionResultT@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionResultT@3x.png"; sourceTree = "<group>"; };
+		C587E3791F6F6A5E009509CB /* detectionCapture@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionCapture@3x.png"; sourceTree = "<group>"; };
+		C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionPhotoDelete@3x.png"; sourceTree = "<group>"; };
+		C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionCapture@2x.png"; sourceTree = "<group>"; };
+		C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionPhotoDelete@2x.png"; sourceTree = "<group>"; };
 		C5B4AA131F6E5C170083E8C5 /* MapContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapContentView.h; sourceTree = "<group>"; };
 		C5B4AA141F6E5C170083E8C5 /* MapContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapContentView.m; sourceTree = "<group>"; };
 		C5B4AA1A1F6E71B20083E8C5 /* DoctorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailViewController.h; sourceTree = "<group>"; };
@@ -922,9 +940,9 @@
 				B07EE4931F678C4900FCA22D /* HWHomePageViewController.h */,
 				B07EE4941F678C4900FCA22D /* HWHomePageViewController.m */,
 				B07EE49F1F67B70400FCA22D /* HWAppointmentViewController.h */,
+				B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */,
 				B09807D41F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.h */,
 				B09807D51F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m */,
-				B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */,
 				B07EE4F01F692D5900FCA22D /* HWAppointmentFailViewController.h */,
 				B07EE4F11F692D5900FCA22D /* HWAppointmentFailViewController.m */,
 				B007E9FF1F6A53B100498824 /* HWAppointWaitingViewController.h */,
@@ -1087,10 +1105,14 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */,
+				C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */,
+				C587E3751F6F68B8009509CB /* detectionResultT@2x.png */,
+				C587E3711F6F67FC009509CB /* detectionResult@2x.png */,
+				C587E36D1F6F63DD009509CB /* RDSelectDate@2x.png */,
 				C5B4AA261F6EACD70083E8C5 /* collect@2x.png */,
 				C5B4AA281F6EACDC0083E8C5 /* discounts@2x.png */,
 				C50029E91F6D0EAC0064DFEE /* selectDoctor_icon@2x.png */,
-				C50029D61F6CD9250064DFEE /* detectionResult@2x.png */,
 				B09807DC1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png */,
 				B09807DD1F6ACBCD009C0FE1 /* 检测成员@2x.png */,
 				B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */,
@@ -1127,6 +1149,11 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C587E3791F6F6A5E009509CB /* detectionCapture@3x.png */,
+				C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */,
+				C587E3771F6F68BE009509CB /* detectionResultT@3x.png */,
+				C587E3731F6F6801009509CB /* detectionResult@3x.png */,
+				C587E36F1F6F63E2009509CB /* RDSelectDate@3x.png */,
 				C5B4AA2C1F6EACE50083E8C5 /* collect@3x.png */,
 				C5B4AA2A1F6EACE10083E8C5 /* discounts@3x.png */,
 				C50029E71F6D0EA70064DFEE /* selectDoctor_icon@3x.png */,
@@ -2261,6 +2288,7 @@
 				B0B0B58F1F287302002FE127 /* click首页@2x.png in Resources */,
 				B0B0B5961F287302002FE127 /* click我的@3x.png in Resources */,
 				B0B0B5901F287302002FE127 /* 启动页@2x.png in Resources */,
+				C587E37C1F6F6A62009509CB /* detectionPhotoDelete@3x.png in Resources */,
 				B0B0B5951F287302002FE127 /* 首页@2x.png in Resources */,
 				DA3DFF401ADE7A4000C4E99A /* whiteArrow.png in Resources */,
 				B02AED221F4ED518009C25A7 /* click产品@2x.png in Resources */,
@@ -2272,14 +2300,17 @@
 				B07EE4D01F68D56B00FCA22D /* 检测@2x.png in Resources */,
 				B07EE4DA1F68D58F00FCA22D /* 我的家庭@3x.png in Resources */,
 				DA3DFF381ADE7A4000C4E99A /* blackArrow.png in Resources */,
+				C587E3701F6F63E2009509CB /* RDSelectDate@3x.png in Resources */,
 				B0B0B5911F287302002FE127 /* 我的@2x.png in Resources */,
 				B0E033971E24B7BC00281E49 /* https_14.cer in Resources */,
 				B0B0B59E1F287302002FE127 /* 注册成功@3x.png in Resources */,
 				C24E7DBB1ADE51AA00BA8ECC /* LaunchScreen.xib in Resources */,
 				C5CCBB781F6976B1003A4B8C /* whiteplaceholder.png in Resources */,
 				B0B0B59C1F287302002FE127 /* 我的@3x.png in Resources */,
+				C587E3801F6F6A6F009509CB /* detectionPhotoDelete@2x.png in Resources */,
 				B0B0B5631F276EAA002FE127 /* navigationbar_background_tall@2x.png in Resources */,
 				B07EE4E91F69086E00FCA22D /* HWAppointmentCell.xib in Resources */,
+				C587E37E1F6F6A68009509CB /* detectionCapture@2x.png in Resources */,
 				B02770BC1F6A674C0044A417 /* 预约时间@2x.png in Resources */,
 				B092538E1F69F4650074EEFF /* 预约失败姓名@2x.png in Resources */,
 				B0B0B56D1F276EAA002FE127 /* tabbar_selected_background@2x.png in Resources */,
@@ -2288,9 +2319,11 @@
 				DA3DFF3D1ADE7A4000C4E99A /* grayArrow@2x.png in Resources */,
 				B07EE4FB1F695F8500FCA22D /* 预约失败@2x.png in Resources */,
 				DA3DFF3B1ADE7A4000C4E99A /* blueArrow@2x.png in Resources */,
+				C587E3761F6F68B8009509CB /* detectionResultT@2x.png in Resources */,
 				C5CCBB4F1F696C2F003A4B8C /* TOP_ARROW@3x.png in Resources */,
 				C5B4AA2D1F6EACE50083E8C5 /* collect@3x.png in Resources */,
 				B0B0B5921F287302002FE127 /* 提成@2x.png in Resources */,
+				C587E3721F6F67FC009509CB /* detectionResult@2x.png in Resources */,
 				B07EE4B21F67CC4B00FCA22D /* arrow_down@2x.png in Resources */,
 				B0B0B5931F287302002FE127 /* 注册成功@2x.png in Resources */,
 				B0B0B58E1F287302002FE127 /* click订单@2x.png in Resources */,
@@ -2320,7 +2353,6 @@
 				B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */,
 				B09807DE1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png in Resources */,
 				DA3DFF3C1ADE7A4000C4E99A /* grayArrow.png in Resources */,
-				C50029D71F6CD9250064DFEE /* detectionResult@2x.png in Resources */,
 				B0B0B58C1F287302002FE127 /* click我的@2x.png in Resources */,
 				B07EE4D81F68D58F00FCA22D /* 检测@3x.png in Resources */,
 				B0B0B56A1F276EAA002FE127 /* tabbar_normal_background.png in Resources */,
@@ -2328,14 +2360,18 @@
 				B09807DB1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.xib in Resources */,
 				B0B0B5651F276EAA002FE127 /* navigationbar_background@2x.png in Resources */,
 				B07EE4B41F67CC5F00FCA22D /* arrow_down@3x.png in Resources */,
+				C587E36E1F6F63DD009509CB /* RDSelectDate@2x.png in Resources */,
+				C587E3741F6F6801009509CB /* detectionResult@3x.png in Resources */,
 				C50029E81F6D0EA70064DFEE /* selectDoctor_icon@3x.png in Resources */,
 				C5B4AA271F6EACD70083E8C5 /* collect@2x.png in Resources */,
+				C587E3781F6F68BE009509CB /* detectionResultT@3x.png in Resources */,
 				B0B0B5641F276EAA002FE127 /* navigationbar_background.png in Resources */,
 				C24E7DB81ADE51AA00BA8ECC /* Images.xcassets in Resources */,
 				B07EE4B81F67CFFB00FCA22D /* 搜索@2x.png in Resources */,
 				B0B0B59A1F287302002FE127 /* Thumbs.db in Resources */,
 				B09807D31F6ABF4F009C0FE1 /* HWAppointCouponCell.xib in Resources */,
 				B0B0B5941F287302002FE127 /* 订单@2x.png in Resources */,
+				C587E37A1F6F6A5E009509CB /* detectionCapture@3x.png in Resources */,
 				B07EE4B61F67CFEB00FCA22D /* 搜索@3x.png in Resources */,
 				B007EA061F6A56D700498824 /* HWAppointSuccessCell.xib in Resources */,
 				B02770C11F6A68150044A417 /* 优惠券@3x.png in Resources */,

@@ -134,9 +134,11 @@
                 [self.listView reloadData];
             });
         }];
+        cell.needBorder = true;
     } else {
         cell.deleteBtn.hidden = true;
-        cell.photoImageView.image = nil;
+        cell.photoImageView.image = [UIImage imageNamed:@"detectionCapture"];
+        cell.needBorder = false;
     }
     
     cell.backgroundColor = self.listView.backgroundColor;

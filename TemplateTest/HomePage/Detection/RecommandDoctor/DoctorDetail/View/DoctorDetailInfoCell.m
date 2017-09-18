@@ -11,6 +11,7 @@
 #import "DoctorAbstractInfoView.h"
 #import "DoctorDetailAttachedView.h"
 #import "DoctorDetailModel.h"
+#import "HCSStarRatingView.h"
 
 @interface DoctorDetailInfoCell ()
 @property (nonatomic, strong) UIImageView *headImageView;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) DoctorAbstractInfoView *doctorAbstractView;
 @property (nonatomic, strong) DashLineView *centerLineView;
 @property (nonatomic, strong) DashLineView *horizonLineView;
+@property (nonatomic, strong) HCSStarRatingView *starView;
 @end
 
 @implementation DoctorDetailInfoCell
@@ -48,6 +50,9 @@
     
     self.doctorAbstractView = [DoctorAbstractInfoView new];
     [self.contentV addSubview:self.doctorAbstractView];
+    
+    self.starView = [HCSStarRatingView new];
+    [self.contentV addSubview:self.starView];
     
     self.horizonLineView = [[DashLineView alloc]initWithLineHeight:2 space:1 direction:Horizontal strokeColor:COLOR_CCCCCC];
     [self.contentV addSubview:self.horizonLineView];
@@ -107,6 +112,11 @@
         make.centerX.equalTo(self.contentV);
         make.size.mas_equalTo(CGSizeMake(1, kRate(45)));
     }];
+    [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(kRate(20));
+        make.right.mas_equalTo(kRate(-19));
+        make.size.mas_equalTo(CGSizeMake(kRate(105), kRate(17)));
+    }];
 }
 
 - (void)initDefaultConfigs {
@@ -131,6 +141,10 @@
     self.leftView.direction = Left;
     self.rightView.direction = Right;
     
+    self.starView.userInteractionEnabled = false;
+    self.starView.starBorderColor = UIColorFromRGB(0xff6a28);
+    self.starView.emptyStarColor = COLOR_FFFFFF;
+    self.starView.tintColor = self.starView.starBorderColor;
 }
 
 - (void)bindSignal {
@@ -147,6 +161,7 @@
         self.leftView.valueSignal = [RACSignal return:RACTuplePack(price,text)];
         self.rightView.valueSignal = [RACSignal return:RACTuplePack(@"80",@"门店结算时抵现金")];
         self.doctorAbstractView.valueSignal = [RACSignal return:RACTuplePack(model.name, model.descrip)];
+        self.starView.value = model.level.floatValue;
     }];
 }
 

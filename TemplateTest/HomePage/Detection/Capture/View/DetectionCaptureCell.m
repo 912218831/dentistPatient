@@ -45,13 +45,20 @@
 }
 
 - (void)initDefaultConfigs {
-    self.photoImageView.layer.cornerRadius = 3;
-    self.photoImageView.layer.borderColor = UIColorFromRGB(0xcccccc).CGColor;
-    self.photoImageView.layer.borderWidth = 0.5;
-    self.photoImageView.layer.backgroundColor = COLOR_FFFFFF.CGColor;
     
     self.deleteBtn.layer.cornerRadius = kRate(12);
-    self.deleteBtn.layer.backgroundColor = [UIColor redColor].CGColor;
+    [self.deleteBtn setImage:[UIImage imageNamed:@"detectionPhotoDelete"] forState:UIControlStateNormal];
+}
+
+- (void)setNeedBorder:(BOOL)needBorder {
+    if (needBorder) {
+        self.photoImageView.layer.cornerRadius = 3;
+        self.photoImageView.layer.borderColor = UIColorFromRGB(0xcccccc).CGColor;
+        self.photoImageView.layer.borderWidth = 0.5;
+        self.photoImageView.layer.backgroundColor = COLOR_FFFFFF.CGColor;
+    } else {
+        self.photoImageView.layer.backgroundColor = COLOR_FFFFFF.CGColor;
+    }
 }
 
 - (void)setValueSignal:(RACSignal *)valueSignal {

@@ -12,6 +12,7 @@
 
 @interface PatientDetailDateView : BaseView
 @property (nonatomic, strong)RACSignal *valueSignal;
+@property (nonatomic, strong)RACSignal *didSelectDateSiganl;
 @end
 
 @interface UILabelWithCorner : UIControl
@@ -20,5 +21,6 @@
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, assign) NSTextAlignment textAlignment;
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic,assign) UIRectCorner corner;
+@property (nonatomic, assign) UIRectCorner corner;
+@property (nonatomic, strong, readonly) UIImageView *iconImageView;
 @end

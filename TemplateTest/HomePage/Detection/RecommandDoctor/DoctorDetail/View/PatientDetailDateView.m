@@ -42,6 +42,8 @@
 
 - (void)setValueSignal:(RACSignal *)valueSignal {
     @weakify(self);
+    RACChannel *channel = [[RACChannel alloc]init];
+    
     [[valueSignal deliverOn:[RACScheduler mainThreadScheduler]]subscribeNext:^(RACTuple *tuple) {
         @strongify(self);
         NSInteger allRow = ceil(tuple.allObjects.count/kCol);
@@ -68,14 +70,26 @@
             label.backgroundColor = COLOR_FFFFFF;
             label.textAlignment = NSTextAlignmentCenter;
             // 监听点击事件
+            @weakify(label);
             [[[label rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(UILabelWithCorner *value) {
                 return YES;
             }]subscribeNext:^(id x) {
+                @strongify(label);
                 label.backgroundColor = UIColorFromRGB(0xdff5fe);
                 label.textColor = CD_MainColor;
                 self.selectedLabel.backgroundColor = COLOR_FFFFFF;
                 self.selectedLabel.textColor = CD_Text99;
-                self.selectedLabel = label;
+                if (self.selectedLabel == label) {
+                    label.iconImageView.hidden = true;
+                    [channel.leadingTerminal sendNext:[NSIndexPath indexPathForRow:0 inSection:0 ]];
+                    self.selectedLabel = nil;
+                } else {
+                    self.selectedLabel.iconImageView.hidden = true;
+                    label.iconImageView.hidden = false;
+                    [channel.leadingTerminal sendNext:label.indexPath];
+                    self.selectedLabel = label;
+                }
+                
             }];
             return @(accumulator.integerValue + 1);
         }];
@@ -85,7 +99,7 @@
             [self.contentV addSubview:hLine];
             [hLine mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.equalTo(self.contentV);
-                make.bottom.equalTo(self.contentV.mas_top).with.offset(row*h-1);
+                make.bottom.equalTo(self.contentV.mas_top).with.offset(row*h);
                 make.height.mas_equalTo(0.6);
             }];
         }
@@ -100,6 +114,7 @@
             }];
         }
     }];
+    self.didSelectDateSiganl = channel.followingTerminal;
 }
 
 - (void)dealloc {
@@ -112,6 +127,7 @@
 
 @interface UILabelWithCorner ()
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong, readwrite) UIImageView *iconImageView;
 @end
 @implementation UILabelWithCorner
 
@@ -122,6 +138,15 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.iconImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"RDSelectDate"]];
+        [self addSubview:self.iconImageView];
+        [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(kRate(35), kRate(35)));
+            make.left.equalTo(self.mas_right).with.offset(-kRate(18));
+            make.top.equalTo(self.mas_bottom).with.offset(-kRate(18));
+            
+        }];
+        
         self.label = [UILabel new];
         [self addSubview:self.label];
         [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -133,6 +158,8 @@
             CAShapeLayer *shape = (CAShapeLayer *)self.layer;
             shape.fillColor = self.backgroundColor.CGColor;
         }];
+        self.iconImageView.hidden = true;
+        self.clipsToBounds = true;
         /*
          这里用 rac_signalForSelector: 方法会有一个隐患，当 UITextfield、UITextView 等相关控件被使用（也就是 ）之后，会与 setBackgroundColor swizzle生成的方法产生冲突（目测只与改变外观的 swizzle 发生冲突），网上人说是 UIKit 框架的 bug,目前没办法解决
          （
@@ -143,7 +170,6 @@
          [[self rac_signalForSelector:@selector(setBackgroundColor:)]subscribeNext:^(id x) {
          }];
          */
-        
     }
     return self;
 }

@@ -11,6 +11,8 @@
 #import "DoctorDetailModel.h"
 
 @interface DoctorDetailViewModel : BaseListViewModel
+@property (nonatomic, strong) MAPointAnnotation *annotation;
 @property (nonatomic, strong) RecommandDoctorModel *doctorModel;
 @property (nonatomic, assign) CGFloat timesHeight;
+@property (nonatomic, strong) NSIndexPath *selectDateIndexPath;
 @end

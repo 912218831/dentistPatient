@@ -8,11 +8,10 @@
 
 #import "DoctorDetailDateMapCell.h"
 #import "MapContentView.h"
-#import "PatientDetailDateView.h"
 
 @interface DoctorDetailDateMapCell ()
 @property (nonatomic, strong) MapContentView *mapView;
-@property (nonatomic, strong) PatientDetailDateView *dateView;
+@property (nonatomic, strong, readwrite) PatientDetailDateView *dateView;
 @end
 
 @implementation DoctorDetailDateMapCell
@@ -37,11 +36,20 @@
 }
 
 - (void)initDefaultConfigs {
-    self.mapView.mapView.showsUserLocation = true;
+    
 }
 
 - (void)setValueSignal:(RACSignal *)valueSignal {
-    [self.dateView setValueSignal:valueSignal];
+    @weakify(self);
+    [valueSignal subscribeNext:^(id x) {
+        @strongify(self);
+        self.mapView.needAnnotationCenter = true;
+        [self.mapView setAnnotationsSignal:[RACSignal return:RACTuplePack(x)]];
+    }];
+}
+
+- (void)setDatesSignal:(RACSignal *)datesSignal {
+    [self.dateView setValueSignal:datesSignal];
 }
 
 @end

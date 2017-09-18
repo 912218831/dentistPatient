@@ -17,4 +17,13 @@
     return dic;
 }
 
+- (void)setValue:(id)value forKey:(NSString *)key {
+    if ([key isEqualToString:@"lat"]) {
+        self.coordinated2D = CLLocationCoordinate2DMake([value doubleValue], self.coordinated2D.longitude);
+    } else if ([key isEqualToString:@"lon"]) {
+        self.coordinated2D = CLLocationCoordinate2DMake(self.coordinated2D.latitude, [value doubleValue]);
+    } else {
+        [super setValue:value forKey:key];
+    }
+}
 @end
