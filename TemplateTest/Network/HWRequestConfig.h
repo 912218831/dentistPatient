@@ -60,7 +60,7 @@
 #define kRDoctorDetail               @"chk/dentistInfo" // 牙菌斑检测 -医生详情
 #define kCaseList                    @"fam/loadCheckList" //病例列表
 #define kCaseDetail                  @"fam/checkDetail" //病例详情
-
+#define kFamilyMembers               @"fam/loadMyFamily" //病例详情
 #endif
 
 

@@ -284,6 +284,7 @@
 		C5CCBB761F6976B1003A4B8C /* HZPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB6F1F6976B1003A4B8C /* HZPhotoItem.m */; };
 		C5CCBB771F6976B1003A4B8C /* HZWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB711F6976B1003A4B8C /* HZWaitingView.m */; };
 		C5CCBB781F6976B1003A4B8C /* whiteplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCBB721F6976B1003A4B8C /* whiteplaceholder.png */; };
+		C5D1A6101F72B87B00A43C0A /* FamilyMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D1A60F1F72B87B00A43C0A /* FamilyMemberModel.m */; };
 		D2C28F0C1B7CC2AB00E2716D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */; };
 		D2C28F0E1B7CC5BB00E2716D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */; };
 		D2C28F101B7CC5D900E2716D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0F1B7CC5D900E2716D /* CoreGraphics.framework */; };
@@ -791,6 +792,8 @@
 		C5CCBB701F6976B1003A4B8C /* HZWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZWaitingView.h; sourceTree = "<group>"; };
 		C5CCBB711F6976B1003A4B8C /* HZWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZWaitingView.m; sourceTree = "<group>"; };
 		C5CCBB721F6976B1003A4B8C /* whiteplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteplaceholder.png; sourceTree = "<group>"; };
+		C5D1A60E1F72B87B00A43C0A /* FamilyMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyMemberModel.h; sourceTree = "<group>"; };
+		C5D1A60F1F72B87B00A43C0A /* FamilyMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyMemberModel.m; sourceTree = "<group>"; };
 		D2401FDB1E238EC90098B49E /* TemplateTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemplateTest.entitlements; sourceTree = "<group>"; };
 		D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -1853,6 +1856,8 @@
 			children = (
 				C50821201F682D47004B2221 /* CaseItemModel.h */,
 				C50821211F682D47004B2221 /* CaseItemModel.m */,
+				C5D1A60E1F72B87B00A43C0A /* FamilyMemberModel.h */,
+				C5D1A60F1F72B87B00A43C0A /* FamilyMemberModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2516,6 +2521,7 @@
 				C50029F91F6D15570064DFEE /* RDoctorListCell.m in Sources */,
 				DA3DFF361ADE7A4000C4E99A /* EGORefreshTableFooterView.m in Sources */,
 				DA3DFF1B1ADE78ED00C4E99A /* UIDevice+Utils.m in Sources */,
+				C5D1A6101F72B87B00A43C0A /* FamilyMemberModel.m in Sources */,
 				B07EE4981F678C7F00FCA22D /* HWTabbarViewModel.m in Sources */,
 				C5B4AA1F1F6E71CA0083E8C5 /* DoctorDetailViewModel.m in Sources */,
 				C28BACB31B16B8C90048DE0A /* mztools.c in Sources */,

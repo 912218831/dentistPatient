@@ -32,6 +32,10 @@
         if (self.currentPage == 1) {
             [self.dataArray removeAllObjects];
         }
+        NSDictionary *data = [response dictionaryObjectForKey:@"data"];
+        NSDictionary *page = [data dictionaryObjectForKey:@"page"];
+        NSString *totalpage = [page stringObjectForKey:@"totalpage"];
+        self.isLastPage = totalpage.integerValue == self.currentPage;
         success(response);
     } failure:^(NSString *error) {
         failure(error);

@@ -99,7 +99,7 @@
     @weakify(self);
     [self.valueSignal subscribeNext:^(CaseItemModel *model) {
         @strongify(self);
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"]];
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.imageUrl]];
         self.describeLabel.text = @"儿子的牙龈癍检查";
         self.actionLabel.text = @"已发送给空腔诊所的 吴医生";
         self.dateLabel.text = model.time;
