@@ -42,7 +42,6 @@
             [self post:kLogin type:1 params:params success:^(id response) {
                 [subscriber sendNext:@"登录成功"];
                 [[HWUserLogin currentUserLogin] yy_modelSetWithDictionary:[response dictionaryForKey:@"data"]];
-                
 
             } failure:^(NSString * error) {
                 [subscriber sendError:[NSError errorWithDomain:@"com.getLoginCode" code:100 userInfo:@{NSLocalizedDescriptionKey:error}]];

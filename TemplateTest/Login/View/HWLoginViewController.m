@@ -24,6 +24,18 @@
 @implementation HWLoginViewController
 @dynamic viewModel;
 
++ (void)load {
+    RACSubject *s = [RACSubject subject];
+    
+    [s.switchToLatest subscribeNext:^(id x) {
+        
+    }error:^(NSError *error) {
+        
+    }];
+    [s sendNext:[RACSignal error:[NSError errorWithDomain:@"" code:404 userInfo:nil]]];
+    [s sendNext:[RACSignal return:@2]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.titleView  = [Utility navTitleView:@"手机号登录"];
@@ -117,6 +129,8 @@
         
 //        [self.viewModel.loginCommand execute:nil];
     }];
+   
+    
     [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {

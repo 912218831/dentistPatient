@@ -1021,7 +1021,6 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				B09807E01F6ACC03009C0FE1 /* 检测成员_选中@3x.png */,
 				B09807E11F6ACC03009C0FE1 /* 检测成员@3x.png */,
 				B02770BD1F6A68150044A417 /* 优惠券_选中@3x.png */,
@@ -1031,9 +1030,7 @@
 				B09253901F69F4750074EEFF /* 预约失败人数@3x.png */,
 				B09253911F69F4750074EEFF /* 预约失败姓名@3x.png */,
 				B07EE4FC1F695FA000FCA22D /* 预约失败@3x.png */,
-=======
 				C5CCBB4E1F696C2F003A4B8C /* TOP_ARROW@3x.png */,
->>>>>>> 李强强
 				B07EE4D31F68D58F00FCA22D /* 记录@3x.png */,
 				B07EE4D41F68D58F00FCA22D /* 检测@3x.png */,
 				B07EE4D51F68D58F00FCA22D /* 口腔问答@3x.png */,
@@ -1698,14 +1695,11 @@
 		DA3DFF061ADE78ED00C4E99A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				B02770C61F6A75720044A417 /* HWDashView */,
 				B0431C411F6A1828001A2FD4 /* HWStarLevelView */,
-=======
 				C50899771F6ACD400013AE02 /* Plice */,
 				FC24B4C71DF5E7300036B461 /* HWCustomTextField */,
 				FC200F571CF4B40200500482 /* HWVerticalAlignedLabel */,
->>>>>>> 李强强
 				B0D26AD91BDF7B920012A093 /* HWTableView */,
 			);
 			path = Custom;
@@ -2130,11 +2124,8 @@
 				B0F8EF8C1EF3C39F00F38770 /* UIBezierPath+Elements.m in Sources */,
 				B0476D231F3C9008000E0CF1 /* HWWebView.m in Sources */,
 				C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */,
-<<<<<<< HEAD
-=======
 				C5CCBB521F696E93003A4B8C /* CaseDetailInfoCell.m in Sources */,
 				FC200F5A1CF4B42A00500482 /* HWVerticalAlignedLabel.m in Sources */,
->>>>>>> 李强强
 				B0B0B5391F2766E6002FE127 /* RDVTabBarController.m in Sources */,
 				C24E7DAD1ADE51AA00BA8ECC /* AppDelegate.m in Sources */,
 				C531FBAD1F66D0390008A17A /* BaseView.m in Sources */,
@@ -2214,12 +2205,9 @@
 				C28BACB41B16B8C90048DE0A /* unzip.c in Sources */,
 				DA3DFF1C1ADE78ED00C4E99A /* UILabel+Utils.m in Sources */,
 				B0DD980C1F6166BB00EDD17B /* HWLoginTelphoneCell.m in Sources */,
-<<<<<<< HEAD
 				B09807DA1F6AC9F4009C0FE1 /* HWDecetionSelectMemberCell.m in Sources */,
-=======
 				C5CCBB421F6968A7003A4B8C /* CaseDetailViewModel.m in Sources */,
 				C5CCBB4B1F69698B003A4B8C /* CaseDetailImageModel.m in Sources */,
->>>>>>> 李强强
 				C24E7DB31ADE51AA00BA8ECC /* ViewController.m in Sources */,
 				B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */,
 				B0D26B091BDF7B920012A093 /* HWTitleAndLabelItem.m in Sources */,
