@@ -26,7 +26,13 @@
 + (NSDictionary *)map {
     return @{
              kCasesVM:self.caseVC,
-             kCaseDetailVM:self.caseDetail
+             kCaseDetailVM:self.caseDetail,
+             kDetectionVM:self.detectionSelect,
+             kDetectionCaptureVM:self.detectionCapture,
+             kTimeVideoVM:self.timeVideo,
+             kDetectionResultVM:self.detectionResult,
+             kRDoctorVM:self.recommandDoctor,
+             kRDoctorDetailVM:self.doctorDetail
              };
 }
 
@@ -44,36 +50,51 @@
              };
 }
 
-+ (NSDictionary *)recoverPassword {
++ (NSDictionary *)detectionSelect {
     return @{
-             @"title":@"找回密码",
+             @"title":@"牙菌斑检测 - 选择",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
 }
 
-+ (NSDictionary *)reserverRecord {
++ (NSDictionary *)detectionCapture {
     return @{
-             @"title":@"我的病人",
-             };
-}
-
-+ (NSDictionary *)reserverDetail {
-    return @{
+             @"title":@"牙菌斑检测",
              @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 
-+ (NSDictionary *)peopleCenter {
++ (NSDictionary *)timeVideo {
     return @{
-             @"title":@"设置",
-             };
-}
-
-+ (NSDictionary *)setPassword {
-    return @{
-             @"title":@"设置密码",
+             @"title":@"请按快门",
              @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
+
++ (NSDictionary *)detectionResult {
+    return @{
+             @"title":@"选择诊所",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
+
++ (NSDictionary *)recommandDoctor {
+    return @{
+             @"title":@"选择医生",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
+
++ (NSDictionary *)doctorDetail {
+    return @{
+             @"title":@"医生详情",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
              };
 }
 @end

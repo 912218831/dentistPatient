@@ -20,18 +20,19 @@
     return signal;
 }
 
-- (void)subscribeNext:(void (^)(id))nextBlock error:(void (^)(NSError *))errorBlock completed:(void (^)(void))completedBlock {
+- (VirtualSubscriber *)subscribeNext:(void (^)(id))nextBlock error:(void (^)(NSError *))errorBlock completed:(void (^)(void))completedBlock {
     VirtualSubscriber *subject = [VirtualSubscriber new];
     subject.nextBlock = nextBlock;
     subject.errorBlock = errorBlock;
     subject.completedBlock = completedBlock;
     self.didSubscribe(subject);
+    return subject;
 }
 
 @end
 
 @interface VirtualSubscriber ()
-
+@property (nonatomic, copy) void (^finally)();
 @end
 
 @implementation VirtualSubscriber
@@ -40,19 +41,31 @@
     if (self.nextBlock) {
         self.nextBlock(value);
     }
+    if (self.finally) {
+        self.finally();
+    }
 }
 
 - (void)sendError:(NSError *)error {
     if (self.errorBlock) {
         self.errorBlock(error);
     }
-    
+    if (self.finally) {
+        self.finally();
+    }
 }
 
 - (void)sendCompleted {
     if (self.completedBlock) {
         self.completedBlock();
     }
+    if (self.finally) {
+        self.finally();
+    }
+}
+
+- (void)finally:(void (^)())finallyBlock {
+    self.finally = finallyBlock;
 }
 
 - (void)didSubscribeWithDisposable:(RACCompoundDisposable *)disposable {

@@ -13,6 +13,4 @@
 @property (nonatomic, assign) BOOL isLastPage;
 @property (nonatomic, strong, readonly) NSMutableArray *dataArray;
 
-- (instancetype)initWithModel:(Class)modelClass;
-
 @end

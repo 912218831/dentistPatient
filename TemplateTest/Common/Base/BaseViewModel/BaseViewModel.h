@@ -30,6 +30,7 @@ typedef  NS_ENUM(int, APIType) {
 
 - (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure;
 
+- (NSURLSessionDataTask *)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure;
 /*激活 active，调用请求*/
 - (void)execute;
 @end

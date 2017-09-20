@@ -1,14 +1,15 @@
 platform :ios, '7.0'
 #use_frameworks!
 target 'TemplateTest' do
+pod 'AMapLocation'
+pod 'AMap3DMap'
 pod 'Mantle', '~> 2.0.7'
 pod 'AFNetworking', '~> 2.0'
 pod 'SDWebImage', '~> 3.7.2'
 pod 'UMengSocial', '>= 4.3'
 pod 'UMengFeedback', '>= 2.2'
 pod 'UMengAnalytics', '>= 3.4.6'
-pod 'AMap3DMap', '~> 5.0.0'
-pod 'AMapSearch', '~> 5.0.0'
+pod 'AMapSearch'
 pod 'MBProgressHUD', '~> 0.9.1'
 pod 'PureLayout', '~> 2.0.5'
 pod 'ReactiveViewModel', '~> 0.3'

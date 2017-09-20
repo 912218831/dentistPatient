@@ -9,6 +9,8 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "VirtualSignal.h"
 
+#define RACTupleArray(value)  [RACTuple tupleWithObjectsFromArray:value]
+
 @interface RACSignal (Extend)
 - (VirtualSignal *)newSwitchToLatest;
 @end

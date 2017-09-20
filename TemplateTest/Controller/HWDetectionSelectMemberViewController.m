@@ -7,6 +7,7 @@
 //
 
 #import "HWDetectionSelectMemberViewController.h"
+#import "DetectionCaptureViewModel.h"
 
 @interface HWDetectionSelectMemberViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -16,9 +17,16 @@
 
 @implementation HWDetectionSelectMemberViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.view addSubview:self.collectionView];
+- (void)backMethod {
+    [super backMethod];
+    [self.navigationController setNavigationBarHidden:true];
+}
+
+- (void)configContentView {
+    [super configContentView];
+    
+    [self.navigationController setNavigationBarHidden:false];
+    [self addSubview:self.collectionView];
 }
 
 - (UICollectionView *)collectionView
@@ -71,6 +79,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return [collectionView dequeueReusableCellWithReuseIdentifier:@"HWDecetionSelectMemberCell" forIndexPath:indexPath];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DetectionCaptureViewModel *viewModel = [DetectionCaptureViewModel new];
+    [[ViewControllersRouter shareInstance]pushViewModel:viewModel animated:true];
 }
 
 - (void)didReceiveMemoryWarning {

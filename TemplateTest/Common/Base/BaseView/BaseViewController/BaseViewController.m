@@ -16,7 +16,9 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        @weakify(self);
         [[self rac_signalForSelector:@selector(viewDidLoad)]subscribeNext:^(id x) {
+            @strongify(self);
             [self bindViewModel];
         }];
     }
@@ -41,6 +43,8 @@
 }
 
 - (void)configContentView {
+    self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
+    
     NSDictionary *params = [ViewControllerSimpleConfig viewModelSimpleConfigMappings:self.viewModel];
     
     self.navigationItem.titleView = [Utility navTitleView:[params stringObjectForKey:@"title"]];
@@ -53,7 +57,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     
     self.navigationItem.rightBarButtonItem = [Utility navRightBackBtn:self action:@selector(rightAction) imageStr:@"rightImageName"];
-    self.contentView = [[UIView alloc]initWithFrame:self.frame];
+    self.contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, CONTENT_HEIGHT)];
     [self.view addSubview:self.contentView];
 
     

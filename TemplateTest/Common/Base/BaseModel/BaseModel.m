@@ -11,7 +11,11 @@
 @implementation BaseModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return nil;
+    NSMutableDictionary *mutableKeys = [[NSDictionary mtl_identityPropertyMapWithModel:self]mutableCopy];;
+    if([mutableKeys objectForKey:@"Id"]){
+        [mutableKeys setObject:@"id" forKey:@"Id"];
+    }
+    return mutableKeys;
 }
 
 - (NSDictionary *)JSONDictionaryFromModel {

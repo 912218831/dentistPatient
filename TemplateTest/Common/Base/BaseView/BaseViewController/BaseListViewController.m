@@ -25,7 +25,7 @@
 - (void)configContentView {
     [super configContentView];
     
-    self.listView = [[HWBaseRefreshView alloc]initWithFrame:self.view.bounds];
+    self.listView = [[HWBaseRefreshView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.width, CONTENT_HEIGHT)];
     [self addSubview:self.listView];
     self.listView.baseTable.dataSource = self;
     self.listView.baseTable.separatorStyle = UITableViewCellSeparatorStyleNone;
