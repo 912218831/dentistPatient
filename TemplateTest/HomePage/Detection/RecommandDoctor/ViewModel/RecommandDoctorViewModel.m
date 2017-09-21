@@ -22,7 +22,12 @@
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self post:kRecommandDoctor type:0 params:@{} success:^(NSDictionary *response) {
+        [self.dataArray removeAllObjects];
+        [self post:kRecommandDoctor type:0 params:
+             @{@"checkid":self.checkId,
+               @"docLong":@(self.coordinate2D.longitude),
+               @"docLat":@(self.coordinate2D.latitude),
+               @"type":@""} success:^(NSDictionary *response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSArray *clinicList = [data arrayObjectForKey:@"clinicList"];
             [clinicList.rac_sequence foldLeftWithStart:@0 reduce:^id(id accumulator, NSDictionary *value) {
@@ -41,6 +46,8 @@
         }];
         return nil;
     }];
+    RecommandDoctorModel *model = [RecommandDoctorModel new];
+    [self.dataArray addObject:model];
 }
 
 - (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {

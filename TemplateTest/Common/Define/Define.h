@@ -298,6 +298,8 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 /*  通知
  NT For Notification
  */
+#define kRefreshReservedList                    @"RefreshReservedList " //刷新预约列表
+#define kRefreshCaseList                        @"RefreshCaseList " //刷新病例列表
 #define NTPAY_SUCCESS                           @"pay_success"
 #define kremoveAll                              @"kremoveAll"
 #define kLocationSuccessNotification            @"kLocationSuccessNotification"

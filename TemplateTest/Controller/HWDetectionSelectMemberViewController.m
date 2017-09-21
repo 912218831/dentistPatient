@@ -83,6 +83,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     DetectionCaptureViewModel *viewModel = [DetectionCaptureViewModel new];
+    viewModel.checkId = @"DS88790";
     [[ViewControllersRouter shareInstance]pushViewModel:viewModel animated:true];
 }
 

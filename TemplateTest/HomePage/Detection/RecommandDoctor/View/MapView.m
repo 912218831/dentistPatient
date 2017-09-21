@@ -72,4 +72,13 @@
         [self.contentV setAnnotationsSignal:[RACSignal return:RACTupleArray(x.second)]];
     }];
 }
+
+- (RACSubject *)locationSuccess {
+    return self.contentV.locationSuccess;
+}
+
+- (RACSubject *)locationFail {
+    return self.contentV.locationFail;
+}
+
 @end

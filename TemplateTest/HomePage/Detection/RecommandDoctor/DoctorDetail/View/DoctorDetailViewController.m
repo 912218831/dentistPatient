@@ -28,7 +28,7 @@
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
         @strongify(self);
         if (indexPath.row == 0) {
-            return (CGFloat)kRate(325);
+            return (CGFloat)kRate(325-30);
         }
         return (CGFloat)(self.viewModel.timesHeight+kRate(160));
     };
@@ -41,8 +41,8 @@
     self.orderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [footerView addSubview:self.orderBtn];
     
-    self.consultBtn.frame = CGRectMake(0, kRate(10), footerView.width/2.0, footerView.height);
-    self.orderBtn.frame = CGRectMake(CGRectGetMaxX(self.consultBtn.frame), CGRectGetMinY(self.consultBtn.frame), footerView.width/2.0, footerView.height);
+    self.consultBtn.frame = CGRectMake(0, kRate(10), footerView.width/2.0, footerView.height-kRate(10));
+    self.orderBtn.frame = CGRectMake(CGRectGetMaxX(self.consultBtn.frame), CGRectGetMinY(self.consultBtn.frame), footerView.width/2.0, footerView.height-kRate(10));
     
     self.consultBtn.backgroundColor = UIColorFromRGB(0x2abc5e);
     self.orderBtn.backgroundColor = CD_MainColor;
@@ -77,7 +77,19 @@
     }];
     [[self.orderBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
       // 预约
+        @strongify(self);
         NSLog(@"预约==row=%ld, col=%ld",self.viewModel.selectDateIndexPath.row,self.viewModel.selectDateIndexPath.section);
+        [Utility showMBProgress:self.contentView message:nil];
+        [[self.viewModel.orderSignal.newSwitchToLatest subscribeNext:nil error:^(NSError *error) {
+            [Utility showToastWithMessage:error.domain];
+        } completed:^{
+            [Utility showToastWithMessage:@"预约成功"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kRefreshReservedList object:nil];
+            [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:false];
+            [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setSelectedIndex:2];
+        }]finally:^{
+            [Utility hideMBProgress:self.contentView];
+        }];
     }];
 }
 

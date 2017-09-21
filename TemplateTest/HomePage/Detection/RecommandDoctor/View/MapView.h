@@ -9,5 +9,6 @@
 #import "BaseListViewCell.h"
 
 @interface MapView : BaseListViewCell
-
+@property (nonatomic, strong, readonly) RACSubject *locationSuccess;
+@property (nonatomic, strong, readonly) RACSubject *locationFail;
 @end

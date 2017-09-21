@@ -152,6 +152,12 @@ static ViewControllersRouter *router;
     }
 }
 
+- (void)popToRootViewModelAnimated:(BOOL)animated {
+    UIViewController *vc = [BaseViewController currentViewController];
+    [vc.navigationController popToRootViewControllerAnimated:animated];
+    [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setTabBarHidden:false];
+}
+
 - (void)presentViewModel:(BaseViewModel *)viewModel animated:(BOOL)animated completion:(VoidBlock)completion {
     UIViewController *vc = [BaseViewController currentViewController];
     Class vcClass = [self viewControllerClassNameForViewModel:NSStringFromClass(viewModel.class)];

@@ -11,5 +11,6 @@
 
 @interface DetectionResultViewModel : BaseViewModel
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, copy) NSString *checkId;
 @property (nonatomic, assign) BOOL detectionResultState;// 1 是很好，0 是有问题
 @end

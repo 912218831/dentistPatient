@@ -68,26 +68,12 @@
 
 - (void)bindSignal {
     @weakify(self);
-    [self.valueSignal ignoreValues];
     [self.valueSignal subscribeNext:^(DetectionCaptureModel *model) {
         @strongify(self);
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl]];
     }];
     
-    self.deleteActionSubject = [RACSubject subject];
-    
-    __block BOOL filter = false;
-    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @strongify(self);
-        [[[self.deleteBtn rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(id value) {
-            return !filter;
-        }]subscribeNext:^(UIButton *sender){
-            [self.deleteActionSubject sendCompleted];
-        }];
-        return nil;
-    }]merge:self.deleteActionSubject]subscribeNext:^(NSNumber *x) {
-        filter = x.boolValue;
-    }];
+    self.deleteAction = [self.deleteBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

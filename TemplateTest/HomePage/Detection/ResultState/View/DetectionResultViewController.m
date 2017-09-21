@@ -119,12 +119,22 @@
         return value;
     }]subscribeNext:^(UIButton *x) {
         [[x rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+            @strongify(self);
             RecommandDoctorViewModel *vm = [RecommandDoctorViewModel new];
+            vm.checkId = self.viewModel.checkId;
             [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
         }];
     }];
     
-    
+    [[RACObserve(self, notSendBtn)filter:^BOOL(id value) {
+        return value;
+    }]subscribeNext:^(UIButton *x) {
+        [[x rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:kRefreshCaseList object:@"4"];
+            [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:false];
+            [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setSelectedIndex:1];
+        }];
+    }];
     [self.viewModel execute];
 }
 

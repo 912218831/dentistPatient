@@ -34,6 +34,7 @@
         @strongify(self);
         DoctorDetailViewModel *model = [DoctorDetailViewModel new];
         model.doctorModel = self.viewModel.dataArray[indexPath.row];
+        model.checkId = self.viewModel.checkId;
         [[ViewControllersRouter shareInstance]pushViewModel:model animated:YES];
     };
     self.listView.baseTable.layer.masksToBounds = false;
@@ -55,8 +56,6 @@
     } completed:^{
         [Utility hideMBProgress:self.contentView];
     }];
-    
-    [self.viewModel execute];
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
@@ -65,8 +64,18 @@
         if (cell == nil) {
             cell = [[MapView alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([MapView class])];
             self.mapView = cell;
+            RAC(self.viewModel, coordinate2D) = cell.locationSuccess;
+            @weakify(self);
+            [cell.locationFail subscribeNext:^(id x) {
+                [Utility showToastWithMessage:[x domain]];
+            }];
+            [cell.locationSuccess subscribeNext:^(id x) {
+                @strongify(self);
+                [self.viewModel execute];
+            }];
         }
         cell.valueSignal = [RACSignal return:RACTuplePack(self.viewModel.dataArray.firstObject, self.viewModel.annotations)];
+        
         return cell;
     }
     RDoctorListCell *cell = [self.listView.baseTable dequeueReusableCellWithIdentifier:kRDoctorVM];

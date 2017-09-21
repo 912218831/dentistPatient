@@ -53,6 +53,8 @@
      r.locationDotFillColor = [UIColor grayColor];///定位点蓝色圆点颜色，不设置默认蓝色
      [self.contentV updateUserLocationRepresentation:r];*/
     
+    self.locationSuccess = [RACSubject subject];
+    self.locationFail = [RACSubject subject];
 }
 
 #pragma mark - Initialization
@@ -105,8 +107,14 @@
         self.mapView.region = region;
         
         self.settedRegion = true;
+        
+        [self.locationSuccess sendNext:[NSValue valueWithMACoordinate:mapView.centerCoordinate]];
     }
     
+}
+
+- (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
+    [self.locationFail sendNext:error];
 }
 
 -(void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated {

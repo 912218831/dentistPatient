@@ -15,4 +15,6 @@
 @property (nonatomic, strong) RecommandDoctorModel *doctorModel;
 @property (nonatomic, assign) CGFloat timesHeight;
 @property (nonatomic, strong) NSIndexPath *selectDateIndexPath;
+@property (nonatomic, strong) RACSignal *orderSignal;
+@property (nonatomic, copy) NSString *checkId;
 @end

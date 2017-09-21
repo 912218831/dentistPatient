@@ -9,10 +9,31 @@
 #import "HWCasesViewModel.h"
 
 @interface HWCasesViewModel ()
-
+// 用于通知过来的
+@property (nonatomic, copy) NSString *patientId;
 @end
 @implementation HWCasesViewModel
 @dynamic requestSignal;
+
+- (instancetype)init {
+    if (self = [super init]) {
+        @weakify(self);
+        [[[NSNotificationCenter defaultCenter]rac_addObserverForName:kRefreshCaseList object:nil]subscribeNext:^(NSNotification *x) {
+            @strongify(self);
+            self.patientId = x.object;
+            if (self.familyMemberIndex) {
+                [self.familyMember enumerateObjectsUsingBlock:^(FamilyMemberModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if([obj.patientId isEqualToString:self.patientId]){
+                        self.familyMemberIndex = idx + 1;
+                        *stop = true;
+                    }
+                }];
+                [self execute];
+            }
+        }];
+    }
+    return self;
+}
 
 - (void)bindViewWithSignal {
     [super bindViewWithSignal];
@@ -48,7 +69,17 @@
                     [familyMember addObject:model];
                 }
                 self.familyMember = familyMember.copy;
-                self.familyMemberIndex = 1;
+                if (self.patientId.length) {
+                    [self.familyMember enumerateObjectsUsingBlock:^(FamilyMemberModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if([obj.patientId isEqualToString:self.patientId]){
+                            self.familyMemberIndex = idx + 1;
+                            *stop = true;
+                        }
+                    }];
+                } else {
+                    self.familyMemberIndex = 1;
+                }
+                
                 [subscriber sendNext:@1];
                 [subscriber sendCompleted];
             } failure:^(NSString *error) {

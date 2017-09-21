@@ -9,5 +9,7 @@
 #import "BaseListViewModel.h"
 
 @interface RecommandDoctorViewModel : BaseListViewModel
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate2D;
 @property (nonatomic, strong) NSMutableArray *annotations;
+@property (nonatomic, copy)   NSString *checkId;
 @end

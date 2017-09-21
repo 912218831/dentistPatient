@@ -8,7 +8,10 @@
 
 #import "BaseViewModel.h"
 #import "DetectionCaptureModel.h"
+#import "FamilyMemberModel.h"
 
 @interface DetectionCaptureViewModel : BaseListViewModel
-
+@property (nonatomic, strong) FamilyMemberModel *model;
+@property (nonatomic, copy) NSString *checkId;
+@property (nonatomic, strong) RACCommand *deletePhotoCommand;
 @end
