@@ -111,10 +111,20 @@
     @weakify(self);
     self.fetchDataDispose = [self.viewModel.requestSignal subscribeNext:^(id x) {
         @strongify(self);
-        self.dataArr = [x copy];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+        if ([x isKindOfClass:[NSString class]]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [Utility showMBProgress:self.view message:x];
+            });
+
+        }
+        else
+        {
+            self.dataArr = [x copy];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [Utility hideMBProgress:self.view];
+                [self.collectionView reloadData];
+            });
+        }
     }];
 
 }
