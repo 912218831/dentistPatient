@@ -10,4 +10,11 @@
 
 @interface HWHomePageViewModel : BaseViewModel
 
+@property(strong,nonatomic)NSArray * bannerModels;//banner
+@property(strong,nonatomic)NSArray * pushitems;//为你推荐
+@property(strong,nonatomic)NSArray * lastRecords;//最近记录
+@property(strong,nonatomic)RACCommand * bannerCommand; //banner位点击
+@property(strong,nonatomic)RACCommand * pushItemCommand; //推荐点击
+@property(strong,nonatomic)RACCommand * funcBtnCommand;
+
 @end

@@ -49,6 +49,9 @@ static ViewControllersRouter *router;
 - (NSDictionary *)classWithViewMoldeMaps {
     return @{
              kLoginVM:objc_getClass(kLoginVM.UTF8String),
+             kAppointFailVM:objc_getClass(kAppointFailVM.UTF8String),
+             kAppointWaitingVM:objc_getClass(kAppointWaitingVM.UTF8String),
+             kAppointSuccessVM:objc_getClass(kAppointSuccessVM.UTF8String),
              kCaseDetailVM:objc_getClass(kCaseDetailVM.UTF8String),
              kDetectionVM:objc_getClass(kDetectionVM.UTF8String),
              kDetectionCaptureVM:objc_getClass(kDetectionCaptureVM.UTF8String),
@@ -57,6 +60,7 @@ static ViewControllersRouter *router;
              kRDoctorVM:objc_getClass(kRDoctorVM.UTF8String),
              kRDoctorDetailVM:objc_getClass(kRDoctorDetailVM.UTF8String)
              };
+    
 }
 
 - (NSDictionary *)viewContollerWithViewMoldeMaps {
@@ -67,6 +71,9 @@ static ViewControllersRouter *router;
              kCasesVM:objc_getClass("HWCasesViewController"),
              kCaseDetailVM:objc_getClass("CaseDetailViewController"),
              kAppointmentVM:objc_getClass("HWAppointmentViewController"),
+             kAppointFailVM:objc_getClass("HWAppointmentFailViewController"),
+             kAppointWaitingVM:objc_getClass("HWAppointWaitingViewController"),
+             kAppointSuccessVM:objc_getClass("HWAppointSuccessViewController"),
              kSettingVM:objc_getClass("HWSettingViewController"),
              kDetectionVM:objc_getClass("HWDetectionSelectMemberViewController"),
              kDetectionCaptureVM:objc_getClass("DetectionCaptureViewController"),

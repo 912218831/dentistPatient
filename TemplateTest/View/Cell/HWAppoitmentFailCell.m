@@ -7,6 +7,21 @@
 //
 
 #import "HWAppoitmentFailCell.h"
+#import "HCSStarRatingView.h"
+#import "BaseProtocol.h"
+#import "HWAppointFailViewModel.h"
+#import "HWAppointDetailModel.h"
+@interface HWAppoitmentFailCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *docNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *addressLab;
+@property (weak, nonatomic) IBOutlet UILabel *patientCountLab;
+@property (weak, nonatomic) IBOutlet UIButton *acceptBtn;//采纳医生建议
+@property (weak, nonatomic) IBOutlet UIButton *rejectBtn;//返回重新预约
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;//采纳医生建议
+@property(strong,nonatomic)HWAppointFailViewModel * viewModel;
+
+@end
 
 @implementation HWAppoitmentFailCell
 
@@ -20,5 +35,18 @@
 
     // Configure the view for the selected state
 }
+
+- (void)bindViewModel:(id)viewModel
+{
+    self.viewModel = viewModel;
+    HWAppointDetailModel * detailModel = self.viewModel.detailModel;
+    self.docNameLab.text = detailModel.dentistName;
+    self.addressLab.text = detailModel.clinicName;
+    self.patientCountLab.text = detailModel.patientCount;
+    self.starView.value = detailModel.docLevel.integerValue;
+    self.acceptBtn.rac_command = self.viewModel.acceptCommand;
+    self.rejectBtn.rac_command = self.viewModel.rejectCommand;
+}
+
 
 @end

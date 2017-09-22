@@ -23,6 +23,13 @@
 		78B0698B1B42790B00FC7A35 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B0698A1B42790B00FC7A35 /* MapKit.framework */; };
 		78B0698D1B42791200FC7A35 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B0698C1B42791200FC7A35 /* CoreLocation.framework */; };
 		78DC42C51BE87E3300D42B7B /* HWBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DC42C41BE87E3300D42B7B /* HWBaseAlertView.m */; };
+		B000234B1F729EF000284AF7 /* HWHomePageBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B000234A1F729EF000284AF7 /* HWHomePageBannerModel.m */; };
+		B000234E1F72A5DF00284AF7 /* HWHomePagePushItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B000234D1F72A5DF00284AF7 /* HWHomePagePushItemModel.m */; };
+		B00023511F72A5F700284AF7 /* HWHomePageLastRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B00023501F72A5F700284AF7 /* HWHomePageLastRecordModel.m */; };
+		B00023591F73655500284AF7 /* HWAppointListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B00023581F73655500284AF7 /* HWAppointListModel.m */; };
+		B000235B1F7384B800284AF7 /* 我的预约bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B000235A1F7384B800284AF7 /* 我的预约bg@2x.png */; };
+		B000235D1F7384E300284AF7 /* 我的预约bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B000235C1F7384E300284AF7 /* 我的预约bg@3x.png */; };
+		B00023601F738E3600284AF7 /* HWAppointFailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B000235F1F738E3600284AF7 /* HWAppointFailViewModel.m */; };
 		B007EA011F6A53B100498824 /* HWAppointWaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */; };
 		B007EA051F6A56D700498824 /* HWAppointSuccessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */; };
 		B007EA061F6A56D700498824 /* HWAppointSuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */; };
@@ -54,6 +61,10 @@
 		B0431C401F6A1619001A2FD4 /* HWAppointWaitingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0431C3E1F6A1619001A2FD4 /* HWAppointWaitingCell.xib */; };
 		B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0431C441F6A20D4001A2FD4 /* HCSStarRatingView.m */; };
 		B0476D231F3C9008000E0CF1 /* HWWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0476D221F3C9008000E0CF1 /* HWWebView.m */; };
+		B05FF24E1F73B47000F06366 /* HWAppointDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B05FF24D1F73B47000F06366 /* HWAppointDetailModel.m */; };
+		B05FF2511F73E34100F06366 /* HWAppointWaitingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B05FF2501F73E34100F06366 /* HWAppointWaitingViewModel.m */; };
+		B05FF2541F73E3FC00F06366 /* HWAppointSuccessViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B05FF2531F73E3FC00F06366 /* HWAppointSuccessViewModel.m */; };
+		B05FF2571F748EAE00F06366 /* HWAppointCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B05FF2561F748EAE00F06366 /* HWAppointCouponModel.m */; };
 		B064A7B21EC068980064F727 /* HWFileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = B064A7B11EC068980064F727 /* HWFileManger.m */; };
 		B06506BE1F6659050069652A /* CALayer+xibConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = B06506BD1F6659050069652A /* CALayer+xibConfigure.m */; };
 		B06506C11F66699C0069652A /* loginBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B06506C01F66699C0069652A /* loginBG.png */; };
@@ -367,6 +378,18 @@
 		78DC42C31BE87E3300D42B7B /* HWBaseAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWBaseAlertView.h; sourceTree = "<group>"; };
 		78DC42C41BE87E3300D42B7B /* HWBaseAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWBaseAlertView.m; sourceTree = "<group>"; };
 		8FBCD6549C9F42925DE3091E /* libPods-TemplateTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TemplateTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00023491F729EF000284AF7 /* HWHomePageBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageBannerModel.h; sourceTree = "<group>"; };
+		B000234A1F729EF000284AF7 /* HWHomePageBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageBannerModel.m; sourceTree = "<group>"; };
+		B000234C1F72A5DF00284AF7 /* HWHomePagePushItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePagePushItemModel.h; sourceTree = "<group>"; };
+		B000234D1F72A5DF00284AF7 /* HWHomePagePushItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePagePushItemModel.m; sourceTree = "<group>"; };
+		B000234F1F72A5F700284AF7 /* HWHomePageLastRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomePageLastRecordModel.h; sourceTree = "<group>"; };
+		B00023501F72A5F700284AF7 /* HWHomePageLastRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomePageLastRecordModel.m; sourceTree = "<group>"; };
+		B00023571F73655500284AF7 /* HWAppointListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointListModel.h; sourceTree = "<group>"; };
+		B00023581F73655500284AF7 /* HWAppointListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointListModel.m; sourceTree = "<group>"; };
+		B000235A1F7384B800284AF7 /* 我的预约bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的预约bg@2x.png"; sourceTree = "<group>"; };
+		B000235C1F7384E300284AF7 /* 我的预约bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的预约bg@3x.png"; sourceTree = "<group>"; };
+		B000235E1F738E3600284AF7 /* HWAppointFailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointFailViewModel.h; sourceTree = "<group>"; };
+		B000235F1F738E3600284AF7 /* HWAppointFailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointFailViewModel.m; sourceTree = "<group>"; };
 		B007E9FF1F6A53B100498824 /* HWAppointWaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointWaitingViewController.h; sourceTree = "<group>"; };
 		B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointWaitingViewController.m; sourceTree = "<group>"; };
 		B007EA021F6A56D700498824 /* HWAppointSuccessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointSuccessCell.h; sourceTree = "<group>"; };
@@ -409,6 +432,14 @@
 		B0431C441F6A20D4001A2FD4 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
 		B0476D211F3C9008000E0CF1 /* HWWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWWebView.h; sourceTree = "<group>"; };
 		B0476D221F3C9008000E0CF1 /* HWWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWWebView.m; sourceTree = "<group>"; };
+		B05FF24C1F73B47000F06366 /* HWAppointDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointDetailModel.h; sourceTree = "<group>"; };
+		B05FF24D1F73B47000F06366 /* HWAppointDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointDetailModel.m; sourceTree = "<group>"; };
+		B05FF24F1F73E34100F06366 /* HWAppointWaitingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointWaitingViewModel.h; sourceTree = "<group>"; };
+		B05FF2501F73E34100F06366 /* HWAppointWaitingViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointWaitingViewModel.m; sourceTree = "<group>"; };
+		B05FF2521F73E3FC00F06366 /* HWAppointSuccessViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointSuccessViewModel.h; sourceTree = "<group>"; };
+		B05FF2531F73E3FC00F06366 /* HWAppointSuccessViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointSuccessViewModel.m; sourceTree = "<group>"; };
+		B05FF2551F748EAE00F06366 /* HWAppointCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointCouponModel.h; sourceTree = "<group>"; };
+		B05FF2561F748EAE00F06366 /* HWAppointCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointCouponModel.m; sourceTree = "<group>"; };
 		B064A7931EBF23080064F727 /* TemplateTest 6. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 6. 4.xcdatamodel"; sourceTree = "<group>"; };
 		B064A7B01EC068980064F727 /* HWFileManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWFileManger.h; sourceTree = "<group>"; };
 		B064A7B11EC068980064F727 /* HWFileManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWFileManger.m; sourceTree = "<group>"; };
@@ -962,6 +993,18 @@
 				B0F675211F2A39820019086E /* HWRegisterInfoModel.m */,
 				B07EE4B91F67D6ED00FCA22D /* HWHomePageLayout.h */,
 				B07EE4BA1F67D6ED00FCA22D /* HWHomePageLayout.m */,
+				B00023491F729EF000284AF7 /* HWHomePageBannerModel.h */,
+				B000234A1F729EF000284AF7 /* HWHomePageBannerModel.m */,
+				B000234C1F72A5DF00284AF7 /* HWHomePagePushItemModel.h */,
+				B000234D1F72A5DF00284AF7 /* HWHomePagePushItemModel.m */,
+				B000234F1F72A5F700284AF7 /* HWHomePageLastRecordModel.h */,
+				B00023501F72A5F700284AF7 /* HWHomePageLastRecordModel.m */,
+				B00023571F73655500284AF7 /* HWAppointListModel.h */,
+				B00023581F73655500284AF7 /* HWAppointListModel.m */,
+				B05FF24C1F73B47000F06366 /* HWAppointDetailModel.h */,
+				B05FF24D1F73B47000F06366 /* HWAppointDetailModel.m */,
+				B05FF2551F748EAE00F06366 /* HWAppointCouponModel.h */,
+				B05FF2561F748EAE00F06366 /* HWAppointCouponModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1081,6 +1124,12 @@
 				B07EE4A61F67B80100FCA22D /* HWHomePageViewModel.m */,
 				B07EE4AB1F67B82300FCA22D /* HWAppointmentViewModel.h */,
 				B07EE4AC1F67B82300FCA22D /* HWAppointmentViewModel.m */,
+				B000235E1F738E3600284AF7 /* HWAppointFailViewModel.h */,
+				B000235F1F738E3600284AF7 /* HWAppointFailViewModel.m */,
+				B05FF24F1F73E34100F06366 /* HWAppointWaitingViewModel.h */,
+				B05FF2501F73E34100F06366 /* HWAppointWaitingViewModel.m */,
+				B05FF2521F73E3FC00F06366 /* HWAppointSuccessViewModel.h */,
+				B05FF2531F73E3FC00F06366 /* HWAppointSuccessViewModel.m */,
 				B07EE4AE1F67B83000FCA22D /* HWSettingViewModel.h */,
 				B07EE4AF1F67B83000FCA22D /* HWSettingViewModel.m */,
 				C50029AF1F6C0BF20064DFEE /* HWDetectionSelectMemberViewModel.h */,
@@ -1105,6 +1154,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				B000235A1F7384B800284AF7 /* 我的预约bg@2x.png */,
 				C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */,
 				C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */,
 				C587E3751F6F68B8009509CB /* detectionResultT@2x.png */,
@@ -1149,6 +1199,7 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				B000235C1F7384E300284AF7 /* 我的预约bg@3x.png */,
 				C587E3791F6F6A5E009509CB /* detectionCapture@3x.png */,
 				C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */,
 				C587E3771F6F68BE009509CB /* detectionResultT@3x.png */,
@@ -2284,6 +2335,7 @@
 				B07EE4CF1F68D56B00FCA22D /* 记录@2x.png in Resources */,
 				B0B0B56C1F276EAA002FE127 /* tabbar_selected_background.png in Resources */,
 				B0B0B58D1F287302002FE127 /* click提成@2x.png in Resources */,
+				B000235B1F7384B800284AF7 /* 我的预约bg@2x.png in Resources */,
 				B02770C21F6A68150044A417 /* 预约时间@3x.png in Resources */,
 				B0B0B58F1F287302002FE127 /* click首页@2x.png in Resources */,
 				B0B0B5961F287302002FE127 /* click我的@3x.png in Resources */,
@@ -2367,6 +2419,7 @@
 				C587E3781F6F68BE009509CB /* detectionResultT@3x.png in Resources */,
 				B0B0B5641F276EAA002FE127 /* navigationbar_background.png in Resources */,
 				C24E7DB81ADE51AA00BA8ECC /* Images.xcassets in Resources */,
+				B000235D1F7384E300284AF7 /* 我的预约bg@3x.png in Resources */,
 				B07EE4B81F67CFFB00FCA22D /* 搜索@2x.png in Resources */,
 				B0B0B59A1F287302002FE127 /* Thumbs.db in Resources */,
 				B09807D31F6ABF4F009C0FE1 /* HWAppointCouponCell.xib in Resources */,
@@ -2524,6 +2577,7 @@
 				C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */,
 				72230B151C21670D0040F496 /* ASDisplayNode+Utils.m in Sources */,
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
+				B000234B1F729EF000284AF7 /* HWHomePageBannerModel.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
 				C50029D51F6CD7AE0064DFEE /* TimeVideoViewModel.m in Sources */,
 				7552CE2C1D1240CB00A557EA /* DView.m in Sources */,
@@ -2532,6 +2586,7 @@
 				C5CCBB741F6976B1003A4B8C /* HZPhotoBrowserView.m in Sources */,
 				C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */,
 				C531FBA71F66D0390008A17A /* ViewControllerSimpleConfig.m in Sources */,
+				B05FF2571F748EAE00F06366 /* HWAppointCouponModel.m in Sources */,
 				DA3DFF491ADE8DAE00C4E99A /* HWLocationManager.m in Sources */,
 				C24E7DB01ADE51AA00BA8ECC /* TemplateTest.xcdatamodeld in Sources */,
 				B07EE4AD1F67B82300FCA22D /* HWAppointmentViewModel.m in Sources */,
@@ -2557,6 +2612,7 @@
 				DA3DFF211ADE78ED00C4E99A /* HWShareManager.m in Sources */,
 				C50029E61F6CE3840064DFEE /* DetectionIssueItemModel.m in Sources */,
 				C531FBAE1F66D0390008A17A /* BaseListViewDataSource.m in Sources */,
+				B000234E1F72A5DF00284AF7 /* HWHomePagePushItemModel.m in Sources */,
 				C28BACB51B16B8C90048DE0A /* zip.c in Sources */,
 				B064A7B21EC068980064F727 /* HWFileManger.m in Sources */,
 				B07EE4C21F67DC6200FCA22D /* HWHomePageHeader.m in Sources */,
@@ -2568,6 +2624,7 @@
 				C5B4AA301F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m in Sources */,
 				B0F8EF8D1EF3C39F00F38770 /* Drawing-Block.m in Sources */,
 				B0F8EF891EF3C39F00F38770 /* BezierElement.m in Sources */,
+				B00023601F738E3600284AF7 /* HWAppointFailViewModel.m in Sources */,
 				B07EE4F81F695E2F00FCA22D /* HWAppoitmentFailCell.m in Sources */,
 				B0D26B061BDF7B920012A093 /* HWPickerItem.m in Sources */,
 				C531FBA51F66D0390008A17A /* BaseListItemModel.m in Sources */,
@@ -2577,6 +2634,7 @@
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
 				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
 				C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */,
+				B05FF24E1F73B47000F06366 /* HWAppointDetailModel.m in Sources */,
 				C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */,
 				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
@@ -2594,6 +2652,7 @@
 				B0D26B001BDF7B920012A093 /* HWPickerCell.m in Sources */,
 				B0F8EF901EF3C39F00F38770 /* BaseGeometry.m in Sources */,
 				B0F6752E1F2BCDCA0019086E /* HWGuideViewController.m in Sources */,
+				B05FF2541F73E3FC00F06366 /* HWAppointSuccessViewModel.m in Sources */,
 				C24E7DF91ADE826000BA8ECC /* HWGeneralControl.m in Sources */,
 				B0F8EF921EF3C39F00F38770 /* ImageUtils.m in Sources */,
 				C24E7E061ADF887900BA8ECC /* HWBaseViewController.m in Sources */,
@@ -2612,6 +2671,7 @@
 				B0D26B091BDF7B920012A093 /* HWTitleAndLabelItem.m in Sources */,
 				C5B4AA331F6EAD500083E8C5 /* DoctorDetailDateMapCell.m in Sources */,
 				B09807D61F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m in Sources */,
+				B05FF2511F73E34100F06366 /* HWAppointWaitingViewModel.m in Sources */,
 				B042FA1F1DF6912B0017F689 /* HWEmptyView.m in Sources */,
 				C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */,
 				DA3DFF221ADE78ED00C4E99A /* Utility.m in Sources */,
@@ -2620,6 +2680,7 @@
 				C531FBAF1F66D0390008A17A /* BaseListViewModel.m in Sources */,
 				C531FBAC1F66D0390008A17A /* BaseListViewCell.m in Sources */,
 				DA3DFF161ADE78ED00C4E99A /* NSArray+Utils.m in Sources */,
+				B00023511F72A5F700284AF7 /* HWHomePageLastRecordModel.m in Sources */,
 				C531FBC41F66D5E30008A17A /* HWLoginTranstionAnimationRevert.m in Sources */,
 				DA3DFF191ADE78ED00C4E99A /* UIAlertView+Utils.m in Sources */,
 				C531FBB71F66D3580008A17A /* NSUserDefaults+UserDefaults.m in Sources */,
@@ -2648,6 +2709,7 @@
 				DA3DFF171ADE78ED00C4E99A /* NSDictionary+Utils.m in Sources */,
 				C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */,
 				C50029DA1F6CD96A0064DFEE /* DetectionResultViewController.m in Sources */,
+				B00023591F73655500284AF7 /* HWAppointListModel.m in Sources */,
 				B09807CE1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m in Sources */,
 				B0D26B0B1BDF7B920012A093 /* HWTableViewSection.m in Sources */,
 				C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */,

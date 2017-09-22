@@ -7,28 +7,59 @@
 //
 
 #import "HWAppointmentFailViewController.h"
-
+#import "HWAppointFailViewModel.h"
+#import "HWAppoitmentFailCell.h"
 @interface HWAppointmentFailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView * table;
+@property(strong,nonatomic)HWAppointFailViewModel * viewModel;
+@property(strong,nonatomic)UIButton * cancelBtn;
 @end
 
 @implementation HWAppointmentFailViewController
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table];
+    [self configTableViewHeaderAndFooter];
+    self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.table.bottom, kScreenWidth, 50)];
+    [self.cancelBtn setTitle:@"取消预约" forState:UIControlStateNormal];
+    [self.cancelBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
+    self.cancelBtn.backgroundColor = COLOR_B5C8D9;
+    [self.view addSubview:self.cancelBtn];
 }
 
 - (UITableView *)table
 {
     if (_table == nil) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT) style:UITableViewStylePlain];
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT-50) style:UITableViewStylePlain];
         _table.delegate = self;
         _table.dataSource = self;
         [_table registerNib:[UINib nibWithNibName:@"HWAppoitmentFailCell" bundle:nil] forCellReuseIdentifier:@"HWAppoitmentFailCell"];
+        UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT)];
+        UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
+        imgV.centerX = kScreenWidth/2.0f;
+        imgV.image = ImgWithName(@"我的预约bg");
+        [bg addSubview:imgV];
+        _table.backgroundView = bg;
     }
     
     return _table;
+}
+
+- (void)configTableViewHeaderAndFooter{
+    UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kRate(168))];
+    header.backgroundColor = [UIColor clearColor];
+    self.table.tableHeaderView = header;
+    
+    UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kRate(100))];
+    UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, kScreenWidth - 30, kRate(100))];
+    lab.text = @"医生会尽量跟你联系确定时间";
+    lab.font = FONT(14.0f);
+    lab.textColor = COLOR_999999;
+    lab.textAlignment = NSTextAlignmentCenter;
+    [footer addSubview:lab];
+    self.table.tableFooterView = footer;
 }
 
 #pragma UITableView delegate && datasource
@@ -49,7 +80,26 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"HWAppoitmentFailCell"];
+    HWAppoitmentFailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"HWAppoitmentFailCell"];
+    [cell bindViewModel:self.viewModel];
+    return cell;
+}
+
+
+- (void)bindViewModel
+{
+    [super bindViewModel];
+    [self.viewModel bindViewWithSignal];
+    [self.viewModel.requestSignal subscribeNext:^(id x) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.table reloadData];
+        });
+    } error:^(NSError *error) {
+        [Utility showToastWithMessage:error.localizedDescription];
+    }];
+    [self.viewModel execute];
+    self.cancelBtn.rac_command = self.viewModel.cancelCommand;
 }
 
 - (void)didReceiveMemoryWarning {

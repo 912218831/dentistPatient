@@ -21,10 +21,13 @@ typedef  NS_ENUM(int, APIType) {
 };
 
 @interface BaseViewModel : RVMViewModel
+
 @property (nonatomic, strong) BaseModel *model;
 /*子类初始化*/
 @property (nonatomic, strong) RACSignal *requestSignal;
+
 /*子类重写*/
+
 - (void)initRequestSignal;
 - (void)bindViewWithSignal;
 

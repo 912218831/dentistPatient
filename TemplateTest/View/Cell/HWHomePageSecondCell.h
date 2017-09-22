@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HWHomePagePushItemModel.h"
 @interface HWHomePageSecondCell : UICollectionViewCell
+
+@property(strong,nonatomic)HWHomePagePushItemModel * model;
 
 @end

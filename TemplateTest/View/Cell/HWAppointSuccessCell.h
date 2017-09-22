@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWAppointSuccessCell : UICollectionViewCell
+@interface HWAppointSuccessCell : UICollectionViewCell<HWBaseViewProtocol>
+
+@property (weak, nonatomic) IBOutlet UITextField *moneyTF;
 
 @end

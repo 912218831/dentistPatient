@@ -26,4 +26,13 @@
 
 }
 
+- (void)setModel:(HWAppointListModel *)model
+{
+    [self.headerImgV sd_setImageWithURL:[NSURL URLWithString:model.headImgUrl] placeholderImage:placeHoderImg];
+    self.docNameLab.text = model.dentistName;
+    self.addressLab.text = model.clinicName;
+    self.timeLab.text = model.expectedTime;
+    self.complementStateLab.text = model.stateDes;
+}
+
 @end

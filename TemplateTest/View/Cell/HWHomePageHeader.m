@@ -7,13 +7,12 @@
 //
 
 #import "HWHomePageHeader.h"
-
+#import "HWHomePageBannerModel.h"
 @interface HWHomePageHeader()<iCarouselDelegate,iCarouselDataSource>
 {
     NSInteger _currentIndex;
 }
 @property(strong,nonatomic)iCarousel * bannerView;
-@property(strong,nonatomic)NSArray * dataArr;
 @property(strong,nonatomic)UIPageControl * pageControl;
 @end
 
@@ -23,7 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.dataArr = @[COLOR_F0512B,COLOR_80C8E7,COLOR_EC7E33,COLOR_28BEFF,COLOR_144271];
+        self.dataArr = [NSArray array];
         [self addSubview:self.bannerView];
         [self addSubview:self.pageControl];
         self.backgroundColor = COLOR_F0F0F0;
@@ -73,7 +72,8 @@
         UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 60, kRate(150))];
 //        imgV.tag = 1001;
         [view addSubview:imgV];
-        imgV.backgroundColor = self.dataArr[index];
+        HWHomePageBannerModel * model = [self.dataArr pObjectAtIndex:index];
+        [imgV sd_setImageWithURL:[NSURL URLWithString:model.imageurl] placeholderImage:placeHoderImg];
         view.layer.cornerRadius = 3.0f;
         view.layer.masksToBounds = YES;
     }
@@ -119,6 +119,7 @@
 //    if (self.delegate && [self.delegate respondsToSelector:@selector(icarousDidselecteditem:)]) {
 //        [self.delegate icarousDidselecteditem:model];
 //    }
+    [self.itemClickCommand execute:@(index)];
 }
 
 - (void)banderautoScroll
@@ -132,5 +133,20 @@
     _currentIndex++;
 }
 
+
+- (void)setDataArr:(NSArray *)dataArr
+{
+    if (_dataArr.count == 1) {
+        _dataArr = [NSArray arrayWithObjects:_dataArr[0],_dataArr[0],_dataArr[0], nil];
+    }
+    else if(_dataArr.count == 2){
+        _dataArr = [NSArray arrayWithObjects:_dataArr[0],_dataArr[1],_dataArr[0], nil];
+    }
+    else
+    {
+        _dataArr = dataArr;
+    }
+    [self.bannerView reloadData];
+}
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWAppointWaitingCell : UITableViewCell
+@interface HWAppointWaitingCell : UITableViewCell<HWBaseViewProtocol>
 
 @end

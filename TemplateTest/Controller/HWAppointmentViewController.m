@@ -10,16 +10,23 @@
 #import "HWAppointmentFailViewController.h"
 #import "HWAppointWaitingViewController.h"
 #import "HWAppointSuccessViewController.h"
+#import "HWAppointmentCell.h"
+#import <MJRefresh/MJRefresh.h>
 @interface HWAppointmentViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(strong,nonatomic)UICollectionView * collectionView;
+@property(strong,nonatomic,readonly)HWAppointmentViewModel * viewModel;
+@property(strong,nonatomic)NSArray * dataArr;
+@property(strong,nonatomic)RACDisposable * fetchDataDispose;
 @end
 
 @implementation HWAppointmentViewController
-
+@dynamic viewModel;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataArr = [NSArray array];
     self.navigationItem.titleView = [Utility navTitleView:@"预约"];
     [self.view addSubview:self.collectionView];
+
 }
 
 
@@ -46,7 +53,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArr.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -71,31 +78,15 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointmentCell" forIndexPath:indexPath];
+    HWAppointmentCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointmentCell" forIndexPath:indexPath];
+    cell.model = [self.dataArr pObjectAtIndex:indexPath.row];
+    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //调试
-    if (indexPath.row == 0) {
-        //预约失败
-        HWAppointmentFailViewController * vc = [[HWAppointmentFailViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if(indexPath.row == 1)
-    {
-        //预约成功
-        HWAppointSuccessViewController * vc = [[HWAppointSuccessViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-
-    }
-    else if(indexPath.row == 2)
-    {
-        //预约中
-        HWAppointWaitingViewController * vc = [[HWAppointWaitingViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-
-    }
+    HWAppointListModel * model = [self.dataArr pObjectAtIndex:indexPath.row];
+    [self.viewModel.itemClickCommand execute:model];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,5 +94,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)bindViewModel
+{
+    [super bindViewModel];
+    [self.viewModel bindViewWithSignal];
+    [self fetchData];
+    [self.viewModel execute];
+}
+
+- (void)fetchData
+{
+    if (self.fetchDataDispose) {
+        [self.fetchDataDispose dispose];
+    }
+    @weakify(self);
+    self.fetchDataDispose = [self.viewModel.requestSignal subscribeNext:^(id x) {
+        @strongify(self);
+        self.dataArr = [x copy];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    }];
+
+}
 
 @end

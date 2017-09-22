@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HWAppointListModel.h"
 @interface HWAppointmentCell : UICollectionViewCell
-
+@property(strong,nonatomic)HWAppointListModel * model;
 @end

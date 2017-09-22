@@ -174,6 +174,14 @@
                 <constraint firstItem="gTG-II-QEV" firstAttribute="leading" secondItem="yuY-Jy-vh0" secondAttribute="trailing" constant="15" id="uU8-a4-Bze"/>
                 <constraint firstItem="9QL-AC-qof" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="wmQ-pU-PdY"/>
             </constraints>
+            <connections>
+                <outlet property="addressLab" destination="tqa-va-mGy" id="Tpw-W6-JDv"/>
+                <outlet property="appointDateLab" destination="j5u-oI-iyN" id="dPU-hy-Wyv"/>
+                <outlet property="docNameLab" destination="A75-y8-hN7" id="SvZ-bT-sUQ"/>
+                <outlet property="moneyTF" destination="gTG-II-QEV" id="x4d-zZ-3qi"/>
+                <outlet property="patientCountLab" destination="jw8-Id-F9M" id="uAo-ee-7i2"/>
+                <outlet property="starView" destination="6pJ-se-aaU" id="maq-1X-q3G"/>
+            </connections>
             <point key="canvasLocation" x="105" y="51"/>
         </collectionViewCell>
     </objects>

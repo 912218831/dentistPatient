@@ -12,6 +12,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.homePageViewModel = [HWHomePageViewModel new];
+        self.appointViewModel = [HWAppointmentViewModel new];
         self.casesViewModel = [HWCasesViewModel new];
     }
     return self;

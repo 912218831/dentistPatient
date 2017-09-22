@@ -18,14 +18,19 @@
 @property(strong,nonatomic)UIButton * changeCityBtn;
 @property(strong,nonatomic)UIButton * searchBtn;
 @property(strong,nonatomic)UICollectionView  * collectionView;
+@property(strong,nonatomic,readonly)HWHomePageViewModel * viewModel;
+
 @end
 
 @implementation HWHomePageViewController
+
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configNavigationBar];
     [self.view addSubview:self.collectionView];
+    [self.viewModel execute];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -100,7 +105,7 @@
     }
     else
     {
-        return 10;
+        return self.viewModel.pushitems.count;
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
@@ -150,12 +155,14 @@
 {
     if (indexPath.section == 0) {
         HWHomePageFuncBtnCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWHomePageFuncBtnCell" forIndexPath:indexPath];
+        cell.funcBtnClickCommand = self.viewModel.funcBtnCommand;
         return cell;
 
     }
     else
     {
         HWHomePageSecondCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWHomePageSecondCell" forIndexPath:indexPath];
+        cell.model = [self.viewModel.pushitems pObjectAtIndex:indexPath.row];
         return cell;
     }
 }
@@ -164,7 +171,10 @@
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         if (indexPath.section == 0) {
-            return [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader" forIndexPath:indexPath];
+            HWHomePageHeader * header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHeader" forIndexPath:indexPath];
+            header.dataArr = [self.viewModel.bannerModels copy];
+            header.itemClickCommand = self.viewModel.bannerCommand;
+            return header;
 
         }
         else
@@ -174,6 +184,30 @@
         }
     }
     return nil;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.viewModel.pushItemCommand execute:indexPath];
+}
+
+#pragma bindModel
+
+- (void)bindViewModel
+{
+    [super bindViewModel];
+    [self.viewModel bindViewWithSignal];
+    @weakify(self);
+    [self.viewModel.requestSignal subscribeNext:^(id x) {
+        @strongify(self);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    } error:^(NSError *error) {
+        [Utility showToastWithMessage:error.localizedDescription];
+    }];
+    self.collectionView.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {

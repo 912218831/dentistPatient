@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HWAppoitmentFailCell : UITableViewCell
+#import "HWAppointFailViewModel.h"
+@interface HWAppoitmentFailCell : UITableViewCell<HWBaseViewProtocol>
 
 @end

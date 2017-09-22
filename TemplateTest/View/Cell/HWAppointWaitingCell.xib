@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="236.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="预约失败.png" translatesAutoresizingMaskIntoConstraints="NO" id="dtX-lC-nYX">
@@ -155,6 +155,12 @@
                     <constraint firstItem="rSI-wD-2i3" firstAttribute="centerY" secondItem="ueh-iI-H5O" secondAttribute="centerY" id="xwO-In-apu"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLab" destination="llZ-NQ-r1N" id="1Ro-Yq-VLd"/>
+                <outlet property="docNameLab" destination="pBV-Xk-ok5" id="aRX-Wo-Tux"/>
+                <outlet property="patientCountLab" destination="Ymg-aq-RBQ" id="oXD-fN-NUu"/>
+                <outlet property="starView" destination="rSI-wD-2i3" id="2Zo-sG-IUm"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

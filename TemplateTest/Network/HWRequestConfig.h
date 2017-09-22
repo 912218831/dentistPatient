@@ -35,12 +35,14 @@
 #define kGetDomain                  @"index/getCustomerDomain.do"
 
 #define kUploadImage                 @"" //上传图片
-
 #define kLogin                      @"acc/loginByCode"//登录
 //#define kRegister                   @"Account/DoRegister"//注册
 #define kGetVerifyCode              @"acc/getVerifyCode"//获取验证码
 #define kModifyPassword             @"Member/DoUpMember" //修改密码
 #define kSupplementInfo             @"Member/DoUpMember"//完善账号信息
+#define kHomePage                   @"main/loadMainPages"//首页
+#define kAppointList                @"apl/applyList" //我的预约列表
+#define kAppointDetail              @"apl/applyInfo"//预约详情
 //H5链接
 
 #define AppendHTML(shortUrl)   [NSString stringWithFormat:@"%@%@?userKey=%@",kHtmlBase,shortUrl,[HWUserLogin currentUserLogin].userkey]

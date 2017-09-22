@@ -33,7 +33,7 @@
     {
         self.manager = [[CLLocationManager alloc]init];
         self.manager.delegate = self;
-        self.manager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.manager.desiredAccuracy = kCLLocationAccuracyKilometer;
         self.manager.distanceFilter = kCLLocationAccuracyKilometer;
         if (IOS8)
         {
@@ -58,8 +58,9 @@
     __block  CLPlacemark * p;
     self.isLocationSuccess = YES;
     self.isOpenLocator = YES;
+    @weakify(self);
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-       
+        @strongify(self);
         if (error != nil) {
             if (_locationFailed)
             {

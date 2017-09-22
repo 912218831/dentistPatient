@@ -44,8 +44,10 @@
             img = [HWCustomDrawImg drawCenterInReactImg:img contarinerRect:CGRectMake(0, 0, width, height)];
         }
         [btn setImage:img forState:UIControlStateNormal];
+        @weakify(self);
         [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            [[ViewControllersRouter shareInstance]pushViewModel:[HWDetectionSelectMemberViewModel new] animated:true];
+            @strongify(self);
+            [self.funcBtnClickCommand execute:@([self.btns indexOfObject:x])];
         }];
     }
 }

@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-
+#import "HWHomePageViewModel.h"
 @interface HWHomePageViewController : BaseViewController
-
 @end

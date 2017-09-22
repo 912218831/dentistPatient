@@ -148,7 +148,8 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
 {
     NSMutableDictionary *parDict = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [parDict setPObject:[HWUserLogin currentUserLogin].userkey forKey:@"userkey"];
-    [parDict setPObject:@"ios" forKey:@"os"];
+
+//    [parDict setPObject:@"ios" forKey:@"os"];
     [self.requestSerializer setTimeoutInterval:15.0f];
 
    return [self POST:URLString parameters:parDict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

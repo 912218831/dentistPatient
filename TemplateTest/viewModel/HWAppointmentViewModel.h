@@ -9,5 +9,5 @@
 #import "BaseViewModel.h"
 
 @interface HWAppointmentViewModel : BaseViewModel
-
+@property(strong,nonatomic)RACCommand * itemClickCommand;
 @end

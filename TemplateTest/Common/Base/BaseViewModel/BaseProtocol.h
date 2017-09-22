@@ -67,9 +67,12 @@ typedef void (^VoidBlock)(UIViewController *targetVC);
 
 
 @protocol HWBaseViewProtocol <NSObject>
+@optional
 - (void)initSubViews;
 - (void)layoutSubViews;
 - (void)initDefaultConfigs;
+- (void)bindViewModel:(id)viewModel;
+
 @end
 
 

@@ -7,18 +7,29 @@
 //
 
 #import "HWAppointSuccessViewController.h"
-
-@interface HWAppointSuccessViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+#import "HWAppointSuccessViewModel.h"
+#import "HWAppointSuccessCell.h"
+#import "HWAppointCouponModel.h"
+#import "HWAppointCouponCell.h"
+@interface HWAppointSuccessViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIActionSheetDelegate>
 
 @property(strong,nonatomic)UICollectionView * collectionView;
+@property(strong,nonatomic)HWAppointSuccessViewModel * viewModel;
+@property(strong,nonatomic)UIButton * payBtn;
 
 @end
 
 @implementation HWAppointSuccessViewController
-
+@dynamic viewModel;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
+    self.payBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.collectionView.bottom, kScreenWidth, 50)];
+    [self.payBtn setTitle:@"支付" forState:UIControlStateNormal];
+    [self.payBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
+    self.payBtn.backgroundColor = COLOR_28BEFF;
+    [self.view addSubview:self.payBtn];
+
 }
 
 - (UICollectionView *)collectionView
@@ -27,7 +38,7 @@
     {
         UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT) collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT-50) collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointSuccessCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointSuccessCell"];
@@ -96,7 +107,7 @@
     }
     else if(section == 1)
     {
-        return 10;
+        return self.viewModel.coupons.count;
     }
     else
     {
@@ -107,12 +118,17 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointSuccessCell" forIndexPath:indexPath];
+        HWAppointSuccessCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointSuccessCell" forIndexPath:indexPath];
+        [cell bindViewModel:self.viewModel];
+        RAC(self.viewModel,sumMoney) = [cell.moneyTF.rac_textSignal takeUntil:cell.rac_prepareForReuseSignal];
+        return cell;
 
     }
     else if(indexPath.section == 1)
     {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointCouponCell" forIndexPath:indexPath];
+        HWAppointCouponCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWAppointCouponCell" forIndexPath:indexPath];
+        [cell bindViewModel:[self.viewModel.coupons pObjectAtIndex:indexPath.row]];
+        return cell;
     }
     else
     {
@@ -120,19 +136,40 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        
+        HWAppointCouponModel * model = [self.viewModel.coupons pObjectAtIndex:indexPath.row];
+        model.selected = !model.selected;
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)bindViewModel
+{
+    [super bindViewModel];
+    [self.viewModel initRequestSignal];
+    [self.viewModel.requestSignal subscribeNext:^(id x) {
+       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    } error:^(NSError *error) {
+        [Utility showToastWithMessage:error.localizedDescription];
+    }];
+    [self.viewModel execute];
+    
+    [[self.payBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"支付宝",@"微信", nil];
+        [actionSheet.rac_buttonClickedSignal subscribeNext:^(id x) {
+            NSLog(@"%@",x);
+        }];
+        [actionSheet showInView:SHARED_APP_DELEGATE.window];
+    }];
+    
 }
-*/
+
+
 
 @end

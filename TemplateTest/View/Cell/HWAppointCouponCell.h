@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWAppointCouponCell : UICollectionViewCell
+@interface HWAppointCouponCell : UICollectionViewCell<HWBaseViewProtocol>
 
 @end

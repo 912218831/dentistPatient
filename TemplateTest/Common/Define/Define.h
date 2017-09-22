@@ -249,7 +249,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define COLOR_144271                    UIColorFromRGB(0x144271)
 #define COLOR_28BEFF                    UIColorFromRGB(0x28beff)
 #define COLOR_F0F0F0                    UIColorFromRGB(0xf0f0f0)
-
+#define COLOR_B5C8D9                    UIColorFromRGB(0xb5c8d9)
 /*  字体
  TF For Text Font
  */
@@ -287,7 +287,9 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define LOADING_TEXT                    @"加载中"
 #define LOADINGFAIL                     @"加载失败\n点击屏幕重新加载"
 #define storyboard(name)                [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:name]
-#define HWPROTOCOL                      [NSString stringWithFormat:@"%@/hwapp/help/userProtocol", kPHPUrlBase]   // ios14.haowu.com/hwapp/help/userProtocol
+#define customRACError(error) [NSError errorWithDomain:[NSString stringWithFormat:@"%@%@",self.class,NSStringFromSelector(_cmd)] code:100 userInfo:@{NSLocalizedDescriptionKey:error}]
+#define placeHoderImg                   ImgWithName(@"")
+#define ImgWithName(imageName)          [UIImage imageNamed:imageName]
 #define APP_ID                          @"1018136206"
 
 
@@ -349,6 +351,8 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kCaseDetailVM           @"CaseDetailViewModel"
 #define kAppointmentVM          @"HWAppointmentViewModel"
 #define kSettingVM              @"HWSettingViewModel"
-
+#define kAppointFailVM          @"HWAppointFailViewModel"
+#define kAppointWaitingVM       @"HWAppointWaitingViewModel"
+#define kAppointSuccessVM       @"HWAppointSuccessViewModel"
 #endif
 

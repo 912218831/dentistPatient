@@ -48,6 +48,10 @@
                 <constraint firstItem="itz-0i-lYL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wzz-7b-bY3"/>
                 <constraint firstAttribute="trailing" secondItem="V3s-1U-VKT" secondAttribute="trailing" id="zOT-WX-ovU"/>
             </constraints>
+            <connections>
+                <outlet property="headerImgV" destination="itz-0i-lYL" id="dUN-oc-fVY"/>
+                <outlet property="titleLab" destination="V3s-1U-VKT" id="EET-Fw-A7M"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

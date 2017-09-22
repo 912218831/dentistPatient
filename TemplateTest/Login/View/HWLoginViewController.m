@@ -24,17 +24,6 @@
 @implementation HWLoginViewController
 @dynamic viewModel;
 
-+ (void)load {
-    RACSubject *s = [RACSubject subject];
-    
-    [s.switchToLatest subscribeNext:^(id x) {
-        
-    }error:^(NSError *error) {
-        
-    }];
-    [s sendNext:[RACSignal error:[NSError errorWithDomain:@"" code:404 userInfo:nil]]];
-    [s sendNext:[RACSignal return:@2]];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

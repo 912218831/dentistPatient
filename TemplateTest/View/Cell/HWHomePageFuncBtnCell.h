@@ -10,4 +10,6 @@
 
 @interface HWHomePageFuncBtnCell : UICollectionViewCell
 
+@property(strong,nonatomic)RACCommand * funcBtnClickCommand;
+
 @end

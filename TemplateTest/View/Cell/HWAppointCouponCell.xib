@@ -63,6 +63,11 @@
                 <constraint firstItem="0Qf-CJ-khe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pNb-Ye-cWf"/>
                 <constraint firstAttribute="trailing" secondItem="gcz-0M-T7x" secondAttribute="trailing" id="sfy-Th-Xsy"/>
             </constraints>
+            <connections>
+                <outlet property="bgImgV" destination="0Qf-CJ-khe" id="0Mg-rx-eu7"/>
+                <outlet property="minMoneyLab" destination="SbR-e2-Hoe" id="CZJ-JT-NIj"/>
+                <outlet property="reduceMoneyLab" destination="gcz-0M-T7x" id="bKn-ci-7Vx"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>

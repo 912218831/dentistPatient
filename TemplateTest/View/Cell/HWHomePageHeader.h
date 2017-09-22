@@ -10,4 +10,6 @@
 
 @interface HWHomePageHeader : UICollectionReusableView
 
+@property(strong,nonatomic)RACCommand * itemClickCommand;
+@property(strong,nonatomic)NSArray * dataArr;
 @end
