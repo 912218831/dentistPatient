@@ -41,8 +41,8 @@
     [self.segmentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(headView);
         make.width.mas_equalTo(kRate(106));
-        make.bottom.equalTo(headView).with.offset(-kRate(14));
-        make.top.equalTo(headView).with.offset(kRate(8));
+        make.bottom.equalTo(headView).with.offset(-kRate(12));
+        make.top.equalTo(headView).with.offset(kRate(4));
     }];
     //
     self.listView.baseTable.backgroundColor = UIColorFromRGB(0xf0f0f0);
@@ -59,7 +59,7 @@
         vm.caseModel = [self.viewModel.dataArray pObjectAtIndex:indexPath.row];
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     };
-    self.segmentButton.titleLabel.text = @"儿子 - 小飞";
+    self.segmentButton.titleLabel.text = @"";
 }
 
 - (void)bindViewModel {
@@ -69,36 +69,52 @@
     @weakify(self);
     [[self.segmentButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         @strongify(self);
-        PopoverView *popoverView = [PopoverView popoverView];
-        popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
-        [popoverView showToView:self.segmentButton withActions:[self QQActions]];
+        PopoverView *popoverView = nil;
+        if (self.viewModel.familyMember.count) {
+            popoverView = [PopoverView popoverView];
+            popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
+        }
+        NSMutableArray *actions = [NSMutableArray arrayWithCapacity:self.viewModel.familyMember.count];
+        for (FamilyMemberModel *model in self.viewModel.familyMember) {
+            PopoverAction *action = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_multichat"] title:model.name handler:^(PopoverAction *action) {
+                self.viewModel.familyMemberIndex = [actions indexOfObject:action]+1;
+            }];
+            [actions addObject:action];
+        }
+        [popoverView showToView:self.segmentButton withActions:actions];
     }];
     
-    [self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
+    [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
         [self.listView.baseTable reloadData];
         [self.listView doneLoadingTableViewData];
     } error:^(NSError *error) {
         [Utility showToastWithMessage:error.domain];
-    } completed:nil];
-    
-    [self.viewModel execute];
-}
-
-- (NSArray<PopoverAction *> *)QQActions {
-    // 发起多人聊天 action
-    PopoverAction *multichatAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_multichat"] title:@"父亲--默默" handler:^(PopoverAction *action) {
-    }];
-    // 加好友 action
-    PopoverAction *addFriAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_addFri"] title:@"母亲--大大" handler:^(PopoverAction *action) {
-        
-    }];
-    // 扫一扫 action
-    PopoverAction *QRAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_QR"] title:@"老婆--晔晔" handler:^(PopoverAction *action) {
-        
+    } completed:nil]finally:^{
+        [Utility hideMBProgress:self.contentView];
     }];
     
-    return @[multichatAction, addFriAction, QRAction];
+    [Utility showMBProgress:self.contentView message:nil];
+    [[self.viewModel.gainFamilyMember execute:nil]subscribeNext:^(id x) {
+        //@strongify(self);
+        //[self.viewModel execute];
+    } error:^(NSError *error) {
+        [Utility showToastWithMessage:error.domain];
+    }completed:^{
+        //[Utility hideMBProgress:self.contentView];
+    }];
+    
+    [RACObserve(self.viewModel, familyMemberIndex)subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        self.segmentButton.titleLabel.text = [[self.viewModel.familyMember objectAtIndex:x.integerValue-1]name];
+        if (x.integerValue>0) {
+            [Utility showMBProgress:self.contentView message:nil];
+            self.viewModel.currentPage = 1;
+            [self.viewModel execute];
+        }
+    }];
+    
+    RAC(self.listView, isLastPage) = RACObserve(self.viewModel, isLastPage);
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {

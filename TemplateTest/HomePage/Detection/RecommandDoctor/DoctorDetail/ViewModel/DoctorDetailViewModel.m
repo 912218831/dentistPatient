@@ -42,4 +42,26 @@
     }];
 }
 
+- (void)bindViewWithSignal {
+    [super bindViewWithSignal];
+    
+    @weakify(self);
+    self.orderSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        NSInteger index = self.selectDateIndexPath.row*4 + self.selectDateIndexPath.section;
+        DoctorDetailModel *model = [self.dataArray firstObject];
+        DoctorDetailTimeListModel *time = [[self.dataArray lastObject] pObjectAtIndex:index];
+        [self post:kRDoctorOrder params:@{  @"checkId":self.checkId,
+                                          @"dentistId":model.Id,
+                                          @"expectedTime":time.date,
+                                          @"amPm":time.amPm} success:^(id response) {
+             [subscriber sendNext:[RACSignal empty]];
+        } failure:^(NSString *error) {
+            [subscriber sendNext:[RACSignal error:Error]];
+        }];
+        
+        return nil;
+    }];
+}
+
 @end

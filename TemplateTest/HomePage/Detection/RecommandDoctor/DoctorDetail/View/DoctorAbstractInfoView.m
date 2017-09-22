@@ -72,7 +72,7 @@
     self.collectBtn.spaceX = kRate(7);
     self.collectBtn.iconSize = CGSizeMake(kRate(20), kRate(18));
     [self.collectBtn setImage:[UIImage imageNamed:@"collect"]];
-    
+    self.collectBtn.hidden = true;
 }
 
 - (void)setValueSignal:(RACSignal *)valueSignal {

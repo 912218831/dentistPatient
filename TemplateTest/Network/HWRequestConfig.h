@@ -57,12 +57,14 @@
 #define kLoginGainVertifyCode        @"" //获取验证码
 #define kLoginApp                    @"" //登录
 #define kDetectionCapturePhotos      @"chk/checkImageList" // 牙菌检测-已检测照片
+#define kDetectionDeletePhoto        @"chk/delCheckImage" // 牙菌检测-删除图片
 #define kDetectionResult             @"chk/finishUploadImg" // 牙菌斑检测--结果
 #define kRecommandDoctor             @"chk/dencitsQuery" // 牙菌斑检测 -推荐附近的医生
 #define kRDoctorDetail               @"chk/dentistInfo" // 牙菌斑检测 -医生详情
+#define kRDoctorOrder                @"apl/applyDentist"// 牙菌斑检测 - 预约
 #define kCaseList                    @"fam/loadCheckList" //病例列表
 #define kCaseDetail                  @"fam/checkDetail" //病例详情
-
+#define kFamilyMembers               @"fam/loadMyFamily" //病例详情
 #endif
 
 

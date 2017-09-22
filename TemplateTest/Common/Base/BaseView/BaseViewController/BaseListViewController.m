@@ -38,6 +38,7 @@
 
 - (void)sendAction:(NSString *)selectorString {
     self.viewModel.currentPage = self.listView.currentPage;
+    [Utility showMBProgress:self.contentView message:nil];
     [self.viewModel execute];
 }
 

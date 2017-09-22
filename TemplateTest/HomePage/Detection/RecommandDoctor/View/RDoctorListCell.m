@@ -98,7 +98,7 @@
     @weakify(self);
     [self.valueSignal subscribeNext:^(RecommandDoctorModel *model) {
         @strongify(self);
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"]];
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.headImgUrl]];
         self.describeLabel.text = model.descrip;
         self.nameLabel.text = model.name;
         self.distanceLabel.text = model.distance;

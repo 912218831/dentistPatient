@@ -11,4 +11,6 @@
 @interface MapContentView : UIButton
 @property (nonatomic, strong) RACSignal *annotationsSignal;
 @property (nonatomic, assign) BOOL needAnnotationCenter;
+@property (nonatomic, strong) RACSubject *locationSuccess;
+@property (nonatomic, strong) RACSubject *locationFail;
 @end

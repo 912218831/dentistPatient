@@ -151,7 +151,7 @@
     @weakify(self);
     [self.valueSignal subscribeNext:^(DoctorDetailModel *model) {
         @strongify(self);
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"]];
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.headImgUrl]];
         self.nameLabel.text = model.name;
         self.hospitalLabel.text = model.clinicName;
         self.orderedLabel.text = [NSString stringWithFormat:@"%@人预约过",model.patientCount];

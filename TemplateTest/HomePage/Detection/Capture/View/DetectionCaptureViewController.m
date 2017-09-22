@@ -81,7 +81,9 @@
     [self.viewModel execute];
     
     [[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        @strongify(self);
         DetectionResultViewModel *vm = [DetectionResultViewModel new];
+        vm.checkId = self.viewModel.checkId;
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     }];
 }
@@ -112,7 +114,7 @@
             make.bottom.mas_equalTo(-kRate(11));
         }];
     }
-    titleLabel.text = @"现在为儿子拍照";
+    titleLabel.text = [NSString stringWithFormat:@"现在为%@拍照",self.viewModel.model.name];
     return headerView;
 }
 
@@ -123,16 +125,21 @@
         cell.photoImageView.image = nil;
         cell.valueSignal = [RACSignal return:[self.viewModel.dataArray objectAtIndex:indexPath.row]];
         @weakify(self);
-        [cell.deleteActionSubject subscribeCompleted:^{
+        [cell.deleteAction subscribeNext:^(id x) {
             @strongify(self);
             NSLog(@"删除啦");
             // 删除
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (self.viewModel.dataArray.count > indexPath.row) {
-                    [self.viewModel.dataArray removeObjectAtIndex:indexPath.row];
+            [Utility showMBProgress:self.contentView message:nil];
+            [[[self.viewModel.deletePhotoCommand execute:@(indexPath.row)].newSwitchToLatest subscribeNext:^(id x) {
+                if (self.viewModel.dataArray.count > [x integerValue]) {
+                    [self.viewModel.dataArray removeObjectAtIndex:[x integerValue]];
                 }
                 [self.listView reloadData];
-            });
+            } error:^(NSError *error) {
+                [Utility showToastWithMessage:error.domain];
+            } completed:nil]finally:^{
+                [Utility hideMBProgress:self.contentView];
+            }];
         }];
         cell.needBorder = true;
     } else {

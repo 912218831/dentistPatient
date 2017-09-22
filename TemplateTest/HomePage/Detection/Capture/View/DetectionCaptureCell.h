@@ -12,6 +12,6 @@
 @property (nonatomic, strong, readonly) UIImageView *photoImageView;
 @property (nonatomic, strong) UIButton *deleteBtn;
 @property (nonatomic, strong) RACSignal *valueSignal;
-@property (nonatomic, strong) RACSubject *deleteActionSubject;
+@property (nonatomic, strong) RACSignal *deleteAction;
 @property (nonatomic, assign) BOOL needBorder;
 @end

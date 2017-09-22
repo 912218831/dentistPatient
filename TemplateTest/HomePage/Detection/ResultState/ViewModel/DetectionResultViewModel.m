@@ -9,6 +9,7 @@
 #import "DetectionResultViewModel.h"
 
 @implementation DetectionResultViewModel
+@dynamic model;
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -21,7 +22,7 @@
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self post:kDetectionResult type:0 params:@{} success:^(id response) {
+        [self post:kDetectionResult type:0 params:@{@"checkId":self.checkId} success:^(id response) {
             NSLog(@"%@",response);
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
