@@ -9,6 +9,7 @@
 #import "HWAppointmentFailViewController.h"
 #import "HWAppointFailViewModel.h"
 #import "HWAppoitmentFailCell.h"
+#import <MJRefresh/MJRefresh.h>
 @interface HWAppointmentFailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView * table;
 @property(strong,nonatomic)HWAppointFailViewModel * viewModel;
@@ -27,6 +28,12 @@
     [self.cancelBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
     self.cancelBtn.backgroundColor = COLOR_B5C8D9;
     [self.view addSubview:self.cancelBtn];
+    
+    self.table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+       
+        NSLog(@"刷新");
+        [self.table.mj_header endRefreshing];
+    }];
 }
 
 - (UITableView *)table

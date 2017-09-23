@@ -21,6 +21,48 @@
     self = [super init];
     if (self) {
         self.appointId = appointId;
+        RACSignal * acceptSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            [subscriber sendNext:@"采纳医生建议"];
+            [subscriber sendCompleted];
+            return [RACDisposable disposableWithBlock:^{
+                
+            }];
+        }];
+        
+        self.acceptCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            //采纳医生建议
+            return acceptSignal;
+        }];
+        
+        
+        RACSignal * rejectSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            [subscriber sendNext:@"返回重新预约"];
+            [subscriber sendCompleted];
+            return [RACDisposable disposableWithBlock:^{
+                
+            }];
+        }];
+        
+        self.rejectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return rejectSignal;
+        }];
+        
+        RACSignal * cancelSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            [subscriber sendNext:@"取消预约"];
+            [subscriber sendCompleted];
+            return [RACDisposable disposableWithBlock:^{
+                
+            }];
+        }];
+        
+        
+        self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            return cancelSignal;
+        }];
     }
     return self;
 }
@@ -28,21 +70,10 @@
 - (void)bindViewWithSignal
 {
     [super bindViewWithSignal];
-    self.acceptCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-       //采纳医生建议
-        NSLog(@"采纳医生建议");
-        return [RACSignal empty];
-    }];
     
-    self.rejectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        NSLog(@"返回重新预约");
-        return [RACSignal empty];
-    }];
-    
-    self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-       
-        NSLog(@"取消预约");
-        return [RACSignal empty];
+    [self.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
+        NSLog(@"fff");
+
     }];
 }
 

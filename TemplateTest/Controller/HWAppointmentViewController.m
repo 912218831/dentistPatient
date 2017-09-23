@@ -101,6 +101,16 @@
     [self.viewModel bindViewWithSignal];
     [self fetchData];
     [self.viewModel execute];
+    @weakify(self);
+    [[RACObserve(self.viewModel, isNeedRefresh) filter:^BOOL(id value) {
+        return (value == 0) ? NO:YES;
+        
+    }] subscribeNext:^(id x) {
+        @strongify(self);
+        [self fetchData];
+       
+    }];
+
 }
 
 - (void)fetchData

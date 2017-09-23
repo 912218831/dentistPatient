@@ -34,6 +34,11 @@
         {
             //失败
             HWAppointFailViewModel * failViewModel = [[HWAppointFailViewModel alloc] initWithAppointId:model.appointId];
+            @weakify(self);
+            [failViewModel.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
+                @strongify(self);
+                self.isNeedRefresh = YES;
+            }];
             [[ViewControllersRouter shareInstance] pushViewModel:failViewModel animated:YES];
 
         }
@@ -54,7 +59,7 @@
                 return accumulator;
             }];
             [subscriber sendNext:dataArr];
-            [subscriber sendCompleted];
+//            [subscriber sendCompleted];
         } failure:^(NSString *error) {
            
             [subscriber sendError:customRACError(error)];

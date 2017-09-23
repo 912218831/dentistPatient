@@ -10,4 +10,5 @@
 
 @interface HWAppointmentViewModel : BaseViewModel
 @property(strong,nonatomic)RACCommand * itemClickCommand;
+@property(assign,nonatomic)BOOL  isNeedRefresh;
 @end
