@@ -134,6 +134,7 @@
     HWLoginTelphoneCell * cell = [tableView dequeueReusableCellWithIdentifier:@"loginTelPhoneCell" forIndexPath:indexPath];
     self.viewModel.loginCellModel = cell.viewModel;
     self.loginBtn.rac_command = self.viewModel.loginCommand;
+    
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         
         //调试
