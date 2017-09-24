@@ -54,6 +54,7 @@
 - (void)initDefaultConfigs {
     self.noteLabel.font = FONT(TF12);
     self.noteLabel.textAlignment = NSTextAlignmentCenter;
+    
 }
 
 - (void)setValueSignal:(RACSignal *)valueSignal {

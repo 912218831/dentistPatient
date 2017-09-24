@@ -29,7 +29,7 @@
             
             MAPointAnnotation *a1 = [[MAPointAnnotation alloc] init];
             a1.coordinate = model.coordinated2D;
-            a1.coordinate = CLLocationCoordinate2DMake(31.350536, 121.564817);
+            //a1.coordinate = CLLocationCoordinate2DMake(31.350536, 121.564817);
             a1.title      = model.clinicName;
             self.annotation = a1;
             
@@ -62,6 +62,10 @@
         
         return nil;
     }];
+}
+
+- (void)dealloc {
+    
 }
 
 @end

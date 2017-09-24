@@ -96,13 +96,19 @@
 + (instancetype)buttonWithType:(UIButtonType)buttonType {
     DoctorAbstractButton *btn = [super buttonWithType:buttonType];
     if (btn) {
-        [[RACScheduler mainThreadScheduler]schedule:^{
-            [btn setImage:btn.image forState:UIControlStateNormal];
-            [btn.titleLabel sizeToFit];
-            btn.contentW = btn.iconSize.width + btn.spaceX + btn.titleLabel.width;
-        }];
+        
     }
     return btn;
+}
+
+- (void)setSpaceX:(CGFloat)spaceX {
+    _spaceX = spaceX;
+    
+    [[RACScheduler mainThreadScheduler]schedule:^{
+        [self setImage:self.image forState:UIControlStateNormal];
+        [self.titleLabel sizeToFit];
+        self.contentW = self.iconSize.width + self.spaceX + self.titleLabel.width;
+    }];
 }
 
 - (void)layoutSubviews {
@@ -110,6 +116,9 @@
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
+    if (!CGRectEqualToRect(self.imageFrame, CGRectZero)) {
+        return self.imageFrame;
+    }
     if (self.contentW>0) {
         CGFloat x = (contentRect.size.width - self.contentW)/2.0;
         return CGRectMake(x, (CGRectGetHeight(contentRect)-self.iconSize.height)/2.0, self.iconSize.width, self.iconSize.height);
@@ -118,6 +127,9 @@
 }
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
+    if (!CGRectEqualToRect(self.titleFrame, CGRectZero)) {
+        return self.titleFrame;
+    }
     if (self.contentW>0) {
         CGFloat x = CGRectGetMaxX([self imageRectForContentRect:contentRect]) + self.spaceX;
         return CGRectMake(x, 0, self.titleLabel.width, contentRect.size.height);

@@ -51,9 +51,11 @@
         [self.listView.baseTable reloadData];
         [Utility hideMBProgress:self.contentView];
     } error:^(NSError *error) {
+        @strongify(self);
         [Utility showToastWithMessage:error.domain];
         [Utility hideMBProgress:self.contentView];
     } completed:^{
+        @strongify(self);
         [Utility hideMBProgress:self.contentView];
     }];
 }
@@ -85,6 +87,10 @@
     }
     cell.valueSignal = [RACSignal return:self.viewModel.dataArray[indexPath.row]];
     return cell;
+}
+
+- (void)dealloc {
+    
 }
 
 - (void)didReceiveMemoryWarning {

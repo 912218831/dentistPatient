@@ -359,6 +359,11 @@ Copyright 2011 - 2015 UMeng.com. All rights reserved.
 Copyright 2011 - 2016 UMeng.com. All rights reserved.
 
 
+## WechatOpenSDK
+
+Copyright 2017 tencent.com. All rights reserved.
+
+
 ## YYCategories
 
 The MIT License (MIT)

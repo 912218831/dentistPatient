@@ -23,6 +23,8 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
             
     [self copyDefaultStoreIfNecessary];
     
+    [WXApi registerApp:kWechatAppId];
+    
     [self registerAPNS];
     [JPUSHService setupWithOption:launchOptions appKey:@"74535d99ff5ace1330adce4d" channel:@"iOS" apsForProduction:NO];
 
@@ -190,5 +192,12 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
     
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:[WechatDelegate shareWechatDelegate]];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:[WechatDelegate shareWechatDelegate]];
+}
 
 @end

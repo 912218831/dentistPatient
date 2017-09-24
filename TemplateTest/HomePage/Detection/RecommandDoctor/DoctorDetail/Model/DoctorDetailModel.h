@@ -18,9 +18,9 @@
 @property (nonatomic, copy) NSString* descrip;
 @property (nonatomic, copy) NSString* headImgUrl;
 @property (nonatomic, copy) NSString* Id;
-@property (nonatomic, copy) NSString* lat;
+@property (nonatomic, copy) NSString* docLong;
 @property (nonatomic, copy) NSString* level;
-@property (nonatomic, copy) NSString* lon;
+@property (nonatomic, copy) NSString* docLat;
 @property (nonatomic, copy) NSString* mobile;
 @property (nonatomic, copy) NSString* name;
 @property (nonatomic, copy) NSString* patientCount;

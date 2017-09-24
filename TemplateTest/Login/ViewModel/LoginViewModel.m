@@ -7,12 +7,21 @@
 //
 
 #import "LoginViewModel.h"
+
+#import <NetworkExtension/NetworkExtension.h>  
+
 @interface LoginViewModel ()
 @property (nonatomic, strong, readwrite) RACCommand *loginCommand;
 @end
 
 @implementation LoginViewModel
 @synthesize gainCodeChannel;
+
+- (instancetype)init {
+    if (self = [super init]) {
+    }
+    return self;
+}
 
 - (void)bindViewWithSignal {
     
@@ -52,5 +61,20 @@
         }];
     }];
 }
+
+
++ (void)getWifiList {
+    
+    if (![[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {return;}
+    dispatch_queue_t queue = dispatch_queue_create("com.leopardpan.HotspotHelper", 0);
+    [NEHotspotHelper registerWithOptions:nil queue:dispatch_get_main_queue() handler: ^(NEHotspotHelperCommand * cmd) {
+        if(cmd.commandType == kNEHotspotHelperCommandTypeFilterScanList) {
+            for (NEHotspotNetwork* network  in cmd.networkList) {
+                NSLog(@"network.SSID = %@",network.SSID);
+            }
+        }
+    }];
+}
+
 
 @end

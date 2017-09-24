@@ -33,7 +33,7 @@
             [clinicList.rac_sequence foldLeftWithStart:@0 reduce:^id(id accumulator, NSDictionary *value) {
                 RecommandDoctorModel *model = [MTLJSONAdapter modelOfClass:[RecommandDoctorModel class] fromJSONDictionary:value error:nil];
                 [self.dataArray addObject:model];
-                model.coordinated2D = CLLocationCoordinate2DMake(31.350536,121.564816);
+                //model.coordinated2D = CLLocationCoordinate2DMake(31.350536,121.564816);
                 MAPointAnnotation *a1 = [[MAPointAnnotation alloc] init];
                 a1.coordinate = model.coordinated2D;
                 a1.title      = [NSString stringWithFormat:@"anno: %@", accumulator];
@@ -61,6 +61,10 @@
     } failure:^(NSString *error) {
         failure(error);
     }];
+}
+
+- (void)dealloc {
+    
 }
 
 @end

@@ -1,6 +1,7 @@
 platform :ios, '7.0'
 #use_frameworks!
 target 'TemplateTest' do
+pod 'WechatOpenSDK', '~> 1.8.0'
 pod 'AMapLocation'
 pod 'AMap3DMap'
 pod 'Mantle', '~> 2.0.7'

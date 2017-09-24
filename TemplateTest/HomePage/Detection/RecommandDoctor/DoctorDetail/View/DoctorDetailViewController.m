@@ -61,6 +61,7 @@
     @weakify(self);
     [Utility showMBProgress:self.contentView message:nil];
     [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
+        @strongify(self);
         [self.listView.baseTable reloadData];
     } error:^(NSError *error) {
         
@@ -106,6 +107,10 @@
         [cell drawBottomLine];
         return cell;
     }
+}
+
+- (void)dealloc {
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -6,8 +6,10 @@
 //  Copyright © 2017年 caijingpeng.haowu. All rights reserved.
 //
 
-#import "BaseViewModel.h"
+#import "BaseListViewModel.h"
 
-@interface HWDetectionSelectMemberViewModel : BaseViewModel
-
+@interface HWDetectionSelectMemberViewModel : BaseListViewModel
+@property(nonatomic, strong)NSIndexPath *selectIndexPath;
+@property(nonatomic, strong)dispatch_block_t detectActionBlock;
+@property (nonatomic, strong) RACSignal *createCaseSignal;
 @end
