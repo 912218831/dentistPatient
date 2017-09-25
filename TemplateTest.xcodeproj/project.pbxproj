@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29BC1DFC1B57788B00C7B1AD /* MTCustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BC1DFB1B57788B00C7B1AD /* MTCustomActionSheet.m */; };
-		72230B151C21670D0040F496 /* ASDisplayNode+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 72230B141C21670D0040F496 /* ASDisplayNode+Utils.m */; };
 		7552CE281D1240CB00A557EA /* DButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7552CE1E1D1240CB00A557EA /* DButton.m */; };
 		7552CE291D1240CB00A557EA /* DImageV.m in Sources */ = {isa = PBXBuildFile; fileRef = 7552CE211D1240CB00A557EA /* DImageV.m */; };
 		7552CE2A1D1240CB00A557EA /* DLable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7552CE231D1240CB00A557EA /* DLable.m */; };
@@ -372,8 +371,6 @@
 		29BC1DFA1B57788B00C7B1AD /* MTCustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomActionSheet.h; sourceTree = "<group>"; };
 		29BC1DFB1B57788B00C7B1AD /* MTCustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomActionSheet.m; sourceTree = "<group>"; };
 		3C0DE5CA4A764868D2E06837 /* Pods-TemplateTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateTest/Pods-TemplateTest.release.xcconfig"; sourceTree = "<group>"; };
-		72230B131C21670D0040F496 /* ASDisplayNode+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASDisplayNode+Utils.h"; sourceTree = "<group>"; };
-		72230B141C21670D0040F496 /* ASDisplayNode+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASDisplayNode+Utils.m"; sourceTree = "<group>"; };
 		7230904F1C4F54BA00EEC1E7 /* TemplateTest 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 4.xcdatamodel"; sourceTree = "<group>"; };
 		728014571C4C7D1C00D7EFB1 /* TemplateTest 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 3.xcdatamodel"; sourceTree = "<group>"; };
 		72F917FB1BB51A56003AE8D5 /* TemplateTest 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -2179,8 +2176,6 @@
 				B0DD00131BF42729003FBDA2 /* WXImageView.m */,
 				B02AED1C1F4EB13D009C25A7 /* UITextField+Utils.h */,
 				B02AED1D1F4EB13D009C25A7 /* UITextField+Utils.m */,
-				72230B131C21670D0040F496 /* ASDisplayNode+Utils.h */,
-				72230B141C21670D0040F496 /* ASDisplayNode+Utils.m */,
 				B06506BC1F6659050069652A /* CALayer+xibConfigure.h */,
 				B06506BD1F6659050069652A /* CALayer+xibConfigure.m */,
 				C531FBB51F66D3580008A17A /* NSUserDefaults+UserDefaults.h */,
@@ -2686,7 +2681,6 @@
 				B0D26B051BDF7B920012A093 /* HWCustomViewItem.m in Sources */,
 				B09807D21F6ABF4F009C0FE1 /* HWAppointCouponCell.m in Sources */,
 				C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */,
-				72230B151C21670D0040F496 /* ASDisplayNode+Utils.m in Sources */,
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
 				B000234B1F729EF000284AF7 /* HWHomePageBannerModel.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
