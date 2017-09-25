@@ -11,7 +11,8 @@
 #import "HWCheckForceUpdateWidget.h"
 #import <JPush/JPUSHService.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,JPUSHRegisterDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,
+                                    JPUSHRegisterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

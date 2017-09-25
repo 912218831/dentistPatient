@@ -107,11 +107,11 @@
         make.right.mas_equalTo(-kRate(14));
         make.height.mas_equalTo(1);
     }];
-    [self.centerLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.leftView);
-        make.centerX.equalTo(self.contentV);
-        make.size.mas_equalTo(CGSizeMake(1, kRate(45)));
-    }];
+//    [self.centerLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(self.leftView);
+//        make.centerX.equalTo(self.contentV);
+//        make.size.mas_equalTo(CGSizeMake(1, kRate(45)));
+//    }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(kRate(20));
         make.right.mas_equalTo(kRate(-19));
@@ -140,6 +140,7 @@
     
     self.leftView.direction = Left;
     self.rightView.direction = Right;
+    self.rightView.hidden = true;
     
     self.starView.userInteractionEnabled = false;
     self.starView.starBorderColor = UIColorFromRGB(0xff6a28);

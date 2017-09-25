@@ -105,7 +105,8 @@ static ViewControllersRouter *router;
 - (void)setRootViewController:(NSString *)viewModelName {
     
     if ([viewModelName isEqualToString:@"tabbarViewModel"]) {
-        HWTabBarViewController *tab = [[HWTabBarViewController alloc]init];
+        HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
+        HWTabBarViewController *tab = [[HWTabBarViewController alloc]initWithViewModel:tabbarViewModel];
         SHARED_APP_DELEGATE.viewController = tab;
         SHARED_APP_DELEGATE.window.rootViewController = tab;
     }
@@ -128,9 +129,7 @@ static ViewControllersRouter *router;
     
     if(HWUserLogin.currentUserLogin.userkey.length){//
         // 主页
-        SHARED_APP_DELEGATE.viewController = [[AppShare shareInstance] checkUserType];
-        [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
-        SHARED_APP_DELEGATE.isAutoLogin = YES;
+        [self setRootViewController:@"tabbarViewModel"];
     } else {
         // 登录页
         HWGuideViewController * guideCtrl = [[HWGuideViewController alloc] init];

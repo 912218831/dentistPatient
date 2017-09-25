@@ -10,6 +10,8 @@
 #import "HWLoginCellViewModel.h"
 
 @interface HWLoginTelphoneCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextField *telphoneTF;
+@property (weak, nonatomic) IBOutlet UITextField *verifyCodeTF;
 
 @property(strong,nonatomic)HWLoginCellViewModel * viewModel;
 

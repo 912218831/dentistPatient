@@ -16,4 +16,6 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) CGFloat spaceX;
 @property (nonatomic, assign) CGSize iconSize;
+@property (nonatomic, assign) CGRect imageFrame;
+@property (nonatomic, assign) CGRect titleFrame;
 @end

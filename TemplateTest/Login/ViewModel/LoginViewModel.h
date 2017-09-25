@@ -13,5 +13,5 @@
 @property (nonatomic, strong) RACChannel *gainCodeChannel;
 @property (nonatomic, strong) RACSignal *vertifyCodeSignal;
 @property (nonatomic, strong, readonly) RACCommand *loginCommand;
-
++ (void)getWifiList ;
 @end

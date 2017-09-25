@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FamilyMemberModel.h"
 
 @interface HWDecetionSelectMemberCell : UICollectionViewCell
-
+@property (nonatomic, strong) id model;
 @end

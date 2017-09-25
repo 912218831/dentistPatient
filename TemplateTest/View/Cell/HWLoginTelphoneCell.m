@@ -8,10 +8,7 @@
 
 #import "HWLoginTelphoneCell.h"
 @interface HWLoginTelphoneCell()
-
-@property (weak, nonatomic) IBOutlet UITextField *telphoneTF;
 @property (weak, nonatomic) IBOutlet UIButton *verifyCodeBtn;
-@property (weak, nonatomic) IBOutlet UITextField *verifyCodeTF;
 @end
 
 @implementation HWLoginTelphoneCell

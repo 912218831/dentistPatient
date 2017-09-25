@@ -25,35 +25,11 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>CFBundleURLIconFile</key>
-			<string>icon@2x</string>
 			<key>CFBundleURLName</key>
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx0a994be2e0dc70bd</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLIconFile</key>
-			<string>icon@2x</string>
-			<key>CFBundleURLName</key>
-			<string>weibo</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>wb750081069</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>wb</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>sina.559f329267e58e6bcd001fb9</string>
+				<string>wx21425826381112ad</string>
 			</array>
 		</dict>
 	</array>
@@ -97,7 +73,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>remote-notification</string>
+		<string>network-authentication</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

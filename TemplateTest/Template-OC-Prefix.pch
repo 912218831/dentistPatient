@@ -13,6 +13,8 @@
 #endif
 
 #ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <WXApi.h>
     #import <MAMapKit/MAMapKit.h>
     #import <AMapFoundationKit/AMapFoundationKit.h>
     #import "Define.h"
@@ -52,4 +54,5 @@
     #import <ReactiveCocoa.h>
     #import "ViewControllersRouter.h"
     #import <Masonry.h>
+    #import "WechatDelegate.h"
 #endif
