@@ -19,9 +19,12 @@
 @implementation HWAppointmentFailViewController
 @dynamic viewModel;
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (void)configContentView
+{
+    [super configContentView];
     [self.view addSubview:self.table];
+
     [self configTableViewHeaderAndFooter];
     self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.table.bottom, kScreenWidth, 50)];
     [self.cancelBtn setTitle:@"取消预约" forState:UIControlStateNormal];
@@ -30,10 +33,11 @@
     [self.view addSubview:self.cancelBtn];
     
     self.table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
-       
+        
         NSLog(@"刷新");
         [self.table.mj_header endRefreshing];
     }];
+
 }
 
 - (UITableView *)table

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3C99352C09C6F927E22BAB6A30935CEC'
+               BlueprintIdentifier = 'FA1BBFCED5D67D3624A4E3CE0A93776F'
                BlueprintName = 'UMengFeedback'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libUMengFeedback.a'>

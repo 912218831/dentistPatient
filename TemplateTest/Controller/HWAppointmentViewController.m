@@ -21,15 +21,18 @@
 
 @implementation HWAppointmentViewController
 @dynamic viewModel;
-- (void)viewDidLoad {
-    [super viewDidLoad];
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//
+//}
+
+- (void)configContentView
+{
+    [super configContentView];
     self.dataArr = [NSArray array];
-    self.navigationItem.titleView = [Utility navTitleView:@"预约"];
     [self.view addSubview:self.collectionView];
 
 }
-
-
 - (UICollectionView *)collectionView
 {
     if (_collectionView == nil) {

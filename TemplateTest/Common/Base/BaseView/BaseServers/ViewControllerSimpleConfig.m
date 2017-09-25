@@ -32,7 +32,11 @@
              kTimeVideoVM:self.timeVideo,
              kDetectionResultVM:self.detectionResult,
              kRDoctorVM:self.recommandDoctor,
-             kRDoctorDetailVM:self.doctorDetail
+             kRDoctorDetailVM:self.doctorDetail,
+             kAppointmentVM:self.appointment,
+             kAppointFailVM:self.appointFail,
+             kAppointWaitingVM:self.appointWaiting,
+             kAppointSuccessVM:self.appointSuccess
              };
 }
 
@@ -97,4 +101,32 @@
              @"rightImageName":@"right"
              };
 }
++(NSDictionary*)appointment{
+    return @{
+             @"title":@"我的预约"
+             };
+}
+
++ (NSDictionary*)appointFail{
+    return @{
+             @"title":@"预约失败",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
++ (NSDictionary*)appointWaiting{
+    return @{
+             @"title":@"等待预约",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
++ (NSDictionary*)appointSuccess{
+    return @{
+             @"title":@"预约成功",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
+
 @end
