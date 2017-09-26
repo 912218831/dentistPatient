@@ -36,7 +36,8 @@
              kAppointmentVM:self.appointment,
              kAppointFailVM:self.appointFail,
              kAppointWaitingVM:self.appointWaiting,
-             kAppointSuccessVM:self.appointSuccess
+             kAppointSuccessVM:self.appointSuccess,
+             kSelectCityVM:self.selectCity
              };
 }
 
@@ -124,6 +125,13 @@
 + (NSDictionary*)appointSuccess{
     return @{
              @"title":@"预约成功",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
++ (NSDictionary*)selectCity{
+    return @{
+             @"title":@"城市选择",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };

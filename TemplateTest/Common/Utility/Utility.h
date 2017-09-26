@@ -291,5 +291,6 @@ extern void delayOperation(CGFloat s,void(^block)(void));
  *  画一个向下的尖 >
  */
 + (UIImage *)drawArrowDownImgSize:(CGSize)imageSize color:(UIColor *)color;
-
+//汉字转拼音
++ (NSString *)transform:(NSString *)chinese;
 @end

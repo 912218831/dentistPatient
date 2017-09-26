@@ -7,7 +7,7 @@
 //
 
 #import "AppShare.h"
-
+#import "HWCityModel_CD+CoreDataClass.h"
 @implementation AppShare
 
 + (instancetype)shareInstance
@@ -45,4 +45,30 @@
     return (RDVTabBarController*)ctrl;
 
 }
+
+- (void)getCityList
+{
+    HWHTTPSessionManger * manager = [HWHTTPSessionManger manager];
+    [manager POST:kCityList parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSLog(@"%@",responseObject);
+        NSArray * dataArr = [responseObject objectForKey:@"data"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [HWCityModel_CD MR_truncateAll];
+            for (NSDictionary * dic in dataArr) {
+                HWCityModel_CD * cityModel = [HWCityModel_CD MR_createEntity];
+                cityModel.cityId = [dic objectForKey:@"cityCode"];
+                cityModel.name = [dic objectForKey:@"cityName"];
+                cityModel.pinyin = [Utility transform:cityModel.name];
+                NSString * tempStr = [NSString stringWithFormat:@"%c",[cityModel.pinyin characterAtIndex:0]];
+                cityModel.cityFirstChar = tempStr.uppercaseString;
+            }
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        });
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 @end

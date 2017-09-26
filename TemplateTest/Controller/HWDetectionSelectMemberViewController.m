@@ -20,6 +20,20 @@
 @implementation HWDetectionSelectMemberViewController
 @dynamic viewModel;
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:YES animated:YES];
+    
+}
+
 - (void)backMethod {
     [super backMethod];
     [self.navigationController setNavigationBarHidden:true];

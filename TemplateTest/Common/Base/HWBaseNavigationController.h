@@ -10,7 +10,5 @@
 
 @interface HWBaseNavigationController : UINavigationController
 
-- (void)setNavigationBarMainColor;
-- (void)setNavigationBarClearColor;
 
 @end

@@ -55,6 +55,12 @@
 		B02AED251F4ED536009C25A7 /* 产品@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02AED231F4ED536009C25A7 /* 产品@3x.png */; };
 		B02AED261F4ED536009C25A7 /* click产品@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02AED241F4ED536009C25A7 /* click产品@3x.png */; };
 		B034BEC91CAA2052008E8006 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B034BEC81CAA2052008E8006 /* UIImage+Utils.m */; };
+		B0381C6F1F792C8400C5E172 /* HWCitySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0381C6E1F792C8300C5E172 /* HWCitySelectViewController.m */; };
+		B0381C721F792CA600C5E172 /* HWCitySelectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0381C711F792CA600C5E172 /* HWCitySelectViewModel.m */; };
+		B0381C7A1F792F4100C5E172 /* HWCityModel_CD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B0381C771F792F4100C5E172 /* HWCityModel_CD+CoreDataProperties.m */; };
+		B0381C7B1F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B0381C781F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m */; };
+		B0381C851F79400100C5E172 /* HWCitySelectLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0381C831F79400100C5E172 /* HWCitySelectLocationCell.m */; };
+		B0381C861F79400100C5E172 /* HWCitySelectLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0381C841F79400100C5E172 /* HWCitySelectLocationCell.xib */; };
 		B042FA1F1DF6912B0017F689 /* HWEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B042FA1E1DF6912B0017F689 /* HWEmptyView.m */; };
 		B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0431C3D1F6A1619001A2FD4 /* HWAppointWaitingCell.m */; };
 		B0431C401F6A1619001A2FD4 /* HWAppointWaitingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0431C3E1F6A1619001A2FD4 /* HWAppointWaitingCell.xib */; };
@@ -443,6 +449,19 @@
 		B02AED241F4ED536009C25A7 /* click产品@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "click产品@3x.png"; sourceTree = "<group>"; };
 		B034BEC71CAA2052008E8006 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		B034BEC81CAA2052008E8006 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		B0381C6D1F792C8300C5E172 /* HWCitySelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWCitySelectViewController.h; sourceTree = "<group>"; };
+		B0381C6E1F792C8300C5E172 /* HWCitySelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWCitySelectViewController.m; sourceTree = "<group>"; };
+		B0381C701F792CA600C5E172 /* HWCitySelectViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWCitySelectViewModel.h; sourceTree = "<group>"; };
+		B0381C711F792CA600C5E172 /* HWCitySelectViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWCitySelectViewModel.m; sourceTree = "<group>"; };
+		B0381C761F792F4000C5E172 /* HWCityModel_CD+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HWCityModel_CD+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B0381C771F792F4100C5E172 /* HWCityModel_CD+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HWCityModel_CD+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B0381C781F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HWCityModel_CD+CoreDataClass.m"; sourceTree = "<group>"; };
+		B0381C791F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HWCityModel_CD+CoreDataClass.h"; sourceTree = "<group>"; };
+		B0381C7D1F793F6300C5E172 /* 定位@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位@2x.png"; sourceTree = "<group>"; };
+		B0381C7E1F793F7E00C5E172 /* 定位@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位@3x.png"; sourceTree = "<group>"; };
+		B0381C821F79400100C5E172 /* HWCitySelectLocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWCitySelectLocationCell.h; sourceTree = "<group>"; };
+		B0381C831F79400100C5E172 /* HWCitySelectLocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWCitySelectLocationCell.m; sourceTree = "<group>"; };
+		B0381C841F79400100C5E172 /* HWCitySelectLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HWCitySelectLocationCell.xib; sourceTree = "<group>"; };
 		B042FA1D1DF6912B0017F689 /* HWEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmptyView.h; sourceTree = "<group>"; };
 		B042FA1E1DF6912B0017F689 /* HWEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmptyView.m; sourceTree = "<group>"; };
 		B0431C3C1F6A1619001A2FD4 /* HWAppointWaitingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointWaitingCell.h; sourceTree = "<group>"; };
@@ -1018,6 +1037,8 @@
 				B0F6752D1F2BCDCA0019086E /* HWGuideViewController.m */,
 				B07EE4931F678C4900FCA22D /* HWHomePageViewController.h */,
 				B07EE4941F678C4900FCA22D /* HWHomePageViewController.m */,
+				B0381C6D1F792C8300C5E172 /* HWCitySelectViewController.h */,
+				B0381C6E1F792C8300C5E172 /* HWCitySelectViewController.m */,
 				B07EE49F1F67B70400FCA22D /* HWAppointmentViewController.h */,
 				B07EE4A01F67B70400FCA22D /* HWAppointmentViewController.m */,
 				B09807D41F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.h */,
@@ -1171,6 +1192,8 @@
 				B07EE4971F678C7F00FCA22D /* HWTabbarViewModel.m */,
 				B07EE4A51F67B80100FCA22D /* HWHomePageViewModel.h */,
 				B07EE4A61F67B80100FCA22D /* HWHomePageViewModel.m */,
+				B0381C701F792CA600C5E172 /* HWCitySelectViewModel.h */,
+				B0381C711F792CA600C5E172 /* HWCitySelectViewModel.m */,
 				B07EE4AB1F67B82300FCA22D /* HWAppointmentViewModel.h */,
 				B07EE4AC1F67B82300FCA22D /* HWAppointmentViewModel.m */,
 				B000235E1F738E3600284AF7 /* HWAppointFailViewModel.h */,
@@ -1203,6 +1226,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				B0381C7D1F793F6300C5E172 /* 定位@2x.png */,
 				C5DE293B1F77AE0800D8973B /* tabbar_2_n@2x.png */,
 				C5DE293C1F77AE0800D8973B /* tabbar_3_n@2x.png */,
 				C5DE292F1F77AD7200D8973B /* tabbar@2x.png */,
@@ -1257,6 +1281,7 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				B0381C7E1F793F7E00C5E172 /* 定位@3x.png */,
 				C5DE293F1F77AE1000D8973B /* tabbar_2_n@3x.png */,
 				C5DE29401F77AE1000D8973B /* tabbar_3_n@3x.png */,
 				C5DE29351F77AD8900D8973B /* tabbar_4_n@3x.png */,
@@ -1393,6 +1418,9 @@
 				B07EE4E01F68FC1E00FCA22D /* HWHomePageSecondCell.h */,
 				B07EE4E11F68FC1E00FCA22D /* HWHomePageSecondCell.m */,
 				B07EE4E21F68FC1E00FCA22D /* HWHomePageSecondCell.xib */,
+				B0381C821F79400100C5E172 /* HWCitySelectLocationCell.h */,
+				B0381C831F79400100C5E172 /* HWCitySelectLocationCell.m */,
+				B0381C841F79400100C5E172 /* HWCitySelectLocationCell.xib */,
 				B07EE4E51F69086E00FCA22D /* HWAppointmentCell.h */,
 				B07EE4E61F69086E00FCA22D /* HWAppointmentCell.m */,
 				B07EE4E71F69086E00FCA22D /* HWAppointmentCell.xib */,
@@ -1590,6 +1618,10 @@
 				B0D55D3F1F288D6200D58E4B /* HWLoginUser+CoreDataClass.m */,
 				B0D55D401F288D6200D58E4B /* HWLoginUser+CoreDataProperties.h */,
 				B0D55D411F288D6200D58E4B /* HWLoginUser+CoreDataProperties.m */,
+				B0381C791F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.h */,
+				B0381C781F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m */,
+				B0381C761F792F4000C5E172 /* HWCityModel_CD+CoreDataProperties.h */,
+				B0381C771F792F4100C5E172 /* HWCityModel_CD+CoreDataProperties.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -2456,6 +2488,7 @@
 				B0B0B5631F276EAA002FE127 /* navigationbar_background_tall@2x.png in Resources */,
 				B07EE4E91F69086E00FCA22D /* HWAppointmentCell.xib in Resources */,
 				C587E37E1F6F6A68009509CB /* detectionCapture@2x.png in Resources */,
+				B0381C861F79400100C5E172 /* HWCitySelectLocationCell.xib in Resources */,
 				B02770BC1F6A674C0044A417 /* 预约时间@2x.png in Resources */,
 				B092538E1F69F4650074EEFF /* 预约失败姓名@2x.png in Resources */,
 				B0B0B56D1F276EAA002FE127 /* tabbar_selected_background@2x.png in Resources */,
@@ -2669,6 +2702,7 @@
 				B0D26B071BDF7B920012A093 /* HWTableViewItem.m in Sources */,
 				C5CCBB751F6976B1003A4B8C /* HZPhotoGroup.m in Sources */,
 				B07EE4B01F67B83000FCA22D /* HWSettingViewModel.m in Sources */,
+				B0381C7A1F792F4100C5E172 /* HWCityModel_CD+CoreDataProperties.m in Sources */,
 				B0D26B081BDF7B920012A093 /* HWTextItem.m in Sources */,
 				C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */,
 				C50029F91F6D15570064DFEE /* RDoctorListCell.m in Sources */,
@@ -2690,6 +2724,7 @@
 				B0DD98031F61654200EDD17B /* HWTabBarViewController.m in Sources */,
 				C50F95BE1F760FB200193234 /* WechatUserInfo.m in Sources */,
 				C5CCBB741F6976B1003A4B8C /* HZPhotoBrowserView.m in Sources */,
+				B0381C7B1F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m in Sources */,
 				C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */,
 				C531FBA71F66D0390008A17A /* ViewControllerSimpleConfig.m in Sources */,
 				B05FF2571F748EAE00F06366 /* HWAppointCouponModel.m in Sources */,
@@ -2739,6 +2774,7 @@
 				C50029ED1F6D0EE40064DFEE /* RecommandDoctorVC.m in Sources */,
 				B02AED1E1F4EB13D009C25A7 /* UITextField+Utils.m in Sources */,
 				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
+				B0381C721F792CA600C5E172 /* HWCitySelectViewModel.m in Sources */,
 				C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */,
 				B05FF24E1F73B47000F06366 /* HWAppointDetailModel.m in Sources */,
 				C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */,
@@ -2775,6 +2811,7 @@
 				C24E7DB31ADE51AA00BA8ECC /* ViewController.m in Sources */,
 				B0431C451F6A20D4001A2FD4 /* HCSStarRatingView.m in Sources */,
 				B0D26B091BDF7B920012A093 /* HWTitleAndLabelItem.m in Sources */,
+				B0381C851F79400100C5E172 /* HWCitySelectLocationCell.m in Sources */,
 				C5B4AA331F6EAD500083E8C5 /* DoctorDetailDateMapCell.m in Sources */,
 				B09807D61F6AC8C5009C0FE1 /* HWDetectionSelectMemberViewController.m in Sources */,
 				B05FF2511F73E34100F06366 /* HWAppointWaitingViewModel.m in Sources */,
@@ -2790,6 +2827,7 @@
 				C531FBC41F66D5E30008A17A /* HWLoginTranstionAnimationRevert.m in Sources */,
 				DA3DFF191ADE78ED00C4E99A /* UIAlertView+Utils.m in Sources */,
 				C531FBB71F66D3580008A17A /* NSUserDefaults+UserDefaults.m in Sources */,
+				B0381C6F1F792C8400C5E172 /* HWCitySelectViewController.m in Sources */,
 				7552CE291D1240CB00A557EA /* DImageV.m in Sources */,
 				B02770C91F6A75730044A417 /* HWDashView.m in Sources */,
 				DA3DFF181ADE78ED00C4E99A /* NSString+utils.m in Sources */,
@@ -3008,7 +3046,7 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 				);
 				INFOPLIST_FILE = TemplateTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3081,7 +3119,7 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 				);
 				INFOPLIST_FILE = TemplateTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

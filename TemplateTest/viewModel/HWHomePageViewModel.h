@@ -16,5 +16,6 @@
 @property(strong,nonatomic)RACCommand * bannerCommand; //banner位点击
 @property(strong,nonatomic)RACCommand * pushItemCommand; //推荐点击
 @property(strong,nonatomic)RACCommand * funcBtnCommand;
+@property(strong,nonatomic)RACCommand * selectCityCommand;
 
 @end

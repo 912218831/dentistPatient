@@ -37,6 +37,14 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:YES animated:YES];
+
 }
 
 - (void)configContentView
@@ -198,15 +206,13 @@
     [super bindViewModel];
     [self.viewModel bindViewWithSignal];
     @weakify(self);
-    [self.viewModel.requestSignal subscribeNext:^(id x) {
-        @strongify(self);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+    [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(id x) {
+        [self.collectionView reloadData];
+
     } error:^(NSError *error) {
         [Utility showToastWithMessage:error.localizedDescription];
     }];
-    self.collectionView.delegate = self;
+    self.changeCityBtn.rac_command = self.viewModel.selectCityCommand;
 
 }
 

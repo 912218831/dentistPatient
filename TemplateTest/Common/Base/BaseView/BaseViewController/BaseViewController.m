@@ -17,7 +17,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         @weakify(self);
-        [[self rac_signalForSelector:@selector(viewDidLoad)]subscribeNext:^(id x) {
+        [[[self rac_signalForSelector:@selector(viewDidLoad)] deliverOnMainThread] subscribeNext:^(id x) {
             @strongify(self);
             [self bindViewModel];
         }];

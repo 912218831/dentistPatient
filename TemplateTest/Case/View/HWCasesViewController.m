@@ -60,6 +60,7 @@
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     };
     self.segmentButton.titleLabel.text = @"";
+    
 }
 
 - (void)bindViewModel {

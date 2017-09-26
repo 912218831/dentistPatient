@@ -42,17 +42,6 @@
     [self.navigationBar setBackgroundImage:[Utility imageWithColor:COLOR_28BEFF andSize:CGSizeMake(kScreenWidth, (IOS7Later ? 64 : 44))] forBarMetrics:UIBarMetricsDefault];
     
 }
-
-- (void)setNavigationBarMainColor
-{
-    self.navigationBarHidden = NO;
-}
-
-- (void)setNavigationBarClearColor
-{
-    self.navigationBarHidden = YES;
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

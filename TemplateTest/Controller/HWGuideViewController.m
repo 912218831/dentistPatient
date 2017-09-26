@@ -37,6 +37,7 @@
 - (void)presentLoginViewController
 {
     HWLoginViewModel *viewModel = [HWLoginViewModel new];
+    self.view.backgroundColor = [UIColor whiteColor];
     [[ViewControllersRouter shareInstance]presentViewModel:viewModel animated:_isGuide completion:^(id targetVC) {
         if (![targetVC isKindOfClass:[UINavigationController class]]) {
             [SHARED_APP_DELEGATE.window setRootViewController:[[HWBaseNavigationController alloc] initWithRootViewController:targetVC]];

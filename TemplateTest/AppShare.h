@@ -13,6 +13,7 @@
 @interface AppShare : NSObject
 
 + (instancetype)shareInstance;
+- (void)getCityList;
 
 - (void)handelCurrentCoreDataLoginUser:(void(^)(HWLoginUser * loginUser))currentLoginUser;
 

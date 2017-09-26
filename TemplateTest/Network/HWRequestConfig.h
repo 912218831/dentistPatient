@@ -41,6 +41,7 @@
 #define kModifyPassword             @"Member/DoUpMember" //修改密码
 #define kSupplementInfo             @"Member/DoUpMember"//完善账号信息
 #define kHomePage                   @"main/loadMainPages"//首页
+#define kCityList                   @"main/cityList"//获取城市列表
 #define kAppointList                @"apl/applyList" //我的预约列表
 #define kAppointDetail              @"apl/applyInfo"//预约详情
 //H5链接

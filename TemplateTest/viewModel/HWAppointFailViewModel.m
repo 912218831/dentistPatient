@@ -57,8 +57,6 @@
                 
             }];
         }];
-        
-        
         self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
             return cancelSignal;

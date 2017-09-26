@@ -22,7 +22,7 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
 {
             
     [self copyDefaultStoreIfNecessary];
-    
+    [[AppShare shareInstance] getCityList];
     [WXApi registerApp:kWechatAppId];
     
     [self registerAPNS];
@@ -33,8 +33,9 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
-    [[ViewControllersRouter shareInstance]luanchRootViewController];
-    
+    [[ViewControllersRouter shareInstance] luanchRootViewController];
+//    HWTabBarViewController * t = [[HWTabBarViewController alloc] init];
+//    [self.window setRootViewController:t];
     [AMapServices sharedServices].apiKey = @"8b06485d0cb11f6130930a32a8461b5a";
     
     return YES;

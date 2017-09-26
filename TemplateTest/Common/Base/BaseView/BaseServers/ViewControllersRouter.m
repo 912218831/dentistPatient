@@ -58,7 +58,8 @@ static ViewControllersRouter *router;
              kTimeVideoVM:objc_getClass(kTimeVideoVM.UTF8String),
              kDetectionResultVM:objc_getClass(kDetectionResultVM.UTF8String),
              kRDoctorVM:objc_getClass(kRDoctorVM.UTF8String),
-             kRDoctorDetailVM:objc_getClass(kRDoctorDetailVM.UTF8String)
+             kRDoctorDetailVM:objc_getClass(kRDoctorDetailVM.UTF8String),
+             kSelectCityVM:objc_getClass(kSelectCityVM.UTF8String)
              };
     
 }
@@ -80,7 +81,9 @@ static ViewControllersRouter *router;
              kTimeVideoVM:objc_getClass("TimeVideoViewController"),
              kDetectionResultVM:objc_getClass("DetectionResultViewController"),
              kRDoctorVM:objc_getClass("RecommandDoctorVC"),
-             kRDoctorDetailVM:objc_getClass("DoctorDetailViewController")
+             kRDoctorDetailVM:objc_getClass("DoctorDetailViewController"),
+             kSelectCityVM:objc_getClass("HWCitySelectViewController")
+
              };
 }
 
@@ -169,8 +172,11 @@ static ViewControllersRouter *router;
     Class vcClass = [self viewControllerClassNameForViewModel:NSStringFromClass(viewModel.class)];
     
     BaseViewController *baseVC = [[vcClass alloc]initWithViewModel:viewModel];
+    if ([baseVC isKindOfClass:objc_getClass("HWTabBarViewController")]) {
+        SHARED_APP_DELEGATE.viewController = baseVC;
+    }
     @weakify(baseVC);
-    [vc presentViewController:baseVC animated:animated completion:^{
+    [SHARED_APP_DELEGATE.window.rootViewController presentViewController:baseVC animated:animated completion:^{
         @strongify(baseVC);
         completion(baseVC);
     }];

@@ -91,7 +91,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
             result = YES;\
             } else { result = NO; }\
             result;      \
-        });
+});
 
 #define isSubClass(A, B) \
         isKindClass(class_getSuperclass([A class]), B);
@@ -356,5 +356,6 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kAppointFailVM          @"HWAppointFailViewModel"
 #define kAppointWaitingVM       @"HWAppointWaitingViewModel"
 #define kAppointSuccessVM       @"HWAppointSuccessViewModel"
+#define kSelectCityVM           @"HWCitySelectViewModel"
 #endif
 

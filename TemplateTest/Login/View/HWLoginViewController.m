@@ -138,10 +138,15 @@
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         
         //调试
+        
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
-            SHARED_APP_DELEGATE.viewController = targetVC;
-            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+            
+//            self.view.hidden = true;
+            [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                SHARED_APP_DELEGATE.viewController = targetVC;
+                [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+            }];
         }];
 
         

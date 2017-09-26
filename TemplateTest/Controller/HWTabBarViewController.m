@@ -23,6 +23,7 @@
 {
     self = [super init];
     if (self) {
+        [self setUpControllers];
     }
     return self;
 }
@@ -52,8 +53,8 @@
     HWBaseNavigationController * thirdNav = [[HWBaseNavigationController alloc] initWithRootViewController:appointmentViewController];
     HWBaseNavigationController * fourNav = [[HWBaseNavigationController alloc] initWithRootViewController:settingViewController];
     
-    [self setViewControllers:@[firstNav, secondNav,
-                               thirdNav,fourNav]];
+    [self setViewControllers:@[firstNav ,secondNav
+                               ,thirdNav,fourNav]];
     [self customizeTabBarForController];
 
 }
@@ -74,7 +75,7 @@
     
     NSArray *unSelectedImages = @[@"tabbar_1_n", @"tabbar_2_n", @"tabbar_3_n",@"tabbar_4_n"];
     NSArray *selectedImages = @[@"tabbar_1_s",@"tabbar_2_n",@"tabbar_3_n",@"tabbar_4_s"];
-    NSArray * titles = @[@"首页",@"我的病人",@"咨询解答",@"设置"];
+    NSArray * titles = @[@"首页",@"我的病人",@"我的预约",@"设置"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];

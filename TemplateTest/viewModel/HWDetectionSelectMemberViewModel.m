@@ -11,6 +11,8 @@
 
 @implementation HWDetectionSelectMemberViewModel
 
+
+
 - (void)bindViewWithSignal {
     [super bindViewWithSignal];
     

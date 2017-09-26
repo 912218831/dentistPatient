@@ -15,15 +15,6 @@
 
 @implementation HWBaseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleDefault;
@@ -33,7 +24,7 @@
 {
     [super viewDidLoad];
   
-   [self.navigationController.navigationBar setBackgroundImage:[Utility imageWithColor:CD_MainColor andSize:CGSizeMake(kScreenWidth, (IOS7Later ? 64 : 44))] forBarMetrics:UIBarMetricsDefault];
+//   [self.navigationController.navigationBar setBackgroundImage:[Utility imageWithColor:CD_MainColor andSize:CGSizeMake(kScreenWidth, (IOS7Later ? 64 : 44))] forBarMetrics:UIBarMetricsDefault];
 //    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     
     if (IOS7Later)
@@ -43,7 +34,7 @@
     }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     self.view.backgroundColor = COLOR_FFFFFF;
-    self.navigationItem.hidesBackButton = YES;
+//    self.navigationItem.hidesBackButton = YES;
 }
 
 

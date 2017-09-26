@@ -11,6 +11,7 @@
 #import "HWHomePagePushItemModel.h"
 #import "HWHomePageLastRecordModel.h"
 #import "HWDetectionSelectMemberViewModel.h"
+#import "HWCitySelectViewModel.h"
 @implementation HWHomePageViewModel
 
 - (instancetype)init
@@ -26,6 +27,11 @@
 - (void)bindViewWithSignal
 {
     [super bindViewWithSignal];
+    self.selectCityCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        HWCitySelectViewModel * selectCityModel = [HWCitySelectViewModel new];
+        [[ViewControllersRouter shareInstance] pushViewModel:selectCityModel animated:YES];
+        return [RACSignal empty];
+    }];
     self.bannerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * index) {
        
         NSLog(@"%@",index);

@@ -21,17 +21,26 @@
 
 @implementation HWAppointmentViewController
 @dynamic viewModel;
-//- (void)viewDidLoad {
-//    [super viewDidLoad];
-//
-//}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:YES animated:YES];
+
+}
+
 
 - (void)configContentView
 {
     [super configContentView];
     self.dataArr = [NSArray array];
     [self.view addSubview:self.collectionView];
-
 }
 - (UICollectionView *)collectionView
 {
@@ -113,7 +122,6 @@
         [self fetchData];
        
     }];
-
 }
 
 - (void)fetchData
@@ -122,24 +130,19 @@
         [self.fetchDataDispose dispose];
     }
     @weakify(self);
-    self.fetchDataDispose = [self.viewModel.requestSignal subscribeNext:^(id x) {
+    self.fetchDataDispose = [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self);
         if ([x isKindOfClass:[NSString class]]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [Utility showMBProgress:self.view message:x];
-            });
+            [Utility showMBProgress:self.view message:x];
 
         }
         else
         {
             self.dataArr = [x copy];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [Utility hideMBProgress:self.view];
-                [self.collectionView reloadData];
-            });
+            [Utility hideMBProgress:self.view];
+            [self.collectionView reloadData];
         }
     }];
-
 }
 
 @end
