@@ -44,7 +44,6 @@
 {
     [super viewWillDisappear:animated];
     [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:YES animated:YES];
-
 }
 
 - (void)configContentView

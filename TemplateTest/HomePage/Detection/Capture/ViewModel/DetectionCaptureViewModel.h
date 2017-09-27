@@ -14,4 +14,7 @@
 @property (nonatomic, strong) FamilyMemberModel *model;
 @property (nonatomic, copy)   NSString *checkId;
 @property (nonatomic, strong) RACCommand *deletePhotoCommand;
+@property (nonatomic, strong) RACSubject *canNextStepSignal;
+@property (nonatomic, assign) BOOL canNextStep;
+- (void)takePhotoSuccess:(UIImage *)image;
 @end

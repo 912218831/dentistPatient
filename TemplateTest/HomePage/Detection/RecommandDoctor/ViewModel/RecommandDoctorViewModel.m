@@ -42,7 +42,7 @@
             }];
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
-            [subscriber sendError:Error];
+            [subscriber sendNext:[RACSignal error:Error]];
         }];
         return nil;
     }];

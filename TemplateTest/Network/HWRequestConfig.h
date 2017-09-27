@@ -61,6 +61,7 @@
 #define kDetectionDeletePhoto        @"chk/delCheckImage" // 牙菌检测-删除图片
 #define kDetectionResult             @"chk/finishUploadImg" // 牙菌斑检测--结果
 #define kDetectionCreateCase         @"chk/newCheck" // 牙菌斑检测 - 创建一个Case
+#define kDetectionUpload             @"chk/uploadCheckImage"// 牙菌斑检测 - 上传一张图片并分析
 
 #define kRecommandDoctor             @"chk/dencitsQuery" // 牙菌斑检测 -推荐附近的医生
 #define kRDoctorDetail               @"chk/dentistInfo" // 牙菌斑检测 -医生详情

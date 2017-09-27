@@ -58,6 +58,7 @@
         @strongify(self);
         [Utility hideMBProgress:self.contentView];
     }];
+    [self.viewModel execute];
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {

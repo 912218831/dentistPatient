@@ -262,9 +262,22 @@
 
 - (void)showFirstImage
 {
-    UIView *sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
-    
-    CGRect rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    __block UIView *sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
+    __block CGRect rect = CGRectZero;
+    if (![sourceView isKindOfClass:[UIImageView class]]) {
+        [sourceView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[UIImageView class]]) {
+                rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+                rect.origin.x += obj.frame.origin.x;
+                rect.origin.y += obj.frame.origin.y;
+                rect.size = obj.size;
+                sourceView = obj;
+                *stop = true;
+            }
+        }];
+    } else {
+        rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    }
    
     NSLog(@"%@",NSStringFromCGRect(rect));
     
@@ -272,8 +285,7 @@
     tempView.frame = rect;
     tempView.image = [self placeholderImageForIndex:self.currentImageIndex];
     [self addSubview:tempView];
-    tempView.contentMode = UIViewContentModeScaleAspectFit;
-    
+    tempView.contentMode = sourceView.contentMode;
     
     CGFloat placeImageSizeW = tempView.image.size.width;
     CGFloat placeImageSizeH = tempView.image.size.height;
@@ -409,8 +421,22 @@
     HZPhotoBrowserView *view = (HZPhotoBrowserView *)recognizer.view;
     UIImageView *currentImageView = view.imageview;
     NSUInteger currentIndex = currentImageView.tag;
-    UIView *sourceView = self.sourceImagesContainerView.subviews[currentIndex];
-    CGRect targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    __block UIView *sourceView = self.sourceImagesContainerView.subviews[currentIndex];
+    __block CGRect targetTemp = CGRectZero;
+    if (![sourceView isKindOfClass:[UIImageView class]]) {
+        [sourceView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[UIImageView class]]) {
+                targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+                targetTemp.origin.x += obj.frame.origin.x;
+                targetTemp.origin.y += obj.frame.origin.y;
+                targetTemp.size = obj.size;
+                sourceView = obj;
+                *stop = true;
+            }
+        }];
+    } else {
+        targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    }
     
 //    NSLog(@"%@",NSStringFromCGRect(targetTemp));
     

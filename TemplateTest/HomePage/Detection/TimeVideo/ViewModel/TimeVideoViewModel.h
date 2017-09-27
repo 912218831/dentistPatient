@@ -9,5 +9,6 @@
 #import "BaseViewModel.h"
 
 @interface TimeVideoViewModel : BaseViewModel
-
+@property (nonatomic, strong) UIImage *captureImage;
+@property (nonatomic, copy) void (^takePhoto)(UIImage *image);
 @end

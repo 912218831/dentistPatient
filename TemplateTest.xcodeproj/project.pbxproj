@@ -266,6 +266,7 @@
 		C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0461F680DD3000C99A1 /* HWCasesViewController.m */; };
 		C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */; };
 		C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B04D1F681307000C99A1 /* CaseSegmentButton.m */; };
+		C55A7C4A1F7BD5EF00B381A4 /* beautiful.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C55A7C491F7BD09800B381A4 /* beautiful.jpg */; };
 		C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */; };
 		C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */; };
 		C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */; };
@@ -807,6 +808,7 @@
 		C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewModel.m; sourceTree = "<group>"; };
 		C546B04C1F681307000C99A1 /* CaseSegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseSegmentButton.h; sourceTree = "<group>"; };
 		C546B04D1F681307000C99A1 /* CaseSegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseSegmentButton.m; sourceTree = "<group>"; };
+		C55A7C491F7BD09800B381A4 /* beautiful.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beautiful.jpg; sourceTree = "<group>"; };
 		C587E3641F6EB9F0009509CB /* DoctorDetailAttachedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailAttachedView.h; sourceTree = "<group>"; };
 		C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailAttachedView.m; sourceTree = "<group>"; };
 		C587E3671F6EBA10009509CB /* DoctorAbstractInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorAbstractInfoView.h; sourceTree = "<group>"; };
@@ -1849,6 +1851,7 @@
 		C50029C31F6C102B0064DFEE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C55A7C491F7BD09800B381A4 /* beautiful.jpg */,
 				C50029D31F6CD7AE0064DFEE /* TimeVideoViewModel.h */,
 				C50029D41F6CD7AE0064DFEE /* TimeVideoViewModel.m */,
 			);
@@ -2440,6 +2443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55A7C4A1F7BD5EF00B381A4 /* beautiful.jpg in Resources */,
 				B09807E31F6ACC03009C0FE1 /* 检测成员@3x.png in Resources */,
 				B02AED251F4ED536009C25A7 /* 产品@3x.png in Resources */,
 				B07EE4FD1F695FA000FCA22D /* 预约失败@3x.png in Resources */,

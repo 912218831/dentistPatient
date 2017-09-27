@@ -74,13 +74,22 @@
         [self.listView reloadData];
     }error:^(NSError *error) {
         [Utility showToastWithMessage:error.domain];
+        [self.listView reloadData];
     } completed:nil]finally:^{
         @strongify(self);
         [Utility hideMBProgress:self.contentView];
     }];
     [self.viewModel execute];
     
-    [[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+    [[[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(id value) {
+        BOOL result = self.viewModel.canNextStep;
+        if (!self.viewModel.dataArray.count) {
+            [Utility showToastWithMessage:@"未上传相关照片"];
+        } else if (!result) {
+            [Utility showToastWithMessage:@"图片尚未上传完成"];
+        }
+        return result;
+    }]subscribeNext:^(id x) {
         @strongify(self);
         DetectionResultViewModel *vm = [DetectionResultViewModel new];
         vm.checkId = self.viewModel.checkId;
@@ -164,6 +173,11 @@
     } else {
         // 拍照
         TimeVideoViewModel *vm = [TimeVideoViewModel new];
+        @weakify(self);
+        vm.takePhoto = ^(UIImage *image) {
+            @strongify(self);
+            [self.viewModel takePhotoSuccess:image];
+        };
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:YES];
     }
     
@@ -171,6 +185,9 @@
 
 - (UIImage *)photoBrowser:(HZPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
     DetectionCaptureModel *model = [self.viewModel.dataArray objectAtIndex:index];
+    if (model.image) {
+        return model.image;
+    }
     UIImage *resultImage = [[SDImageCache sharedImageCache]imageFromMemoryCacheForKey:model.imgUrl];
     if (resultImage==nil) {
         resultImage = [[SDImageCache sharedImageCache]imageFromDiskCacheForKey:model.imgUrl];
