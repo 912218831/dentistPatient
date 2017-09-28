@@ -36,7 +36,7 @@
             self.timesHeight = ceil(dates.count/4.0)*kRate(45);
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
-            [subscriber sendError:Error];
+            [subscriber sendNext:[RACSignal error:Error]];
         }];
         return nil;
     }];
