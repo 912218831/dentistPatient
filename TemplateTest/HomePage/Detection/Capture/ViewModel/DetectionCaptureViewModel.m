@@ -22,7 +22,7 @@
         @strongify(self);
         DetectionCaptureModel *model = [self.dataArray objectAtIndex:[input integerValue]];
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            if (!model.Id) {
+            if (model.Id) {
                 [self post:kDetectionDeletePhoto params:@{@"checkId":self.checkId,
                                                           @"imgId":model.Id==nil?@"":model.Id} success:^(id response) {
                                                               [subscriber sendNext:[RACSignal return:input]];
@@ -70,20 +70,17 @@
         model.needUpload = true;
         [self.dataArray addObject:model];
         [self.hotSignal sendNext:@"ADD"];
-        
-        NSData *imageData = UIImagePNGRepresentation(image);
-        NSString *encodedString = [imageData base64EncodedStringWithOptions:0];
+        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
         @weakify(model,self);
-        [self post:kDetectionCapturePhotos type:0 params:@{@"imageFile":encodedString,@"checkid":self.checkId} success:^(NSDictionary *response) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                @strongify(model);
-                if (model.uploadFinished) {
-                    model.needUpload = false;
-                    model.uploadSuccess = true;
-                    model.uploadFinished(true);
-                }
-            });
-            
+        [self postImage:kDetectionUploadImage type:0 params:@{@"imageFile":imageData,@"checkId":self.checkId} success:^(NSDictionary *response) {
+            @strongify(model);
+            if (model.uploadFinished) {
+                NSDictionary *data = [response dictionaryObjectForKey:@"data"];
+                model.Id =  [data stringObjectForKey:@"imgId"];
+                model.needUpload = false;
+                model.uploadSuccess = true;
+                model.uploadFinished(true);
+            }
         } failure:^(NSString *error) {
             @strongify(model,self);
             if (model.uploadFinished) {

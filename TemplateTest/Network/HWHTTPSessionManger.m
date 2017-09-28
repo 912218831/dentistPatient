@@ -188,7 +188,7 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
                NSData *imageData = [parameters objectForKey:dictKey];
                
                [imageData writeToFile:savedImagePath atomically:YES];
-               [formData appendPartWithFileData:[parameters objectForKey:dictKey] name:dictKey fileName:savedImagePath mimeType:@"image/jpeg"];
+               [formData appendPartWithFileData:[parameters objectForKey:dictKey] name:dictKey fileName:savedImagePath mimeType:@"multipart/form-data"];
                
                
            }

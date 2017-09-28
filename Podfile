@@ -4,7 +4,7 @@ target 'TemplateTest' do
 pod 'AMapLocation'
 pod 'AMap3DMap'
 pod 'Mantle', '~> 2.0.7'
-pod 'AFNetworking', '~> 2.0'
+pod 'AFNetworking'
 pod 'SDWebImage', '~> 3.7.2'
 pod 'UMengSocial', '>= 4.3'
 pod 'UMengFeedback', '>= 2.2'

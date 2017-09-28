@@ -34,12 +34,12 @@
     
     UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
     flowLayout.itemSize = CGSizeMake(kRate(116), kRate(116));
-    flowLayout.minimumInteritemSpacing = kRate(3);
+    flowLayout.minimumInteritemSpacing = kRate(2);
     flowLayout.minimumLineSpacing = kRate(3);
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, kOffX, 0, kRate(6));
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, kOffX, 0, kRate(8));
     flowLayout.headerReferenceSize = CGSizeMake(self.view.width, kRate(47));
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.listView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    self.listView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-kRate(64+90)) collectionViewLayout:flowLayout];
     self.listView.delegate = self;
     self.listView.dataSource = self;
     self.listView.alwaysBounceVertical = true;
@@ -136,7 +136,6 @@
         @weakify(self);
         [cell.deleteAction subscribeNext:^(id x) {
             @strongify(self);
-            NSLog(@"删除啦");
             // 删除
             [Utility showMBProgress:self.contentView message:nil];
             [[[self.viewModel.deletePhotoCommand execute:@(indexPath.row)].newSwitchToLatest subscribeNext:^(id x) {
@@ -192,12 +191,19 @@
     if (resultImage==nil) {
         resultImage = [[SDImageCache sharedImageCache]imageFromDiskCacheForKey:model.imgUrl];
     }
+    [self.listView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:false];
     return resultImage;
 }
 
 - (NSURL *)photoBrowser:(HZPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
     DetectionCaptureModel *model = [self.viewModel.dataArray objectAtIndex:index];
     return [NSURL URLWithString:model.imgUrl];
+}
+
+- (UIView *)subView:(NSInteger)index {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.listView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:false];
+    return [self.listView cellForItemAtIndexPath:indexPath];
 }
 
 - (void)didReceiveMemoryWarning {

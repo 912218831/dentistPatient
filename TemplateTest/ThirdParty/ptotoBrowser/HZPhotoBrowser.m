@@ -9,7 +9,6 @@
 #import "HZPhotoBrowser.h"
 #import "UIImageView+WebCache.h"
 #import "HZPhotoBrowserView.h"
- 
 //  ============在这里方便配置样式相关设置===========
 
 //                      ||
@@ -21,7 +20,8 @@
 #import "HZPhotoBrowserConfig.h"
 //  =============================================
 #define kAnimationDuration 0.35f
-
+#define kDefaultW kScreenWidth
+#define kDefaultH 300
 @implementation HZPhotoBrowser 
 {
     UIScrollView *_scrollView;
@@ -262,7 +262,12 @@
 
 - (void)showFirstImage
 {
-    __block UIView *sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
+    __block UIView *sourceView = nil;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(subView:)]) {
+        sourceView = [self.delegate subView:self.currentImageIndex];
+    } else {
+        sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
+    }
     __block CGRect rect = CGRectZero;
     if (![sourceView isKindOfClass:[UIImageView class]]) {
         [sourceView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -282,6 +287,7 @@
     NSLog(@"%@",NSStringFromCGRect(rect));
     
     UIImageView *tempView = [[UIImageView alloc] init];
+    //tempView.backgroundColor = CD_LIGHT_BACKGROUND;
     tempView.frame = rect;
     tempView.image = [self placeholderImageForIndex:self.currentImageIndex];
     [self addSubview:tempView];
@@ -290,7 +296,12 @@
     CGFloat placeImageSizeW = tempView.image.size.width;
     CGFloat placeImageSizeH = tempView.image.size.height;
     CGRect targetTemp;
-
+    if (fabs(placeImageSizeW) == 0) {
+        placeImageSizeW = kDefaultW;
+    }
+    if (fabs(placeImageSizeH) == 0) {
+        placeImageSizeH = kDefaultH;
+    }
     CGFloat placeHolderH = (placeImageSizeH * kAPPWidth)/placeImageSizeW;
     if (placeHolderH <= KAppHeight) {
         targetTemp = CGRectMake(0, (KAppHeight - placeHolderH) * 0.5 , kAPPWidth, placeHolderH);
@@ -421,7 +432,12 @@
     HZPhotoBrowserView *view = (HZPhotoBrowserView *)recognizer.view;
     UIImageView *currentImageView = view.imageview;
     NSUInteger currentIndex = currentImageView.tag;
-    __block UIView *sourceView = self.sourceImagesContainerView.subviews[currentIndex];
+    __block UIView *sourceView = nil;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(subView:)]) {
+        sourceView = [self.delegate subView:currentIndex];
+    } else {
+        sourceView = self.sourceImagesContainerView.subviews[currentIndex];
+    }
     __block CGRect targetTemp = CGRectZero;
     if (![sourceView isKindOfClass:[UIImageView class]]) {
         [sourceView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -444,6 +460,12 @@
     tempImageView.image = currentImageView.image;
     CGFloat tempImageSizeH = tempImageView.image.size.height;
     CGFloat tempImageSizeW = tempImageView.image.size.width;
+    if (fabs(tempImageSizeW)  == 0) {
+        tempImageSizeW = kDefaultW;
+    }
+    if (fabs(tempImageSizeH) == 0) {
+        tempImageSizeH = kDefaultH;
+    }
     CGFloat tempImageViewH = (tempImageSizeH * kAPPWidth)/tempImageSizeW;
     
     if (tempImageViewH < KAppHeight) {//图片高度<屏幕高度
