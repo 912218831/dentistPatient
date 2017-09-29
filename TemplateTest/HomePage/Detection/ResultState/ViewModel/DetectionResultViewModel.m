@@ -7,6 +7,7 @@
 //
 
 #import "DetectionResultViewModel.h"
+#import "RecommandDoctorViewModel.h"
 
 #define kDetectionResultViewModelDebug 1
 
@@ -55,6 +56,28 @@
 #endif
         }];
         return nil;
+    }];
+    
+    
+}
+
+- (void)setSeeDoctorSignal:(RACSignal *)seeDoctorSignal {
+    @weakify(self);
+    [seeDoctorSignal subscribeNext:^(id x) {
+        @strongify(self);
+        RecommandDoctorViewModel *vm = [RecommandDoctorViewModel new];
+        vm.checkId = self.checkId;
+        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
+    }];
+}
+
+- (void)setNotSendSignal:(RACSignal *)notSendSignal {
+    @weakify(self);
+    [notSendSignal subscribeNext:^(id x) {
+        @strongify(self);
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRefreshCaseList object:self.model.patientId];
+        [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:false];
+        [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setSelectedIndex:1];
     }];
 }
 

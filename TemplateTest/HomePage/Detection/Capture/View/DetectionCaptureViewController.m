@@ -73,6 +73,7 @@
         @strongify(self);
         [self.listView reloadData];
     }error:^(NSError *error) {
+        @strongify(self);
         [Utility showToastWithMessage:error.domain];
         [self.listView reloadData];
     } completed:nil]finally:^{
@@ -82,6 +83,7 @@
     [self.viewModel execute];
     
     [[[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(id value) {
+        @strongify(self);
         BOOL result = self.viewModel.canNextStep;
         if (!self.viewModel.dataArray.count) {
             [Utility showToastWithMessage:@"未上传相关照片"];
@@ -92,6 +94,7 @@
     }]subscribeNext:^(id x) {
         @strongify(self);
         DetectionResultViewModel *vm = [DetectionResultViewModel new];
+        vm.model = self.viewModel.model;
         vm.checkId = self.viewModel.checkId;
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     }];
@@ -209,6 +212,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    
 }
 
 @end

@@ -10,7 +10,6 @@
 #import "ResultStateGoodView.h"
 #import "DetectionResultViewModel.h"
 #import "ResultStateTerribleView.h"
-#import "RecommandDoctorViewModel.h"
 
 @interface DetectionResultViewController ()
 @property (nonatomic, strong) DetectionResultViewModel *viewModel;
@@ -118,22 +117,15 @@
     [[RACObserve(self, seeDoctorBtn)filter:^BOOL(id value) {
         return value;
     }]subscribeNext:^(UIButton *x) {
-        [[x rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-            @strongify(self);
-            RecommandDoctorViewModel *vm = [RecommandDoctorViewModel new];
-            vm.checkId = self.viewModel.checkId;
-            [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
-        }];
+        @strongify(self);
+        self.viewModel.seeDoctorSignal = [x rac_signalForControlEvents:UIControlEventTouchUpInside];
     }];
     
     [[RACObserve(self, notSendBtn)filter:^BOOL(id value) {
         return value;
     }]subscribeNext:^(UIButton *x) {
-        [[x rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-            [[NSNotificationCenter defaultCenter]postNotificationName:kRefreshCaseList object:@"4"];
-            [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:false];
-            [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setSelectedIndex:1];
-        }];
+        @strongify(self);
+        self.viewModel.notSendSignal = [x rac_signalForControlEvents:UIControlEventTouchUpInside];
     }];
     [self.viewModel execute];
 }

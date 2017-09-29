@@ -65,7 +65,7 @@
         vm.caseModel = [self.viewModel.dataArray pObjectAtIndex:indexPath.row];
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     };
-    self.segmentButton.titleLabel.text = @"";
+    self.segmentButton.title = @"";
     
 }
 
@@ -113,7 +113,7 @@
     
     [RACObserve(self.viewModel, familyMemberIndex)subscribeNext:^(NSNumber *x) {
         @strongify(self);
-        self.segmentButton.titleLabel.text = [[self.viewModel.familyMember objectAtIndex:x.integerValue-1]name];
+        self.segmentButton.title = [[self.viewModel.familyMember objectAtIndex:x.integerValue-1]name];
         if (x.integerValue>0) {
             [Utility showMBProgress:self.contentView message:nil];
             self.viewModel.currentPage = 1;
