@@ -55,7 +55,7 @@
     headView.backgroundColor = CD_MainColor;
     self.segmentButton.backgroundColor = headView.backgroundColor;
     self.listView.top = headView.height;
-    self.listView.height = self.view.height - 64 - 49 - headView.height;
+    self.listView.height = self.view.height - 64 - kTabbarHeight - headView.height;
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
         return (CGFloat)kRate(111);
     };
@@ -120,8 +120,6 @@
             [self.viewModel execute];
         }
     }];
-    
-    RAC(self.listView, isLastPage) = RACObserve(self.viewModel, isLastPage);
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {

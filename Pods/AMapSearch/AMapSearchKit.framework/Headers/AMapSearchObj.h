@@ -387,7 +387,7 @@ typedef NS_ENUM(NSInteger, AMapNearbySearchType)
 @interface AMapRoadTrafficSearchRequest : AMapSearchObject
 ///道路名称，可通过逆地理编码查询获取
 @property (nonatomic, copy)   NSString *roadName;
-///adcode，可通过逆地理编码查询获取
+///城市adcode，可参考http://a.amap.com/lbs/static/zip/AMap_adcode_citycode.zip
 @property (nonatomic, copy)   NSString *adcode;
 ///是否返回扩展信息，默认为 NO
 @property (nonatomic, assign) BOOL requireExtension;

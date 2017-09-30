@@ -37,6 +37,8 @@
 
     self.arrowImageView = [UIImageView new];
     [self.contentV addSubview:self.arrowImageView];
+    self.stateImageView = [UIImageView new];
+    [self.contentV addSubview:self.stateImageView];
 }
 
 - (void)layoutSubViews {
@@ -69,6 +71,11 @@
         make.size.mas_equalTo(CGSizeMake(kRate(8), kRate(15)));
         make.right.mas_equalTo(-kRate(35));
     }];
+    [self.stateImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentV).with.offset(kRate(-46));
+        make.right.equalTo(self.contentV).with.offset(kRate(46));
+        make.size.mas_equalTo(CGSizeMake(kRate(92), kRate(92)));
+    }];
 }
 
 - (void)initDefaultConfigs {
@@ -78,12 +85,14 @@
     self.contentV.layer.cornerRadius = 3;
     self.contentV.layer.borderColor = UIColorFromRGB(0xcccccc).CGColor;
     self.contentV.layer.borderWidth = 0.5;
+    self.contentV.layer.masksToBounds = true;
     self.contentV.layer.backgroundColor = COLOR_FFFFFF.CGColor;
     
     self.headImageView.layer.borderWidth = 4;
     self.headImageView.layer.borderColor = COLOR_FFFFFF.CGColor;
     self.headImageView.layer.cornerRadius = kRate(30);
     self.headImageView.layer.masksToBounds = true;
+    self.headImageView.layer.backgroundColor = [UIColor redColor].CGColor;
     
     self.describeLabel.font = BOLDFONT(TF16);
     self.describeLabel.textColor = CD_Text;
@@ -103,6 +112,11 @@
         self.describeLabel.text = @"儿子的牙龈癍检查";
         self.actionLabel.text = @"已发送给空腔诊所的 吴医生";
         self.dateLabel.text = model.time;
+        if (model.state) {
+            self.stateImageView.image = [UIImage imageNamed:@"完成"];
+        } else {
+            self.stateImageView.image = [UIImage imageNamed:@"进行中"];
+        }
     }];
 }
 

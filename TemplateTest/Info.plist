@@ -57,8 +57,6 @@
 	<string>如果想要使用相机，您需要允许此选项</string>
 	<key>NSContactsUsageDescription</key>
 	<string>如果想要使用通信录，您需要允许此选项</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>如果想要使用位置，您需要允许此选项</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>如果想要使用位置，您需要允许此选项</string>
 	<key>NSMainNibFile</key>
@@ -73,7 +71,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>network-authentication</string>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

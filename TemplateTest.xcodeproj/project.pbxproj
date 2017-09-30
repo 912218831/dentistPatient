@@ -261,6 +261,10 @@
 		C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBBE1F66D5E30008A17A /* HWUserLogin.m */; };
 		C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBC81F66D5E70008A17A /* LoginViewModel.m */; };
 		C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBCB1F66D6750008A17A /* HWLoginViewController.m */; };
+		C533F9A91F7E76C700F95CA3 /* 进行中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */; };
+		C533F9AA1F7E76C700F95CA3 /* 完成@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9A81F7E76C700F95CA3 /* 完成@3x.png */; };
+		C533F9AD1F7E76D700F95CA3 /* 完成@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */; };
+		C533F9AE1F7E76D700F95CA3 /* 进行中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9AC1F7E76D700F95CA3 /* 进行中@2x.png */; };
 		C53EEB3C1F75478500B4F3B5 /* wechatIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C53EEB3B1F75478500B4F3B5 /* wechatIcon@2x.png */; };
 		C53EEB3E1F75478E00B4F3B5 /* wechatIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C53EEB3D1F75478E00B4F3B5 /* wechatIcon@3x.png */; };
 		C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0461F680DD3000C99A1 /* HWCasesViewController.m */; };
@@ -800,6 +804,11 @@
 		C531FBC81F66D5E70008A17A /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		C531FBCA1F66D6750008A17A /* HWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLoginViewController.h; sourceTree = "<group>"; };
 		C531FBCB1F66D6750008A17A /* HWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLoginViewController.m; sourceTree = "<group>"; };
+		C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进行中@3x.png"; sourceTree = "<group>"; };
+		C533F9A81F7E76C700F95CA3 /* 完成@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@3x.png"; sourceTree = "<group>"; };
+		C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@2x.png"; sourceTree = "<group>"; };
+		C533F9AC1F7E76D700F95CA3 /* 进行中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进行中@2x.png"; sourceTree = "<group>"; };
+		C533F9AF1F7E802C00F95CA3 /* libjpush-ios-3.0.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.6.a"; path = "Pods/JPush/libjpush-ios-3.0.6.a"; sourceTree = "<group>"; };
 		C53EEB3B1F75478500B4F3B5 /* wechatIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechatIcon@2x.png"; sourceTree = "<group>"; };
 		C53EEB3D1F75478E00B4F3B5 /* wechatIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechatIcon@3x.png"; sourceTree = "<group>"; };
 		C546B0451F680DD3000C99A1 /* HWCasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCasesViewController.h; sourceTree = "<group>"; };
@@ -1109,6 +1118,7 @@
 		AD5B42A505085FC44811F3BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C533F9AF1F7E802C00F95CA3 /* libjpush-ios-3.0.6.a */,
 				C58A4C491F76B4E9002B1F90 /* ExternalAccessory.framework */,
 				B07E7C101E8F95DE005189C9 /* UMMobClick.framework */,
 				75C741771DC71A0A0072D0ED /* libz.tbd */,
@@ -1228,6 +1238,8 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C533F9AC1F7E76D700F95CA3 /* 进行中@2x.png */,
+				C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */,
 				B0381C7D1F793F6300C5E172 /* 定位@2x.png */,
 				C5DE293B1F77AE0800D8973B /* tabbar_2_n@2x.png */,
 				C5DE293C1F77AE0800D8973B /* tabbar_3_n@2x.png */,
@@ -1283,6 +1295,8 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */,
+				C533F9A81F7E76C700F95CA3 /* 完成@3x.png */,
 				B0381C7E1F793F7E00C5E172 /* 定位@3x.png */,
 				C5DE293F1F77AE1000D8973B /* tabbar_2_n@3x.png */,
 				C5DE29401F77AE1000D8973B /* tabbar_3_n@3x.png */,
@@ -2482,6 +2496,7 @@
 				C5DE29211F778CCD00D8973B /* selectPeople@3x.png in Resources */,
 				DA3DFF381ADE7A4000C4E99A /* blackArrow.png in Resources */,
 				C587E3701F6F63E2009509CB /* RDSelectDate@3x.png in Resources */,
+				C533F9AA1F7E76C700F95CA3 /* 完成@3x.png in Resources */,
 				B0B0B5911F287302002FE127 /* 我的@2x.png in Resources */,
 				B0E033971E24B7BC00281E49 /* https_14.cer in Resources */,
 				B0B0B59E1F287302002FE127 /* 注册成功@3x.png in Resources */,
@@ -2503,6 +2518,7 @@
 				DA3DFF3B1ADE7A4000C4E99A /* blueArrow@2x.png in Resources */,
 				C587E3761F6F68B8009509CB /* detectionResultT@2x.png in Resources */,
 				C5CCBB4F1F696C2F003A4B8C /* TOP_ARROW@3x.png in Resources */,
+				C533F9A91F7E76C700F95CA3 /* 进行中@3x.png in Resources */,
 				C5DE29411F77AE1000D8973B /* tabbar_2_n@3x.png in Resources */,
 				C5B4AA2D1F6EACE50083E8C5 /* collect@3x.png in Resources */,
 				B0B0B5921F287302002FE127 /* 提成@2x.png in Resources */,
@@ -2517,6 +2533,7 @@
 				DA3DFF3A1ADE7A4000C4E99A /* blueArrow.png in Resources */,
 				B0B0B56B1F276EAA002FE127 /* tabbar_normal_background@2x.png in Resources */,
 				B0F6750F1F2A1D1C0019086E /* arrow@2x.png in Resources */,
+				C533F9AD1F7E76D700F95CA3 /* 完成@2x.png in Resources */,
 				B07EE4D11F68D56B00FCA22D /* 口腔问答@2x.png in Resources */,
 				B0431C401F6A1619001A2FD4 /* HWAppointWaitingCell.xib in Resources */,
 				B09253931F69F4750074EEFF /* 预约失败人数@3x.png in Resources */,
@@ -2541,6 +2558,7 @@
 				C5DE29331F77AD8200D8973B /* tabbar_1_n@3x.png in Resources */,
 				C5DE292C1F77AD6200D8973B /* tabbar_4_n@2x.png in Resources */,
 				C5DE29341F77AD8200D8973B /* tabbar_1_s@3x.png in Resources */,
+				C533F9AE1F7E76D700F95CA3 /* 进行中@2x.png in Resources */,
 				B07EE4E41F68FC1E00FCA22D /* HWHomePageSecondCell.xib in Resources */,
 				B09807DE1F6ACBCD009C0FE1 /* 检测成员_选中@2x.png in Resources */,
 				DA3DFF3C1ADE7A4000C4E99A /* grayArrow.png in Resources */,
@@ -2614,7 +2632,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9C21058431AA60E6EDA46FEB /* Copy Pods Resources */ = {
@@ -2659,7 +2677,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E72FAD6D4DEAFE9E94B5D1ED /* [CP] Embed Pods Frameworks */ = {
@@ -3056,8 +3074,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateTest/ThirdParty",
 					"$(PROJECT_DIR)/TemplateTest/ThirdParty/JpushSDK",
+					"$(PROJECT_DIR)/Pods/JPush",
 				);
 				MACH_O_TYPE = mh_execute;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
@@ -3129,6 +3149,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateTest/ThirdParty",
 					"$(PROJECT_DIR)/TemplateTest/ThirdParty/JpushSDK",
+					"$(PROJECT_DIR)/Pods/JPush",
 				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_LIBTOOLFLAGS = "";

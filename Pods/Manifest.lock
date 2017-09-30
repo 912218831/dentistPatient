@@ -17,16 +17,12 @@ PODS:
   - AMap3DMap (5.3.0):
     - AMapFoundation (~> 1.3)
   - AMapFoundation (1.4.2)
-  - AMapLocation (2.4.0):
+  - AMapSearch (5.4.0):
     - AMapFoundation (~> 1.4)
-  - AMapSearch (5.3.0):
-    - AMapFoundation (~> 1.2)
   - HMSegmentedControl (1.5.4)
   - iCarousel (1.8.3)
   - IQKeyboardManager (3.3.4)
-  - JCore (1.1.5)
-  - JPush (3.0.6):
-    - JCore (~> 1.1.1)
+  - JPush (2.2.0.1)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
     - libextobjc/EXTConcreteProtocol (= 0.4.1)
@@ -99,13 +95,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - AMap3DMap
-  - AMapLocation
+  - AMap3DMap (~> 5.3.0)
+  - AMapFoundation (~> 1.4.2)
   - AMapSearch
   - HMSegmentedControl (~> 1.5.2)
   - iCarousel (~> 1.8.2)
   - IQKeyboardManager (= 3.3.4)
-  - JPush (~> 3.0.6)
+  - JPush (~> 2.2.0)
   - libextobjc (~> 0.4.1)
   - MagicalRecord (~> 2.3.2)
   - Mantle (~> 2.0.7)
@@ -129,13 +125,11 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AMap3DMap: 0614b5b7ed7a8b69f1d9ba7bc40ce30362497dc5
   AMapFoundation: 6c0471c9a6a0ad17dad46e3d800ad56ca170f82a
-  AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
-  AMapSearch: beb01c6b2e7be18fb4898e97162fedf144420c6f
+  AMapSearch: 97042f81c1c8ea8adc4b1dadf1b1a688210aa141
   HMSegmentedControl: b25bc4ec44766e073d62c473188fb354ee244b76
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
-  JCore: 9bd9c770c877c583d98b90a68792b8361974c231
-  JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
+  JPush: c891ec9f6fae587db642c4ac28d19d5abc5d61bb
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
@@ -155,6 +149,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 880bc3afa1b69516cb19a95d612c7ef01bdb8fbc
+PODFILE CHECKSUM: 566c49b1a416322f6072d66746ac9b962fe18c4c
 
 COCOAPODS: 1.1.1
