@@ -59,7 +59,6 @@
     self.navigationItem.rightBarButtonItem = [Utility navRightBackBtn:self action:@selector(rightAction) imageStr:@"rightImageName"];
     self.contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, CONTENT_HEIGHT)];
     [self.view addSubview:self.contentView];
-
     
 }
 

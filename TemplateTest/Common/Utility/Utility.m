@@ -614,22 +614,23 @@
  */
 + (void)showToastWithMessage:(NSString *)message
 {
-    AppDelegate *appDel = SHARED_APP_DELEGATE;
-    
-    MBProgressHUD *progressHUD = [[MBProgressHUD alloc] initWithView:appDel.window];
-    [appDel.window addSubview:progressHUD];
-    progressHUD.detailsLabelText = message;
-    progressHUD.mode = MBProgressHUDModeText;
-    
-    //指定距离中心点的X轴和Y轴的偏移量，如果不指定则在屏幕中间显示
-    progressHUD.yOffset = -100.0f;
-    //    HUD.xOffset = 100.0f;
-    
-    [progressHUD showAnimated:YES whileExecutingBlock:^{
-        sleep(1);
-    } completionBlock:^{
-        [progressHUD removeFromSuperview];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate *appDel = SHARED_APP_DELEGATE;
+        MBProgressHUD *progressHUD = [[MBProgressHUD alloc] initWithView:appDel.window];
+        [appDel.window addSubview:progressHUD];
+        progressHUD.detailsLabelText = message;
+        progressHUD.mode = MBProgressHUDModeText;
+        
+        //指定距离中心点的X轴和Y轴的偏移量，如果不指定则在屏幕中间显示
+        progressHUD.yOffset = -100.0f;
+        //    HUD.xOffset = 100.0f;
+        
+        [progressHUD showAnimated:YES whileExecutingBlock:^{
+            sleep(1);
+        } completionBlock:^{
+            [progressHUD removeFromSuperview];
+        }];
+    });
 }
 
 /**
@@ -1627,8 +1628,8 @@ void delayOperation(CGFloat s,void(^block)(void))
     NSMutableString *pinyin = [chinese mutableCopy];
     
     //将汉字转换为拼音(带音标)
-//    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
-//    NSLog(@"%@", pinyin);
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+    NSLog(@"%@", pinyin);
     
     //去掉拼音的音标
     CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HWHomePageLastRecordCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n2f-aj-3Fp">
+                        <rect key="frame" x="0.0" y="10" width="40" height="40"/>
+                        <color key="backgroundColor" red="1" green="0.33978334949852795" blue="0.29583085361655237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="vXI-aW-sR9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="2017-7-8 13:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh7-2m-gvr" userLabel="预约时间">
+                        <rect key="frame" x="274" y="0.0" width="101" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCE-r0-NZn" userLabel="预约人">
+                        <rect key="frame" x="50" y="10" width="219" height="17"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约描述" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqb-w8-P5E" userLabel="预约描述">
+                        <rect key="frame" x="50" y="35.5" width="219" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7m-nN-fTh" userLabel="line">
+                        <rect key="frame" x="0.0" y="59.5" width="390" height="0.5"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="K0r-Sl-HYD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="n2f-aj-3Fp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="41g-CO-CXd"/>
+                <constraint firstItem="cCE-r0-NZn" firstAttribute="top" secondItem="n2f-aj-3Fp" secondAttribute="top" id="9kI-K9-QW3"/>
+                <constraint firstAttribute="trailing" secondItem="V7m-nN-fTh" secondAttribute="trailing" constant="-15" id="DH4-cH-XXj"/>
+                <constraint firstItem="Iqb-w8-P5E" firstAttribute="trailing" secondItem="cCE-r0-NZn" secondAttribute="trailing" id="FpZ-IQ-fN4"/>
+                <constraint firstItem="cCE-r0-NZn" firstAttribute="trailing" secondItem="Yh7-2m-gvr" secondAttribute="leading" constant="-5" id="G1Q-1P-LZo"/>
+                <constraint firstItem="Iqb-w8-P5E" firstAttribute="bottom" secondItem="n2f-aj-3Fp" secondAttribute="bottom" id="OFX-DD-We9"/>
+                <constraint firstAttribute="bottom" secondItem="V7m-nN-fTh" secondAttribute="bottom" id="OKu-qL-QWs"/>
+                <constraint firstAttribute="bottom" secondItem="Yh7-2m-gvr" secondAttribute="bottom" id="QEZ-Kt-bgq"/>
+                <constraint firstItem="V7m-nN-fTh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Sue-NB-Kn3"/>
+                <constraint firstAttribute="bottom" secondItem="n2f-aj-3Fp" secondAttribute="bottom" constant="10" id="Tab-9i-paU"/>
+                <constraint firstItem="cCE-r0-NZn" firstAttribute="leading" secondItem="n2f-aj-3Fp" secondAttribute="trailing" constant="10" id="TgV-PE-RgU"/>
+                <constraint firstItem="Iqb-w8-P5E" firstAttribute="leading" secondItem="cCE-r0-NZn" secondAttribute="leading" id="YvZ-Xk-dHR"/>
+                <constraint firstAttribute="trailing" secondItem="Yh7-2m-gvr" secondAttribute="trailing" id="apt-ch-KZC"/>
+                <constraint firstItem="Yh7-2m-gvr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eCm-Hn-S7z"/>
+                <constraint firstItem="n2f-aj-3Fp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="wiP-79-j10"/>
+            </constraints>
+            <connections>
+                <outlet property="iconImgV" destination="n2f-aj-3Fp" id="Bcr-pR-Ejq"/>
+                <outlet property="recodeName" destination="cCE-r0-NZn" id="Ekm-cA-MP2"/>
+                <outlet property="recordDescription" destination="Iqb-w8-P5E" id="RhN-mN-HaX"/>
+                <outlet property="recordTime" destination="Yh7-2m-gvr" id="LZq-w6-n4z"/>
+            </connections>
+            <point key="canvasLocation" x="88.5" y="93"/>
+        </collectionViewCell>
+    </objects>
+</document>

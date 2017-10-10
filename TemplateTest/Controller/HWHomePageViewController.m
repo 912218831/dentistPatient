@@ -13,6 +13,7 @@
 #import "HWHomePageFuncBtnCell.h"
 #import "HWHomePageSecondHeader.h"
 #import "HWHomePageSecondCell.h"
+#import "HWHomePageLastRecordCell.h"
 @interface HWHomePageViewController ()<UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 @property(strong,nonatomic)UIView * nav;
 @property(strong,nonatomic)UIButton * changeCityBtn;
@@ -93,6 +94,7 @@
         [_collectionView registerClass:[HWHomePageFuncBtnCell class] forCellWithReuseIdentifier:@"HWHomePageFuncBtnCell"];
         
         [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageSecondCell" bundle:nil] forCellWithReuseIdentifier:@"HWHomePageSecondCell"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageLastRecordCell" bundle:nil] forCellWithReuseIdentifier:@"HWHomePageLastRecordCell"];
         _collectionView.backgroundColor = COLOR_FFFFFF;
         
     }
@@ -103,7 +105,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -111,9 +113,13 @@
     if (section == 0) {
         return 1;
     }
-    else
+    else if(section == 1)
     {
         return self.viewModel.pushitems.count;
+    }
+    else
+    {
+        return self.viewModel.lastRecords.count;
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
@@ -132,9 +138,13 @@
     if (indexPath.section == 0) {
         return CGSizeMake(kScreenWidth, 90);
     }
-    else
+    else if(indexPath.section == 1)
     {
         return CGSizeMake((kScreenWidth-40)/2, 115);
+    }
+    else
+    {
+        return CGSizeMake((kScreenWidth - 30), 60);
     }
 }
 
@@ -155,7 +165,8 @@
     }
     else
     {
-        return UIEdgeInsetsMake(10, 15, 15, 10);
+        
+        return UIEdgeInsetsMake(10, 15, 10, 15);
     }
 }
 
@@ -167,10 +178,16 @@
         return cell;
 
     }
-    else
+    else if(indexPath.section == 1)
     {
         HWHomePageSecondCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWHomePageSecondCell" forIndexPath:indexPath];
         cell.model = [self.viewModel.pushitems pObjectAtIndex:indexPath.row];
+        return cell;
+    }
+    else
+    {
+        HWHomePageLastRecordCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HWHomePageLastRecordCell" forIndexPath:indexPath];
+        cell.model = [self.viewModel.lastRecords pObjectAtIndex:indexPath.row];
         return cell;
     }
 }
@@ -207,6 +224,7 @@
     [self.viewModel bindViewWithSignal];
     @weakify(self);
     [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(id x) {
+        @strongify(self);
         [self.collectionView reloadData];
 
     } error:^(NSError *error) {

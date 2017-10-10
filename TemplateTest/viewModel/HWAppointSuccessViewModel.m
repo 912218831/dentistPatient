@@ -12,7 +12,7 @@
 
 @property(strong,nonatomic)NSString * appointId;
 @property(strong,nonatomic,readwrite)HWAppointDetailModel * detailModel;
-
+@property(strong,nonatomic)NSString * payType;
 @end
 
 @implementation HWAppointSuccessViewModel
@@ -21,6 +21,35 @@
     self = [super init];
     if (self) {
         self.appointId = appointId;
+        @weakify(self);
+        RACSignal * paySignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            if (self.sumMoney.length == 0) {
+                [subscriber sendError:customRACError(@"请输入金额")];
+            }
+            NSMutableDictionary * params = [NSMutableDictionary dictionary];
+            [params setPObject:self.detailModel.checkId forKey:@"checkID"];
+            [params setPObject:self.detailModel.appointId forKey:@"applyId"];
+            [params setPObject:self.selectCoupontModel.couponId forKey:@"couponID"];
+            [params setPObject:self.sumMoney forKey:@"totalAmount"];
+            [params setPObject:self.payType forKey:@"payType"];
+            NSURLSessionTask * task = [self post:kCreateOrder params:params success:^(id response) {
+                NSDictionary * dataDic = [response objectForKey:@"data"];
+                
+                [subscriber sendNext:[dataDic objectForKey:@"payEncodeString"]];
+            } failure:^(NSString * error) {
+                [subscriber sendError:customRACError(error)];
+            }];
+            return [RACDisposable disposableWithBlock:^{
+                [task cancel];
+            }];
+        }];
+        self.payCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * input) {
+            @strongify(self);
+            self.payType = @"ALI";
+            return paySignal;
+        }];
+        self.payCommand.allowsConcurrentExecution = YES;
     }
     return self;
 }
@@ -55,5 +84,10 @@
     }];
 }
 
+
+- (void)handleOrder{
+    
+    
+}
 
 @end

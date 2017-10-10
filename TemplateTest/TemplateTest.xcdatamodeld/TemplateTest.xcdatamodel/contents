@@ -7,13 +7,15 @@
         <attribute name="pinyin" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="HWLoginUser" representedClassName="HWLoginUser" syncable="YES">
+        <attribute name="cityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userPhone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="HWLoginUser" positionX="-272" positionY="-225" width="128" height="105"/>
         <element name="HWCityModel_CD" positionX="-270" positionY="-198" width="128" height="105"/>
+        <element name="HWLoginUser" positionX="-272" positionY="-225" width="128" height="135"/>
     </elements>
 </model>

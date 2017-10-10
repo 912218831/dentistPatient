@@ -8,11 +8,14 @@
 
 #import "BaseViewModel.h"
 #import "HWAppointDetailModel.h"
+#import "HWAppointCouponModel.h"
 @interface HWAppointSuccessViewModel : BaseViewModel
 @property(strong,nonatomic,readonly)HWAppointDetailModel * detailModel;
 @property(strong,nonatomic)NSArray * coupons;
 @property(strong,nonatomic)NSString * sumMoney;
 @property(assign,nonatomic)BOOL isNeedRefreshList;//是否需要刷新列表
+@property(strong,nonatomic)RACCommand * payCommand;
+@property(strong,nonatomic)HWAppointCouponModel * selectCoupontModel;
 - (instancetype)initWithAppointId:(NSString *)appointId;
 
 @end

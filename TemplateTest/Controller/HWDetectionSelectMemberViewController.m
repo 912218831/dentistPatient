@@ -9,7 +9,6 @@
 #import "HWDetectionSelectMemberViewController.h"
 #import "HWDetectionSelectMemberViewModel.h"
 #import "HWDecetionSelectMemberCell.h"
-
 @interface HWDetectionSelectMemberViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property(strong, nonatomic)UICollectionView * collectionView;
