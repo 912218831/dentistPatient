@@ -67,7 +67,7 @@
         @strongify(self);
         RecommandDoctorViewModel *vm = [RecommandDoctorViewModel new];
         vm.checkId = self.checkId;
-        vm.needSearchBar = false;
+        vm.needSearchBar = true;
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     }];
 }
