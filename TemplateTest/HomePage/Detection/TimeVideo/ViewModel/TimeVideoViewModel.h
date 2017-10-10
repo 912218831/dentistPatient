@@ -15,6 +15,6 @@
 @property(strong,nonatomic)RACChannel * listDataChannel;
 @property(strong,nonatomic)RACCommand * playVideoCommand;
 @property(strong,nonatomic,readonly)HKDisplayView * displayView;
-
-
+@property (nonatomic, strong) UIImage *captureImage;
+@property (nonatomic, copy) void (^takePhoto)(UIImage *image);
 @end

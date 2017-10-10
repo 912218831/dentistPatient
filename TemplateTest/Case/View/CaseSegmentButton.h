@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CaseSegmentButton : UIControl
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonatomic, copy) NSString *title;
 @end

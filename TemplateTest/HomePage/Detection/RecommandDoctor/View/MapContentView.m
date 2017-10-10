@@ -11,7 +11,7 @@
 @interface MapContentView () <MAMapViewDelegate>
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) NSMutableArray *annotations;
-@property (nonatomic, assign) BOOL settedRegion;
+@property (nonatomic, assign) BOOL locateSuccess;
 @end
 
 @implementation MapContentView
@@ -19,42 +19,29 @@
 + (instancetype)buttonWithType:(UIButtonType)buttonType {
     MapContentView *btn = [super buttonWithType:buttonType];
     [btn initSubViews];
-    [btn layoutSubViews];
     [btn initDefaultConfigs];
     return btn;
 }
 
 - (void)initSubViews {
     self.mapView = [[MAMapView alloc]initWithFrame:self.bounds];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = true;
+    self.mapView.zoomLevel = 17;
+    self.mapView.userTrackingMode = MAUserTrackingModeFollow;
     [self addSubview:self.mapView];
-}
-
-- (void)layoutSubViews {
-    [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.top.equalTo(self);
-    }];
 }
 
 - (void)initDefaultConfigs {
     
-    self.mapView.showsUserLocation = true;
-    self.mapView.userTrackingMode = MAUserTrackingModeFollow;
-    self.mapView.delegate = self;
-    self.mapView.runLoopMode = NSDefaultRunLoopMode;
-    /*
-     MAUserLocationRepresentation *r = [[MAUserLocationRepresentation alloc] init];
-     r.showsAccuracyRing = NO;///精度圈是否显示，默认YES
-     r.showsHeadingIndicator = NO;///是否显示方向指示(MAUserTrackingModeFollowWithHeading模式开启)。默认为YES
-     r.fillColor = [UIColor redColor];///精度圈 填充颜色, 默认 kAccuracyCircleDefaultColor
-     r.strokeColor = [UIColor blueColor];///精度圈 边线颜色, 默认 kAccuracyCircleDefaultColor
-     r.lineWidth = 2;///精度圈 边线宽度，默认0
-     r.enablePulseAnnimation = YES;///内部蓝色圆点是否使用律动效果, 默认YES
-     r.locationDotBgColor = [UIColor greenColor];///定位点背景色，不设置默认白色
-     r.locationDotFillColor = [UIColor grayColor];///定位点蓝色圆点颜色，不设置默认蓝色
-     [self.contentV updateUserLocationRepresentation:r];*/
-    
     self.locationSuccess = [RACSubject subject];
     self.locationFail = [RACSubject subject];
+}
+
+- (void)setNeedAnnotationCenter:(BOOL)needAnnotationCenter {
+    self.mapView.showsUserLocation = !needAnnotationCenter;
+    _needAnnotationCenter = needAnnotationCenter;
 }
 
 #pragma mark - Initialization
@@ -101,14 +88,10 @@
 
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation {
     // 定位
-    if (!self.settedRegion&&!self.needAnnotationCenter) {
-        MACoordinateSpan span = MACoordinateSpanMake(0.004913, 0.013695);
-        MACoordinateRegion region = MACoordinateRegionMake(mapView.centerCoordinate, span);
-        self.mapView.region = region;
-        
-        self.settedRegion = true;
-        
+    if (updatingLocation&&!self.locateSuccess) {
+        //self.mapView.openGLESDisabled = true;
         [self.locationSuccess sendNext:[NSValue valueWithMACoordinate:mapView.centerCoordinate]];
+        self.locateSuccess = true;
     }
     
 }

@@ -35,6 +35,11 @@
         [self.baseTable addSubview:self.refreshHeadView];
         [self.baseTable addSubview:self.refreshFooterView];
         self.currentPage = 1;
+        @weakify(self);
+        [[RACObserve(self.baseTable, contentSize)distinctUntilChanged]subscribeNext:^(id x) {
+            @strongify(self);
+            [self refreshFooterView];
+        }];
     }
     return self;
 }
@@ -50,6 +55,11 @@
         [self.baseTable addSubview:self.refreshHeadView];
         [self.baseTable addSubview:self.refreshFooterView];
         self.currentPage = 1;
+        @weakify(self);
+        [[RACObserve(self.baseTable, contentSize) distinctUntilChanged]subscribeNext:^(id x) {
+            @strongify(self);
+            [self refreshFooterView];
+        }];
     }
     return self;
 }
@@ -248,8 +258,8 @@
     self.isHeadLoading = NO;
     [self.refreshHeadView egoRefreshScrollViewDataSourceDidFinishedLoading:self.baseTable];
     
-    [self refreshFooterView];
     [_refreshFooterView egoRefreshScrollViewDataSourceDidFinishedLoading:self.baseTable];
+//    [self refreshFooterView];
 }
 
 - (void)reloadTableViewDataSource

@@ -1,1 +1,1 @@
-../../../JPush/JPUSHService.h
+../../../JPush/lib/JPUSHService.h

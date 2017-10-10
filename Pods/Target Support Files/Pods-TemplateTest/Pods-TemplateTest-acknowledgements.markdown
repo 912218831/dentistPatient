@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## AFNetworking
 
-Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+Copyright (c) 2011–2016 Alamofire Software Foundation (http://alamofire.org/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -30,11 +30,6 @@ Copyright © 2014 AutoNavi. All Rights Reserved.
 
 
 ## AMapFoundation
-
-Copyright © 2014 AutoNavi. All Rights Reserved.
-
-
-## AMapLocation
 
 Copyright © 2014 AutoNavi. All Rights Reserved.
 
@@ -97,10 +92,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-## JCore
-
-Copyright jpush.cn
 
 ## JPush
 

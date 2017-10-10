@@ -18,7 +18,6 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self initSubViews];
-        [self layoutSubViews];
         [self initDefaultConfigs];
     }
     return self;
@@ -32,13 +31,19 @@
     [self addSubview:self.iconImageView];
 }
 
-- (void)layoutSubViews {
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(self);
-    }];
-    [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.centerY.equalTo(self);
-    }];
+- (void)setTitle:(NSString *)title {
+    self.titleLabel.text = title;
+    
+    [self.titleLabel sizeToFit];
+    CGSize titleSize = self.titleLabel.size;
+    CGSize imageSize = self.iconImageView.image.size;
+    CGFloat spaceX = kRate(10);
+    CGFloat contenX = titleSize.width + imageSize.width + spaceX;
+    CGFloat x = (self.width - contenX)/2.0;
+    self.titleLabel.frame = (CGRect){x, 0, titleSize.width, self.height};
+    
+    x +=  titleSize.width+spaceX;
+    self.iconImageView.frame = (CGRect){x, (self.height-imageSize.height)/2.0, imageSize};
 }
 
 - (void)initDefaultConfigs {

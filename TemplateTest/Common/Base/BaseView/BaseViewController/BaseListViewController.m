@@ -36,6 +36,11 @@
     self.listView.backgroundColor = self.view.backgroundColor;
 }
 
+- (void)bindViewModel {
+    [super bindViewModel];
+    RAC(self.listView, isLastPage) = RACObserve(self.viewModel, isLastPage);
+}
+
 - (void)sendAction:(NSString *)selectorString {
     self.viewModel.currentPage = self.listView.currentPage;
     [Utility showMBProgress:self.contentView message:nil];

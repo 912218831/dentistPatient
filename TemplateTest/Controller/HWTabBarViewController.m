@@ -60,7 +60,7 @@
 }
 
 - (void)customizeTabBarForController{
-    self.tabBar.height = 54;
+    self.tabBar.height = kTabbarHeight;
     
     UIImageView *backgroundImageView = [UIImageView new];
     backgroundImageView.image = [UIImage imageNamed:@"tabbar"];

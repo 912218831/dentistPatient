@@ -21,6 +21,12 @@
 @implementation HWCasesViewController
 @dynamic viewModel;
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:NO animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
@@ -49,7 +55,7 @@
     headView.backgroundColor = CD_MainColor;
     self.segmentButton.backgroundColor = headView.backgroundColor;
     self.listView.top = headView.height;
-    self.listView.height = self.view.height - 64 - 49 - headView.height;
+    self.listView.height = self.view.height - 64 - kTabbarHeight - headView.height;
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
         return (CGFloat)kRate(111);
     };
@@ -59,7 +65,7 @@
         vm.caseModel = [self.viewModel.dataArray pObjectAtIndex:indexPath.row];
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     };
-    self.segmentButton.titleLabel.text = @"";
+    self.segmentButton.title = @"";
     
 }
 
@@ -107,15 +113,13 @@
     
     [RACObserve(self.viewModel, familyMemberIndex)subscribeNext:^(NSNumber *x) {
         @strongify(self);
-        self.segmentButton.titleLabel.text = [[self.viewModel.familyMember objectAtIndex:x.integerValue-1]name];
+        self.segmentButton.title = [[self.viewModel.familyMember objectAtIndex:x.integerValue-1]name];
         if (x.integerValue>0) {
             [Utility showMBProgress:self.contentView message:nil];
             self.viewModel.currentPage = 1;
             [self.viewModel execute];
         }
     }];
-    
-    RAC(self.listView, isLastPage) = RACObserve(self.viewModel, isLastPage);
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {

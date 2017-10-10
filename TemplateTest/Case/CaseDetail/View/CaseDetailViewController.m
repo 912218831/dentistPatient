@@ -26,6 +26,11 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:true animated:YES];
+}
+
 - (void)configContentView {
     [super configContentView];
     
@@ -49,18 +54,18 @@
         [Utility showToastWithMessage:error.domain];
     }];
     
-    [self.viewModel.uploadImageSignal.newSwitchToLatest subscribeNext:^(id x) {
+    [self.viewModel.uploadImageSignal.newSwitchToLatest subscribeNext:^(NSNumber *x) {
         @strongify(self);
         [Utility showMBProgress:self.contentView message:nil];
+        
     } error:^(NSError *error) {
         @strongify(self);
         [Utility hideMBProgress:self.contentView];
         [Utility showToastWithMessage:error.domain];
         [self.listView reloadData];
     } completed:^{
-        @strongify(self);
         [Utility hideMBProgress:self.contentView];
-        [Utility showToastWithMessage:@"履历照片上传成功"];
+        [Utility showToastWithMessage:@"病历照片上传成功"];
         [self.listView reloadData];
     }];
     
@@ -90,6 +95,7 @@
         return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = self.listView.backgroundColor;
         
         HZPhotoGroup *photoGroup = [[HZPhotoGroup alloc] init];

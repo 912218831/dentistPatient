@@ -178,7 +178,8 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
    return  [self POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
        for (NSString *dictKey in [parameters allKeys])
        {
-           if ([dictKey isEqualToString:@"pubFile"] || [dictKey isEqualToString:@"file"])
+           if ([dictKey isEqualToString:@"pubFile"] || [dictKey isEqualToString:@"file"]
+               || [dictKey isEqualToString:@"imageFile"])
            {
                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
                NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -187,7 +188,7 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
                NSData *imageData = [parameters objectForKey:dictKey];
                
                [imageData writeToFile:savedImagePath atomically:YES];
-               [formData appendPartWithFileData:[parameters objectForKey:dictKey] name:dictKey fileName:savedImagePath mimeType:@"image/jpeg"];
+               [formData appendPartWithFileData:[parameters objectForKey:dictKey] name:dictKey fileName:savedImagePath mimeType:@"multipart/form-data"];
                
                
            }

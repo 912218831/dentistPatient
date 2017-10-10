@@ -40,9 +40,10 @@
                 [self.annotations addObject:a1];
                 return @([accumulator integerValue]+1);
             }];
+            self.isLastPage = true;
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
-            [subscriber sendError:Error];
+            [subscriber sendNext:[RACSignal error:Error]];
         }];
         return nil;
     }];

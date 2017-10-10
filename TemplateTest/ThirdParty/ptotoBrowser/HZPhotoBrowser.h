@@ -14,12 +14,13 @@
 @protocol HZPhotoBrowserDelegate <NSObject>
 
 @required
-
 - (UIImage *)photoBrowser:(HZPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index;
 
 @optional
-
 - (NSURL *)photoBrowser:(HZPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index;
+
+@optional
+- (UIView *)subView:(NSInteger)index;
 
 @end
 

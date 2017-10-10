@@ -34,12 +34,12 @@
     
     UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
     flowLayout.itemSize = CGSizeMake(kRate(116), kRate(116));
-    flowLayout.minimumInteritemSpacing = kRate(3);
+    flowLayout.minimumInteritemSpacing = kRate(2);
     flowLayout.minimumLineSpacing = kRate(3);
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, kOffX, 0, kRate(6));
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, kOffX, 0, kRate(8));
     flowLayout.headerReferenceSize = CGSizeMake(self.view.width, kRate(47));
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.listView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    self.listView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-kRate(64+90)) collectionViewLayout:flowLayout];
     self.listView.delegate = self;
     self.listView.dataSource = self;
     self.listView.alwaysBounceVertical = true;
@@ -73,16 +73,28 @@
         @strongify(self);
         [self.listView reloadData];
     }error:^(NSError *error) {
+        @strongify(self);
         [Utility showToastWithMessage:error.domain];
+        [self.listView reloadData];
     } completed:nil]finally:^{
         @strongify(self);
         [Utility hideMBProgress:self.contentView];
     }];
     [self.viewModel execute];
     
-    [[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+    [[[self.nextStep rac_signalForControlEvents:UIControlEventTouchUpInside]filter:^BOOL(id value) {
+        @strongify(self);
+        BOOL result = self.viewModel.canNextStep;
+        if (!self.viewModel.dataArray.count) {
+            [Utility showToastWithMessage:@"未上传相关照片"];
+        } else if (!result) {
+            [Utility showToastWithMessage:@"图片尚未上传完成"];
+        }
+        return result;
+    }]subscribeNext:^(id x) {
         @strongify(self);
         DetectionResultViewModel *vm = [DetectionResultViewModel new];
+        vm.model = self.viewModel.model;
         vm.checkId = self.viewModel.checkId;
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     }];
@@ -127,7 +139,6 @@
         @weakify(self);
         [cell.deleteAction subscribeNext:^(id x) {
             @strongify(self);
-            NSLog(@"删除啦");
             // 删除
             [Utility showMBProgress:self.contentView message:nil];
             [[[self.viewModel.deletePhotoCommand execute:@(indexPath.row)].newSwitchToLatest subscribeNext:^(id x) {
@@ -164,6 +175,11 @@
     } else {
         // 拍照
         TimeVideoViewModel *vm = [TimeVideoViewModel new];
+        @weakify(self);
+        vm.takePhoto = ^(UIImage *image) {
+            @strongify(self);
+            [self.viewModel takePhotoSuccess:image];
+        };
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:YES];
     }
     
@@ -171,10 +187,14 @@
 
 - (UIImage *)photoBrowser:(HZPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
     DetectionCaptureModel *model = [self.viewModel.dataArray objectAtIndex:index];
+    if (model.image) {
+        return model.image;
+    }
     UIImage *resultImage = [[SDImageCache sharedImageCache]imageFromMemoryCacheForKey:model.imgUrl];
     if (resultImage==nil) {
         resultImage = [[SDImageCache sharedImageCache]imageFromDiskCacheForKey:model.imgUrl];
     }
+    [self.listView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:false];
     return resultImage;
 }
 
@@ -183,9 +203,19 @@
     return [NSURL URLWithString:model.imgUrl];
 }
 
+- (UIView *)subView:(NSInteger)index {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.listView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:false];
+    return [self.listView cellForItemAtIndexPath:indexPath];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    
 }
 
 @end

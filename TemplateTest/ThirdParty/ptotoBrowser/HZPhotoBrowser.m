@@ -9,7 +9,6 @@
 #import "HZPhotoBrowser.h"
 #import "UIImageView+WebCache.h"
 #import "HZPhotoBrowserView.h"
- 
 //  ============在这里方便配置样式相关设置===========
 
 //                      ||
@@ -21,7 +20,8 @@
 #import "HZPhotoBrowserConfig.h"
 //  =============================================
 #define kAnimationDuration 0.35f
-
+#define kDefaultW kScreenWidth
+#define kDefaultH 300
 @implementation HZPhotoBrowser 
 {
     UIScrollView *_scrollView;
@@ -262,23 +262,46 @@
 
 - (void)showFirstImage
 {
-    UIView *sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
-    
-    CGRect rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    __block UIView *sourceView = nil;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(subView:)]) {
+        sourceView = [self.delegate subView:self.currentImageIndex];
+    } else {
+        sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
+    }
+    __block CGRect rect = CGRectZero;
+    if (![sourceView isKindOfClass:[UIImageView class]]) {
+        [sourceView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[UIImageView class]]) {
+                rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+                rect.origin.x += obj.frame.origin.x;
+                rect.origin.y += obj.frame.origin.y;
+                rect.size = obj.size;
+                sourceView = obj;
+                *stop = true;
+            }
+        }];
+    } else {
+        rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    }
    
     NSLog(@"%@",NSStringFromCGRect(rect));
     
     UIImageView *tempView = [[UIImageView alloc] init];
+    //tempView.backgroundColor = CD_LIGHT_BACKGROUND;
     tempView.frame = rect;
     tempView.image = [self placeholderImageForIndex:self.currentImageIndex];
     [self addSubview:tempView];
-    tempView.contentMode = UIViewContentModeScaleAspectFit;
-    
+    tempView.contentMode = sourceView.contentMode;
     
     CGFloat placeImageSizeW = tempView.image.size.width;
     CGFloat placeImageSizeH = tempView.image.size.height;
     CGRect targetTemp;
-
+    if (fabs(placeImageSizeW) == 0) {
+        placeImageSizeW = kDefaultW;
+    }
+    if (fabs(placeImageSizeH) == 0) {
+        placeImageSizeH = kDefaultH;
+    }
     CGFloat placeHolderH = (placeImageSizeH * kAPPWidth)/placeImageSizeW;
     if (placeHolderH <= KAppHeight) {
         targetTemp = CGRectMake(0, (KAppHeight - placeHolderH) * 0.5 , kAPPWidth, placeHolderH);
@@ -409,8 +432,27 @@
     HZPhotoBrowserView *view = (HZPhotoBrowserView *)recognizer.view;
     UIImageView *currentImageView = view.imageview;
     NSUInteger currentIndex = currentImageView.tag;
-    UIView *sourceView = self.sourceImagesContainerView.subviews[currentIndex];
-    CGRect targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    __block UIView *sourceView = nil;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(subView:)]) {
+        sourceView = [self.delegate subView:currentIndex];
+    } else {
+        sourceView = self.sourceImagesContainerView.subviews[currentIndex];
+    }
+    __block CGRect targetTemp = CGRectZero;
+    if (![sourceView isKindOfClass:[UIImageView class]]) {
+        [sourceView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[UIImageView class]]) {
+                targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+                targetTemp.origin.x += obj.frame.origin.x;
+                targetTemp.origin.y += obj.frame.origin.y;
+                targetTemp.size = obj.size;
+                sourceView = obj;
+                *stop = true;
+            }
+        }];
+    } else {
+        targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
+    }
     
 //    NSLog(@"%@",NSStringFromCGRect(targetTemp));
     
@@ -418,6 +460,12 @@
     tempImageView.image = currentImageView.image;
     CGFloat tempImageSizeH = tempImageView.image.size.height;
     CGFloat tempImageSizeW = tempImageView.image.size.width;
+    if (fabs(tempImageSizeW)  == 0) {
+        tempImageSizeW = kDefaultW;
+    }
+    if (fabs(tempImageSizeH) == 0) {
+        tempImageSizeH = kDefaultH;
+    }
     CGFloat tempImageViewH = (tempImageSizeH * kAPPWidth)/tempImageSizeW;
     
     if (tempImageViewH < KAppHeight) {//图片高度<屏幕高度

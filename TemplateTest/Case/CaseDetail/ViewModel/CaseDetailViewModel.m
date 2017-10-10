@@ -20,18 +20,19 @@
         @strongify(self);
         [[RACObserve(self, waitUploadImage) filter:^BOOL(id value) {
             return value;
-        }]subscribeNext:^(id x) {
-            [subscriber sendNext:[RACSignal return:@1]];
-            [[HWHTTPSessionManger shareHttpClient]HWPOSTImage:kUploadImage parameters:nil success:^(id responseObject) {
-                [subscriber sendNext:[RACSignal empty]];
-            } failure:^(NSString *error) {
-                
-                NSDictionary *imageItem = @{@"id": @"4",
-                                            @"ImgUrl": @"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"};
+        }]subscribeNext:^(UIImage *x) {
+            [subscriber sendNext:[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                [subscriber sendNext:@1];
+                return nil;
+            }]];
+            NSData *imageData = UIImageJPEGRepresentation(x, 0.8);
+            [self postImage:kDetectionUploadReports type:0 params:@{@"imageFile":imageData,@"checkid":self.model.Id,@"userkey":@"333d4fab17bd2990248d3e6a9d3e772a"} success:^(NSDictionary *response) {
+                NSDictionary *imageItem = [response dictionaryObjectForKey:@"data"];
                 CaseDetailImageModel *imageModel = [[CaseDetailImageModel alloc]initWithDictionary:imageItem error:nil];
                 [self.model.images addObject:imageModel];
                 [self caculateCellHeight];
-                
+                [subscriber sendNext:[RACSignal empty]];
+            } failure:^(NSString *error) {
                 [subscriber sendNext:[RACSignal error:Error]];
             }];
         }];
@@ -47,18 +48,17 @@
             NSLog(@"%@",response);
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSDictionary *info = [data dictionaryObjectForKey:@"info"];
-            NSArray *image = [data arrayObjectForKey:@"image"];
+            NSArray *images = [data arrayObjectForKey:@"image"];
             
             self.model = [[CaseDetailModel alloc]initWithDictionary:info error:nil];
             
-            NSMutableArray *images = [NSMutableArray arrayWithCapacity:5];
-            for (int i=0; i<5; i++) {
-                NSDictionary *imageItem = @{@"id": @"4",
-                                            @"ImgUrl": @"http://img.taopic.com/uploads/allimg/140322/235058-1403220K93993.jpg"};
+            NSMutableArray *mutableImages = [NSMutableArray arrayWithCapacity:images.count];
+            for (int i=0; i<images.count; i++) {
+                NSDictionary *imageItem = [images objectAtIndex:i];
                 CaseDetailImageModel *imageModel = [[CaseDetailImageModel alloc]initWithDictionary:imageItem error:nil];
-                [images addObject:imageModel];
+                [mutableImages addObject:imageModel];
             }
-            self.model.images = images;
+            self.model.images = mutableImages;
             [self caculateCellHeight];
             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {

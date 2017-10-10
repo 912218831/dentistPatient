@@ -490,6 +490,4 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
     //                NSLog(@"audio frameDesc->length %d, frameDesc->media %p", frameDesc->length, frameDesc->media);
     [_displayView playListenAudio:frameDesc->media length:frameDesc->length];
 }
-
-
 @end

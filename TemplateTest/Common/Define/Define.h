@@ -168,6 +168,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define maxSpace                             5.0f           //collectionview中cell间的间隙
 /*  较iPhone4屏宽比例
  */
+#define kTabbarHeight                   ([UIScreen mainScreen].scale == 2?54:68)
 #define kScreenRate                     ([UIScreen mainScreen].bounds.size.width / 375.0f)
 #define kRate(value)                    (value*kScreenRate)
 #define kRateLength(length)             (([UIScreen mainScreen].bounds.size.width / 375.0f) * (length))

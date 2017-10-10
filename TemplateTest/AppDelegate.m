@@ -47,7 +47,7 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
 {
     //注册APNs
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
-    entity.types = JPAuthorizationOptionSound;
+    //entity.types = JPAuthorizationOptionSound;
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
  
     

@@ -38,8 +38,9 @@
     [super configContentView];
     
     [self addSubview:self.table];
-    
-    [self.table setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
+    [[RACScheduler mainThreadScheduler]schedule:^{
+        [self.table setContentOffset:CGPointMake(0, self.table.contentSize.height-self.table.height)];
+    }];
 }
 
 - (void)bindViewModel {
@@ -81,7 +82,7 @@
 }
 
 - (UIView *)tableViewFooterView{
-    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT - kRate(260) - 85)];
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT - kRate(260+55) )];
     footerView.backgroundColor = [UIColor clearColor];
     
     self.loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, kRate(35), kScreenWidth - 30, 50)];

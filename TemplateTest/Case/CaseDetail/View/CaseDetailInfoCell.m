@@ -128,7 +128,7 @@
     self.clinicTitleLabel.text = @"所属诊所:";
     self.doctorTitleLabel.text = @"诊断医生:";
     self.visitTitleLabel.text = @"诊断时间:";
-    [self.uploadImageBtn setTitle:@"点击上传保存履历照片" forState:UIControlStateNormal];
+    [self.uploadImageBtn setTitle:@"点击上传病历报告" forState:UIControlStateNormal];
     
     self.subjectLabel.text = @"儿子的牙龈检查";
 }

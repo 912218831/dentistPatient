@@ -1,10 +1,10 @@
 platform :ios, '7.0'
 #use_frameworks!
 target 'TemplateTest' do
-pod 'AMapLocation'
-pod 'AMap3DMap'
+pod 'AMapFoundation', '~> 1.4.2'
+pod 'AMap3DMap', '~> 5.3.0'
 pod 'Mantle', '~> 2.0.7'
-pod 'AFNetworking', '~> 2.0'
+pod 'AFNetworking'
 pod 'SDWebImage', '~> 3.7.2'
 pod 'UMengSocial', '>= 4.3'
 pod 'UMengFeedback', '>= 2.2'
@@ -25,6 +25,6 @@ pod 'YYCategories', '~> 1.0.4'
 pod 'YYModel', '~> 1.0.4'
 pod 'YYText', '~> 1.0.7'
 pod 'MJRefresh', '~> 3.1.12'
-pod 'JPush', '~> 3.0.6'
+pod 'JPush', '~> 2.2.0'
 pod 'Masonry', '~> 1.0.2'
 end
