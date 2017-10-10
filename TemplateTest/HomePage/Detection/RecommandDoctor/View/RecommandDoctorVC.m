@@ -25,6 +25,7 @@
     [super configContentView];
     
     [IQKeyboardManager sharedManager].enable = true;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = true;
     
     self.listView.baseTable.height = self.listView.height = CONTENT_HEIGHT - self.listView.top;
     self.listView.baseTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -45,15 +46,24 @@
     };
     self.listView.baseTable.layer.masksToBounds = false;
     if (self.viewModel.needSearchBar) {
-        self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-kRate(40), 30)];
-//        UIImage *clearImage = [UIImage imageNamed:@"searchBarBackImage"];
-//        [self.searchBar setBackgroundImage:clearImage];
-//        self.searchBar.layer.cornerRadius = 15;
-//        self.searchBar.layer.masksToBounds = true;
+        UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-kRate(60), 30)];
+        self.searchBar = searchBar;
+        UIImage *clearImage = [Utility imageWithColor:[UIColor clearColor] andSize:CGSizeMake(1, 1)];
+        [self.searchBar setBackgroundImage:clearImage];
         self.navigationItem.titleView=self.searchBar;
-        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem.width = kRate(10);
+        self.navigationItem.rightBarButtonItem.customView.width = kRate(10);
         self.searchBar.delegate = self;
         self.searchBar.placeholder = @"附近的口腔医生";
+
+        UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
+        if (searchField) {
+            [searchField setBackgroundColor:[UIColor whiteColor]];
+            searchField.layer.cornerRadius = searchBar.height/2.0;
+            searchField.layer.borderColor = [UIColor whiteColor].CGColor;
+            searchField.layer.borderWidth = 1;
+            searchField.layer.masksToBounds = YES;
+        }
     }
 }
 

@@ -303,7 +303,6 @@
 		C587E37C1F6F6A62009509CB /* detectionPhotoDelete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */; };
 		C587E37E1F6F6A68009509CB /* detectionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */; };
 		C587E3801F6F6A6F009509CB /* detectionPhotoDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */; };
-		C58A4C4A1F76B4E9002B1F90 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C58A4C491F76B4E9002B1F90 /* ExternalAccessory.framework */; };
 		C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA141F6E5C170083E8C5 /* MapContentView.m */; };
 		C5B4AA1C1F6E71B20083E8C5 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */; };
 		C5B4AA1F1F6E71CA0083E8C5 /* DoctorDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1E1F6E71CA0083E8C5 /* DoctorDetailViewModel.m */; };
@@ -976,7 +975,6 @@
 		C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionCapture@2x.png"; sourceTree = "<group>"; };
 		C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionPhotoDelete@2x.png"; sourceTree = "<group>"; };
 		C58A4C481F76B4D1002B1F90 /* TemplateTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemplateTest.entitlements; sourceTree = "<group>"; };
-		C58A4C491F76B4E9002B1F90 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		C5B4AA131F6E5C170083E8C5 /* MapContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapContentView.h; sourceTree = "<group>"; };
 		C5B4AA141F6E5C170083E8C5 /* MapContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapContentView.m; sourceTree = "<group>"; };
 		C5B4AA1A1F6E71B20083E8C5 /* DoctorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailViewController.h; sourceTree = "<group>"; };
@@ -1128,7 +1126,6 @@
 				D2C28F121B7CC67D00E2716D /* UIKit.framework in Frameworks */,
 				D2C28F141B7CC68C00E2716D /* Foundation.framework in Frameworks */,
 				D2C28F101B7CC5D900E2716D /* CoreGraphics.framework in Frameworks */,
-				C58A4C4A1F76B4E9002B1F90 /* ExternalAccessory.framework in Frameworks */,
 				D2C8F8CE1B6768A900628D96 /* SystemConfiguration.framework in Frameworks */,
 				D2C8F8C81B67685B00628D96 /* CoreTelephony.framework in Frameworks */,
 				D2C28F0E1B7CC5BB00E2716D /* CoreFoundation.framework in Frameworks */,
@@ -1278,7 +1275,6 @@
 				B03644311F7A992700C3C323 /* AudioToolbox.framework */,
 				B036442F1F7A991700C3C323 /* CoreMedia.framework */,
 				C533F9AF1F7E802C00F95CA3 /* libjpush-ios-3.0.6.a */,
-				C58A4C491F76B4E9002B1F90 /* ExternalAccessory.framework */,
 				B07E7C101E8F95DE005189C9 /* UMMobClick.framework */,
 				75C741771DC71A0A0072D0ED /* libz.tbd */,
 				75C741751DC7199D0072D0ED /* UserNotifications.framework */,
@@ -2770,7 +2766,7 @@
 				TargetAttributes = {
 					C24E7DA31ADE51AA00BA8ECC = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = X6VE6Z688G;
+						DevelopmentTeam = CMYJ8LA292;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -2783,7 +2779,7 @@
 								enabled = 0;
 							};
 							com.apple.WAC = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -3381,11 +3377,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = TemplateTest/TemplateTest.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				DEVELOPMENT_TEAM = X6VE6Z688G;
+				DEVELOPMENT_TEAM = CMYJ8LA292;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
@@ -3445,10 +3440,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
-				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
+				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
+				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3460,11 +3455,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = TemplateTest/TemplateTest.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				DEVELOPMENT_TEAM = X6VE6Z688G;
+				DEVELOPMENT_TEAM = CMYJ8LA292;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3525,10 +3519,10 @@
 				MACH_O_TYPE = mh_execute;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
-				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
+				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
+				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
