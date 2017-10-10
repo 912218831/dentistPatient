@@ -32,9 +32,9 @@
     }
     if (currentLoginUser) {
         currentLoginUser(loginUer);
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        [[HWUserLogin currentUserLogin] loadData];
     }
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    [[HWUserLogin currentUserLogin] loadData];
 }
 
 - (UIViewController *)checkUserType

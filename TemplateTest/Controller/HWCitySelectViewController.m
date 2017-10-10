@@ -9,6 +9,7 @@
 #import "HWCitySelectViewController.h"
 #import "HWCityModel_CD+CoreDataClass.h"
 #import "HWCitySelectLocationCell.h"
+#import "HWSelectCitySearchView.h"
 @interface HWCitySelectViewController ()<UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
 @property(strong,nonatomic)NSFetchedResultsController * fetchController;
@@ -17,11 +18,6 @@
 @end
 
 @implementation HWCitySelectViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -33,9 +29,19 @@
 {
     [super configContentView];
     [self.view addSubview:self.table];
-    [self fetchData];
+    [self configTableHeaderView];
+    [self fetchDataWithCondition:nil];
 }
 
+- (void)configTableHeaderView
+{
+    HWSelectCitySearchView * header = [[[NSBundle mainBundle] loadNibNamed:@"HWSelectCitySearchView" owner:self options:nil] lastObject];
+    [[header.searchTF.rac_textSignal skip:1] subscribeNext:^(id x) {
+        
+        [self fetchDataWithCondition:x];
+    }];
+    self.table.tableHeaderView = header;
+}
 - (UITableView *)table
 {
     if (_table == nil) {
@@ -48,19 +54,21 @@
     return _table;
 }
 
-- (NSFetchedResultsController *)fetchController
-{
-    if (_fetchController == nil) {
-        _fetchController = [HWCityModel_CD MR_fetchAllSortedBy:@"cityFirstChar" ascending:YES withPredicate:nil groupBy:nil delegate:self];
 
-        _fetchController.delegate = self;
-    }
-    return _fetchController;
-}
-
-- (void)fetchData{
+- (void)fetchDataWithCondition:(NSString *)condition{
     NSError *error = nil;
+    if (condition.length == 0 || condition == nil) {
+        self.fetchController = [HWCityModel_CD MR_fetchAllSortedBy:@"pinyin" ascending:YES withPredicate:nil groupBy:@"cityFirstChar" delegate:self];
+        
+        self.fetchController.delegate = self;
 
+    }
+    else
+    {
+        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"pinyin CONTAINS %@",condition];
+        
+        self.fetchController = [HWCityModel_CD MR_fetchAllSortedBy:@"pinyin" ascending:YES withPredicate:predicate groupBy:@"cityFirstChar" delegate:self];
+    }
     [self.fetchController performFetch:&error];
     if (error) {
         
@@ -85,8 +93,32 @@
     }
     else
     {
-        id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchController sections][section];
+        id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchController sections][section-1];
         return [sectionInfo numberOfObjects];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0001;
+}
+
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"定位城市";
+    }
+    else
+    {
+        id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchController sections][section-1];
+        return sectionInfo.name;
     }
 }
 
@@ -98,67 +130,27 @@
     else
     {
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"tableViewCell" forIndexPath:indexPath];
+        NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1];
+        HWCityModel_CD * cityModel = [self.fetchController objectAtIndexPath:newIndexPath];
+        cell.textLabel.text = cityModel.name;
         return cell;
     }
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1];
+    HWCityModel_CD * cityModel = [self.fetchController objectAtIndexPath:newIndexPath];
+    [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
+        loginUser.cityId = cityModel.cityId;
+        loginUser.cityName = cityModel.name;
+    }];
+    [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma fetchDelegate
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.table beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    UITableView *tableView = self.table;
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-//            [self configureCell:(RecipeTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-//            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-//            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        default:
-            break;
-    }
-}
-
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.table endUpdates];
 }
 
 @end

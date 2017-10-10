@@ -89,7 +89,8 @@
             NSDictionary * dataDic = [response objectForKey:@"data"];
             [[[[dataDic rac_sequence] reduceEach:^(NSString * key,NSArray * value){
                 RACTuple * t = RACTuplePack(key,[[value rac_sequence] foldLeftWithStart:[NSMutableArray array] reduce:^id(NSMutableArray * accumulator, NSDictionary * dic) {
-                    BaseModel * model = [[NSClassFromString(maps[key]) alloc] initWithDictionary:dic error:nil];
+                    BaseModel * model = [MTLJSONAdapter modelOfClass:[NSClassFromString(maps[key]) class] fromJSONDictionary:dic error:nil];
+//                    BaseModel * model = [[NSClassFromString(maps[key]) alloc] initWithDictionary:dic error:nil];
                     [accumulator addObject:model];
                     return accumulator;
                 }],@(index));

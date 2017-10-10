@@ -12,6 +12,8 @@
 @property(strong,nonatomic)NSString * username;
 @property(strong,nonatomic)NSString * usertype;
 @property(strong,nonatomic)NSString * userkey;
+@property(strong,nonatomic)NSString * cityName;
+@property(strong,nonatomic)NSString * cityId;
 
 + (HWUserLogin *)currentUserLogin;
 

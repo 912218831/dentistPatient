@@ -10,4 +10,14 @@
 
 @implementation HWHomePageLastRecordModel
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    NSMutableDictionary *mutableKeys = [[NSDictionary mtl_identityPropertyMapWithModel:self]mutableCopy];;
+    if([mutableKeys objectForKey:@"recodeId"]){
+        [mutableKeys setObject:@"id" forKey:@"recodeId"];
+    }
+    return mutableKeys;
+
+}
+
 @end

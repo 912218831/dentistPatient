@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WifiListView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="miJ-XM-E0T">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxq-HX-7pO">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="GvV-l0-D8m"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="取消"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgt-4h-Lvt">
+                            <rect key="frame" x="270" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="NxV-Se-1Kf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="刷新"/>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XW-4a-3Hn" userLabel="bottomline">
+                            <rect key="frame" x="0.0" y="39.5" width="590" height="0.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="2Mn-mT-cp0"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mxq-HX-7pO" firstAttribute="top" secondItem="miJ-XM-E0T" secondAttribute="top" id="4Jk-C6-e05"/>
+                        <constraint firstAttribute="trailing" secondItem="1XW-4a-3Hn" secondAttribute="trailing" constant="-270" id="Gc8-Jf-7IL"/>
+                        <constraint firstItem="1XW-4a-3Hn" firstAttribute="leading" secondItem="miJ-XM-E0T" secondAttribute="leading" id="IIB-bf-U8W"/>
+                        <constraint firstAttribute="bottom" secondItem="mxq-HX-7pO" secondAttribute="bottom" id="Nhy-zq-zNC"/>
+                        <constraint firstAttribute="bottom" secondItem="Vgt-4h-Lvt" secondAttribute="bottom" id="S5k-6S-8Mi"/>
+                        <constraint firstItem="mxq-HX-7pO" firstAttribute="leading" secondItem="miJ-XM-E0T" secondAttribute="leading" id="Tw6-Qw-Toz"/>
+                        <constraint firstAttribute="height" constant="40" id="W4j-8a-ZYZ"/>
+                        <constraint firstItem="Vgt-4h-Lvt" firstAttribute="leading" secondItem="miJ-XM-E0T" secondAttribute="trailing" constant="-50" id="dZd-As-0ic"/>
+                        <constraint firstAttribute="bottom" secondItem="1XW-4a-3Hn" secondAttribute="bottom" id="hU9-9p-RxB"/>
+                        <constraint firstItem="Vgt-4h-Lvt" firstAttribute="top" secondItem="miJ-XM-E0T" secondAttribute="top" id="rYe-TS-aQJ"/>
+                        <constraint firstAttribute="trailing" secondItem="Vgt-4h-Lvt" secondAttribute="trailing" id="vIL-wq-te5"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YaB-kT-8bd">
+                    <rect key="frame" x="0.0" y="40" width="320" height="260"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="JIT-Ru-60O"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="dhs-Mu-IYo"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="miJ-XM-E0T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0B1-0A-gYf"/>
+                <constraint firstAttribute="bottom" secondItem="YaB-kT-8bd" secondAttribute="bottom" id="LKt-yG-sex"/>
+                <constraint firstItem="YaB-kT-8bd" firstAttribute="top" secondItem="miJ-XM-E0T" secondAttribute="bottom" id="Nha-l6-thZ"/>
+                <constraint firstAttribute="trailing" secondItem="miJ-XM-E0T" secondAttribute="trailing" id="RUr-Q8-6c7"/>
+                <constraint firstItem="miJ-XM-E0T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XsH-6f-KDz"/>
+                <constraint firstItem="YaB-kT-8bd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vlw-Gk-saH"/>
+                <constraint firstAttribute="trailing" secondItem="YaB-kT-8bd" secondAttribute="trailing" id="wq6-bj-QzY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelBtn" destination="mxq-HX-7pO" id="Usb-zD-bz6"/>
+                <outlet property="refreshBtn" destination="Vgt-4h-Lvt" id="iNr-gI-LRi"/>
+                <outlet property="table" destination="YaB-kT-8bd" id="cTV-xA-meu"/>
+            </connections>
+        </view>
+    </objects>
+</document>

@@ -2,7 +2,7 @@
 //  HWLoginUser+CoreDataProperties.m
 //  
 //
-//  Created by 杨庆龙 on 2017/7/28.
+//  Created by 杨庆龙 on 2017/10/10.
 //
 //
 
@@ -18,5 +18,7 @@
 @dynamic userName;
 @dynamic userPhone;
 @dynamic userType;
+@dynamic cityName;
+@dynamic cityId;
 
 @end

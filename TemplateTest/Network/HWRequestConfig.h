@@ -22,7 +22,7 @@
 
 #define kUrlBase                    @"http://116.62.202.152/api/mouth/pat/index.php/"
 
-#define kHtmlBase                   @"http://116.62.202.152/api/mollin/h5/index.php"
+#define kHtmlBase                   @"http://116.62.202.152/api/mouth/app-web/kq_pro/app"
 //Https
 //#define kUrlBase                    GET_USERDEFAULT(@"urlBase")
 //#define kImageBaseUrl               GET_USERDEFAULT(@"imageBaseUrl")
@@ -44,16 +44,15 @@
 #define kCityList                   @"main/cityList"//获取城市列表
 #define kAppointList                @"apl/applyList" //我的预约列表
 #define kAppointDetail              @"apl/applyInfo"//预约详情
+#define kCreateOrder                 @"order/createOrder"
 //H5链接
 
 #define AppendHTML(shortUrl)   [NSString stringWithFormat:@"%@%@?userKey=%@",kHtmlBase,shortUrl,[HWUserLogin currentUserLogin].userkey]
 
-#define kHomeH5                     AppendHTML(@"/Orders/Index")     //总览
-#define kOrder                      AppendHTML(@"/Orders/OrderList") //订单
-#define kCommission                 AppendHTML(@"/Orders/Brokerage") //提成
-#define kPeopleCenter               AppendHTML(@"/Member/Index")     //个人中心
-#define kProductCenter              AppendHTML(@"/Products/Index")    //产品中心
-#define kUserHome                   AppendHTML(@"/Member/MemberNews")
+#define kBaiKe                     AppendHTML(@"/baike/baike-list.html")     //百科
+#define kAnswer                      AppendHTML(@"/my/answer.html") //问答
+#define kHistory                 AppendHTML(@"/my/history.html") //记录
+#define kFamily               AppendHTML(@"/my/my-fml.html")//家庭
 
 #define kLoginGainVertifyCode        @"" //获取验证码
 #define kLoginApp                    @"" //登录

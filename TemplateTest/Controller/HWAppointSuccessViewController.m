@@ -11,12 +11,14 @@
 #import "HWAppointSuccessCell.h"
 #import "HWAppointCouponModel.h"
 #import "HWAppointCouponCell.h"
+#import <AlipaySDK/AlipaySDK.h>
+
 @interface HWAppointSuccessViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIActionSheetDelegate>
 
 @property(strong,nonatomic)UICollectionView * collectionView;
 @property(strong,nonatomic)HWAppointSuccessViewModel * viewModel;
 @property(strong,nonatomic)UIButton * payBtn;
-
+@property(strong,nonatomic)HWAppointCouponModel * selectCouponModel;
 @end
 
 @implementation HWAppointSuccessViewController
@@ -139,10 +141,23 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        
-        HWAppointCouponModel * model = [self.viewModel.coupons pObjectAtIndex:indexPath.row];
+        NSInteger selectModelRow;
+        NSInteger currentModelRow;
+        if (self.selectCouponModel) {
+            selectModelRow = [self.viewModel.coupons indexOfObject:self.selectCouponModel];
+        }
+        currentModelRow = indexPath.row;
+        HWAppointCouponModel * model = [self.viewModel.coupons pObjectAtIndex:currentModelRow];
         model.selected = !model.selected;
-        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        if ((selectModelRow != currentModelRow) && self.selectCouponModel) {
+            self.selectCouponModel.selected = NO;
+            [self.collectionView reloadItemsAtIndexPaths:@[indexPath,[NSIndexPath indexPathForItem:selectModelRow inSection:1]]];
+        }
+        else
+        {
+            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        }
+        self.selectCouponModel = model;
     }
 }
 
@@ -150,8 +165,9 @@
 {
     [super bindViewModel];
     [self.viewModel initRequestSignal];
+    @weakify(self);
     [self.viewModel.requestSignal subscribeNext:^(id x) {
-       
+        @strongify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
         });
@@ -162,12 +178,36 @@
     
     [[self.payBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"支付宝",@"微信", nil];
-        [actionSheet.rac_buttonClickedSignal subscribeNext:^(id x) {
-            NSLog(@"%@",x);
+        [actionSheet.rac_buttonClickedSignal subscribeNext:^(NSNumber * x) {
+            @strongify(self);
+            if (x.integerValue == 0) {
+                //支付宝
+                [[[self.viewModel.payCommand execute:x] deliverOnMainThread] subscribeNext:^(NSString * x) {
+                    [[AlipaySDK defaultService] payOrder:x fromScheme:kAliPay callback:^(NSDictionary *resultDic) {
+                        
+                        
+                    }];
+
+                } error:^(NSError *error) {
+                    [Utility showToastWithMessage:error.localizedDescription];
+                }];
+            }
+            if (x.integerValue == 1) {
+                //微信
+                [[[self.viewModel.payCommand execute:x] deliverOnMainThread] subscribeNext:^(id x) {
+                    
+                } error:^(NSError *error) {
+                    [Utility showToastWithMessage:error.localizedDescription];
+
+                }];
+            }
+            
         }];
         [actionSheet showInView:SHARED_APP_DELEGATE.window];
     }];
     
+    
+    RAC(self.viewModel,selectCoupontModel) = RACObserve(self, selectCouponModel);
 }
 
 

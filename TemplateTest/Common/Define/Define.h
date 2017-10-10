@@ -298,6 +298,8 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define KCurrentGuideVersionStr         @"guideVersion_6.0"
 
 
+#define kAliPay                         @"kouqiangalipay"
+
 /*  通知
  NT For Notification
  */
