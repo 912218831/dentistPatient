@@ -13,6 +13,7 @@
 #import "HWDetectionSelectMemberViewModel.h"
 #import "HWCitySelectViewModel.h"
 #import "BaseWebViewModel.h"
+#import "RecommandDoctorViewModel.h"
 @implementation HWHomePageViewModel
 
 - (instancetype)init
@@ -31,6 +32,12 @@
     self.selectCityCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         HWCitySelectViewModel * selectCityModel = [HWCitySelectViewModel new];
         [[ViewControllersRouter shareInstance] pushViewModel:selectCityModel animated:YES];
+        return [RACSignal empty];
+    }];
+    self.searchDocCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        RecommandDoctorViewModel * viewModel = [[RecommandDoctorViewModel alloc] init];
+        viewModel.needSearchBar = YES;
+        [[ViewControllersRouter shareInstance] pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];
     self.bannerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * index) {
@@ -53,6 +60,7 @@
                 NSLog(@"我的家庭");
                 BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
                 model.url = kFamily;
+                model.title = @"我的家庭";
                 [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
             }
                 break;
@@ -77,6 +85,7 @@
                 NSLog(@"记录");
                 BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
                 model.url = kHistory;
+                model.title = @"记录";
                 [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
 
             }

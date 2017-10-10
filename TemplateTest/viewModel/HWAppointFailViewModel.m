@@ -7,6 +7,8 @@
 //
 
 #import "HWAppointFailViewModel.h"
+#import "BaseWebViewModel.h"
+#import "RecommandDoctorViewModel.h"
 @interface HWAppointFailViewModel()
 
 @property(strong,nonatomic,readwrite)HWAppointDetailModel * detailModel;
@@ -55,6 +57,8 @@
         }];
         
         self.rejectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            RecommandDoctorViewModel * model = [[RecommandDoctorViewModel alloc] init];
+            model.needSearchBar = YES;
             return rejectSignal;
         }];
         
@@ -77,6 +81,16 @@
         self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             return cancelSignal;
         }];
+        
+        self.answerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            //咨询
+            BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+            model.title = @"咨询";
+            model.url = kAnswer;
+            [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+            return [RACSignal empty];
+        }];
+        
     }
     return self;
 }

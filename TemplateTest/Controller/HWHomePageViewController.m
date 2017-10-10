@@ -226,6 +226,7 @@
         [Utility showToastWithMessage:error.localizedDescription];
     }];
     self.changeCityBtn.rac_command = self.viewModel.selectCityCommand;
+    self.searchBtn.rac_command = self.viewModel.searchDocCommand;
     [RACObserve([HWUserLogin currentUserLogin], cityName) subscribeNext:^(id x) {
         @strongify(self);
         [self changeCity];

@@ -13,7 +13,7 @@
 @property(strong,nonatomic)RACCommand * acceptCommand;
 @property(strong,nonatomic)RACCommand * rejectCommand;
 @property(strong,nonatomic)RACCommand * cancelCommand;
-
+@property(strong,nonatomic)RACCommand * answerCommand;
 - (instancetype)initWithAppointId:(NSString *)appointId;
 
 @end
