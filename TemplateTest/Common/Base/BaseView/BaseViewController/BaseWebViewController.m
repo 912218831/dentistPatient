@@ -7,14 +7,16 @@
 //
 
 #import "BaseWebViewController.h"
-
+#import "BaseWebViewModel.h"
 @interface BaseWebViewController () <WKNavigationDelegate, WKScriptMessageHandler,
     WKUIDelegate>
 @property (nonatomic, strong, readwrite) UIProgressView *progressView;
+@property(strong,nonatomic)BaseWebViewModel * viewModel;
 @end
 
 @implementation BaseWebViewController
 @dynamic view;
+@dynamic viewModel;
 
 - (instancetype)initWithUrl:(NSURL *)url {
     if (self = [super init]) {
@@ -29,10 +31,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.viewModel.url.length > 0) {
+        [self.view loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.viewModel.url]]];
+    }
+    else
+    {
+        [self.view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"test" ofType:@"html"]]]];
+    }
 }
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)setUrl:(NSURL *)url {
@@ -61,6 +72,14 @@
     self.view.UIDelegate = self;
 }
 
+- (void)bindViewModel
+{
+    
+    [RACObserve(self.viewModel, title) subscribeNext:^(NSString * x) {
+        self.navigationItem.titleView = [Utility navTitleView:x];
+    }];
+    
+}
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     completionHandler();
 }
@@ -111,6 +130,17 @@
                              ofObject:object
                                change:change
                               context:context];
+    }
+}
+
+- (void)backMethod
+{
+    if (self.view.canGoBack) {
+        [self.view goBack];
+    }
+    else
+    {
+        [super backMethod];
     }
 }
 

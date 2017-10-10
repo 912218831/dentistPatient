@@ -59,7 +59,9 @@ static ViewControllersRouter *router;
              kDetectionResultVM:objc_getClass(kDetectionResultVM.UTF8String),
              kRDoctorVM:objc_getClass(kRDoctorVM.UTF8String),
              kRDoctorDetailVM:objc_getClass(kRDoctorDetailVM.UTF8String),
-             kSelectCityVM:objc_getClass(kSelectCityVM.UTF8String)
+             kSelectCityVM:objc_getClass(kSelectCityVM.UTF8String),
+             kBaseWebViewModel:objc_getClass(kBaseWebViewModel.UTF8String)
+             
              };
     
 }
@@ -82,8 +84,8 @@ static ViewControllersRouter *router;
              kDetectionResultVM:objc_getClass("DetectionResultViewController"),
              kRDoctorVM:objc_getClass("RecommandDoctorVC"),
              kRDoctorDetailVM:objc_getClass("DoctorDetailViewController"),
-             kSelectCityVM:objc_getClass("HWCitySelectViewController")
-
+             kSelectCityVM:objc_getClass("HWCitySelectViewController"),
+             kBaseWebViewModel:objc_getClass("BaseWebViewController")
              };
 }
 

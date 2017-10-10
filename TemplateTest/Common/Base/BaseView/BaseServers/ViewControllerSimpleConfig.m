@@ -37,7 +37,8 @@
              kAppointFailVM:self.appointFail,
              kAppointWaitingVM:self.appointWaiting,
              kAppointSuccessVM:self.appointSuccess,
-             kSelectCityVM:self.selectCity
+             kSelectCityVM:self.selectCity,
+             kBaseWebViewModel:self.webView
              };
 }
 
@@ -132,6 +133,14 @@
 + (NSDictionary*)selectCity{
     return @{
              @"title":@"城市选择",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
++ (NSDictionary *)webView{
+    
+    return @{
+             @"title":@"webView",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
