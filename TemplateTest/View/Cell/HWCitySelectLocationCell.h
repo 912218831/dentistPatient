@@ -10,4 +10,6 @@
 
 @interface HWCitySelectLocationCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *locationName;
+
 @end

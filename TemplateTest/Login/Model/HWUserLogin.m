@@ -65,6 +65,7 @@ static HWUserLogin *userLogin = nil;
         self.username = loginUser.userName;
         self.userkey = loginUser.key;
         self.usertype = loginUser.userType;
+        self.cityName = loginUser.cityName;
     }
 }
 

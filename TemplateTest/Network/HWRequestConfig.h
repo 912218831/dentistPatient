@@ -44,6 +44,8 @@
 #define kCityList                   @"main/cityList"//获取城市列表
 #define kAppointList                @"apl/applyList" //我的预约列表
 #define kAppointDetail              @"apl/applyInfo"//预约详情
+#define kCancelAppoint              @"apl/cancelApply" //取消预约
+#define kAccecptAppoint             @"apl/agreeDentist" //采纳医生建议
 #define kCreateOrder                 @"order/createOrder"
 //H5链接
 

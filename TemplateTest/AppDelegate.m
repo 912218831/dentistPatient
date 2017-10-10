@@ -24,10 +24,10 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
             
     [self copyDefaultStoreIfNecessary];
     [[AppShare shareInstance] getCityList];
+    [[AppShare shareInstance] startLocation:nil locactionFail:nil];
     [WXApi registerApp:kWechatAppId];
-    
-    [self registerAPNS];
-    [JPUSHService setupWithOption:launchOptions appKey:@"74535d99ff5ace1330adce4d" channel:@"iOS" apsForProduction:NO];
+//    [self registerAPNS];
+//    [JPUSHService setupWithOption:launchOptions appKey:@"74535d99ff5ace1330adce4d" channel:@"iOS" apsForProduction:NO];
 
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:kHaowuStoreName];
     [[HWUserLogin currentUserLogin] loadData];
@@ -51,53 +51,6 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
  
     
-}
-
-- (void)startLocation
-{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    
-    //定位
-    __weak HWLocationManager * locationManger = [HWLocationManager shareManager];
-    [locationManger startLocating];
-    [locationManger setLocationSuccess:^(CLLocation * loc , NSString * cityName,NSString *streetName) {
-        /**
-         *  后台数据库没有城市没有"市"
-         */
-        [userDefault setObject:@"0" forKey:@"kLocationTime"];
-        
-        NSRange range = [cityName rangeOfString:@"市"];
-        if (range.location != NSNotFound)
-        {
-            cityName = [cityName substringToIndex:range.location];
-        }
-        
-        if (cityName.length > 4)
-        {
-            cityName = [cityName substringToIndex:4];
-        }
-        
-        if (cityName.length > 0) {
-            
-        }
-
-        
-    }];
-    [locationManger setLocationFailed:^(BOOL isOpenLocator){
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kLocationFailNotification object:nil];
-        
-        NSString *lTime = [userDefault objectForKey:@"kLocationTime"];
-        if (lTime.intValue < 5)
-        {
-            // 失败 3次以上 停止定位
-            [locationManger startLocating];
-            [userDefault setObject:[NSString stringWithFormat:@"%d", lTime.intValue + 1] forKey:@"kLocationTime"];
-            [userDefault synchronize];
-            
-        }
-        
-    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

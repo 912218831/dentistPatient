@@ -19,9 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="定位.png" translatesAutoresizingMaskIntoConstraints="NO" id="sau-YN-7Dz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="定位" translatesAutoresizingMaskIntoConstraints="NO" id="sau-YN-7Dz">
                         <rect key="frame" x="15" y="13.5" width="12" height="15"/>
-                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="dQj-ru-zry"/>
                             <constraint firstAttribute="width" constant="12" id="lBq-ne-Syx"/>
@@ -42,10 +41,13 @@
                     <constraint firstItem="sau-YN-7Dz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rn0-NT-XyE"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="locationName" destination="bMl-C4-eLX" id="Yzh-dC-BRi"/>
+            </connections>
             <point key="canvasLocation" x="29" y="-105"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="定位.png" width="12" height="15"/>
+        <image name="定位" width="12" height="15"/>
     </resources>
 </document>

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HWAppointFailViewModel.h"
 @interface HWAppoitmentFailCell : UITableViewCell<HWBaseViewProtocol>
+@property (weak, nonatomic) IBOutlet UIButton *acceptBtn;//采纳医生建议
+@property (weak, nonatomic) IBOutlet UIButton *rejectBtn;//返回重新预约
 
 @end

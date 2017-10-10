@@ -97,6 +97,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HWAppoitmentFailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"HWAppoitmentFailCell"];
+    @weakify(self);
+    [[cell.acceptBtn.rac_command.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSString * x) {
+        @strongify(self);
+        [Utility showMBProgress:self.view message:x];
+    } completed:^{
+        @strongify(self);
+        [Utility hideMBProgress:self.view];
+    }];
+    [[cell.acceptBtn.rac_command errors] subscribeNext:^(NSError * error) {
+        @strongify(self);
+        [Utility showToastWithMessage:error.localizedDescription];
+        [Utility hideMBProgress:self.view];
+    }];
     [cell bindViewModel:self.viewModel];
     return cell;
 }
@@ -116,6 +129,17 @@
     }];
     [self.viewModel execute];
     self.cancelBtn.rac_command = self.viewModel.cancelCommand;
+    [[self.cancelBtn.rac_command.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSString * x) {
+        [Utility showMBProgress:self.view message:x];
+    } completed:^{
+        [Utility hideMBProgress:self.view];
+    }];
+    [[[self.cancelBtn.rac_command  errors] deliverOnMainThread] subscribeNext:^(NSError * x) {
+        [Utility hideMBProgress:self.view];
+        [Utility showToastWithMessage:x.localizedDescription];
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

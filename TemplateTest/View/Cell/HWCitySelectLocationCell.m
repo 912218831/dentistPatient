@@ -8,6 +8,12 @@
 
 #import "HWCitySelectLocationCell.h"
 
+@interface HWCitySelectLocationCell()
+
+
+
+@end
+
 @implementation HWCitySelectLocationCell
 
 - (void)awakeFromNib {
