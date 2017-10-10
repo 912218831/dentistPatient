@@ -12,4 +12,6 @@
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate2D;
 @property (nonatomic, strong) NSMutableArray *annotations;
 @property (nonatomic, copy)   NSString *checkId;
+@property (nonatomic, assign) BOOL needSearchBar;
+@property (nonatomic, copy)   NSString *searchText;
 @end
