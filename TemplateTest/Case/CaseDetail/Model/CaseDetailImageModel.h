@@ -9,6 +9,6 @@
 #import "BaseModel.h"
 
 @interface CaseDetailImageModel : BaseModel
-@property (nonatomic, copy) NSString *Id;
+@property (nonatomic, copy) NSString *ImgId;
 @property (nonatomic, copy) NSString *ImgUrl;
 @end

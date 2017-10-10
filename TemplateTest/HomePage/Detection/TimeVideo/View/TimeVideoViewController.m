@@ -115,6 +115,7 @@
 - (void)dealloc
 {
     
+}
 - (void)backMethod {
     [super backMethod];
     self.viewModel.takePhoto([UIImage imageNamed:@"beautiful.jpg"]);

@@ -55,7 +55,7 @@
     [alertController addAction:detectAction];
     
     UIAlertAction *recordAction = [UIAlertAction actionWithTitle:@"仅记录" style:UIAlertActionStyleDefault handler:^ (UIAlertAction *action){
-        
+        @strongify(self);
     }];
     [alertController addAction:recordAction];
     

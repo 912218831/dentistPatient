@@ -109,7 +109,7 @@
     NSArray *titleLabels = @[self.subjectTitleLabel, self.captureTitleLabel, self.doctorTitleLabel, self.clinicTitleLabel, self.visitTitleLabel];
     for (int i=0; i<titleLabels.count; i++) {
         UILabel *titleLabel = [titleLabels objectAtIndex:i];
-        titleLabel.font = FONT(TF15);
+        titleLabel.font = FONT(kRate(TF15));
         titleLabel.textColor = CD_Text99;
     }
     NSArray *labels = @[self.subjectLabel, self.captureLabel, self.doctorLabel, self.clinicLabel, self.visitLabel];

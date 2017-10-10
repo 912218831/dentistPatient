@@ -13,7 +13,6 @@
 @interface MapView () <MAMapViewDelegate>
 @property (nonatomic, strong) MapContentView *contentV;
 @property (nonatomic, strong) UIImageView *shadowImageView;
-@property (nonatomic, strong) RDoctorListCell *cell;
 @property (nonatomic, strong) NSMutableArray *annotations;
 @end
 
@@ -66,6 +65,7 @@
 
 - (void)bindSignal {
     @weakify(self);
+    self.cell.hidden = !self.valueSignal;
     [self.valueSignal subscribeNext:^(RACTuple *x) {
         @strongify(self);
         [self.cell setValueSignal:[RACSignal return:x.first]];

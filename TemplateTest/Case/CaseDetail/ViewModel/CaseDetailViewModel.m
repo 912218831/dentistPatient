@@ -26,7 +26,7 @@
                 return nil;
             }]];
             NSData *imageData = UIImageJPEGRepresentation(x, 0.8);
-            [self postImage:kDetectionUploadReports type:0 params:@{@"imageFile":imageData,@"checkid":self.model.Id,@"userkey":@"333d4fab17bd2990248d3e6a9d3e772a"} success:^(NSDictionary *response) {
+            [self postImage:kDetectionUploadReports type:0 params:@{@"imageFile":imageData,@"checkId":self.model.Id,@"userkey":[HWUserLogin currentUserLogin].userkey} success:^(NSDictionary *response) {
                 NSDictionary *imageItem = [response dictionaryObjectForKey:@"data"];
                 CaseDetailImageModel *imageModel = [[CaseDetailImageModel alloc]initWithDictionary:imageItem error:nil];
                 [self.model.images addObject:imageModel];

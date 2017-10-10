@@ -345,6 +345,7 @@
 		C5DE293E1F77AE0800D8973B /* tabbar_3_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DE293C1F77AE0800D8973B /* tabbar_3_n@2x.png */; };
 		C5DE29411F77AE1000D8973B /* tabbar_2_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DE293F1F77AE1000D8973B /* tabbar_2_n@3x.png */; };
 		C5DE29421F77AE1000D8973B /* tabbar_3_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DE29401F77AE1000D8973B /* tabbar_3_n@3x.png */; };
+		C5E9C3A71F8C9EC600943835 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9C3A51F8C9EC500943835 /* BaseWebViewController.m */; };
 		D2C28F0C1B7CC2AB00E2716D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */; };
 		D2C28F0E1B7CC5BB00E2716D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */; };
 		D2C28F101B7CC5D900E2716D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0F1B7CC5D900E2716D /* CoreGraphics.framework */; };
@@ -1038,6 +1039,9 @@
 		C5DE293C1F77AE0800D8973B /* tabbar_3_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_3_n@2x.png"; sourceTree = "<group>"; };
 		C5DE293F1F77AE1000D8973B /* tabbar_2_n@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_2_n@3x.png"; sourceTree = "<group>"; };
 		C5DE29401F77AE1000D8973B /* tabbar_3_n@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_3_n@3x.png"; sourceTree = "<group>"; };
+		C5E9C3A41F8C9EC500943835 /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		C5E9C3A51F8C9EC500943835 /* BaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		C5E9C3A61F8C9EC600943835 /* BaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		D2C28F0F1B7CC5D900E2716D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1107,6 +1111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B066574A1D94F3AD00C51061 /* WebKit.framework in Frameworks */,
 				B0E5E4431F7DDFE500FBEA9D /* AlipaySDK.framework in Frameworks */,
 				B0E5E4421F7DDFCD00FBEA9D /* CoreText.framework in Frameworks */,
 				B0E5E4401F7DDF9C00FBEA9D /* libc++.tbd in Frameworks */,
@@ -1126,7 +1131,6 @@
 				D2C8F8C81B67685B00628D96 /* CoreTelephony.framework in Frameworks */,
 				D2C28F0E1B7CC5BB00E2716D /* CoreFoundation.framework in Frameworks */,
 				75C741761DC7199D0072D0ED /* UserNotifications.framework in Frameworks */,
-				B066574A1D94F3AD00C51061 /* WebKit.framework in Frameworks */,
 				75FC76931D896BE600B24859 /* libxml2.tbd in Frameworks */,
 				B0290DCD1D8288B200F4B34F /* libresolv.9.tbd in Frameworks */,
 				B0290DEA1D8289A700F4B34F /* VideoToolbox.framework in Frameworks */,
@@ -2294,6 +2298,9 @@
 		C531FB8E1F66D0390008A17A /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C5E9C3A61F8C9EC600943835 /* BaseWebViewController.h */,
+				C5E9C3A51F8C9EC500943835 /* BaseWebViewController.m */,
+				C5E9C3A41F8C9EC500943835 /* test.html */,
 				C531FB8F1F66D0390008A17A /* BaseListViewController.h */,
 				C531FB901F66D0390008A17A /* BaseListViewController.m */,
 				C531FB911F66D0390008A17A /* BaseViewController.h */,
@@ -3204,6 +3211,7 @@
 				C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */,
 				DA3DFF221ADE78ED00C4E99A /* Utility.m in Sources */,
 				C531FBB11F66D0390008A17A /* ProtocolTerminal.m in Sources */,
+				C5E9C3A71F8C9EC600943835 /* BaseWebViewController.m in Sources */,
 				B0D26B011BDF7B920012A093 /* HWTableViewCell.m in Sources */,
 				C531FBAF1F66D0390008A17A /* BaseListViewModel.m in Sources */,
 				C531FBAC1F66D0390008A17A /* BaseListViewCell.m in Sources */,

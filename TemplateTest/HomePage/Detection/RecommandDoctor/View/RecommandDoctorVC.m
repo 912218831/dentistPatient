@@ -46,19 +46,19 @@
     
     [Utility showMBProgress:self.contentView message:nil];
     @weakify(self);
-    [self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
+    [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
         [self.listView.baseTable reloadData];
-        [Utility hideMBProgress:self.contentView];
     } error:^(NSError *error) {
         @strongify(self);
         [Utility showToastWithMessage:error.domain];
-        [Utility hideMBProgress:self.contentView];
-    } completed:^{
-        @strongify(self);
+    } completed:nil]finally:^{
         [Utility hideMBProgress:self.contentView];
     }];
-    [self.viewModel execute];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.viewModel.dataArray.count == 0 ? 1 : self.viewModel.dataArray.count;
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
@@ -78,7 +78,6 @@
             }];
         }
         cell.valueSignal = [RACSignal return:RACTuplePack(self.viewModel.dataArray.firstObject, self.viewModel.annotations)];
-        
         return cell;
     }
     RDoctorListCell *cell = [self.listView.baseTable dequeueReusableCellWithIdentifier:kRDoctorVM];
