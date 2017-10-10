@@ -16,8 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *docNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 @property (weak, nonatomic) IBOutlet UILabel *patientCountLab;
-@property (weak, nonatomic) IBOutlet UIButton *acceptBtn;//采纳医生建议
-@property (weak, nonatomic) IBOutlet UIButton *rejectBtn;//返回重新预约
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;//采纳医生建议
 @property(strong,nonatomic)HWAppointFailViewModel * viewModel;
 

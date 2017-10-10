@@ -8,6 +8,7 @@
 
 #import "AppShare.h"
 #import "HWCityModel_CD+CoreDataClass.h"
+#import "HWLocationManager.h"
 @implementation AppShare
 
 + (instancetype)shareInstance
@@ -35,6 +36,69 @@
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         [[HWUserLogin currentUserLogin] loadData];
     }
+}
+
+- (void)startLocation:(void (^)())locationSuccess locactionFail:(void (^)())locationFail
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    //定位
+    HWLocationManager * locationManger = [HWLocationManager shareManager];
+    [locationManger startLocating];
+    @weakify(locationManger);
+    [locationManger setLocationSuccess:^(CLLocation * loc , NSString * cityName,NSString *streetName) {
+        /**
+         *  后台数据库没有城市没有"市"
+         */
+        [userDefault setObject:@"0" forKey:@"kLocationTime"];
+        
+        NSRange range = [cityName rangeOfString:@"市"];
+        if (range.location != NSNotFound)
+        {
+            cityName = [cityName substringToIndex:range.location];
+        }
+        
+        if (cityName.length > 4)
+        {
+            cityName = [cityName substringToIndex:4];
+        }
+        
+        if (cityName.length > 0) {
+            
+            [HWUserLogin currentUserLogin].locationCityName = cityName;
+            [HWUserLogin currentUserLogin].locationLat = [NSString stringWithFormat:@"%f",loc.coordinate.latitude];
+            [HWUserLogin currentUserLogin].locationLong = [NSString stringWithFormat:@"%f",loc.coordinate.longitude];
+        }
+        
+        if (locationSuccess) {
+            locationSuccess();
+        }
+    }];
+    [locationManger setLocationFailed:^(BOOL isOpenLocator){
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLocationFailNotification object:nil];
+        
+        NSString *lTime = [userDefault objectForKey:@"kLocationTime"];
+        if (lTime.intValue < 5)
+        {
+            // 失败 3次以上 停止定位
+            @strongify(locationManger);
+            [locationManger startLocating];
+            [userDefault setObject:[NSString stringWithFormat:@"%d", lTime.intValue + 1] forKey:@"kLocationTime"];
+            [userDefault synchronize];
+        }
+        else
+        {
+            [HWUserLogin currentUserLogin].locationCityName = @"";
+            [HWUserLogin currentUserLogin].locationLat = @"";
+            [HWUserLogin currentUserLogin].locationLong = @"";
+            if (locationFail) {
+                locationFail();
+            }
+        }
+        
+    }];
+
 }
 
 - (UIViewController *)checkUserType

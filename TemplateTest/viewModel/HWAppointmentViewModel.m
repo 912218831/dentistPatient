@@ -39,6 +39,12 @@
                 @strongify(self);
                 self.isNeedRefresh = YES;
             }];
+            
+            [failViewModel.acceptCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
+                @strongify(self);
+                self.isNeedRefresh = YES;
+            }];
+            
             [[ViewControllersRouter shareInstance] pushViewModel:failViewModel animated:YES];
 
         }

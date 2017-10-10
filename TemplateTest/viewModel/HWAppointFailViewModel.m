@@ -23,15 +23,24 @@
         self.appointId = appointId;
         RACSignal * acceptSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             
-            [subscriber sendNext:@"采纳医生建议"];
-            [subscriber sendCompleted];
+            NSMutableDictionary * params = [NSMutableDictionary dictionary];
+            [subscriber sendNext:@"请求中..."];
+            [params setPObject:self.detailModel.appointId forKey:@"applyId"];
+            NSURLSessionTask * task = [self post:kAccecptAppoint params:params success:^(id response) {
+//                [subscriber sendNext:@"采纳医生建议"];
+                [subscriber sendCompleted];
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            } failure:^(NSString * error) {
+                [subscriber sendError:customRACError(@"采纳医生建议失败")];
+            }];
             return [RACDisposable disposableWithBlock:^{
-                
+                [task cancel];
             }];
         }];
         
         self.acceptCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             //采纳医生建议
+            
             return acceptSignal;
         }];
         
@@ -50,15 +59,22 @@
         }];
         
         RACSignal * cancelSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            
-            [subscriber sendNext:@"取消预约"];
-            [subscriber sendCompleted];
+            NSMutableDictionary * params = [NSMutableDictionary dictionary];
+            [subscriber sendNext:@"请求中..."];
+            [params setPObject:self.detailModel.appointId forKey:@"applyId"];
+            NSURLSessionTask * task = [self post:kCancelAppoint params:params success:^(id response) {
+//                [subscriber sendNext:@"取消预约"];
+                [subscriber sendCompleted];
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            } failure:^(NSString * error) {
+                [subscriber sendError:customRACError(@"取消失败")];
+            }];
             return [RACDisposable disposableWithBlock:^{
-                
+                [task cancel];
+
             }];
         }];
         self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
             return cancelSignal;
         }];
     }
@@ -71,7 +87,7 @@
     
     [self.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
         NSLog(@"fff");
-
+        
     }];
 }
 
@@ -81,7 +97,7 @@
         NSMutableDictionary * params = [NSMutableDictionary dictionary];
         [params setPObject:self.appointId forKey:@"applyId"];
         [self post:kAppointDetail params:params success:^(NSDictionary * response) {
-           
+            
             NSLog(@"%@",response);
             HWAppointDetailModel * model = [MTLJSONAdapter modelOfClass:[HWAppointDetailModel class] fromJSONDictionary:[[response objectForKey:@"data"] objectForKey:@"applyInfo"] error:nil];
             self.detailModel = model;
@@ -90,8 +106,8 @@
             [subscriber sendError:customRACError(error)];
         }];
         return [RACDisposable disposableWithBlock:^{
-           
-       }];
+            
+        }];
     }];
 }
 

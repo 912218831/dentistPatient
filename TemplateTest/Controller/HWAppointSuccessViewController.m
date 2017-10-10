@@ -177,6 +177,10 @@
     [self.viewModel execute];
     
     [[self.payBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        if (self.viewModel.sumMoney.length == 0) {
+            [Utility showToastWithMessage:@"请输入金额"];
+            return;
+        }
         UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"支付宝",@"微信", nil];
         [actionSheet.rac_buttonClickedSignal subscribeNext:^(NSNumber * x) {
             @strongify(self);

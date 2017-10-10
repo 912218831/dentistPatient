@@ -33,8 +33,8 @@
     {
         self.manager = [[CLLocationManager alloc]init];
         self.manager.delegate = self;
-        self.manager.desiredAccuracy = kCLLocationAccuracyKilometer;
-        self.manager.distanceFilter = kCLLocationAccuracyKilometer;
+        self.manager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.manager.distanceFilter = kCLLocationAccuracyBest;
         if (IOS8)
         {
             [self.manager requestWhenInUseAuthorization];

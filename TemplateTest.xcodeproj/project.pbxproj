@@ -490,8 +490,6 @@
 		B0381C771F792F4100C5E172 /* HWCityModel_CD+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HWCityModel_CD+CoreDataProperties.m"; sourceTree = "<group>"; };
 		B0381C781F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HWCityModel_CD+CoreDataClass.m"; sourceTree = "<group>"; };
 		B0381C791F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HWCityModel_CD+CoreDataClass.h"; sourceTree = "<group>"; };
-		B0381C7D1F793F6300C5E172 /* 定位@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位@2x.png"; sourceTree = "<group>"; };
-		B0381C7E1F793F7E00C5E172 /* 定位@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位@3x.png"; sourceTree = "<group>"; };
 		B0381C821F79400100C5E172 /* HWCitySelectLocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWCitySelectLocationCell.h; sourceTree = "<group>"; };
 		B0381C831F79400100C5E172 /* HWCitySelectLocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWCitySelectLocationCell.m; sourceTree = "<group>"; };
 		B0381C841F79400100C5E172 /* HWCitySelectLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HWCitySelectLocationCell.xib; sourceTree = "<group>"; };
@@ -1587,7 +1585,6 @@
 				C57C9E671F8CBEBB008416B0 /* searchBarBackImage@2x.png */,
 				C533F9AC1F7E76D700F95CA3 /* 进行中@2x.png */,
 				C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */,
-				B0381C7D1F793F6300C5E172 /* 定位@2x.png */,
 				C5DE293B1F77AE0800D8973B /* tabbar_2_n@2x.png */,
 				C5DE293C1F77AE0800D8973B /* tabbar_3_n@2x.png */,
 				C5DE292F1F77AD7200D8973B /* tabbar@2x.png */,
@@ -1645,7 +1642,6 @@
 				C57C9E681F8CBEC1008416B0 /* searchBarBackImage@3x.png */,
 				C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */,
 				C533F9A81F7E76C700F95CA3 /* 完成@3x.png */,
-				B0381C7E1F793F7E00C5E172 /* 定位@3x.png */,
 				C5DE293F1F77AE1000D8973B /* tabbar_2_n@3x.png */,
 				C5DE29401F77AE1000D8973B /* tabbar_3_n@3x.png */,
 				C5DE29351F77AD8900D8973B /* tabbar_4_n@3x.png */,

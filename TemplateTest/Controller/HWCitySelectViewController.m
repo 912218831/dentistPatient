@@ -10,6 +10,7 @@
 #import "HWCityModel_CD+CoreDataClass.h"
 #import "HWCitySelectLocationCell.h"
 #import "HWSelectCitySearchView.h"
+
 @interface HWCitySelectViewController ()<UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
 @property(strong,nonatomic)NSFetchedResultsController * fetchController;
@@ -23,6 +24,19 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    @weakify(self);
+    [[AppShare shareInstance] startLocation:^{
+        @strongify(self);
+        [self.table reloadData];
+    } locactionFail:^{
+        @strongify(self);
+        [self.table reloadData];
+    }];
 }
 
 - (void)configContentView
@@ -125,7 +139,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return [tableView dequeueReusableCellWithIdentifier:@"HWCitySelectLocationCell"];
+        HWCitySelectLocationCell * cell = [tableView dequeueReusableCellWithIdentifier:@"HWCitySelectLocationCell"];
+        if ([HWUserLogin currentUserLogin].locationCityName.length>0) {
+            cell.locationName.text = [HWUserLogin currentUserLogin].locationCityName;
+        }
+        else
+        {
+            cell.locationName.text = @"无法定位";
+
+        }
+        return cell;
     }
     else
     {

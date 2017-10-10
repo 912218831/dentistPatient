@@ -20,7 +20,7 @@
 @property(strong,nonatomic)UIButton * searchBtn;
 @property(strong,nonatomic)UICollectionView  * collectionView;
 @property(strong,nonatomic,readonly)HWHomePageViewModel * viewModel;
-
+@property(strong,nonatomic)UIView * searchView;
 @end
 
 @implementation HWHomePageViewController
@@ -58,26 +58,22 @@
     self.nav.backgroundColor = COLOR_28BEFF;
     [self.view addSubview:self.nav];
     
-    UIImage * cityImg = [HWCustomDrawImg drawAutoSizeTextAndImg:[UIImage imageNamed:@"arrow_down"] text:@"北京" grap:5 strconfig:@{NSForegroundColorAttributeName:COLOR_FFFFFF,NSFontAttributeName:FONT(15.0f)} strContainerSize:CGSizeZero imgPosition:HWCustomDrawRight];
 
-    self.changeCityBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 20, cityImg.size.width, 44)];
+    self.changeCityBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.nav addSubview:self.changeCityBtn];
-    [self.changeCityBtn setImage:cityImg forState:UIControlStateNormal];
     self.changeCityBtn.contentMode = UIViewContentModeCenter;
     
-    UIView * searchView = [[UIView alloc] initWithFrame:CGRectMake(self.changeCityBtn.right+15, 20, kScreenWidth - 45 - self.changeCityBtn.width, 28)];
-    searchView.centerY = self.changeCityBtn.centerY;
-    searchView.backgroundColor = [UIColor whiteColor];
-    searchView.layer.cornerRadius = 14.0f;
-    searchView.layer.masksToBounds = YES;
-    [self.nav addSubview:searchView];
-    self.searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 0, searchView.width - 30, 28)];
-    [searchView addSubview:self.searchBtn];
+    self.searchView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.searchView.backgroundColor = [UIColor whiteColor];
+    self.searchView.layer.cornerRadius = 14.0f;
+    self.searchView.layer.masksToBounds = YES;
+    [self.nav addSubview:self.searchView];
+    self.searchBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.searchView addSubview:self.searchBtn];
     UIImage * searchImg = [HWCustomDrawImg drawAutoSizeTextAndImg:[UIImage imageNamed:@"搜索"] text:@"附近的口腔医生" grap:10 strconfig:@{NSForegroundColorAttributeName:COLOR_999999,NSFontAttributeName:FONT(13)} strContainerSize:CGSizeZero imgPosition:HWCustomDrawLeft];
     self.searchBtn.contentMode = UIViewContentModeLeft;
     [self.searchBtn setImage:searchImg forState:UIControlStateNormal];
-    
-    
+    [self changeCity];
 }
 
 - (UICollectionView *)collectionView
@@ -230,7 +226,19 @@
         [Utility showToastWithMessage:error.localizedDescription];
     }];
     self.changeCityBtn.rac_command = self.viewModel.selectCityCommand;
+    [RACObserve([HWUserLogin currentUserLogin], cityName) subscribeNext:^(id x) {
+        @strongify(self);
+        [self changeCity];
+    }];
+}
 
+- (void)changeCity{
+    UIImage * cityImg = [HWCustomDrawImg drawAutoSizeTextAndImg:[UIImage imageNamed:@"arrow_down"] text:[HWUserLogin currentUserLogin].cityName grap:5 strconfig:@{NSForegroundColorAttributeName:COLOR_FFFFFF,NSFontAttributeName:FONT(15.0f)} strContainerSize:CGSizeZero imgPosition:HWCustomDrawRight];
+    self.changeCityBtn.frame = CGRectMake(15, 20, cityImg.size.width, 44);
+    [self.changeCityBtn setImage:cityImg forState:UIControlStateNormal];
+    self.searchView.frame = CGRectMake(self.changeCityBtn.right+15, 20, kScreenWidth - 45 - self.changeCityBtn.width, 28);
+    self.searchView.centerY = self.changeCityBtn.centerY;
+    self.searchBtn.frame = CGRectMake(15, 0, self.searchView.width - 30, 28);
 }
 
 - (void)didReceiveMemoryWarning {

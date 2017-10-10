@@ -17,6 +17,8 @@
 
 - (void)handelCurrentCoreDataLoginUser:(void(^)(HWLoginUser * loginUser))currentLoginUser;
 
+- (void)startLocation:(void(^)())locationSuccess locactionFail:(void(^)())locationFail;
+
 - (UIViewController *)checkUserType;
 
 @end

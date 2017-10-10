@@ -14,7 +14,9 @@
 @property(strong,nonatomic)NSString * userkey;
 @property(strong,nonatomic)NSString * cityName;
 @property(strong,nonatomic)NSString * cityId;
-
+@property(strong,nonatomic)NSString * locationLat;
+@property(strong,nonatomic)NSString * locationLong;
+@property(strong,nonatomic)NSString * locationCityName;
 + (HWUserLogin *)currentUserLogin;
 
 -(void)loadData;
