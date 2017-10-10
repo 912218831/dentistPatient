@@ -47,7 +47,7 @@
 }
 
 - (NSURLSessionDataTask *)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
-    [HWUserLogin currentUserLogin].userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
+   
     NSURLSessionDataTask *task = [[HWHTTPSessionManger manager]HWPOST:url parameters:params success:^(id responese) {
         success(responese);
     } failure:^(NSString *code, NSString *error) {

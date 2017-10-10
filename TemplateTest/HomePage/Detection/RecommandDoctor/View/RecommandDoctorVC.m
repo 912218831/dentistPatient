@@ -20,7 +20,12 @@
 
 @implementation RecommandDoctorVC
 @dynamic viewModel;
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+}
 - (void)configContentView {
     [super configContentView];
     

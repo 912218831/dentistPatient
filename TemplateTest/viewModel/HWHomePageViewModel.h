@@ -17,5 +17,6 @@
 @property(strong,nonatomic)RACCommand * pushItemCommand; //推荐点击
 @property(strong,nonatomic)RACCommand * funcBtnCommand;
 @property(strong,nonatomic)RACCommand * selectCityCommand;
+@property(strong,nonatomic)RACCommand * searchDocCommand;//搜索
 
 @end

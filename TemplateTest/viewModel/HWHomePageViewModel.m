@@ -12,6 +12,8 @@
 #import "HWHomePageLastRecordModel.h"
 #import "HWDetectionSelectMemberViewModel.h"
 #import "HWCitySelectViewModel.h"
+#import "BaseWebViewModel.h"
+#import "RecommandDoctorViewModel.h"
 @implementation HWHomePageViewModel
 
 - (instancetype)init
@@ -32,6 +34,12 @@
         [[ViewControllersRouter shareInstance] pushViewModel:selectCityModel animated:YES];
         return [RACSignal empty];
     }];
+    self.searchDocCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        RecommandDoctorViewModel * viewModel = [[RecommandDoctorViewModel alloc] init];
+        viewModel.needSearchBar = YES;
+        [[ViewControllersRouter shareInstance] pushViewModel:viewModel animated:YES];
+        return [RACSignal empty];
+    }];
     self.bannerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * index) {
        
         NSLog(@"%@",index);
@@ -50,11 +58,20 @@
             case 0:
             {
                 NSLog(@"我的家庭");
+                BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+                model.url = kFamily;
+                model.title = @"我的家庭";
+                [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
             }
                 break;
             case 1:
             {
-                NSLog(@"口腔");
+                NSLog(@"百科");
+                BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+                model.url = kBaiKe;
+                model.title = @"口腔百科";
+                [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+
             }
                 break;
             case 2:
@@ -66,6 +83,11 @@
             case 3:
             {
                 NSLog(@"记录");
+                BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+                model.url = kHistory;
+                model.title = @"记录";
+                [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+
             }
                 break;
             default:

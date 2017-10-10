@@ -41,6 +41,7 @@
 
 - (void)setUpControllers
 {
+     [HWUserLogin currentUserLogin].userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
     UIViewController *homePageController = [[HWHomePageViewController alloc] initWithViewModel:self.viewModel.homePageViewModel];
     
     UIViewController *caseViewController = [[HWCasesViewController alloc] initWithViewModel:self.viewModel.casesViewModel];
@@ -74,8 +75,8 @@
     UIImage *finishedImage = unfinishedImage;
     
     NSArray *unSelectedImages = @[@"tabbar_1_n", @"tabbar_2_n", @"tabbar_3_n",@"tabbar_4_n"];
-    NSArray *selectedImages = @[@"tabbar_1_s",@"tabbar_2_n",@"tabbar_3_n",@"tabbar_4_s"];
-    NSArray * titles = @[@"首页",@"我的病人",@"我的预约",@"设置"];
+    NSArray *selectedImages = @[@"tabbar_1_s",@"tabbar_2_s",@"tabbar_3_s",@"tabbar_4_s"];
+    NSArray * titles = @[@"首页",@"病例",@"我的预约",@"设置"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];

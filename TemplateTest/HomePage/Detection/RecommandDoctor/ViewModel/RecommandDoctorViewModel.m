@@ -45,7 +45,7 @@
                        @"docLat":@(self.coordinate2D.latitude),
                        @"type":@""};
         } else {
-            params = @{@"checkid":self.checkId,
+            params = @{@"checkid":self.checkId?:@"",
                       @"docLong":@(self.coordinate2D.longitude),
                       @"docLat":@(self.coordinate2D.latitude),
                       @"type":@"",

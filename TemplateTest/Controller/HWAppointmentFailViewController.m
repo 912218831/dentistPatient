@@ -14,6 +14,7 @@
 @property(strong,nonatomic)UITableView * table;
 @property(strong,nonatomic)HWAppointFailViewModel * viewModel;
 @property(strong,nonatomic)UIButton * cancelBtn;
+@property(strong,nonatomic)UIButton * answerBtn;//问答
 @end
 
 @implementation HWAppointmentFailViewController
@@ -36,7 +37,11 @@
     [self.cancelBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
     self.cancelBtn.backgroundColor = COLOR_B5C8D9;
     [self.view addSubview:self.cancelBtn];
-    
+    self.answerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 50, 0, 50, 32)];
+    self.answerBtn.centerY = self.cancelBtn.top;
+    self.answerBtn.contentMode = UIViewContentModeCenter;
+    [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
+    [self.view addSubview:self.answerBtn];
     self.table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
         
         NSLog(@"刷新");
@@ -138,8 +143,7 @@
         [Utility hideMBProgress:self.view];
         [Utility showToastWithMessage:x.localizedDescription];
     }];
-    
-    
+    self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
 
 - (void)didReceiveMemoryWarning {
