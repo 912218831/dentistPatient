@@ -288,6 +288,8 @@
 		C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */; };
 		C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B04D1F681307000C99A1 /* CaseSegmentButton.m */; };
 		C55A7C4A1F7BD5EF00B381A4 /* beautiful.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C55A7C491F7BD09800B381A4 /* beautiful.jpg */; };
+		C57C9E691F8CBFAA008416B0 /* searchBarBackImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57C9E671F8CBEBB008416B0 /* searchBarBackImage@2x.png */; };
+		C57C9E6A1F8CBFAA008416B0 /* searchBarBackImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57C9E681F8CBEC1008416B0 /* searchBarBackImage@3x.png */; };
 		C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */; };
 		C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E3681F6EBA10009509CB /* DoctorAbstractInfoView.m */; };
 		C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C587E36B1F6ED88C009509CB /* PatientDetailDateView.m */; };
@@ -957,6 +959,8 @@
 		C546B04C1F681307000C99A1 /* CaseSegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseSegmentButton.h; sourceTree = "<group>"; };
 		C546B04D1F681307000C99A1 /* CaseSegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseSegmentButton.m; sourceTree = "<group>"; };
 		C55A7C491F7BD09800B381A4 /* beautiful.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beautiful.jpg; sourceTree = "<group>"; };
+		C57C9E671F8CBEBB008416B0 /* searchBarBackImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBarBackImage@2x.png"; sourceTree = "<group>"; };
+		C57C9E681F8CBEC1008416B0 /* searchBarBackImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBarBackImage@3x.png"; sourceTree = "<group>"; };
 		C587E3641F6EB9F0009509CB /* DoctorDetailAttachedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailAttachedView.h; sourceTree = "<group>"; };
 		C587E3651F6EB9F0009509CB /* DoctorDetailAttachedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailAttachedView.m; sourceTree = "<group>"; };
 		C587E3671F6EBA10009509CB /* DoctorAbstractInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorAbstractInfoView.h; sourceTree = "<group>"; };
@@ -1580,6 +1584,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C57C9E671F8CBEBB008416B0 /* searchBarBackImage@2x.png */,
 				C533F9AC1F7E76D700F95CA3 /* 进行中@2x.png */,
 				C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */,
 				B0381C7D1F793F6300C5E172 /* 定位@2x.png */,
@@ -1637,6 +1642,7 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C57C9E681F8CBEC1008416B0 /* searchBarBackImage@3x.png */,
 				C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */,
 				C533F9A81F7E76C700F95CA3 /* 完成@3x.png */,
 				B0381C7E1F793F7E00C5E172 /* 定位@3x.png */,
@@ -2727,7 +2733,6 @@
 				C24E7DA11ADE51AA00BA8ECC /* Frameworks */,
 				C24E7DA21ADE51AA00BA8ECC /* Resources */,
 				E72FAD6D4DEAFE9E94B5D1ED /* [CP] Embed Pods Frameworks */,
-				0CE44A5774C05F9C445555D3 /* [CP] Copy Pods Resources */,
 				B118E88D45EFE601E85B2FAF /* Embed Pods Frameworks */,
 				9C21058431AA60E6EDA46FEB /* Copy Pods Resources */,
 			);
@@ -2817,6 +2822,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57C9E691F8CBFAA008416B0 /* searchBarBackImage@2x.png in Resources */,
+				C57C9E6A1F8CBFAA008416B0 /* searchBarBackImage@3x.png in Resources */,
 				C55A7C4A1F7BD5EF00B381A4 /* beautiful.jpg in Resources */,
 				B09807E31F6ACC03009C0FE1 /* 检测成员@3x.png in Resources */,
 				B02AED251F4ED536009C25A7 /* 产品@3x.png in Resources */,
@@ -2968,21 +2975,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CE44A5774C05F9C445555D3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TemplateTest/Pods-TemplateTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7AECD459A69D99FD0D8B99E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3443,7 +3435,7 @@
 					"$(PROJECT_DIR)/TemplateTest/ThirdParty/HKDecodeSDK/include",
 				);
 				INFOPLIST_FILE = TemplateTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3524,7 +3516,7 @@
 					"$(PROJECT_DIR)/ThirdParty/HKDecodeSDK/include",
 				);
 				INFOPLIST_FILE = TemplateTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
