@@ -30,6 +30,7 @@
     self.mapView.showsUserLocation = true;
     self.mapView.zoomLevel = 17;
     self.mapView.userTrackingMode = MAUserTrackingModeFollow;
+    self.mapView.runLoopMode = NSDefaultRunLoopMode;
     [self addSubview:self.mapView];
 }
 

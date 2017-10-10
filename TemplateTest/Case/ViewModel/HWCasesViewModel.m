@@ -44,7 +44,11 @@
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
         FamilyMemberModel *model = [self.familyMember pObjectAtIndex:self.familyMemberIndex-1];
-        [self post:kCaseList type:0 params:@{@"patientId":model.patientId} success:^(NSDictionary* response) {
+        NSDictionary *param = nil;
+        if (![model.patientId isEqualToString:@"-1"]) {
+            param = @{@"patientId":model.patientId};
+        }
+        [self post:kCaseList type:0 params:param success:^(NSDictionary* response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSArray *list = [data arrayObjectForKey:@"list"];
             for (int i=0; i<list.count; i++) {
@@ -64,6 +68,10 @@
             [self post:kFamilyMembers params:@{} success:^(NSDictionary* response) {
                 NSArray *data = [response arrayObjectForKey:@"data"];
                 NSMutableArray *familyMember = [NSMutableArray arrayWithCapacity:data.count];
+                FamilyMemberModel *model = [[FamilyMemberModel alloc]init];
+                model.patientId = @"-1";
+                model.name = @"全部";
+                [familyMember addObject:model];
                 for (NSDictionary *item in data) {
                     FamilyMemberModel *model = [[FamilyMemberModel alloc]initWithDictionary:item error:nil];
                     [familyMember addObject:model];

@@ -11,6 +11,6 @@
 
 @interface BaseListViewController : BaseViewController
 @property (nonatomic, strong, readonly) HWBaseRefreshView   *listView;
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath;
 @end
