@@ -3495,6 +3495,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
 					"$(PROJECT_DIR)/TemplateTest/ThirdParty/alipay",
+					"$(PROJECT_DIR)/TemplateTest/ThirdParty/HKDecodeSDK/include",
 				);
 				GCC_PREFIX_HEADER = "TemplateTest/Template-OC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -3534,6 +3535,7 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 					"$(PROJECT_DIR)/ThirdParty/DisplayModule/include",
 					"$(PROJECT_DIR)/ThirdParty/HKDecodeSDK/include",
+					"$(PROJECT_DIR)/TemplateTest/ThirdParty/HKDecodeSDK/include",
 				);
 				INFOPLIST_FILE = TemplateTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
