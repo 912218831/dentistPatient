@@ -55,7 +55,7 @@
                 CaseItemModel *model = [[CaseItemModel alloc]initWithDictionary:[list pObjectAtIndex:i] error:nil];
                 [self.dataArray addObject:model];
             }
-            [subscriber sendNext:[RACSignal return:@1]];
+             [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
             [subscriber sendNext:[RACSignal error:Error]];
         }];
@@ -66,6 +66,7 @@
         @strongify(self);
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             [self post:kFamilyMembers params:@{} success:^(NSDictionary* response) {
+                
                 NSArray *data = [response arrayObjectForKey:@"data"];
                 NSMutableArray *familyMember = [NSMutableArray arrayWithCapacity:data.count];
                 FamilyMemberModel *model = [[FamilyMemberModel alloc]init];
@@ -87,7 +88,6 @@
                 } else {
                     self.familyMemberIndex = 1;
                 }
-                
                 [subscriber sendNext:@1];
                 [subscriber sendCompleted];
             } failure:^(NSString *error) {

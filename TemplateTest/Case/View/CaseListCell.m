@@ -107,13 +107,18 @@
     @weakify(self);
     [self.valueSignal subscribeNext:^(CaseItemModel *model) {
         @strongify(self);
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.imageUrl]];
-        self.describeLabel.text = @"儿子的牙龈癍检查";
-        self.actionLabel.text = @"已发送给空腔诊所的 吴医生";
-        self.dateLabel.text = model.time;
-        if (model.state) {
-            self.stateImageView.image = [UIImage imageNamed:@"完成"];
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.imageUrl] placeholderImage:[UIImage imageNamed:@"selectPeople"]];
+        self.describeLabel.text = model.patintName;
+        if (model.imageCount) {
+            self.actionLabel.text = [NSString stringWithFormat:@"一共 %ld 张图片", model.imageCount];
         } else {
+            self.actionLabel.text = @"暂无图片";
+        }
+        
+        self.dateLabel.text = model.time;
+        if (model.state==3) {
+            self.stateImageView.image = [UIImage imageNamed:@"完成"];
+        } else if (model.state==2) {
             self.stateImageView.image = [UIImage imageNamed:@"进行中"];
         }
     }];
