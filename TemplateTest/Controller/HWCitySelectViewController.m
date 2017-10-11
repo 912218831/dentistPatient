@@ -79,8 +79,15 @@
     }
     else
     {
-        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"pinyin CONTAINS %@",condition];
-        
+        /*
+         @property (nullable, nonatomic, copy) NSString *cityFirstChar;
+         @property (nullable, nonatomic, copy) NSString *cityId;
+         @property (nullable, nonatomic, copy) NSString *name;
+         @property (nullable, nonatomic, copy) NSString *pinyin;
+         @property (nullable, nonatomic, copy) NSString *pinyinHeader;
+
+         */
+        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"pinyin CONTAINS[c] %@ or name CONTAINS[c] %@ or pinyinHeader CONTAINS[c] %@",condition,condition,condition];
         self.fetchController = [HWCityModel_CD MR_fetchAllSortedBy:@"pinyin" ascending:YES withPredicate:predicate groupBy:@"cityFirstChar" delegate:self];
     }
     [self.fetchController performFetch:&error];

@@ -167,12 +167,22 @@
     [self.viewModel initRequestSignal];
     @weakify(self);
     [self.viewModel.requestSignal subscribeNext:^(id x) {
-        @strongify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
         });
     } error:^(NSError *error) {
         [Utility showToastWithMessage:error.localizedDescription];
+    }];
+    [[self.viewModel.requestSignal deliverOnMainThread]subscribeNext:^(NSString * x) {
+        @strongify(self);
+        [Utility showMBProgress:self.view message:x];
+    } error:^(NSError *error) {
+        @strongify(self);
+        [Utility hideMBProgress:self.view];
+        [Utility showToastWithMessage:error.localizedDescription];
+    } completed:^{
+        @strongify(self);
+        [Utility hideMBProgress:self.view];
+        [self.collectionView reloadData];
     }];
     [self.viewModel execute];
     

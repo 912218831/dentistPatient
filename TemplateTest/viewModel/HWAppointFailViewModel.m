@@ -46,20 +46,11 @@
             return acceptSignal;
         }];
         
-        
-        RACSignal * rejectSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            
-            [subscriber sendNext:@"返回重新预约"];
-            [subscriber sendCompleted];
-            return [RACDisposable disposableWithBlock:^{
-                
-            }];
-        }];
-        
         self.rejectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             RecommandDoctorViewModel * model = [[RecommandDoctorViewModel alloc] init];
             model.needSearchBar = YES;
-            return rejectSignal;
+            [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+            return [RACSignal empty];
         }];
         
         RACSignal * cancelSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -86,7 +77,7 @@
             //咨询
             BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
             model.title = @"咨询";
-            model.url = kAnswer;
+            model.url = [NSString stringWithFormat:@"%@&checkId=%@",kAnswer,self.detailModel.checkId];
             [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
             return [RACSignal empty];
         }];
@@ -98,11 +89,6 @@
 - (void)bindViewWithSignal
 {
     [super bindViewWithSignal];
-    
-    [self.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
-        NSLog(@"fff");
-        
-    }];
 }
 
 - (void)initRequestSignal

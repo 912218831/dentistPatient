@@ -32,9 +32,11 @@
          loginUer = [HWLoginUser MR_createEntity];
     }
     if (currentLoginUser) {
-        currentLoginUser(loginUer);
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-        [[HWUserLogin currentUserLogin] loadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            currentLoginUser(loginUer);
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            [[HWUserLogin currentUserLogin] loadData];
+        });
     }
 }
 
@@ -123,9 +125,16 @@
                 HWCityModel_CD * cityModel = [HWCityModel_CD MR_createEntity];
                 cityModel.cityId = [dic objectForKey:@"cityCode"];
                 cityModel.name = [dic objectForKey:@"cityName"];
-                cityModel.pinyin = [Utility transform:cityModel.name];
+                cityModel.pinyin = [dic objectForKey:@"pinyin"];
                 NSString * tempStr = [NSString stringWithFormat:@"%c",[cityModel.pinyin characterAtIndex:0]];
                 cityModel.cityFirstChar = tempStr.uppercaseString;
+                NSString * transformPinYin = [Utility transform:cityModel.name];
+                NSArray * tempArr = [transformPinYin componentsSeparatedByString:@" "];
+                NSMutableArray * tempMutableArr = [NSMutableArray arrayWithCapacity:tempArr.count];
+                for (NSString * str in tempArr) {
+                    [tempMutableArr addObject:[NSString stringWithFormat:@"%c",[str characterAtIndex:0]]];
+                }
+                cityModel.pinyinHeader = [tempMutableArr componentsJoinedByString:@""];
             }
             [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         });

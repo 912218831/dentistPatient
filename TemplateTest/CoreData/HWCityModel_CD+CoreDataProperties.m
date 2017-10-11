@@ -2,7 +2,7 @@
 //  HWCityModel_CD+CoreDataProperties.m
 //  
 //
-//  Created by 杨庆龙 on 2017/9/26.
+//  Created by 杨庆龙 on 2017/10/11.
 //
 //
 
@@ -14,9 +14,10 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"HWCityModel_CD"];
 }
 
-@dynamic name;
-@dynamic cityId;
-@dynamic pinyin;
 @dynamic cityFirstChar;
+@dynamic cityId;
+@dynamic name;
+@dynamic pinyin;
+@dynamic pinyinHeader;
 
 @end
