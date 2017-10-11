@@ -10,6 +10,7 @@
 #import "DoctorDetailViewModel.h"
 #import "DoctorDetailInfoCell.h"
 #import "DoctorDetailDateMapCell.h"
+#import "BaseWebViewModel.h"
 
 @interface DoctorDetailViewController ()
 @property (nonatomic, strong) DoctorDetailViewModel *viewModel;
@@ -75,6 +76,11 @@
     [[self.consultBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
       // 咨询
         NSLog(@"咨询");
+        //咨询
+        BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+        model.title = @"咨询";
+        model.url = kAnswer;
+        [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
     }];
     [[self.orderBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
       // 预约

@@ -12,6 +12,7 @@
 #import "ResultStateTerribleView.h"
 
 @interface DetectionResultViewController ()
+@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) DetectionResultViewModel *viewModel;
 @property (nonatomic, strong) RACSignal *seeDoctorBtnCreateSignal;
 @property (nonatomic, strong) RACSignal *notSendBtnCreateSignal;
@@ -24,6 +25,16 @@
 @implementation DetectionResultViewController
 @dynamic viewModel;
 
+- (UIScrollView *)scrollView {
+    if (_scrollView == nil) {
+        _scrollView = [[UIScrollView alloc]initWithFrame:self.view.bounds];
+        [self addSubview:_scrollView];
+        _scrollView.alwaysBounceVertical = true;
+        _scrollView.showsVerticalScrollIndicator = true;
+    }
+    return _scrollView;
+}
+
 - (void)configContentView {
     [super configContentView];
     
@@ -32,14 +43,10 @@
         @strongify(self);
         UIButton *seeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         seeBtn.tag = 100;
-        [self addSubview:seeBtn];
-        [seeBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(kRate(15));
-            make.bottom.mas_equalTo(-kRate(81));
-            make.height.mas_equalTo(kRate(50));
-            make.right.mas_equalTo(-kRate(15));
-        }];
-        [seeBtn setTitle:@"查看诊所" forState:UIControlStateNormal];
+        [self.scrollView addSubview:seeBtn];
+        seeBtn.frame = CGRectMake(kRate(15), 0, self.scrollView.width-kRate(30), kRate(50));
+        seeBtn.bottom = self.scrollView.contentSize.height-kRate(81);
+        [seeBtn setTitle:@"查看医生" forState:UIControlStateNormal];
         [seeBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
         seeBtn.backgroundColor = CD_MainColor;
         seeBtn.titleLabel.font = FONT(TF16);
@@ -49,13 +56,9 @@
     self.notSendBtnCreateSignal = [RACSignal defer:^RACSignal *{
         @strongify(self);
         UIButton *notSendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self addSubview:notSendBtn];
-        [notSendBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(kRate(15));
-            make.bottom.mas_equalTo(-kRate(20));
-            make.height.mas_equalTo(kRate(50));
-            make.right.mas_equalTo(-kRate(15));
-        }];
+        [self.scrollView addSubview:notSendBtn];
+        notSendBtn.frame = CGRectMake(kRate(15), 0, self.scrollView.width-kRate(30), kRate(50));
+        notSendBtn.bottom = self.scrollView.contentSize.height-kRate(20);
         [notSendBtn setTitle:@"暂不发送给医生" forState:UIControlStateNormal];
         [notSendBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
         notSendBtn.backgroundColor = UIColorFromRGB(0xb4c8da);
@@ -77,13 +80,14 @@
     self.terribleViewCreateSignal = [RACSignal defer:^RACSignal *{
         @strongify(self);
         ResultStateTerribleView *terribleView = [ResultStateTerribleView new];
-        [self addSubview:terribleView];
-        [terribleView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView);
-            make.top.mas_equalTo(kRate(80));
-            make.height.mas_greaterThanOrEqualTo(kRate(280));
-        }];
+        [self.scrollView addSubview:terribleView];
+        terribleView.frame = CGRectMake(0, kRate(80), kScreenWidth, kRate(280));
         terribleView.issueSignal = [RACSignal return:[RACTuple tupleWithObjectsFromArray:self.viewModel.dataArray]];
+        CGFloat height = CGRectGetMaxY(terribleView.frame)+kRate(150);
+        if (height < self.scrollView.height) {
+            height = self.scrollView.height;
+        }
+        [self.scrollView setContentSize:CGSizeMake(self.scrollView.width, height)];
         return nil;
     }];
 }

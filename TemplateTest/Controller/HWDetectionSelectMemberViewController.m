@@ -9,6 +9,8 @@
 #import "HWDetectionSelectMemberViewController.h"
 #import "HWDetectionSelectMemberViewModel.h"
 #import "HWDecetionSelectMemberCell.h"
+#import "BaseWebViewModel.h"
+
 @interface HWDetectionSelectMemberViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property(strong, nonatomic)UICollectionView * collectionView;
@@ -56,6 +58,10 @@
     
     UIAlertAction *recordAction = [UIAlertAction actionWithTitle:@"仅记录" style:UIAlertActionStyleDefault handler:^ (UIAlertAction *action){
         @strongify(self);
+        BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+        model.url = kHistory;
+        model.title = @"记录";
+        [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
     }];
     [alertController addAction:recordAction];
     
