@@ -92,7 +92,6 @@
     self.headImageView.layer.borderColor = COLOR_FFFFFF.CGColor;
     self.headImageView.layer.cornerRadius = kRate(30);
     self.headImageView.layer.masksToBounds = true;
-    self.headImageView.layer.backgroundColor = [UIColor redColor].CGColor;
     
     self.describeLabel.font = BOLDFONT(TF16);
     self.describeLabel.textColor = CD_Text;

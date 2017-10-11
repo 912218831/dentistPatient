@@ -82,7 +82,7 @@
 
 + (NSDictionary *)detectionResult {
     return @{
-             @"title":@"选择诊所",
+             @"title":@"检测结果",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };

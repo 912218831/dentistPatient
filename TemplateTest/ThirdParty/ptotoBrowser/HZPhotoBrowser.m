@@ -457,7 +457,9 @@
 //    NSLog(@"%@",NSStringFromCGRect(targetTemp));
     
     UIImageView *tempImageView = [[UIImageView alloc] init];
+    tempImageView.clipsToBounds = true;
     tempImageView.image = currentImageView.image;
+    tempImageView.contentMode = sourceView.contentMode;
     CGFloat tempImageSizeH = tempImageView.image.size.height;
     CGFloat tempImageSizeW = tempImageView.image.size.width;
     if (fabs(tempImageSizeW)  == 0) {

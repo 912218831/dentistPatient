@@ -40,9 +40,9 @@
         } failure:^(NSString *error) {
             NSLog(@"%@",error);
 #if kDetectionResultViewModelDebug
-            for (int i=0; i<6; i++) {
+            for (int i=0; i<3; i++) {
                 NSDictionary *dic = @{
-                                      @"imageUrl": @"http://imgUrl",
+                                      @"imageUrl": @"http://116.62.202.152/api/mouth/pat//upload//20171011//201710110858227440.jpg",
                                       @"title": @"牙菌斑"
                                       };
                 DetectionIssueItemModel *model = [[DetectionIssueItemModel alloc]initWithDictionary:dic error:nil];
@@ -67,7 +67,7 @@
         @strongify(self);
         RecommandDoctorViewModel *vm = [RecommandDoctorViewModel new];
         vm.checkId = self.checkId;
-        vm.needSearchBar = true;
+        vm.needSearchBar = false;
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
     }];
 }

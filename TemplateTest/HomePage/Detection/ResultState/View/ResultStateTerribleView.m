@@ -8,16 +8,22 @@
 
 #import "ResultStateTerribleView.h"
 #import "DetectionIssueItemModel.h"
+#import "HZPhotoBrowser.h"
 
-@interface ResultStateTerribleView ()
+@interface ResultStateTerribleView () <HZPhotoBrowserDelegate>
+@property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *recommandNoteLabel;
+@property (nonatomic, strong) UIView *contentView;
 @end
 
 @implementation ResultStateTerribleView
 
 - (void)initSubViews {
+    self.contentView = [UIView new];
+    [self addSubview:self.contentView];
+    
     self.iconImageView = [UIImageView new];
     [self addSubview:self.iconImageView];
     
@@ -51,35 +57,73 @@
     
     self.recommandNoteLabel.font = FONT(TF16);
     self.recommandNoteLabel.textColor = CD_MainColor;
-    self.recommandNoteLabel.text = @"系统给你推荐了5个地方的医生";
+    self.recommandNoteLabel.text = @"系统正在为你推荐医生";
 }
 
 - (void)setIssueSignal:(RACSignal *)issueSignal {
     @weakify(self);
     [issueSignal subscribeNext:^(RACTuple *x) {
         @strongify(self);
-        __block CGFloat offY = kRate(163);
-        [x.allObjects.rac_sequence foldLeftWithStart:@0 reduce:^id(NSNumber* accumulator, DetectionIssueItemModel *issue) {
-            UILabel *label = [UILabel new];
-            [self addSubview:label];
-            label.font = FONT(TF13);
-            label.textColor = CD_Text99;
-            label.text = [NSString stringWithFormat:@"%@.%@",accumulator,issue.title];
+        CGFloat offY = kRate(163);
+        CGFloat marginX = kRate(15);
+        CGFloat spaceX = kRate(10);
+        CGFloat spaceY = kRate(10);
+        NSInteger colN = 3;
+        CGFloat w = (kScreenWidth - (colN-1)*spaceX - 2*marginX)/colN;
+        CGFloat h = w;
+        
+        self.images = x.allObjects;
+        CGFloat left = marginX;
+        CGFloat top = 0;
+        
+        for (int i=0; i<x.allObjects.count; i++) {
+            NSInteger row = i/colN;
+            NSInteger col = i%colN;
             
-            [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(offY);
-                make.centerX.equalTo(self);
-            }];
-            offY += kRate(20);
-            return @(accumulator.integerValue+1);
-        }];
-        if (x.allObjects.count > 4) {
-            [self.recommandNoteLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.bottom.equalTo(self);
-                make.top.mas_equalTo(offY+kRate(20));
-            }];
+            left = marginX + col * (spaceX + w);
+            top =  row * (spaceY + h);
+            
+            DetectionIssueItemModel *model = [x.allObjects pObjectAtIndex:i];
+            UIImageView *imageView = [UIImageView new];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.imageUrl] placeholderImage:[UIImage imageNamed:@"whiteplaceholder"]];
+            imageView.userInteractionEnabled = true;
+            imageView.tag = 100+i;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+            [imageView addGestureRecognizer:tap];
+            [self.contentView addSubview:imageView];
+            imageView.frame = CGRectMake(left, top, w, h);
         }
-    }];
+        
+        top += spaceY + h;
+        
+        [self.recommandNoteLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.bottom.equalTo(self);
+            make.top.equalTo(self.contentView.mas_bottom).with.offset(kRate(15));
+        }];
+        self.contentView.frame = CGRectMake(0, offY, kScreenWidth, top);
+        self.frame = (CGRect){self.frame.origin, self.frame.size.width, CGRectGetMaxY(self.contentView.frame)+ kRate(60)};
+      }];
+}
+
+- (void)tapAction:(UIGestureRecognizer *)tap {
+    UIView *imageV = tap.view;
+    //启动图片浏览器
+    HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
+    browser.sourceImagesContainerView = self.contentView; // 原图的父控件
+    browser.imageCount = self.images.count; // 图片总数
+    browser.currentImageIndex = (int)[self.contentView.subviews indexOfObject:imageV];
+    browser.delegate = self;
+    [browser show];
+}
+
+- (UIImage *)photoBrowser:(HZPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
+    UIImageView *imageView = [self.contentView.subviews objectAtIndex:index];
+    return imageView.image;
+}
+
+- (NSURL *)photoBrowser:(HZPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+    DetectionIssueItemModel *model = [self.images objectAtIndex:index];
+    return [NSURL URLWithString:model.imageUrl];
 }
 
 @end

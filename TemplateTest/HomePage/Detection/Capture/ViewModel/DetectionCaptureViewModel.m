@@ -48,17 +48,18 @@
         } error:^(NSError *error) {
             [subscriber sendNext:[RACSignal error:error]];
         }];
-        [self post:kDetectionCapturePhotos type:0 params:@{@"checkid":self.checkId} success:^(NSDictionary *response) {
-            NSArray *data = [response arrayObjectForKey:@"data"];
-            for (int i=0; i<data.count; i++) {
-                NSDictionary *dic = [data objectAtIndex:i];
-                DetectionCaptureModel *model = [[DetectionCaptureModel alloc]initWithDictionary:dic error:nil];
-                [self.dataArray addObject:model];
-            }
-            [subscriber sendNext:[RACSignal return:@1]];
-        } failure:^(NSString *error) {
-            [subscriber sendNext:[RACSignal error:Error]];
-        }];
+        [subscriber sendNext:[RACSignal return:@1]];
+//        [self post:kDetectionCapturePhotos type:0 params:@{@"checkid":self.checkId} success:^(NSDictionary *response) {
+//            NSArray *data = [response arrayObjectForKey:@"data"];
+//            for (int i=0; i<data.count; i++) {
+//                NSDictionary *dic = [data objectAtIndex:i];
+//                DetectionCaptureModel *model = [[DetectionCaptureModel alloc]initWithDictionary:dic error:nil];
+//                [self.dataArray addObject:model];
+//            }
+//            [subscriber sendNext:[RACSignal return:@1]];
+//        } failure:^(NSString *error) {
+//            [subscriber sendNext:[RACSignal error:Error]];
+//        }];
         return nil;
     }];
 }
@@ -72,10 +73,10 @@
         [self.hotSignal sendNext:@"ADD"];
         NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
         @weakify(model,self);
-        [self postImage:kDetectionUploadImage type:0 params:@{@"imageFile":imageData,@"checkId":self.checkId} success:^(NSDictionary *response) {
+        [[HWHTTPSessionManger manager]HWPOSTImage:kDetectionUploadImage parameters:@{@"imageFile":imageData,@"checkId":self.checkId} success:^(id responseObject) {
             @strongify(model);
             if (model.uploadFinished) {
-                NSDictionary *data = [response dictionaryObjectForKey:@"data"];
+                NSDictionary *data = [responseObject dictionaryObjectForKey:@"data"];
                 model.Id =  [data stringObjectForKey:@"imgId"];
                 model.needUpload = false;
                 model.uploadSuccess = true;

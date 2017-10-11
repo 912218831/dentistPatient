@@ -175,7 +175,10 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
                               failure:(void (^)(NSString *error))failure
 {
 
-   return  [self POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSMutableDictionary *parDict = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [parDict setPObject:[HWUserLogin currentUserLogin].userkey forKey:@"userkey"];
+    
+   return  [self POST:URLString parameters:parDict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
        for (NSString *dictKey in [parameters allKeys])
        {
            if ([dictKey isEqualToString:@"pubFile"] || [dictKey isEqualToString:@"file"]
