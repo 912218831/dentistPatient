@@ -2,7 +2,7 @@
 //  HWCityModel_CD+CoreDataProperties.h
 //  
 //
-//  Created by 杨庆龙 on 2017/9/26.
+//  Created by 杨庆龙 on 2017/10/11.
 //
 //
 
@@ -15,10 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<HWCityModel_CD *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSString *cityId;
-@property (nullable, nonatomic, copy) NSString *pinyin;
 @property (nullable, nonatomic, copy) NSString *cityFirstChar;
+@property (nullable, nonatomic, copy) NSString *cityId;
+@property (nullable, nonatomic, copy) NSString *name;
+@property (nullable, nonatomic, copy) NSString *pinyin;
+@property (nullable, nonatomic, copy) NSString *pinyinHeader;
 
 @end
 

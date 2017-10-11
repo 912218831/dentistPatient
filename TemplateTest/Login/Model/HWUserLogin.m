@@ -60,13 +60,19 @@ static HWUserLogin *userLogin = nil;
 
 -(void)loadData
 {
-    if ([[HWLoginUser MR_findAll] count] > 0) {
-        HWLoginUser * loginUser = [HWLoginUser MR_findFirst];
-        self.username = loginUser.userName;
-        self.userkey = loginUser.key;
-        self.usertype = loginUser.userType;
-        self.cityName = loginUser.cityName;
+    HWLoginUser * loginUser;
+    if ([HWLoginUser MR_findAll].count) {
+        loginUser = [HWLoginUser MR_findFirst];
     }
+    else
+    {
+        loginUser = [HWLoginUser MR_createEntity];
+    }
+    self.username = loginUser.userName;
+    self.userkey = loginUser.key;
+    self.usertype = loginUser.userType;
+    self.cityName = loginUser.cityName;
+//    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 

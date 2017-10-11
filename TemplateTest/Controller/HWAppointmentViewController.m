@@ -40,6 +40,11 @@
     [super configContentView];
     self.dataArr = [NSArray array];
     [self.view addSubview:self.collectionView];
+    @weakify(self);
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self fetchData];
+    }];
 }
 - (UICollectionView *)collectionView
 {
@@ -137,11 +142,18 @@
         }
         else
         {
+            [self.collectionView.mj_header endRefreshing];
             self.dataArr = [x copy];
             [Utility hideMBProgress:self.view];
             [self.collectionView reloadData];
         }
+    } error:^(NSError *error) {
+        @strongify(self);
+        [Utility hideMBProgress:self.view];
+        [Utility showToastWithMessage:error.localizedDescription];
+        [self.collectionView.mj_header endRefreshing];
     }];
+    
 }
 
 @end

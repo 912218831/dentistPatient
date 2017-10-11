@@ -62,11 +62,12 @@
 - (void)initRequestSignal
 {
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"请求中..."];
         NSMutableDictionary * params = [NSMutableDictionary dictionary];
         [params setPObject:self.appointId forKey:@"applyId"];
         [self post:kAppointDetail params:params success:^(NSDictionary * response) {
             
-            NSLog(@"%@",response);
+//            NSLog(@"%@",response);
             HWAppointDetailModel * model = [MTLJSONAdapter modelOfClass:[HWAppointDetailModel class] fromJSONDictionary:[[response objectForKey:@"data"] objectForKey:@"applyInfo"] error:nil];
             self.detailModel = model;
             self.coupons = [[[[response objectForKey:@"data"] objectForKey:@"coupon"] rac_sequence] foldLeftWithStart:[NSMutableArray array] reduce:^id(NSMutableArray * accumulator, NSDictionary * value) {
@@ -74,7 +75,8 @@
                 [accumulator addObject:couponModel];
                 return accumulator;
             }];
-            [subscriber sendNext:response];
+//            [subscriber sendNext:response];
+            [subscriber sendCompleted];
         } failure:^(NSString * error) {
             [subscriber sendError:customRACError(error)];
         }];
