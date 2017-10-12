@@ -13,6 +13,7 @@
 #endif
 
 #ifdef __OBJC__
+    #import <MJRefresh.h>
     #import <UIKit/UIKit.h>
     #import <WXApi.h>
     #import <MAMapKit/MAMapKit.h>

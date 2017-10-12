@@ -6,8 +6,8 @@
 //  Copyright © 2017年 caijingpeng.haowu. All rights reserved.
 //
 
-#import "BaseListViewController.h"
+#import "BaseViewController.h"
 
-@interface HWCasesViewController : BaseListViewController
+@interface HWCasesViewController : BaseViewController
 
 @end
