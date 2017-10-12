@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self location];
+}
+
+- (void)location{
     @weakify(self);
     [[AppShare shareInstance] startLocation:^{
         @strongify(self);
@@ -37,6 +41,7 @@
         @strongify(self);
         [self.table reloadData];
     }];
+
 }
 
 - (void)configContentView
@@ -152,7 +157,7 @@
         }
         else
         {
-            cell.locationName.text = @"无法定位";
+            cell.locationName.text = kLocationFail_TEXT;
 
         }
         return cell;
@@ -169,12 +174,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1];
-    HWCityModel_CD * cityModel = [self.fetchController objectAtIndexPath:newIndexPath];
-    [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
-        loginUser.cityId = cityModel.cityId;
-        loginUser.cityName = cityModel.name;
-    }];
+    if (indexPath.section == 0) {
+        HWCitySelectLocationCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+        if ([cell.locationName.text isEqualToString:kLocationFail_TEXT]) {
+            [self location];
+        }
+        else
+        {
+            HWUserLogin.currentUserLogin.cityName = cell.locationName.text;
+            [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+        }
+    }
+    else
+    {
+        NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1];
+        HWCityModel_CD * cityModel = [self.fetchController objectAtIndexPath:newIndexPath];
+        [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
+            loginUser.cityId = cityModel.cityId;
+            loginUser.cityName = cityModel.name;
+        }];
+    }
     [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
 }
 

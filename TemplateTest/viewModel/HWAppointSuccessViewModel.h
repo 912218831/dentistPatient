@@ -14,8 +14,11 @@
 @property(strong,nonatomic)NSArray * coupons;
 @property(strong,nonatomic)NSString * sumMoney;
 @property(assign,nonatomic)BOOL isNeedRefreshList;//是否需要刷新列表
+@property(strong,nonatomic)NSString * orderCode;
 @property(strong,nonatomic)RACCommand * payCommand;
 @property(strong,nonatomic)HWAppointCouponModel * selectCoupontModel;
+@property(strong,nonatomic)RACCommand * answerCommand;
+
 - (instancetype)initWithAppointId:(NSString *)appointId;
 
 @end

@@ -107,14 +107,10 @@ static void HKWifiDataCallback(void *userData, char *cBuf, int iLen)
                 [tempmutableArr addObject:model];
             }
             p.wifiListView.dataArr = [tempmutableArr copy];
-            if ( p.wifiListView.frame.origin.y == [UIScreen mainScreen].bounds.size.height) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIView animateWithDuration:0.3 animations:^{
-                        p.wifiListView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-300, [UIScreen mainScreen].bounds.size.width, 300);
-                    }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [p.listDataChannel.followingTerminal sendNext:tempmutableArr];
+            });
 
-                });
-            }
         }
     }
 }
@@ -150,9 +146,9 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         self.refreshCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             @strongify(self);
             [_lanDeviceDict removeAllObjects];
-            int initState = hk_InitLAN((__bridge void *)(self), &HKLanDataCallback);
+            hk_InitLAN((__bridge void *)(self), &HKLanDataCallback);
             //刷新局域网设备，当程序进入后台时，请调用hk_LanRefresh_EX(2);
-            int state = hk_LanRefresh_EX(1);
+            hk_LanRefresh_EX(1);
             return [RACSignal empty];
         }];
         self.playVideoCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString * input) {
@@ -286,11 +282,6 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         
         NSString *deviceID = [NSString stringWithUTF8String:cDevid];
         NSString *strAlias = [[NSString alloc] initWithBytes:cAlias length:strlen(cAlias) encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
-        //                NSString *strVideoType = [NSString stringWithUTF8String:cDevType];
-        //                NSString *strAudioType = [NSString stringWithUTF8String:audioType];
-        //                NSString *strDevAccessPwd = [NSString stringWithUTF8String:cDeviceAccessPwd];
-        //                NSString *strUserAccessPwd = [NSString stringWithUTF8String:cUserAccessPwd];
-        
         HEKAI_DEVICE_DESC deviceDesc;
         memset(&deviceDesc, 0x0, sizeof (deviceDesc));
         strcpy(deviceDesc.alias, cAlias);

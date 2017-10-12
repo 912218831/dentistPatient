@@ -8,6 +8,7 @@
 
 #import "HWAppointSuccessViewModel.h"
 #import "HWAppointCouponModel.h"
+#import "BaseWebViewModel.h"
 @interface HWAppointSuccessViewModel()
 
 @property(strong,nonatomic)NSString * appointId;
@@ -35,7 +36,7 @@
             [params setPObject:self.payType forKey:@"payType"];
             NSURLSessionTask * task = [self post:kCreateOrder params:params success:^(id response) {
                 NSDictionary * dataDic = [response objectForKey:@"data"];
-                
+                self.orderCode = [dataDic objectForKey:@"payEncodeString"];
                 [subscriber sendNext:[dataDic objectForKey:@"payEncodeString"]];
             } failure:^(NSString * error) {
                 [subscriber sendError:customRACError(error)];
@@ -50,6 +51,16 @@
             return paySignal;
         }];
         self.payCommand.allowsConcurrentExecution = YES;
+        
+        self.answerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            //咨询
+            BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+            model.title = @"咨询";
+            model.url = [NSString stringWithFormat:@"%@&checkId=%@",kAnswer,self.detailModel.checkId];
+            [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+            return [RACSignal empty];
+        }];
+
     }
     return self;
 }

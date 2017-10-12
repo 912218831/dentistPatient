@@ -77,19 +77,19 @@
     }];
     [self.viewModel.listDataChannel.leadingTerminal subscribeNext:^(id x) {
         
-        self.listView.lanDeviceDic = x;
+        if ([x isKindOfClass:[NSArray class]]) {
+            //wifi列表
+        }
+        else
+        {
+            self.listView.lanDeviceDic = x;
+        }
     }];
     self.listView.refreshBtn.rac_command = self.viewModel.refreshCommand;
 }
 
 - (void)rightAction
 {
-//    [self stopVideo];
-//    self.decodeSDK = [[HKDecodeSDK alloc] initWithDelegate:self];
-//    hk_InitLAN((__bridge void *)(self), &HKLanDataCallback);
-//    //刷新局域网设备，当程序进入后台时，请调用hk_LanRefresh_EX(2);
-//    hk_LanRefresh_EX(1);
-//    NSLog(@"刷新");
     [self.viewModel.refreshCommand execute:nil];
 }
 

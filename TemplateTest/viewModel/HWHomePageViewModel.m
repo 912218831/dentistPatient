@@ -43,12 +43,37 @@
     self.bannerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * index) {
        
         NSLog(@"%@",index);
+        HWHomePageBannerModel * bannerModel = [self.bannerModels pObjectAtIndex:index.integerValue];
+        BaseWebViewModel * webViewModel = [BaseWebViewModel new];
+        webViewModel.url = bannerModel.targetUrl;
+        webViewModel.title = bannerModel.title;
+        [[ViewControllersRouter shareInstance] pushViewModel:webViewModel animated:YES];
         return [RACSignal empty];
     }];
     
-    self.pushItemCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * index) {
+    self.pushItemCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath * indexPath) {
        
-        NSLog(@"%@",index);
+        NSLog(@"%@",indexPath);
+        if (indexPath.section == 1) {
+            HWHomePagePushItemModel * model = [self.pushitems pObjectAtIndex:indexPath.row];
+            BaseWebViewModel * webViewModel = [BaseWebViewModel new];
+            webViewModel.url = model.targetUrl;
+            webViewModel.title = model.title;
+            [[ViewControllersRouter shareInstance] pushViewModel:webViewModel animated:YES];
+
+        }
+        else if(indexPath.section == 2)
+        {
+            HWHomePageLastRecordModel * model = [self.lastRecords pObjectAtIndex:indexPath.row];
+
+//            [[ViewControllersRouter shareInstance] pushViewModel:webViewModel animated:YES];
+
+        }
+        else
+        {
+            
+        }
+
         return [RACSignal empty];
     }];
     
@@ -102,8 +127,8 @@
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
        
         NSMutableDictionary * params = [NSMutableDictionary dictionary];
-//        [params setPObject:@"北京" forKey:@"cityname"];
-        [params setPObject:@"010" forKey:@"cityCode"];
+        [params setPObject:[HWUserLogin currentUserLogin].cityName forKey:@"cityname"];
+        [params setPObject:[HWUserLogin currentUserLogin].cityId forKey:@"cityCode"];
         NSDictionary * maps = @{@"topImages":@"HWHomePageBannerModel",@"pushitem":@"HWHomePagePushItemModel",@"lastRecord":@"HWHomePageLastRecordModel"};
         __block NSInteger index = 0;
         @weakify(self);
