@@ -42,12 +42,6 @@
     self.answerBtn.contentMode = UIViewContentModeCenter;
     [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
     [self.view addSubview:self.answerBtn];
-    self.table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
-        
-        NSLog(@"刷新");
-        [self.table.mj_header endRefreshing];
-    }];
-
 }
 
 - (UITableView *)table

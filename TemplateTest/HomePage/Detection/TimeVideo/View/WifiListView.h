@@ -20,7 +20,8 @@
 @property(strong,nonatomic)NSDictionary * lanDeviceDic;
 @property(strong,nonatomic)NSArray * dataArr;
 @property(strong,nonatomic)id<WifiListViewDelegate>  delegate;
-
+@property(strong,nonatomic)RACCommand * selectDeviceCommand;
+@property(strong,nonatomic)RACCommand * selectWifiCommand;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIButton *refreshBtn;
 

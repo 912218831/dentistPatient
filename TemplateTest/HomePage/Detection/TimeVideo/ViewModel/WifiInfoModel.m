@@ -33,4 +33,24 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    WifiInfoModel * model = [WifiInfoModel new];
+    model.sid = self.sid;
+    model.entype = self.entype;
+    model.satype = self.satype;
+    model.macInfo = self.macInfo;
+    return model;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    WifiInfoModel * model = [WifiInfoModel new];
+    model.sid = self.sid;
+    model.entype = self.entype;
+    model.satype = self.satype;
+    model.macInfo = self.macInfo;
+    return model;
+}
+
 @end

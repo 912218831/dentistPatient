@@ -11,6 +11,7 @@
 @interface HWAppointWaitingViewModel : BaseViewModel
 @property(strong,nonatomic,readonly)HWAppointDetailModel * detailModel;
 @property(strong,nonatomic)RACCommand * cancelCommand;
+@property(strong,nonatomic)RACCommand * answerCommand;
 - (instancetype)initWithAppointId:(NSString *)appointId;
 
 @end

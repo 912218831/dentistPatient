@@ -20,5 +20,6 @@
 - (void)startLocation:(void(^)())locationSuccess locactionFail:(void(^)())locationFail;
 
 - (UIViewController *)checkUserType;
-
+- (NSString *)getCurrentWifiName;
+- (NSString *)getIPAddress;
 @end

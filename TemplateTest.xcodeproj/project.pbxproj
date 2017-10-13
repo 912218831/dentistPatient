@@ -39,6 +39,7 @@
 		B00099E41F8CC39800E13DCF /* BaseWebViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099E31F8CC39700E13DCF /* BaseWebViewModel.m */; };
 		B00099E71F8CF7A400E13DCF /* answer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00099E51F8CF77100E13DCF /* answer@2x.png */; };
 		B00099E81F8CF7A400E13DCF /* answer@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00099E61F8CF79200E13DCF /* answer@3x.png */; };
+		B00099EC1F8E0A9500E13DCF /* HWMarginLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099EB1F8E0A9500E13DCF /* HWMarginLabel.m */; };
 		B007EA011F6A53B100498824 /* HWAppointWaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */; };
 		B007EA051F6A56D700498824 /* HWAppointSuccessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */; };
 		B007EA061F6A56D700498824 /* HWAppointSuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */; };
@@ -460,6 +461,8 @@
 		B00099E31F8CC39700E13DCF /* BaseWebViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewModel.m; sourceTree = "<group>"; };
 		B00099E51F8CF77100E13DCF /* answer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "answer@2x.png"; sourceTree = "<group>"; };
 		B00099E61F8CF79200E13DCF /* answer@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "answer@3x.png"; sourceTree = "<group>"; };
+		B00099EA1F8E0A9500E13DCF /* HWMarginLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWMarginLabel.h; sourceTree = "<group>"; };
+		B00099EB1F8E0A9500E13DCF /* HWMarginLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWMarginLabel.m; sourceTree = "<group>"; };
 		B007E9FF1F6A53B100498824 /* HWAppointWaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointWaitingViewController.h; sourceTree = "<group>"; };
 		B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointWaitingViewController.m; sourceTree = "<group>"; };
 		B007EA021F6A56D700498824 /* HWAppointSuccessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointSuccessCell.h; sourceTree = "<group>"; };
@@ -1326,6 +1329,15 @@
 				8FBCD6549C9F42925DE3091E /* libPods-TemplateTest.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B00099E91F8E0A7700E13DCF /* HWMarginLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B00099EA1F8E0A9500E13DCF /* HWMarginLabel.h */,
+				B00099EB1F8E0A9500E13DCF /* HWMarginLabel.m */,
+			);
+			path = HWMarginLabel;
 			sourceTree = "<group>";
 		};
 		B02770C61F6A75720044A417 /* HWDashView */ = {
@@ -2622,6 +2634,7 @@
 		DA3DFF061ADE78ED00C4E99A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				B00099E91F8E0A7700E13DCF /* HWMarginLabel */,
 				B02770C61F6A75720044A417 /* HWDashView */,
 				B0431C411F6A1828001A2FD4 /* HWStarLevelView */,
 				C50899771F6ACD400013AE02 /* Plice */,
@@ -3125,6 +3138,7 @@
 				C50899841F6AD82B0013AE02 /* PopoverViewCell.m in Sources */,
 				B0DD98031F61654200EDD17B /* HWTabBarViewController.m in Sources */,
 				C50F95BE1F760FB200193234 /* WechatUserInfo.m in Sources */,
+				B00099EC1F8E0A9500E13DCF /* HWMarginLabel.m in Sources */,
 				C5CCBB741F6976B1003A4B8C /* HZPhotoBrowserView.m in Sources */,
 				B0381C7B1F792F4100C5E172 /* HWCityModel_CD+CoreDataClass.m in Sources */,
 				C50029DD1F6CD9790064DFEE /* DetectionResultViewModel.m in Sources */,
@@ -3557,7 +3571,6 @@
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aadf572f-6def-4a98-b17e-17965f8619eb";
 				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
 				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -341,6 +341,7 @@
     {
         [targetArray exchangeObjectAtIndex:i withObjectAtIndex:(targetArray.count - 1 - i)];
     }
+    [targetArray reverseObjectEnumerator];
 }
 
 /**
@@ -541,16 +542,6 @@
     return left_btn;
 }
 
-+ (UIBarButtonItem *)navWalletButton:(id)_target action:(SEL)selector
-{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(280, 0, 60, 44);
-    [btn setImage:[UIImage imageNamed:@"topmore"] forState:UIControlStateNormal];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(13, 20 + 10, 13, 0);
-    [btn addTarget:_target action:selector forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    return item;
-}
 
 /**
  *  根据图片生成barbuttonitem

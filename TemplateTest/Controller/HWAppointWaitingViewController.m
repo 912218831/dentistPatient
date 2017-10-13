@@ -13,13 +13,15 @@
 @property(strong,nonatomic)UITableView * table;
 @property(strong,nonatomic)UIButton * cancelBtn;
 @property(strong,nonatomic)HWAppointWaitingViewModel * viewModel;
-
+@property(strong,nonatomic)UIButton * answerBtn;
 @end
 
 @implementation HWAppointWaitingViewController
 @dynamic viewModel;
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (void)configContentView
+{
+    [super configContentView];
     [self.view addSubview:self.table];
     [self configTableViewHeaderAndFooter];
     self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.table.bottom, kScreenWidth, 50)];
@@ -27,7 +29,12 @@
     [self.cancelBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
     self.cancelBtn.backgroundColor = COLOR_B5C8D9;
     [self.view addSubview:self.cancelBtn];
-
+    self.answerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 50, 0, 50, 32)];
+    self.answerBtn.centerY = self.cancelBtn.top;
+    self.answerBtn.contentMode = UIViewContentModeCenter;
+    [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
+    [self.view addSubview:self.answerBtn];
+    
 }
 
 - (UITableView *)table
@@ -87,16 +94,18 @@
 {
     [super bindViewModel];
     [self.viewModel initRequestSignal];
-    [self.viewModel.requestSignal subscribeNext:^(id x) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.table reloadData];
-        });
-
+    [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(NSString * x) {
+        [Utility showMBProgress:self.view message:x];
     } error:^(NSError *error) {
+        [Utility hideMBProgress:self.view];
         [Utility showToastWithMessage:error.localizedDescription];
+    } completed:^{
+        [Utility hideMBProgress:self.view];
+        [self.table reloadData];
     }];
     [self.viewModel execute];
     self.cancelBtn.rac_command = self.viewModel.cancelCommand;
+    self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
 
 

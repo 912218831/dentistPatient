@@ -30,9 +30,9 @@
             HWAppointSuccessViewModel * successViewModel = [[HWAppointSuccessViewModel alloc] initWithAppointId:model.appointId];
             [[ViewControllersRouter shareInstance] pushViewModel:successViewModel animated:YES];
         }
-        else
+        else if([model.state isEqualToString:@"4"])
         {
-            //失败
+            //等待病人确定
             HWAppointFailViewModel * failViewModel = [[HWAppointFailViewModel alloc] initWithAppointId:model.appointId];
             @weakify(self);
             [failViewModel.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
@@ -47,6 +47,15 @@
             
             [[ViewControllersRouter shareInstance] pushViewModel:failViewModel animated:YES];
 
+        }
+        else if([model.state isEqualToString:@"5"])
+        {
+            //完成
+            
+        }
+        else
+        {
+            
         }
         return [RACSignal empty];
     }];

@@ -13,8 +13,13 @@
 @property(strong,nonatomic)RACCommand * refreshCommand;
 
 @property(strong,nonatomic)RACChannel * listDataChannel;
-@property(strong,nonatomic)RACCommand * playVideoCommand;
+@property(strong,nonatomic)RACCommand * selectDeviceCommand;
+@property(strong,nonatomic)RACCommand * setLanCommand;
 @property(strong,nonatomic,readonly)HKDisplayView * displayView;
 @property (nonatomic, strong) UIImage *captureImage;
+@property(strong,nonatomic)RACCommand * startVideoCommand;//开始录像
+@property(strong,nonatomic)RACCommand * quitVideo;//退出录像
+@property(strong,nonatomic)RACCommand * resetCommand;
+@property(strong,nonatomic)RACCommand * openLightCommand;
 @property (nonatomic, copy) void (^takePhoto)(UIImage *image);
 @end

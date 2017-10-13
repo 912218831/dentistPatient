@@ -18,20 +18,27 @@
 @property(strong,nonatomic)UICollectionView * collectionView;
 @property(strong,nonatomic)HWAppointSuccessViewModel * viewModel;
 @property(strong,nonatomic)UIButton * payBtn;
+@property(strong,nonatomic)UIButton * answerBtn;
 @property(strong,nonatomic)HWAppointCouponModel * selectCouponModel;
 @end
 
 @implementation HWAppointSuccessViewController
 @dynamic viewModel;
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (void)configContentView
+{
+    [super configContentView];
     [self.view addSubview:self.collectionView];
     self.payBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.collectionView.bottom, kScreenWidth, 50)];
     [self.payBtn setTitle:@"支付" forState:UIControlStateNormal];
     [self.payBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
     self.payBtn.backgroundColor = COLOR_28BEFF;
     [self.view addSubview:self.payBtn];
-
+    self.answerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 50, 0, 50, 32)];
+    self.answerBtn.centerY = self.payBtn.top;
+    self.answerBtn.contentMode = UIViewContentModeCenter;
+    [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
+    [self.view addSubview:self.answerBtn];
 }
 
 - (UICollectionView *)collectionView
@@ -166,12 +173,7 @@
     [super bindViewModel];
     [self.viewModel initRequestSignal];
     @weakify(self);
-    [self.viewModel.requestSignal subscribeNext:^(id x) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-        });
-    } error:^(NSError *error) {
-        [Utility showToastWithMessage:error.localizedDescription];
-    }];
+
     [[self.viewModel.requestSignal deliverOnMainThread]subscribeNext:^(NSString * x) {
         @strongify(self);
         [Utility showMBProgress:self.view message:x];
@@ -197,9 +199,38 @@
             if (x.integerValue == 0) {
                 //支付宝
                 [[[self.viewModel.payCommand execute:x] deliverOnMainThread] subscribeNext:^(NSString * x) {
+                    @weakify(self);
                     [[AlipaySDK defaultService] payOrder:x fromScheme:kAliPay callback:^(NSDictionary *resultDic) {
-                        
-                        
+                        @strongify(self);
+//                        if([[resultDic objectForKey:@"resultStatus"] isEqualToString:@"6001"] || [[resultDic objectForKey:@"resultStatus"] isEqualToString:@"6002"])
+//                        {
+//                            //6001用户取消 6002网络错误 可以重新支付
+//
+//                        }
+//                        else
+//                        {
+                            NSMutableDictionary * params = [NSMutableDictionary dictionary];
+                            [params setPObject:self.viewModel.orderCode forKey:@"orderCode"];
+                            if([[resultDic objectForKey:@"resultStatus"] isEqualToString:@"9000"])
+                            {
+                                //支付成功
+                                [params setPObject:@"1" forKey:@"state"];
+
+                            }
+                            else
+                            {
+                                //支付失败
+                                [params setPObject:@"2" forKey:@"state"];
+
+                            }
+                            HWHTTPSessionManger * manager = [HWHTTPSessionManger manager];
+                            [manager HWPOST:kPayCallBack parameters:params success:^(id responese) {
+                                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+                            } failure:^(NSString *code, NSString *error) {
+                                [Utility showToastWithMessage:error];
+                                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+                            }];
+//                        }
                     }];
 
                 } error:^(NSError *error) {
@@ -220,8 +251,8 @@
         [actionSheet showInView:SHARED_APP_DELEGATE.window];
     }];
     
-    
     RAC(self.viewModel,selectCoupontModel) = RACObserve(self, selectCouponModel);
+    self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
 
 
