@@ -40,6 +40,7 @@
 @property(strong,nonatomic)NSString * macWifi;
 @property(strong,nonatomic)WifiListView * wifiListView;
 @property(strong,nonatomic)NSArray * wifiList;
+@property(strong,nonatomic)AFNetworkReachabilityManager * networkManager;
 
 @end
 
@@ -126,10 +127,27 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
 {
     self = [super init];
     if (self) {
-        UIWebView * web = [[UIWebView alloc] initWithFrame:CGRectMake(200, 0, 100, 100)];
-//        [self.view addSubview:web];
-//        web.delegate = self;
-        [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+        self.networkManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
+        [self.networkManager startMonitoring];
+        [self.networkManager  setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case AFNetworkReachabilityStatusNotReachable:
+                    NSLog(@"不可用");
+                    break;
+                case AFNetworkReachabilityStatusUnknown:
+                    NSLog(@"未知网络");
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                    NSLog(@"无线网络");
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                    NSLog(@"4g");
+                    break;
+                default:
+                    break;
+            }
+        }];
+
         _connectingType = ConnectingTypeNone;
 //        _isLocal = YES;
         self.lanDeviceDict = [NSMutableDictionary dictionaryWithCapacity:0];
@@ -142,6 +160,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         hk_InitLAN((__bridge void *)(self), &HKLanDataCallback);
         InitGetWifiSid((__bridge void *)(self), &HKWifiDataCallback);
         hk_InitWAN((__bridge void *)(self), &HKSystemCallback);
+        hk_LanRefresh_EX(1);
         @weakify(self);
         self.refreshCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             @strongify(self);
@@ -151,10 +170,47 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
             hk_LanRefresh_EX(1);
             return [RACSignal empty];
         }];
-        self.playVideoCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString * input) {
+        self.selectDeviceCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString * input) {
             @strongify(self);
             self.selectedDeviceID  = input;
-            [self playVideo];
+            if (![[[AppShare shareInstance] getCurrentWifiName] isEqualToString:@"HD99S-10"]) {
+                //网络可用
+                [self playVideo];
+                [self.startVideoCommand execute:nil];
+            }
+            else
+            {
+                HekaiDeviceDesc *device = [self.lanDeviceDict objectForKey:input];
+                DoLanGetWifiSid(device.deviceDesc.localDeviceId, [self.macWifi UTF8String], 0);
+
+            }
+//            [self playVideo];
+            return [RACSignal empty];
+        }];
+        self.setLanCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(RACTuple * input) {
+            WifiInfoModel * model = input.third;
+            NSString * str = [NSString stringWithFormat:@"sid2=%@;pswd=%@;mac=%@;satype=%@;entype=%@;",input.first,input.second,self.macWifi,model.satype,model.entype];
+            NSLog(@"%@",str);
+            HekaiDeviceDesc *device = [_lanDeviceDict objectForKey:self.selectedDeviceID];
+            int state = SetLanWifi(1, 1, device.deviceDesc.localDeviceId, [str UTF8String]);
+
+            return [RACSignal empty];
+        }];
+        self.quitVideo = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            [self stopVideo];
+            hk_DoLanClose(_operationDevice.videoCallid.UTF8String);
+            hk_UnInitLAN();
+            return [RACSignal empty];
+        }];
+        self.resetCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            HekaiDeviceDesc *device = [_lanDeviceDict objectForKey:self.selectedDeviceID];
+            SetLanWifi(1, 0, device.deviceDesc.localDeviceId, "");
+            return [RACSignal empty];
+        }];
+        self.openLightCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(UIButton * input) {
+            HekaiDeviceDesc *device = [_lanDeviceDict objectForKey:self.selectedDeviceID];
+            input.selected = !input.selected;
+            hk_LanAperture(device.deviceDesc.localDeviceId,input.selected,0);
             return [RACSignal empty];
         }];
         self.listDataChannel = [[RACChannel alloc] init];
@@ -201,7 +257,6 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
     
     NSLog(@"%@",macStr);
     self.macWifi = macStr;
-    DoLanGetWifiSid(desc.localDeviceId, [macStr UTF8String], 0);
 }
 
 
@@ -480,5 +535,15 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
 {
     //                NSLog(@"audio frameDesc->length %d, frameDesc->media %p", frameDesc->length, frameDesc->media);
     [_displayView playListenAudio:frameDesc->media length:frameDesc->length];
+}
+
+- (void)snapShotFailed:(NSError *)error
+{
+    [Utility showToastWithMessage:error.localizedDescription];
+}
+
+- (void)snapShotSuccess:(UIImage *)captureImg
+{
+    self.captureImage = captureImg;
 }
 @end

@@ -66,8 +66,6 @@
 //创建navigation 右按钮是字的
 + (UIBarButtonItem *)navRightBackBtn:(id)_target action:(SEL)selector imageStr:(NSString *)imageStr;
 
-// 提现
-+ (UIBarButtonItem *)navWalletButton:(id)_target action:(SEL)selector;
 
 //创建navigation 右按钮是图片的
 + (UIBarButtonItem *)navButton:(id)_target action:(SEL)selector image:(UIImage *)image;
@@ -179,7 +177,6 @@
 
 + (NSString *)getTimeStampForUnix;
 
-+ (NSString *)societyEncryptParameter:(NSMutableDictionary *)parDict;
 + (NSString *)moneyEncryptParameter:(NSMutableDictionary *)parameters;
 + (NSString *)encryptParameter:(NSDictionary *)dic;
 

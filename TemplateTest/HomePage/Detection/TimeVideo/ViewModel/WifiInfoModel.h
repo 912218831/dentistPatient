@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WifiInfoModel : NSObject
+@interface WifiInfoModel : NSObject<NSCopying,NSMutableCopying>
 @property(strong,nonatomic)NSString * sid;
 @property(strong,nonatomic)NSString * entype;
 @property(strong,nonatomic)NSString * satype;

@@ -13,7 +13,7 @@
 - (void)sendSpeakerAudio:(uint8_t *)audio length:(uint32_t)length;
 - (void)snapShotFailed:(NSError *)error;
 - (void)singleTapOnHKDisplayView;
-
+- (void)snapShotSuccess:(UIImage *)captureImg;
 @end
 
 @interface HKDisplayView : UIView
@@ -37,4 +37,5 @@
 - (void)resetFrame;
 
 - (void)snapCurrentVideo;
+
 @end

@@ -261,7 +261,7 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
      */
     
     UIImage *bmpImage = nil;
-    bmpImage = [UIImage imageWithCGImage:imageRef scale:[[UIScreen mainScreen] scale] orientation:UIImageOrientationDownMirrored];
+    bmpImage = [UIImage imageWithCGImage:imageRef scale:[[UIScreen mainScreen] scale] orientation:UIImageOrientationUp];
 
 //    if (0 == flip) {
 //    } else if (1 == flip) {
@@ -271,22 +271,30 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
 //    } else if (3 == flip) {
 //        bmpImage = [UIImage imageWithCGImage:imageRef scale:1.0f orientation:UIImageOrientationUpMirrored];
 //    }
-
+    if (bmpImage) {
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)]) {
+            [self.delegate snapShotSuccess:bmpImage];
+        }
+        else if(self.delegate != nil && [self.delegate respondsToSelector:@selector(snapShotFailed:)])
+        {
+            [self.delegate snapShotFailed:customRACError(@"抓取失败")];
+        }
+    }
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpaceRef);
     //抓拍快门声
     AudioServicesPlaySystemSound(cameraSoundID);
-
+    _snapShotStruct.bNeedSnapShot = NO;
     return nil;
 }
 - (void)displayVideo:(void *)video videoWidth:(uint32_t)videoWidth videoHeight:(uint32_t)videoHeight
 {
+        NSString * media = [NSString stringWithFormat:@"%s",video];
         //fliptype  0正常   1水平   2垂直, 水平翻转时旋转控件，其他翻转旋转画面
         [_dispMan.currentDisplay displayVideo:video videoWidth:videoWidth videoHeight:videoHeight orientation:0 drawRecordFlag:NO];
-        
         [_snapShotLock lock];
-        if (_snapShotStruct.bNeedSnapShot) {
+        if (_snapShotStruct.bNeedSnapShot && media.length != 0) {
                 //抓拍
                 uint8_t *rgb24 = (uint8_t *)malloc(videoWidth * videoWidth * 3);
                 BOOL captureSuccess = NO;
