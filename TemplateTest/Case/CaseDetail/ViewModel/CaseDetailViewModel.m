@@ -27,10 +27,13 @@
             }]];
             NSData *imageData = UIImageJPEGRepresentation(x, 0.8);
             [self postImage:kDetectionUploadReports type:0 params:@{@"imageFile":imageData,@"checkId":self.model.Id,@"userkey":[HWUserLogin currentUserLogin].userkey} success:^(NSDictionary *response) {
+#if 0
                 NSDictionary *imageItem = [response dictionaryObjectForKey:@"data"];
                 CaseDetailImageModel *imageModel = [[CaseDetailImageModel alloc]initWithDictionary:imageItem error:nil];
                 [self.model.images addObject:imageModel];
                 [self caculateCellHeight];
+#endif
+                [self execute];
                 [subscriber sendNext:[RACSignal empty]];
             } failure:^(NSString *error) {
                 [subscriber sendNext:[RACSignal error:Error]];
