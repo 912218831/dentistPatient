@@ -156,7 +156,7 @@
         self.nameLabel.text = model.name;
         self.hospitalLabel.text = model.clinicName;
         self.orderedLabel.text = [NSString stringWithFormat:@"%@人预约过",model.patientCount];
-        self.headImageView.backgroundColor = [UIColor redColor];
+        self.headImageView.backgroundColor = CD_LIGHT_BACKGROUND;
         NSString *text = [NSString stringWithFormat:@"已有%@预约成功",model.patientCount];
         NSString *price = [NSString stringWithFormat:@"¥%@",model.averagePaice];
         self.leftView.valueSignal = [RACSignal return:RACTuplePack(price,text)];

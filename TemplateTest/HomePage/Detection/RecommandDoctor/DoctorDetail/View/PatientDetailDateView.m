@@ -81,7 +81,7 @@
                 self.selectedLabel.textColor = CD_Text99;
                 if (self.selectedLabel == label) {
                     label.iconImageView.hidden = true;
-                    [channel.leadingTerminal sendNext:[NSIndexPath indexPathForRow:0 inSection:0 ]];
+                    [channel.leadingTerminal sendNext:nil];
                     self.selectedLabel = nil;
                 } else {
                     self.selectedLabel.iconImageView.hidden = true;

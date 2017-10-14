@@ -63,6 +63,7 @@
     [Utility showMBProgress:self.contentView message:nil];
     [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
+        self.listView.isLastPage = true;
         [self.listView.baseTable reloadData];
     } error:^(NSError *error) {
         
@@ -109,7 +110,11 @@
         DoctorDetailDateMapCell *cell = [[DoctorDetailDateMapCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([DoctorDetailTimeListModel class])];
         cell.valueSignal = [RACSignal return:self.viewModel.annotation];
         cell.datesSignal = [RACSignal return:[RACTuple tupleWithObjectsFromArray:self.viewModel.dataArray.lastObject]];
-        RAC(self.viewModel, selectDateIndexPath) = cell.dateView.didSelectDateSiganl;
+        @weakify(self);
+        [cell.dateView.didSelectDateSiganl subscribeNext:^(id x) {
+            @strongify(self);
+            self.viewModel.selectDateIndexPath = x;
+        }];
         [cell drawBottomLine];
         return cell;
     }
