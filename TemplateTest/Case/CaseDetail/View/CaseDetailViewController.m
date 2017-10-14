@@ -28,6 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [(HWTabBarViewController *)SHARED_APP_DELEGATE.viewController setTabBarHidden:true animated:YES];
 }
 

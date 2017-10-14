@@ -29,7 +29,7 @@
     _model = model;
     [self.iconImgV sd_setImageWithURL:[NSURL URLWithString:model.thumbnailUrl] placeholderImage:placeHoderImg];
     self.recodeName.text = model.patintName;
-    self.recordDescription.text = model.machineReport;
+    self.recordDescription.text = model.imageCount;
     self.recordTime.text = model.time;
 }
 

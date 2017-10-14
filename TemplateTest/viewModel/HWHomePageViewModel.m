@@ -14,6 +14,7 @@
 #import "HWCitySelectViewModel.h"
 #import "BaseWebViewModel.h"
 #import "RecommandDoctorViewModel.h"
+#import "CaseDetailViewModel.h"
 @implementation HWHomePageViewModel
 
 - (instancetype)init
@@ -65,15 +66,13 @@
         else if(indexPath.section == 2)
         {
             HWHomePageLastRecordModel * model = [self.lastRecords pObjectAtIndex:indexPath.row];
-
-//            [[ViewControllersRouter shareInstance] pushViewModel:webViewModel animated:YES];
-
+            CaseDetailViewModel * caseDetailVM = [[CaseDetailViewModel alloc] initWithCaseId:model.recodeId];
+            [[ViewControllersRouter shareInstance] pushViewModel:caseDetailVM animated:YES];
         }
         else
         {
             
         }
-
         return [RACSignal empty];
     }];
     

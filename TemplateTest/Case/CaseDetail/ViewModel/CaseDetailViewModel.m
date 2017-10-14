@@ -8,9 +8,22 @@
 
 #import "CaseDetailViewModel.h"
 
+@interface CaseDetailViewModel()
+
+@property(strong,nonatomic)NSString * caseId;
+
+@end
 @implementation CaseDetailViewModel
 @dynamic model;
 
+- (instancetype)initWithCaseId:(NSString *)caseId
+{
+    self = [super init];
+    if (self) {
+        self.caseId = [caseId copy];
+    }
+    return self;
+}
 
 - (void)bindViewWithSignal {
     [super bindViewWithSignal];
@@ -47,7 +60,7 @@
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self post:kCaseDetail type:0 params:@{@"id":self.caseModel.Id} success:^(NSDictionary* response) {
+        [self post:kCaseDetail type:0 params:@{@"id":self.caseId} success:^(NSDictionary* response) {
             NSLog(@"%@",response);
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSDictionary *info = [data dictionaryObjectForKey:@"info"];

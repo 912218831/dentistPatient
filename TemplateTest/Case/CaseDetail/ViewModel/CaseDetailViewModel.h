@@ -21,4 +21,6 @@
 
 @property (nonatomic, strong) UIImage *waitUploadImage;
 @property (nonatomic, strong) RACSignal *uploadImageSignal;
+
+- (instancetype)initWithCaseId:(NSString *)caseId;
 @end

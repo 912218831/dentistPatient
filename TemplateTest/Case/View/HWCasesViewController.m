@@ -174,8 +174,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CaseDetailViewModel *vm = [CaseDetailViewModel new];
-    vm.caseModel = [self.viewModel.dataArray pObjectAtIndex:indexPath.row];
+    CaseItemModel * caseModel = [self.viewModel.dataArray pObjectAtIndex:indexPath.row];
+    CaseDetailViewModel *vm = [[CaseDetailViewModel alloc] initWithCaseId:caseModel.Id];
+    vm.caseModel = caseModel;
     [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
 }
 
