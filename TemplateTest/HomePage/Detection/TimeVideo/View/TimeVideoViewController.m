@@ -132,6 +132,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)backMethod {
+    [super backMethod];
+    //self.viewModel.takePhoto([UIImage imageNamed:@"beautiful.jpg"]);
+}
 
 - (void)dealloc
 {
