@@ -14,6 +14,13 @@
 @implementation DetectionCaptureViewModel
 @dynamic model;
 
+- (NSString *)checkId {
+    if (_checkId.length) {
+        return _checkId;
+    }
+    return @"";
+}
+
 - (void)bindViewWithSignal {
     [super bindViewWithSignal];
     

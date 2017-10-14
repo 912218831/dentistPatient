@@ -11,6 +11,13 @@
 
 @implementation RecommandDoctorViewModel
 
+- (NSString *)checkId {
+    if (_checkId.length) {
+        return _checkId;
+    }
+    return @"";
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.annotations = [NSMutableArray array];
