@@ -20,6 +20,9 @@
  "patintAgreedFlag": "1",
  "createTime": "2017-09-10 23:28:50",
  "state": "4",
+ payInfo = "";
+ state = 1;
+ stateDes = "\U7b49\U5f85\U533b\U751f\U786e\U8ba4";
  "patintName": "\u5bb6\u5ead\u6210\u545801",
  "dentistName": "\u5f20\u533b\u751f",
  "patientCount": "0",
@@ -54,6 +57,7 @@
 
 @property(copy,nonatomic)NSString * headImgUrl;
 @property(copy,nonatomic)NSString * stateDes;
+@property(copy,nonatomic)NSString * payInfo;
 
 @property(copy,nonatomic)NSString * address;
 @property(copy,nonatomic)NSString * longitude ;

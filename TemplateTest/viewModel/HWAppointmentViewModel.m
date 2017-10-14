@@ -11,6 +11,7 @@
 #import "HWAppointFailViewModel.h"
 #import "HWAppointSuccessViewModel.h"
 #import "HWAppointWaitingViewModel.h"
+#import "HWAppointFinishViewModel.h"
 @implementation HWAppointmentViewModel
 
 - (void)bindViewWithSignal
@@ -51,6 +52,8 @@
         else if([model.state isEqualToString:@"5"])
         {
             //完成
+            HWAppointFinishViewModel * finishViewModel = [[HWAppointFinishViewModel alloc] initWithAppointId:model.appointId];
+            [[ViewControllersRouter shareInstance] pushViewModel:finishViewModel animated:YES];
             
         }
         else

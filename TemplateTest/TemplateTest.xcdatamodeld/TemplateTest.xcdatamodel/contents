@@ -10,7 +10,7 @@
     <entity name="HWLoginUser" representedClassName="HWLoginUser" syncable="YES">
         <attribute name="cityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cityName" optional="YES" attributeType="String" defaultValueString="北京" syncable="YES"/>
-        <attribute name="key" optional="YES" attributeType="String" defaultValueString="333d4fab17bd2990248d3e6a9d3e772a" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userPhone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>

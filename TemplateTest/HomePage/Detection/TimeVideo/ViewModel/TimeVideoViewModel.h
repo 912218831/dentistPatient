@@ -21,5 +21,6 @@
 @property(strong,nonatomic)RACCommand * quitVideo;//退出录像
 @property(strong,nonatomic)RACCommand * resetCommand;
 @property(strong,nonatomic)RACCommand * openLightCommand;
+
 @property (nonatomic, copy) void (^takePhoto)(UIImage *image);
 @end

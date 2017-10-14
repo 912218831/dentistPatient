@@ -135,31 +135,22 @@
     HWLoginTelphoneCell * cell = [tableView dequeueReusableCellWithIdentifier:@"loginTelPhoneCell" forIndexPath:indexPath];
     self.viewModel.loginCellModel = cell.viewModel;
     self.loginBtn.rac_command = self.viewModel.loginCommand;
-    
+    @weakify(self);
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        
-        //调试
-        
-        HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
-        [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
-            
-//            self.view.hidden = true;
-            [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
-                SHARED_APP_DELEGATE.viewController = targetVC;
-                [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
-            }];
-        }];
-
-        
-//        [self.viewModel.loginCommand execute:nil];
+        @strongify(self);
+        [self.viewModel.loginCommand execute:nil];
     }];
    
     
     [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
-            SHARED_APP_DELEGATE.viewController = targetVC;
-            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+            
+            //            self.view.hidden = true;
+            [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                SHARED_APP_DELEGATE.viewController = targetVC;
+                [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+            }];
         }];
     }];
     [self.viewModel.loginCommand.errors subscribeNext:^(NSError * error) {

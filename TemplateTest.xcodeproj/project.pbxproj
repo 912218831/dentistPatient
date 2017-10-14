@@ -44,6 +44,10 @@
 		B007EA051F6A56D700498824 /* HWAppointSuccessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */; };
 		B007EA061F6A56D700498824 /* HWAppointSuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */; };
 		B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A28841CF294C9002480FE /* HWHTTPSessionManger.m */; };
+		B02612C31F90F74A00F902DF /* HWAppointFinishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B02612C11F90F74A00F902DF /* HWAppointFinishCell.m */; };
+		B02612C41F90F74A00F902DF /* HWAppointFinishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02612C21F90F74A00F902DF /* HWAppointFinishCell.xib */; };
+		B02612C71F91006000F902DF /* HWAppointFinishViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B02612C61F91006000F902DF /* HWAppointFinishViewModel.m */; };
+		B02612CA1F91011E00F902DF /* HWAppointFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B02612C91F91011E00F902DF /* HWAppointFinishViewController.m */; };
 		B02770BA1F6A674C0044A417 /* 优惠券_选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */; };
 		B02770BB1F6A674C0044A417 /* 优惠券@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770B81F6A674B0044A417 /* 优惠券@2x.png */; };
 		B02770BC1F6A674C0044A417 /* 预约时间@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B02770B91F6A674B0044A417 /* 预约时间@2x.png */; };
@@ -470,6 +474,13 @@
 		B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWAppointSuccessCell.xib; sourceTree = "<group>"; };
 		B00A28831CF294C9002480FE /* HWHTTPSessionManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHTTPSessionManger.h; sourceTree = "<group>"; };
 		B00A28841CF294C9002480FE /* HWHTTPSessionManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHTTPSessionManger.m; sourceTree = "<group>"; };
+		B02612C01F90F74A00F902DF /* HWAppointFinishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWAppointFinishCell.h; sourceTree = "<group>"; };
+		B02612C11F90F74A00F902DF /* HWAppointFinishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWAppointFinishCell.m; sourceTree = "<group>"; };
+		B02612C21F90F74A00F902DF /* HWAppointFinishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HWAppointFinishCell.xib; sourceTree = "<group>"; };
+		B02612C51F91006000F902DF /* HWAppointFinishViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWAppointFinishViewModel.h; sourceTree = "<group>"; };
+		B02612C61F91006000F902DF /* HWAppointFinishViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWAppointFinishViewModel.m; sourceTree = "<group>"; };
+		B02612C81F91011E00F902DF /* HWAppointFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWAppointFinishViewController.h; sourceTree = "<group>"; };
+		B02612C91F91011E00F902DF /* HWAppointFinishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWAppointFinishViewController.m; sourceTree = "<group>"; };
 		B02770B71F6A674B0044A417 /* 优惠券_选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券_选中@2x.png"; sourceTree = "<group>"; };
 		B02770B81F6A674B0044A417 /* 优惠券@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券@2x.png"; sourceTree = "<group>"; };
 		B02770B91F6A674B0044A417 /* 预约时间@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "预约时间@2x.png"; sourceTree = "<group>"; };
@@ -1226,6 +1237,8 @@
 				B007EA001F6A53B100498824 /* HWAppointWaitingViewController.m */,
 				B09807CC1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.h */,
 				B09807CD1F6A7BD8009C0FE1 /* HWAppointSuccessViewController.m */,
+				B02612C81F91011E00F902DF /* HWAppointFinishViewController.h */,
+				B02612C91F91011E00F902DF /* HWAppointFinishViewController.m */,
 				B07EE4A21F67B71400FCA22D /* HWSettingViewController.h */,
 				B07EE4A31F67B71400FCA22D /* HWSettingViewController.m */,
 			);
@@ -1584,6 +1597,8 @@
 				B05FF2501F73E34100F06366 /* HWAppointWaitingViewModel.m */,
 				B05FF2521F73E3FC00F06366 /* HWAppointSuccessViewModel.h */,
 				B05FF2531F73E3FC00F06366 /* HWAppointSuccessViewModel.m */,
+				B02612C51F91006000F902DF /* HWAppointFinishViewModel.h */,
+				B02612C61F91006000F902DF /* HWAppointFinishViewModel.m */,
 				B07EE4AE1F67B83000FCA22D /* HWSettingViewModel.h */,
 				B07EE4AF1F67B83000FCA22D /* HWSettingViewModel.m */,
 				C50029AF1F6C0BF20064DFEE /* HWDetectionSelectMemberViewModel.h */,
@@ -1835,6 +1850,9 @@
 				B007EA021F6A56D700498824 /* HWAppointSuccessCell.h */,
 				B007EA031F6A56D700498824 /* HWAppointSuccessCell.m */,
 				B007EA041F6A56D700498824 /* HWAppointSuccessCell.xib */,
+				B02612C01F90F74A00F902DF /* HWAppointFinishCell.h */,
+				B02612C11F90F74A00F902DF /* HWAppointFinishCell.m */,
+				B02612C21F90F74A00F902DF /* HWAppointFinishCell.xib */,
 				B09807CF1F6ABF4F009C0FE1 /* HWAppointCouponCell.h */,
 				B09807D01F6ABF4F009C0FE1 /* HWAppointCouponCell.m */,
 				B09807D11F6ABF4F009C0FE1 /* HWAppointCouponCell.xib */,
@@ -2763,7 +2781,7 @@
 				C24E7DA21ADE51AA00BA8ECC /* Resources */,
 				E72FAD6D4DEAFE9E94B5D1ED /* [CP] Embed Pods Frameworks */,
 				B118E88D45EFE601E85B2FAF /* Embed Pods Frameworks */,
-				9C21058431AA60E6EDA46FEB /* Copy Pods Resources */,
+				B02612BF1F90EA5100F902DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2938,6 +2956,7 @@
 				DA3DFF3A1ADE7A4000C4E99A /* blueArrow.png in Resources */,
 				B0B0B56B1F276EAA002FE127 /* tabbar_normal_background@2x.png in Resources */,
 				B0F6750F1F2A1D1C0019086E /* arrow@2x.png in Resources */,
+				B02612C41F90F74A00F902DF /* HWAppointFinishCell.xib in Resources */,
 				C533F9AD1F7E76D700F95CA3 /* 完成@2x.png in Resources */,
 				B07EE4D11F68D56B00FCA22D /* 口腔问答@2x.png in Resources */,
 				B0431C401F6A1619001A2FD4 /* HWAppointWaitingCell.xib in Resources */,
@@ -3024,14 +3043,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9C21058431AA60E6EDA46FEB /* Copy Pods Resources */ = {
+		B02612BF1F90EA5100F902DF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3195,6 +3214,7 @@
 				B0431C3F1F6A1619001A2FD4 /* HWAppointWaitingCell.m in Sources */,
 				B0381C721F792CA600C5E172 /* HWCitySelectViewModel.m in Sources */,
 				C50029E31F6CE0620064DFEE /* ResultStateTerribleView.m in Sources */,
+				B02612C71F91006000F902DF /* HWAppointFinishViewModel.m in Sources */,
 				B05FF24E1F73B47000F06366 /* HWAppointDetailModel.m in Sources */,
 				C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */,
 				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
@@ -3238,6 +3258,7 @@
 				B042FA1F1DF6912B0017F689 /* HWEmptyView.m in Sources */,
 				C587E3661F6EB9F0009509CB /* DoctorDetailAttachedView.m in Sources */,
 				DA3DFF221ADE78ED00C4E99A /* Utility.m in Sources */,
+				B02612C31F90F74A00F902DF /* HWAppointFinishCell.m in Sources */,
 				C531FBB11F66D0390008A17A /* ProtocolTerminal.m in Sources */,
 				C5E9C3A71F8C9EC600943835 /* BaseWebViewController.m in Sources */,
 				B0D26B011BDF7B920012A093 /* HWTableViewCell.m in Sources */,
@@ -3289,6 +3310,7 @@
 				B0F675221F2A39820019086E /* HWRegisterInfoModel.m in Sources */,
 				C5B4AA251F6E720C0083E8C5 /* DoctorDetailTimeListModel.m in Sources */,
 				B0F8EF8F1EF3C39F00F38770 /* Drawing-Util.m in Sources */,
+				B02612CA1F91011E00F902DF /* HWAppointFinishViewController.m in Sources */,
 				C24E7DAA1ADE51AA00BA8ECC /* main.m in Sources */,
 				C28BACB21B16B8C90048DE0A /* ioapi.c in Sources */,
 				C20BBDB41AFB3EA000997B46 /* HWImagePickerWidget.m in Sources */,

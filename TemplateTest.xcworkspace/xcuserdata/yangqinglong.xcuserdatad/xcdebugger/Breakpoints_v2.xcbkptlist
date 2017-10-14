@@ -68,7 +68,7 @@
                   moduleName = "TemplateTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/AppDelegate.m"
-                  timestampString = "529550724.031503"
+                  timestampString = "529642073.012217"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
@@ -83,7 +83,7 @@
                   moduleName = "TemplateTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/AppDelegate.m"
-                  timestampString = "529550724.033138"
+                  timestampString = "529642073.013741"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "160"
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529550588.002913"
+            timestampString = "529642072.904457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "184"
@@ -228,43 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529550588.003173"
+            timestampString = "529642072.904532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "-init"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TemplateTest/HomePage/Detection/TimeVideo/View/HKDisplayView.mm"
-            timestampString = "529550588.003641"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-snapCurrentRgbData:videoWidth:videoHeight:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529550588.003941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529550588.004089"
+            timestampString = "529642072.904591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529550588.004238"
+            timestampString = "529642072.904644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "530"
-            endingLineNumber = "530"
-            landmarkName = "-DecodeSDK:CallID:decodedMediaData:"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -307,14 +275,78 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TemplateTest/AppShare.m"
-            timestampString = "529551457.911951"
+            filePath = "TemplateTest/viewModel/HWAppointFailViewModel.m"
+            timestampString = "529596185.693102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-getCurrentWifiName"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-initRequestSignal"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/viewModel/HWAppointWaitingViewModel.m"
+            timestampString = "529596225.992384"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-initRequestSignal"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/viewModel/HWHomePageViewModel.m"
+            timestampString = "529642072.904755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-initRequestSignal"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[HWHomePageViewModel initRequestSignal]_block_invoke_2"
+                  moduleName = "TemplateTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/viewModel/HWHomePageViewModel.m"
+                  timestampString = "529642073.056008"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[HWHomePageViewModel initRequestSignal]_block_invoke_3"
+                  moduleName = "TemplateTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/viewModel/HWHomePageViewModel.m"
+                  timestampString = "529642073.057621"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

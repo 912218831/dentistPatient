@@ -40,9 +40,13 @@
             [params setObject:_loginCellModel.verifyCode forKey:@"randCode"];
             
             [self post:kLogin type:1 params:params success:^(id response) {
+                NSDictionary * dic = [response objectForKey:@"data"];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
+                        loginUser.key = [dic stringObjectForKey:@"userkey"];
+                    }];
+                });
                 [subscriber sendNext:@"登录成功"];
-                [[HWUserLogin currentUserLogin] yy_modelSetWithDictionary:[response dictionaryForKey:@"data"]];
-
             } failure:^(NSString * error) {
                 [subscriber sendError:[NSError errorWithDomain:@"com.getLoginCode" code:100 userInfo:@{NSLocalizedDescriptionKey:error}]];
             }];

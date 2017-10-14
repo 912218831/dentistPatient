@@ -49,6 +49,12 @@
 //    [self.viewModel.refreshCommand execute:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.viewModel.quitVideo execute:nil];
+
+}
 - (void)configContentView
 {
     [super configContentView];
@@ -130,11 +136,6 @@
 - (void)dealloc
 {
     
-}
-- (void)backMethod {
-    [super backMethod];
-    self.viewModel.takePhoto([UIImage imageNamed:@"beautiful.jpg"]);
-    [self.viewModel.quitVideo execute:nil];
 }
 
 @end

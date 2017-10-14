@@ -193,7 +193,19 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
             NSLog(@"%@",str);
             HekaiDeviceDesc *device = [_lanDeviceDict objectForKey:self.selectedDeviceID];
             int state = SetLanWifi(1, 1, device.deviceDesc.localDeviceId, [str UTF8String]);
+            if (state == 0) {
+                //设置成功
+                UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"请在设备重启后->连接%@->点击刷新",input.first]  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    hk_LanRefresh_EX(1);
+                }];
+                [alertCtrl addAction:sureAction];
+                [(SHARED_APP_DELEGATE).window.rootViewController presentViewController:alertCtrl animated:YES completion:nil];
 
+            }else
+            {
+                
+            }
             return [RACSignal empty];
         }];
         self.quitVideo = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -544,6 +556,9 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
 
 - (void)snapShotSuccess:(UIImage *)captureImg
 {
-    self.captureImage = captureImg;
+//    self.captureImage = [UIImage imageWithData:UIImagePNGRepresentation(captureImg)];
+    [Utility showToastWithMessage:@"抓拍成功"];
+    self.takePhoto([UIImage imageWithData:UIImagePNGRepresentation(captureImg)]);
+    [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
 }
 @end

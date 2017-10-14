@@ -81,7 +81,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.isWifiList) {
         WifiInfoModel * model = [self.dataArr objectAtIndex:indexPath.row];
-        [self.delegate cellDidselect:model];
         UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle:@"请输入wifi密码" message:model.sid preferredStyle:UIAlertControllerStyleAlert];
         @weakify(self);
         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -93,6 +92,8 @@
                 return;
             }
             [self.selectWifiCommand execute:RACTuplePack(model.sid,self.wifiPWD,[model copy])];
+            self.isWifiList = NO;
+            [self.table reloadData];
         }];
         [alertCtrl addAction:cancelAction];
         [alertCtrl addAction:sureAction];

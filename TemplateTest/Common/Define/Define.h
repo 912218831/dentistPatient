@@ -361,6 +361,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kAppointFailVM          @"HWAppointFailViewModel"
 #define kAppointWaitingVM       @"HWAppointWaitingViewModel"
 #define kAppointSuccessVM       @"HWAppointSuccessViewModel"
+#define kAppointFinishVM        @"HWAppointFinishViewModel"
 #define kSelectCityVM           @"HWCitySelectViewModel"
 #define kBaseWebViewModel       @"BaseWebViewModel"
 #endif

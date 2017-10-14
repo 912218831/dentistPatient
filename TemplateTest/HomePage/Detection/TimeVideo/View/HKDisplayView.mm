@@ -272,10 +272,13 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
 //        bmpImage = [UIImage imageWithCGImage:imageRef scale:1.0f orientation:UIImageOrientationUpMirrored];
 //    }
     if (bmpImage) {
-        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)]) {
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(snapShotSuccess:)]) {
             [self.delegate snapShotSuccess:bmpImage];
         }
-        else if(self.delegate != nil && [self.delegate respondsToSelector:@selector(snapShotFailed:)])
+    }
+    else
+    {
+        if(self.delegate != nil && [self.delegate respondsToSelector:@selector(snapShotFailed:)])
         {
             [self.delegate snapShotFailed:customRACError(@"抓取失败")];
         }
@@ -463,9 +466,9 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
 }
 
 #pragma mark - DisplayManagerViewDelegate
-- (void)singleTapOnDisplay:(DisplayView *)display
-{
-        [_delegate singleTapOnHKDisplayView];
-}
+//- (void)singleTapOnDisplay:(DisplayView *)display
+//{
+//        [_delegate singleTapOnHKDisplayView];
+//}
 
 @end

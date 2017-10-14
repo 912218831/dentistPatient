@@ -37,6 +37,7 @@
              kAppointFailVM:self.appointFail,
              kAppointWaitingVM:self.appointWaiting,
              kAppointSuccessVM:self.appointSuccess,
+             kAppointFinishVM:self.appointFinish,
              kSelectCityVM:self.selectCity,
              kBaseWebViewModel:self.webView
              };
@@ -126,6 +127,13 @@
 + (NSDictionary*)appointSuccess{
     return @{
              @"title":@"预约成功",
+             @"leftImageName":@"TOP_ARROW",
+             @"rightImageName":@"right"
+             };
+}
++ (NSDictionary *)appointFinish{
+    return @{
+             @"title":@"支付完成",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
