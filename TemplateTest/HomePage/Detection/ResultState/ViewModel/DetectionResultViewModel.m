@@ -9,7 +9,7 @@
 #import "DetectionResultViewModel.h"
 #import "RecommandDoctorViewModel.h"
 
-#define kDetectionResultViewModelDebug 1
+#define kDetectionResultViewModelDebug 0
 
 @implementation DetectionResultViewModel
 @dynamic model;
@@ -40,7 +40,7 @@
         } failure:^(NSString *error) {
             NSLog(@"%@",error);
 #if kDetectionResultViewModelDebug
-            for (int i=0; i<3; i++) {
+            for (int i=0; i<4; i++) {
                 NSDictionary *dic = @{
                                       @"imageUrl": @"http://116.62.202.152/api/mouth/pat//upload//20171011//201710110858227440.jpg",
                                       @"title": @"牙菌斑"
