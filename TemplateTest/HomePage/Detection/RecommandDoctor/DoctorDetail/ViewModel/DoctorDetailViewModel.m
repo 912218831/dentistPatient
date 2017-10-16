@@ -10,6 +10,14 @@
 
 @implementation DoctorDetailViewModel
 
+- (NSString *)checkId {
+    if (_checkId.length) {
+        return _checkId;
+    } else {
+        return @"";
+    }
+}
+
 - (void)initRequestSignal {
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {

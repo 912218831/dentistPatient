@@ -14,6 +14,13 @@
 @implementation DetectionResultViewModel
 @dynamic model;
 
+- (NSString *)checkId {
+    if (!_checkId.length) {
+        return @"";
+    }
+    return _checkId;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.dataArray = [NSMutableArray array];
