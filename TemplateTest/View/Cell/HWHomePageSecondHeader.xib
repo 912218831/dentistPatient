@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -46,6 +46,9 @@
                 <constraint firstItem="2CC-W2-z8a" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="lqc-NJ-eUc"/>
                 <constraint firstItem="b0J-hn-zOA" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="10" id="o40-lU-eNh"/>
             </constraints>
+            <connections>
+                <outlet property="titleLab" destination="2CC-W2-z8a" id="qng-Uj-9tf"/>
+            </connections>
         </collectionReusableView>
     </objects>
 </document>

@@ -105,6 +105,17 @@
     }];
     [self.viewModel execute];
     self.cancelBtn.rac_command = self.viewModel.cancelCommand;
+    self.cancelBtn.rac_command = self.viewModel.cancelCommand;
+    [[self.cancelBtn.rac_command.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSString * x) {
+        [Utility showMBProgress:self.view message:x];
+    } completed:^{
+        [Utility hideMBProgress:self.view];
+    }];
+    [[[self.cancelBtn.rac_command  errors] deliverOnMainThread] subscribeNext:^(NSError * x) {
+        [Utility hideMBProgress:self.view];
+        [Utility showToastWithMessage:x.localizedDescription];
+    }];
+
     self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
 

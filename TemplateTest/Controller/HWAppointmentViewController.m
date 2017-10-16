@@ -126,6 +126,9 @@
         [self fetchData];
        
     }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kRefreshReservedList object:nil] subscribeNext:^(id x) {
+        [self fetchData];
+    }];
 }
 
 - (void)fetchData
@@ -138,7 +141,6 @@
         @strongify(self);
         if ([x isKindOfClass:[NSString class]]) {
             [Utility showMBProgress:self.view message:x];
-
         }
         else
         {
@@ -154,6 +156,12 @@
         [self.collectionView.mj_header endRefreshing];
     }];
     
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

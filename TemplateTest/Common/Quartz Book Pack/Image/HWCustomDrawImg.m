@@ -486,7 +486,7 @@
     [rectanglePath addClip];
     [contentImg drawInRect: imgRect];
     CGContextRestoreGState(context);
-
+    [[UIColor greenColor] setFill];
     UIImage * returnImg = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return returnImg;

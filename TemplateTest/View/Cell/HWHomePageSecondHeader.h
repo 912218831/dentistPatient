@@ -10,4 +10,6 @@
 
 @interface HWHomePageSecondHeader : UICollectionReusableView
 
+@property(strong,nonatomic)NSString * title;
+
 @end

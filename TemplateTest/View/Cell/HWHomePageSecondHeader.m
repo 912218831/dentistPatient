@@ -8,11 +8,23 @@
 
 #import "HWHomePageSecondHeader.h"
 
+@interface HWHomePageSecondHeader()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
+
+@end
+
 @implementation HWHomePageSecondHeader
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)setTitle:(NSString *)title
+{
+    self.titleLab.text = title;
 }
 
 @end

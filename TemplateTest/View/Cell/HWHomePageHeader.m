@@ -27,6 +27,14 @@
         [self addSubview:self.pageControl];
         self.backgroundColor = COLOR_F0F0F0;
         _currentIndex = 0;
+        [[RACSignal interval:2.0f onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+            if (_currentIndex >= self.dataArr.count)
+            {
+                _currentIndex = 0;
+            }
+            [_bannerView scrollToItemAtIndex:_currentIndex animated:YES];
+            _currentIndex++;
+        }];
     }
     return self;
 }

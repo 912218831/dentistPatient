@@ -30,6 +30,24 @@
             [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
             return [RACSignal empty];
         }];
+        RACSignal * cancelSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            NSMutableDictionary * params = [NSMutableDictionary dictionary];
+            [subscriber sendNext:@"请求中..."];
+            [params setPObject:self.detailModel.appointId forKey:@"applyId"];
+            NSURLSessionTask * task = [self post:kCancelAppoint params:params success:^(id response) {
+                [subscriber sendCompleted];
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            } failure:^(NSString * error) {
+                [subscriber sendError:customRACError(@"取消失败")];
+            }];
+            return [RACDisposable disposableWithBlock:^{
+                [task cancel];
+                
+            }];
+        }];
+        self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return cancelSignal;
+        }];
 
     }
     return self;
@@ -38,10 +56,6 @@
 - (void)bindViewWithSignal
 {
     [super bindViewWithSignal];
-    self.cancelCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        NSLog(@"取消预约");
-        return [RACSignal empty];
-    }];
 }
 
 - (void)initRequestSignal

@@ -21,6 +21,7 @@
 @property(strong,nonatomic)UICollectionView  * collectionView;
 @property(strong,nonatomic,readonly)HWHomePageViewModel * viewModel;
 @property(strong,nonatomic)UIView * searchView;
+@property(strong,nonatomic)AFNetworkReachabilityManager * netWorkManager;
 @end
 
 @implementation HWHomePageViewController
@@ -32,6 +33,29 @@
     [self configNavigationBar];
     [self.view addSubview:self.collectionView];
     [self.viewModel execute];
+    self.netWorkManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
+    [self.netWorkManager startMonitoring];
+    [self.netWorkManager  setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"不可用");
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未知网络");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"无线网络");
+                [self fetchData];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"4g");
+                [self fetchData];
+                break;
+            default:
+                break;
+        }
+    }];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,8 +81,6 @@
     self.nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
     self.nav.backgroundColor = COLOR_28BEFF;
     [self.view addSubview:self.nav];
-    
-
     self.changeCityBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.nav addSubview:self.changeCityBtn];
     self.changeCityBtn.contentMode = UIViewContentModeCenter;
@@ -70,9 +92,6 @@
     [self.nav addSubview:self.searchView];
     self.searchBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.searchView addSubview:self.searchBtn];
-    UIImage * searchImg = [HWCustomDrawImg drawAutoSizeTextAndImg:[UIImage imageNamed:@"搜索"] text:@"附近的口腔医生" grap:10 strconfig:@{NSForegroundColorAttributeName:COLOR_999999,NSFontAttributeName:FONT(13)} strContainerSize:CGSizeZero imgPosition:HWCustomDrawLeft];
-    self.searchBtn.contentMode = UIViewContentModeLeft;
-    [self.searchBtn setImage:searchImg forState:UIControlStateNormal];
     [self changeCity];
 }
 
@@ -199,7 +218,15 @@
         }
         else
         {
-            return [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader" forIndexPath:indexPath];
+            HWHomePageSecondHeader * header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader" forIndexPath:indexPath];
+            if (indexPath.section == 2) {
+                header.title = @"最近记录";
+            }
+            else
+            {
+                header.title = @"为你推荐";
+            }
+            return header;
 
         }
     }
@@ -218,19 +245,25 @@
     [super bindViewModel];
     [self.viewModel bindViewWithSignal];
     @weakify(self);
-    [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(id x) {
-        @strongify(self);
-        [self.collectionView reloadData];
-
-    } error:^(NSError *error) {
-        [Utility showToastWithMessage:error.localizedDescription];
-    }];
+//    [self fetchData];
     self.changeCityBtn.rac_command = self.viewModel.selectCityCommand;
     self.searchBtn.rac_command = self.viewModel.searchDocCommand;
     [RACObserve([HWUserLogin currentUserLogin], cityName) subscribeNext:^(id x) {
         @strongify(self);
         [self changeCity];
     }];
+}
+
+- (void)fetchData{
+    @weakify(self);
+    [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.collectionView reloadData];
+        
+    } error:^(NSError *error) {
+        [Utility showToastWithMessage:error.localizedDescription];
+    }];
+
 }
 
 - (void)changeCity{
@@ -240,6 +273,10 @@
     self.searchView.frame = CGRectMake(self.changeCityBtn.right+15, 20, kScreenWidth - 45 - self.changeCityBtn.width, 28);
     self.searchView.centerY = self.changeCityBtn.centerY;
     self.searchBtn.frame = CGRectMake(15, 0, self.searchView.width - 30, 28);
+    UIImage * searchImg = [HWCustomDrawImg drawAutoSizeTextAndImg:[UIImage imageNamed:@"搜索"] text:@"附近的口腔医生" grap:10 strconfig:@{NSForegroundColorAttributeName:COLOR_999999,NSFontAttributeName:FONT(13)} strContainerSize:CGSizeZero imgPosition:HWCustomDrawLeft];
+    self.searchBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -(self.searchBtn.width-searchImg.width)/2.0f, 0, 0);
+    [self.searchBtn setImage:searchImg forState:UIControlStateNormal];
+
 }
 
 - (void)didReceiveMemoryWarning {
