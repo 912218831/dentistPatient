@@ -33,7 +33,7 @@
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(kRate(17));
         make.left.mas_equalTo(kRate(26));
-        make.size.mas_equalTo(CGSizeMake(4, kRate(17)));
+        make.size.mas_equalTo(CGSizeMake(4, kRate(17)));//
     }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.iconView.mas_right).with.offset(kRate(kRate(8)));

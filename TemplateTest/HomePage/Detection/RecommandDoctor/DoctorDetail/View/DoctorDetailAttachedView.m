@@ -43,18 +43,22 @@
 
 - (void)layoutSubViews {
     [self.moreSubView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self);
+        //make.top.left.right.equalTo(self);
+        make.top.right.equalTo(self);
+        make.left.mas_equalTo(kRate(17+17));
         make.height.mas_equalTo(kRate(28));
     }];
     [self.noteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self);
+        //make.left.right.bottom.equalTo(self);
+        make.left.equalTo(self.moreSubView);
+        make.bottom.equalTo(self);
     }];
 }
 
 - (void)initDefaultConfigs {
     self.noteLabel.font = FONT(TF12);
-    self.noteLabel.textAlignment = NSTextAlignmentCenter;
-    
+    //self.noteLabel.textAlignment = NSTextAlignmentCenter;
+    self.noteLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 - (void)setValueSignal:(RACSignal *)valueSignal {
@@ -109,7 +113,7 @@
         if (self.needShowIcon) {
             w += kRate(13) + kRate(6) + kRate(4);
         }
-        CGFloat x = (self.width - w)/2.0;
+        CGFloat x = 0;//(self.width - w)/2.0;
         if (self.needShowIcon) {
             [self.iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(x);

@@ -14,7 +14,6 @@
 
 @interface DoctorDetailViewController ()
 @property (nonatomic, strong) DoctorDetailViewModel *viewModel;
-@property (nonatomic, strong) UIButton *consultBtn;
 @property (nonatomic, strong) UIButton *orderBtn;
 @end
 
@@ -29,7 +28,7 @@
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
         @strongify(self);
         if (indexPath.row == 0) {
-            return (CGFloat)kRate(325-30);
+            return (CGFloat)kRate(325-86);
         }
         return (CGFloat)(self.viewModel.timesHeight+kRate(160));
     };
@@ -37,21 +36,14 @@
     UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.listView.width, kRate(60))];
     self.listView.baseTable.tableFooterView = footerView;
     
-    self.consultBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [footerView addSubview:self.consultBtn];
     self.orderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [footerView addSubview:self.orderBtn];
     
-    self.consultBtn.frame = CGRectMake(0, kRate(10), footerView.width/2.0, footerView.height-kRate(10));
-    self.orderBtn.frame = CGRectMake(CGRectGetMaxX(self.consultBtn.frame), CGRectGetMinY(self.consultBtn.frame), footerView.width/2.0, footerView.height-kRate(10));
+    self.orderBtn.frame = CGRectMake(0, kRate(10), footerView.width, footerView.height-kRate(10));
     
-    self.consultBtn.backgroundColor = UIColorFromRGB(0x2abc5e);
     self.orderBtn.backgroundColor = CD_MainColor;
-    self.consultBtn.titleLabel.font = FONT(TF17);
     self.orderBtn.titleLabel.font = FONT(TF17);
-    [self.consultBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
     [self.orderBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
-    [self.consultBtn setTitle:@"咨询" forState:UIControlStateNormal];
     [self.orderBtn setTitle:@"预约" forState:UIControlStateNormal];
 }
 
@@ -73,16 +65,7 @@
     }];
     
     [self.viewModel execute];
-    
-    [[self.consultBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-      // 咨询
-        NSLog(@"咨询");
-        //咨询
-        BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
-        model.title = @"咨询";
-        model.url = kAnswer;
-        [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
-    }];
+
     [[self.orderBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
       // 预约
         @strongify(self);
