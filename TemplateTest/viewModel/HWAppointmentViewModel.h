@@ -11,4 +11,8 @@
 @interface HWAppointmentViewModel : BaseViewModel
 @property(strong,nonatomic)RACCommand * itemClickCommand;
 @property(assign,nonatomic)BOOL  isNeedRefresh;
+@property(copy,nonatomic)NSString * currentPage;
+@property(assign,nonatomic)BOOL  isLastPage;
+
+
 @end

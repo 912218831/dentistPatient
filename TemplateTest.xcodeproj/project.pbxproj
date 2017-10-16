@@ -417,7 +417,6 @@
 		72F917FB1BB51A56003AE8D5 /* TemplateTest 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 2.xcdatamodel"; sourceTree = "<group>"; };
 		7552CE1D1D1240CB00A557EA /* DButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DButton.h; sourceTree = "<group>"; };
 		7552CE1E1D1240CB00A557EA /* DButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DButton.m; sourceTree = "<group>"; };
-		7552CE1F1D1240CB00A557EA /* Ddefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ddefine.h; sourceTree = "<group>"; };
 		7552CE201D1240CB00A557EA /* DImageV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DImageV.h; sourceTree = "<group>"; };
 		7552CE211D1240CB00A557EA /* DImageV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DImageV.m; sourceTree = "<group>"; };
 		7552CE221D1240CB00A557EA /* DLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLable.h; sourceTree = "<group>"; };
@@ -1200,7 +1199,6 @@
 			children = (
 				7552CE1D1D1240CB00A557EA /* DButton.h */,
 				7552CE1E1D1240CB00A557EA /* DButton.m */,
-				7552CE1F1D1240CB00A557EA /* Ddefine.h */,
 				7552CE201D1240CB00A557EA /* DImageV.h */,
 				7552CE211D1240CB00A557EA /* DImageV.m */,
 				7552CE221D1240CB00A557EA /* DLable.h */,

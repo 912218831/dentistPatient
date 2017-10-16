@@ -12,7 +12,21 @@
 #import "HWAppointSuccessViewModel.h"
 #import "HWAppointWaitingViewModel.h"
 #import "HWAppointFinishViewModel.h"
+
+@interface HWAppointmentViewModel()
+@property(nonatomic,strong)NSArray * dataArr;
+@end
+
 @implementation HWAppointmentViewModel
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.currentPage = @"1";
+    }
+    return self;
+}
 
 - (void)bindViewWithSignal
 {
@@ -69,14 +83,37 @@
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [subscriber sendNext:@"请求中..."];
         NSMutableDictionary * params = [NSMutableDictionary dictionary];
+        [params setPObject:kPageCount forKey:@"pageSize"];
+        [params setPObject:self.currentPage forKey:@"page"];
         NSURLSessionTask * task = [self post:kAppointList params:params success:^(id response) {
             NSDictionary * dataDic = [response objectForKey:@"data"];
-            NSArray * dataArr = [[[dataDic objectForKey:@"applyList"] rac_sequence] foldLeftWithStart:[NSMutableArray array] reduce:^id(NSMutableArray * accumulator, NSDictionary * value) {
+            NSArray * tempDataArr = [[[dataDic objectForKey:@"applyList"] rac_sequence] foldLeftWithStart:[NSMutableArray array] reduce:^id(NSMutableArray * accumulator, NSDictionary * value) {
                 HWAppointListModel * model = [MTLJSONAdapter modelOfClass:[HWAppointListModel class] fromJSONDictionary:value error:nil];
                 [accumulator addObject:model];
                 return accumulator;
             }];
-            [subscriber sendNext:dataArr];
+            if(self.currentPage.integerValue == 1)
+            {
+                //第一页
+                self.dataArr = [tempDataArr copy];
+            }
+            else
+            {
+                NSMutableArray * tempMutArr = [NSMutableArray arrayWithArray:self.dataArr];
+                [tempMutArr addObjectsFromArray:tempDataArr];
+                if (tempDataArr.count < kPageCount.integerValue) {
+                    //没有下一页
+                    self.isLastPage = YES;
+                }
+                else
+                {
+                    //有下一页
+                    self.isLastPage = NO;
+                    self.currentPage = [NSString stringWithFormat:@"%ld",self.currentPage.integerValue+1];
+                }
+
+            }
+            [subscriber sendNext:self.dataArr];
 //            [subscriber sendCompleted];
         } failure:^(NSString *error) {
            

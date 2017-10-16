@@ -25,7 +25,7 @@
  "stateDes": "放弃/过期",
  "clinicName":"上海九院"
  */
-@interface HWAppointListModel : BaseModel<MTLJSONSerializing>
+@interface HWAppointListModel : BaseModel<MTLJSONSerializing,NSCopying,NSMutableCopying>
 @property(copy,nonatomic)NSString * appointId;
 @property(copy,nonatomic)NSString * checkId;
 @property(copy,nonatomic)NSString * familyId;

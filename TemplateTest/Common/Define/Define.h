@@ -11,16 +11,6 @@
 
 typedef enum{
     
-    LogicLine_GetMoney = 1, // 点击提现-->提示绑定-->提示设置提现密码-->设置提现密码-->绑定银行卡-->提现
-    LogicLine_BindCard = 2,  // 点击绑定银行卡-->提示验证提现密码-->验证-->绑定银行卡
-    LoginLine_UnBindCard = 3,  // 解绑银行卡
-    LogicLine_PwdManager = 4,     // 点击提现密码 --> 是否设置 --> 进入管理
-    LogicLine_PayMoney = 5
-    
-}LogicLine;
-
-typedef enum{
-    
     Modify_First_OldPassword = 0,
     Modify_Second_NewPassword,
     Modify_Third_NewPassword,
@@ -32,42 +22,6 @@ typedef enum{
     
 }PasswordMode;
 
-typedef enum
-{
-    NewHouse = 0,
-    SecondHouse
-}HouseType;
-
-typedef enum
-{
-    priceTrend = 0, //成交均价
-    numberTrend      //月成交套
-}TrendType;
-
-
-typedef enum 
-{
-    tagScreen = 0,      /**<  标签搜索 */
-
-    mantTagsScreen,     /**<  多标签搜索 */
-
-    keyWordScreen,      /**<  关键字搜索 */
-
-    noCoditionScreen,   /**<  没有搜索条列表 */
-
-    tabbarSource,       /**<  tabbar过来 */
-
-    collectetionSource  /**<  从收藏页面过来的 */
-
-}HWScreenType;
-
-
-typedef enum
-{
-    lowerThanAverage = 0,   //低于成交价
-    mostOfDone,             // 成交最多
-    mostOfRecommend         //推荐最多
-}NewHouseListType;
 
 #define MYLog(...) \
 rac_keywordify \
@@ -283,8 +237,6 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 /*  定义
  DF For Define
  */
-#define ABOUT_US                        [NSString stringWithFormat:@"%@/hwapp/help/aboutUs", kPHPUrlBase] // ios14.haowu.com
-#define SHARE_SECONDE                   [NSString stringWithFormat:@"%@/hwapp/house/secondHandHouseItem", kPHPUrlBase] //ios14.haowu.com
 #define ITUNSE_DOWNLOAD                 @"http://m.haowu.com/app/"
 #define LOADING_TEXT                    @"加载中"
 #define LOADINGFAIL                     @"加载失败\n点击屏幕重新加载"
@@ -293,8 +245,8 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define customRACError(error) [NSError errorWithDomain:[NSString stringWithFormat:@"%@%@",self.class,NSStringFromSelector(_cmd)] code:100 userInfo:@{NSLocalizedDescriptionKey:error}]
 #define placeHoderImg                   ImgWithName(@"")
 #define ImgWithName(imageName)          [UIImage imageNamed:imageName]
-#define APP_ID                          @"1018136206"
 
+#define APP_ID                          @"1018136206"
 
 #define App_Version                     @"16"     // 强制更新版本号6.5.0 是18
 #define KCurrentGuideVersionStr         @"guideVersion_6.0"

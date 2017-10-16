@@ -41,7 +41,6 @@
 
 - (void)setUpControllers
 {
-     [HWUserLogin currentUserLogin].userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
     UIViewController *homePageController = [[HWHomePageViewController alloc] initWithViewModel:self.viewModel.homePageViewModel];
     
     UIViewController *caseViewController = [[HWCasesViewController alloc] initWithViewModel:self.viewModel.casesViewModel];
