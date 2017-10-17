@@ -60,6 +60,7 @@
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = COLOR_F0F0F0;
+        _collectionView.needShowEmpty = true;
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointmentCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointmentCell"];
     }
     return _collectionView;
@@ -151,6 +152,11 @@
         {
             [self.collectionView.mj_header endRefreshing];
             self.dataArr = [x copy];
+            if (!self.dataArr.count) {
+                [self.collectionView showEmptyView];
+            } else {
+                [self.collectionView hideEmptyView];
+            }
             [Utility hideMBProgress:self.view];
             [self.collectionView reloadData];
         }

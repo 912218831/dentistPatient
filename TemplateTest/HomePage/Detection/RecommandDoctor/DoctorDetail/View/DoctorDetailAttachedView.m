@@ -99,8 +99,8 @@
 
 - (void)initDefaultConfigs {
     self.iconImageView.image = [UIImage imageNamed:@"discounts"];
-    self.titleLabel.font = FONT(TF12);
-    self.detailLabel.font = FONT(TF30);
+    self.titleLabel.font = FONT(kRate(TF12));
+    self.detailLabel.font = FONT(kRate(TF30));
 }
 
 - (void)reloadData {

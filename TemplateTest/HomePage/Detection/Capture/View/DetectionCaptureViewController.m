@@ -10,7 +10,6 @@
 #import "DetectionCaptureCell.h"
 #import "HZPhotoBrowser.h"
 #import "DetectionCaptureViewModel.h"
-#import "TimeVideoViewModel.h"
 #import "DetectionResultViewModel.h"
 
 #define kOffX       (kRate(14))
@@ -174,13 +173,6 @@
         [browser show];
     } else {
         // 拍照
-        TimeVideoViewModel *vm = [TimeVideoViewModel new];
-        @weakify(self);
-        vm.takePhoto = ^(UIImage *image) {
-            @strongify(self);
-            [self.viewModel takePhotoSuccess:image];
-        };
-        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:YES];
     }
     
 }

@@ -9,8 +9,8 @@
 #import "BaseViewController.h"
 #import  "HWBaseRefreshView.h"
 
-@interface BaseListViewController : BaseViewController
-@property (nonatomic, strong, readonly) HWBaseRefreshView   *listView;
+@interface BaseListViewController : BaseViewController <UITableViewDelegate>
+@property (nonatomic, strong, readonly) UITableView   *listView;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath;
 @end

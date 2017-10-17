@@ -78,6 +78,7 @@
 
 // toast 提示框
 + (void)showToastWithMessage:(NSString *)message;
++ (void)showToastWithMessage:(NSString *)message complete:(void(^)(void))block;
 
 // alert提示框
 + (void)showAlertWithMessage:(NSString *)message delegate:(id)delegate;
