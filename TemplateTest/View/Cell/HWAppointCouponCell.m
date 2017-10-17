@@ -32,8 +32,8 @@
 - (void)bindViewModel:(id)viewModel
 {
     self.model = viewModel;
-    self.minMoneyLab.text = self.model.minConsumptionPrice;
-    self.reduceMoneyLab.text = self.model.deductiblePrice;
+    self.minMoneyLab.text = [NSString stringWithFormat:@"满%@",self.model.minConsumptionPrice];
+    self.reduceMoneyLab.text = [NSString stringWithFormat:@"减%@",self.model.deductiblePrice];
     if (self.model.selected) {
         self.bgImgV.image = ImgWithName(@"优惠券_选中");
     }

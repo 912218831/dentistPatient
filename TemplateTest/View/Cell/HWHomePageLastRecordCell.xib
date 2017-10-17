@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="2017-7-8 13:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh7-2m-gvr" userLabel="预约时间">
-                        <rect key="frame" x="274" y="0.0" width="101" height="60"/>
+                        <rect key="frame" x="274" y="10" width="101" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -61,13 +61,12 @@
                 <constraint firstItem="cCE-r0-NZn" firstAttribute="trailing" secondItem="Yh7-2m-gvr" secondAttribute="leading" constant="-5" id="G1Q-1P-LZo"/>
                 <constraint firstItem="Iqb-w8-P5E" firstAttribute="bottom" secondItem="n2f-aj-3Fp" secondAttribute="bottom" id="OFX-DD-We9"/>
                 <constraint firstAttribute="bottom" secondItem="V7m-nN-fTh" secondAttribute="bottom" id="OKu-qL-QWs"/>
-                <constraint firstAttribute="bottom" secondItem="Yh7-2m-gvr" secondAttribute="bottom" id="QEZ-Kt-bgq"/>
                 <constraint firstItem="V7m-nN-fTh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Sue-NB-Kn3"/>
                 <constraint firstAttribute="bottom" secondItem="n2f-aj-3Fp" secondAttribute="bottom" constant="10" id="Tab-9i-paU"/>
                 <constraint firstItem="cCE-r0-NZn" firstAttribute="leading" secondItem="n2f-aj-3Fp" secondAttribute="trailing" constant="10" id="TgV-PE-RgU"/>
                 <constraint firstItem="Iqb-w8-P5E" firstAttribute="leading" secondItem="cCE-r0-NZn" secondAttribute="leading" id="YvZ-Xk-dHR"/>
                 <constraint firstAttribute="trailing" secondItem="Yh7-2m-gvr" secondAttribute="trailing" id="apt-ch-KZC"/>
-                <constraint firstItem="Yh7-2m-gvr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eCm-Hn-S7z"/>
+                <constraint firstItem="Yh7-2m-gvr" firstAttribute="top" secondItem="n2f-aj-3Fp" secondAttribute="top" id="eK7-Bn-wAs"/>
                 <constraint firstItem="n2f-aj-3Fp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="wiP-79-j10"/>
             </constraints>
             <connections>
