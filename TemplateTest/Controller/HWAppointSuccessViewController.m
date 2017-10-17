@@ -35,7 +35,7 @@
     self.payBtn.backgroundColor = COLOR_28BEFF;
     [self.view addSubview:self.payBtn];
     self.answerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 50, 0, 50, 32)];
-    self.answerBtn.centerY = self.payBtn.top;
+    self.answerBtn.bottom = self.payBtn.top - 10;
     self.answerBtn.contentMode = UIViewContentModeCenter;
     [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
     [self.view addSubview:self.answerBtn];
