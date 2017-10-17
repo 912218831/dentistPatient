@@ -72,7 +72,7 @@ static HWUserLogin *userLogin = nil;
     self.userkey = loginUser.key;
     self.usertype = loginUser.userType;
     self.cityName = loginUser.cityName;
-//    self.userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
+    self.userkey = @"333d4fab17bd2990248d3e6a9d3e772a";
 //    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 

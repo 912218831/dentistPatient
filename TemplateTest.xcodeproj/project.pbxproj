@@ -288,6 +288,7 @@
 		C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBBE1F66D5E30008A17A /* HWUserLogin.m */; };
 		C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBC81F66D5E70008A17A /* LoginViewModel.m */; };
 		C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBCB1F66D6750008A17A /* HWLoginViewController.m */; };
+		C532871D1F95D5AF007A9AA5 /* UITableView+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C532871C1F95D5AF007A9AA5 /* UITableView+ContentSize.m */; };
 		C533F9A91F7E76C700F95CA3 /* 进行中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */; };
 		C533F9AA1F7E76C700F95CA3 /* 完成@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9A81F7E76C700F95CA3 /* 完成@3x.png */; };
 		C533F9AD1F7E76D700F95CA3 /* 完成@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */; };
@@ -968,6 +969,8 @@
 		C531FBC81F66D5E70008A17A /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		C531FBCA1F66D6750008A17A /* HWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLoginViewController.h; sourceTree = "<group>"; };
 		C531FBCB1F66D6750008A17A /* HWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLoginViewController.m; sourceTree = "<group>"; };
+		C532871B1F95D5AF007A9AA5 /* UITableView+ContentSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+ContentSize.h"; sourceTree = "<group>"; };
+		C532871C1F95D5AF007A9AA5 /* UITableView+ContentSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ContentSize.m"; sourceTree = "<group>"; };
 		C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进行中@3x.png"; sourceTree = "<group>"; };
 		C533F9A81F7E76C700F95CA3 /* 完成@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@3x.png"; sourceTree = "<group>"; };
 		C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@2x.png"; sourceTree = "<group>"; };
@@ -2652,6 +2655,8 @@
 				C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */,
 				C5DE29241F779F5000D8973B /* UIAlertAction+Undefined.h */,
 				C5DE29251F779F5000D8973B /* UIAlertAction+Undefined.m */,
+				C532871B1F95D5AF007A9AA5 /* UITableView+ContentSize.h */,
+				C532871C1F95D5AF007A9AA5 /* UITableView+ContentSize.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2828,7 +2833,7 @@
 				TargetAttributes = {
 					C24E7DA31ADE51AA00BA8ECC = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = X6VE6Z688G;
+						DevelopmentTeam = CMYJ8LA292;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3176,6 +3181,7 @@
 				29BC1DFC1B57788B00C7B1AD /* MTCustomActionSheet.m in Sources */,
 				C50029CF1F6C20F70064DFEE /* DetectionCaptureModel.m in Sources */,
 				B07EE4E81F69086E00FCA22D /* HWAppointmentCell.m in Sources */,
+				C532871D1F95D5AF007A9AA5 /* UITableView+ContentSize.m in Sources */,
 				C531FBC31F66D5E30008A17A /* HWLoginTranstionAnimation.m in Sources */,
 				B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */,
 				B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */,
@@ -3451,11 +3457,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = X6VE6Z688G;
+				DEVELOPMENT_TEAM = CMYJ8LA292;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
@@ -3515,10 +3521,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
-				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
+				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
+				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3530,11 +3536,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = X6VE6Z688G;
+				DEVELOPMENT_TEAM = CMYJ8LA292;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3597,10 +3603,10 @@
 				MACH_O_TYPE = mh_execute;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
-				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
+				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
+				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
