@@ -83,8 +83,6 @@
         }];
         return nil;
     }];
-    RecommandDoctorModel *model = [RecommandDoctorModel new];
-    [self.dataArray addObject:model];
 }
 
 - (void)searhRequest {

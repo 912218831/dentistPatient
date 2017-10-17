@@ -7,13 +7,13 @@
 //
 
 #import "RecommandDoctorVC.h"
-#import "MapView.h"
+#import "MapContentView.h"
 #import "RecommandDoctorViewModel.h"
 #import "RDoctorListCell.h"
 #import "DoctorDetailViewModel.h"
 
 @interface RecommandDoctorVC () <UIAlertViewDelegate, UISearchBarDelegate>
-@property (nonatomic, strong) MapView *mapView;
+@property (nonatomic, strong) MapContentView *mapView;
 @property (nonatomic, strong) RecommandDoctorViewModel *viewModel;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @end
@@ -32,14 +32,30 @@
     [IQKeyboardManager sharedManager].enable = true;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = true;
     
+    // 地图
+    self.mapView = [MapContentView buttonWithType:UIButtonTypeCustom];
+    [self addSubview:self.mapView];
+    self.mapView.frame = (CGRect){CGPointZero, self.contentView.width, kRate(220)};
+    @weakify(self);
+    // 地图上阴影图片
+    UIImageView *shadowImageView = [UIImageView new];
+    [self.mapView addSubview:shadowImageView];
+    shadowImageView.image = [UIImage imageNamed:@"selectDoctor_icon"];
+    [shadowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.mapView);
+        make.height.mas_equalTo(kRate(53));
+    }];
+    
+    [self.contentView bringSubviewToFront:self.listView];
+    self.listView.top = kRate(220);
     self.listView.baseTable.height = self.listView.height = CONTENT_HEIGHT - self.listView.top;
     self.listView.baseTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.listView.isNeedHeadRefresh = false;
+    self.listView.clipsToBounds = false;
     self.listView.backgroundColor = [UIColor clearColor];
     self.listView.cellHeight = ^(NSIndexPath *indexPath){
-        return indexPath.row==0?kRate(308):(CGFloat)kRate(108);
+        return (CGFloat)kRate(108);//indexPath.row==0?kRate(308):
     };
-    @weakify(self);
     self.listView.didSelected = ^(NSIndexPath *indexPath){
         @strongify(self);
         if (self.viewModel.dataArray.count) {
@@ -70,6 +86,7 @@
             searchField.layer.masksToBounds = YES;
         }
     }
+    
 }
 
 - (void)bindViewModel {
@@ -87,39 +104,26 @@
          [self.listView.baseTable reloadData];
         [Utility hideMBProgress:self.contentView];
     }];
+    
+    // 定位
+    [self.mapView.locationFail subscribeNext:^(id x) {
+        @strongify(self);
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"隐私" message:@"定位服务尚未打开" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        [Utility hideMBProgress:self.contentView];
+    }];
+    [self.mapView.locationSuccess subscribeNext:^(NSValue *x) {
+        @strongify(self);
+        self.viewModel.coordinate2D = x.MKCoordinateValue;
+        [self.viewModel execute];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.dataArray.count == 0 ? 1 : self.viewModel.dataArray.count;
+    return self.viewModel.dataArray.count;
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        MapView *cell = self.mapView;
-        if (cell == nil) {
-            cell = [[MapView alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([MapView class])];
-            self.mapView = cell;
-            RAC(self.viewModel, coordinate2D) = cell.locationSuccess;
-            @weakify(self);
-            [cell.locationFail subscribeNext:^(id x) {
-                @strongify(self);
-                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"隐私" message:@"定位服务尚未打开" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alertView show];
-                [Utility hideMBProgress:self.contentView];
-            }];
-            [cell.locationSuccess subscribeNext:^(id x) {
-                @strongify(self);
-                [self.viewModel execute];
-            }];
-        }
-        if (self.viewModel.dataArray.count) {
-            cell.valueSignal = [RACSignal return:RACTuplePack(self.viewModel.dataArray.firstObject, self.viewModel.annotations)];
-        } else {
-            cell.valueSignal = nil;
-        }
-        
-        return cell;
-    }
     RDoctorListCell *cell = [self.listView.baseTable dequeueReusableCellWithIdentifier:kRDoctorVM];
     if (cell == nil) {
         cell = [[RDoctorListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kRDoctorVM];

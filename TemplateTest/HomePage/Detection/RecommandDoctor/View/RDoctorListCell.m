@@ -98,7 +98,7 @@
     @weakify(self);
     [self.valueSignal subscribeNext:^(RecommandDoctorModel *model) {
         @strongify(self);
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.headImgUrl]];
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.headImgUrl] placeholderImage:[UIImage imageNamed:@"selectPeople"]];
         self.describeLabel.text = model.descrip;
         self.nameLabel.text = model.name;
         self.distanceLabel.text = model.distance;
