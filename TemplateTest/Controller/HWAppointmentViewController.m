@@ -46,10 +46,10 @@
         self.viewModel.currentPage = @"1";
         [self fetchData];
     }];
-    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        @strongify(self);
-        [self fetchData];
-    }];
+//    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        @strongify(self);
+//        [self fetchData];
+//    }];
 }
 - (UICollectionView *)collectionView
 {

@@ -7,7 +7,7 @@
 //
 
 #import "HWAppointFinishViewModel.h"
-
+#import "BaseWebViewModel.h"
 @interface HWAppointFinishViewModel()
 @property(strong,nonatomic)NSString * appointId;
 @property(strong,nonatomic,readwrite)HWAppointDetailModel * detailModel;
@@ -19,6 +19,14 @@
     self = [super init];
     if (self) {
         self.appointId = appointId;
+        self.answerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            //咨询
+            BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+            model.title = @"咨询";
+            model.url = [NSString stringWithFormat:@"%@&checkId=%@",kAnswer,self.detailModel.checkId];
+            [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+            return [RACSignal empty];
+        }];
     }
     return self;
 }

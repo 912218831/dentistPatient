@@ -11,6 +11,8 @@
 
 @interface HWAppointFinishViewModel : BaseViewModel
 @property(strong,nonatomic,readonly)HWAppointDetailModel * detailModel;
+@property(strong,nonatomic)RACCommand * answerCommand;
+
 - (instancetype)initWithAppointId:(NSString *)appointId;
 
 @end

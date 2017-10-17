@@ -92,28 +92,28 @@
                 [accumulator addObject:model];
                 return accumulator;
             }];
-            if(self.currentPage.integerValue == 1)
-            {
-                //第一页
-                self.dataArr = [tempDataArr copy];
-            }
-            else
-            {
-                NSMutableArray * tempMutArr = [NSMutableArray arrayWithArray:self.dataArr];
-                [tempMutArr addObjectsFromArray:tempDataArr];
-                if (tempDataArr.count < kPageCount.integerValue) {
-                    //没有下一页
-                    self.isLastPage = YES;
-                }
-                else
-                {
-                    //有下一页
-                    self.isLastPage = NO;
-                    self.currentPage = [NSString stringWithFormat:@"%ld",self.currentPage.integerValue+1];
-                }
-
-            }
-            [subscriber sendNext:self.dataArr];
+//            if(self.currentPage.integerValue == 1)
+//            {
+//                //第一页
+//                self.dataArr = [tempDataArr copy];
+//            }
+//            else
+//            {
+//                NSMutableArray * tempMutArr = [NSMutableArray arrayWithArray:self.dataArr];
+//                [tempMutArr addObjectsFromArray:tempDataArr];
+//                if (tempDataArr.count < kPageCount.integerValue) {
+//                    //没有下一页
+//                    self.isLastPage = YES;
+//                }
+//                else
+//                {
+//                    //有下一页
+//                    self.isLastPage = NO;
+//                    self.currentPage = [NSString stringWithFormat:@"%ld",self.currentPage.integerValue+1];
+//                }
+//
+//            }
+            [subscriber sendNext:tempDataArr];
 //            [subscriber sendCompleted];
         } failure:^(NSString *error) {
            

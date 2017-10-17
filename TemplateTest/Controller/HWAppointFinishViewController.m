@@ -25,23 +25,17 @@
     [super configContentView];
     [self.view addSubview:self.table];
     [self configTableViewHeaderAndFooter];
-//    self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.table.bottom, kScreenWidth, 50)];
-//    [self.cancelBtn setTitle:@"取消预约" forState:UIControlStateNormal];
-//    [self.cancelBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
-//    self.cancelBtn.backgroundColor = COLOR_B5C8D9;
-//    [self.view addSubview:self.cancelBtn];
-//    self.answerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 50, 0, 50, 32)];
-//    self.answerBtn.centerY = self.cancelBtn.top;
-//    self.answerBtn.contentMode = UIViewContentModeCenter;
-//    [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
-//    [self.view addSubview:self.answerBtn];
+    self.answerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 50, CONTENT_HEIGHT - 16 - 50, 50, 32)];
+    self.answerBtn.contentMode = UIViewContentModeCenter;
+    [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
+    [self.view addSubview:self.answerBtn];
     
 }
 
 - (UITableView *)table
 {
     if (_table == nil) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT-50) style:UITableViewStylePlain];
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT) style:UITableViewStylePlain];
         _table.delegate = self;
         _table.dataSource = self;
         [_table registerNib:[UINib nibWithNibName:@"HWAppointFinishCell" bundle:nil] forCellReuseIdentifier:@"HWAppointFinishCell"];
@@ -105,6 +99,7 @@
         [self.table reloadData];
     }];
     [self.viewModel execute];
+    self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
 
 @end

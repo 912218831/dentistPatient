@@ -51,6 +51,10 @@
     //定位
     HWLocationManager * locationManger = [HWLocationManager shareManager];
     [locationManger startLocating];
+    if (![locationManger startLocating]) {
+        [Utility showToastWithMessage:@"请检查定位权限"];
+        return;
+    }
     @weakify(locationManger);
     [locationManger setLocationSuccess:^(CLLocation * loc , NSString * cityName,NSString *streetName) {
         /**

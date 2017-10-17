@@ -12,7 +12,7 @@
 #import "HWAppointCouponModel.h"
 #import "HWAppointCouponCell.h"
 #import <AlipaySDK/AlipaySDK.h>
-
+#import "HWHomePageSecondHeader.h"
 @interface HWAppointSuccessViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIActionSheetDelegate>
 
 @property(strong,nonatomic)UICollectionView * collectionView;
@@ -52,6 +52,7 @@
         _collectionView.dataSource = self;
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointSuccessCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointSuccessCell"];
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointCouponCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointCouponCell"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageSecondHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader"];
         _collectionView.backgroundColor = COLOR_FFFFFF;
     }
     return _collectionView;
@@ -84,6 +85,18 @@
         return UIEdgeInsetsMake(0, 30, 0, 30);
     }
     return UIEdgeInsetsZero;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return CGSizeMake(kScreenWidth, 40);
+    }
+    else
+    {
+        return CGSizeZero;
+
+    }
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
@@ -143,6 +156,19 @@
     {
         return nil;
     }
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        if (indexPath.section == 1) {
+            HWHomePageSecondHeader * header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader" forIndexPath:indexPath];
+            header.title = @"可用优惠券";
+            return header;
+            
+        }
+    }
+    return nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
