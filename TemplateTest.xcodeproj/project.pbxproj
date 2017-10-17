@@ -313,6 +313,7 @@
 		C587E37C1F6F6A62009509CB /* detectionPhotoDelete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */; };
 		C587E37E1F6F6A68009509CB /* detectionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */; };
 		C587E3801F6F6A6F009509CB /* detectionPhotoDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */; };
+		C5A7AFC31F95BFBF00F1C315 /* MLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */; };
 		C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA141F6E5C170083E8C5 /* MapContentView.m */; };
 		C5B4AA1C1F6E71B20083E8C5 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */; };
 		C5B4AA1F1F6E71CA0083E8C5 /* DoctorDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1E1F6E71CA0083E8C5 /* DoctorDetailViewModel.m */; };
@@ -1000,6 +1001,8 @@
 		C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionCapture@2x.png"; sourceTree = "<group>"; };
 		C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionPhotoDelete@2x.png"; sourceTree = "<group>"; };
 		C58A4C481F76B4D1002B1F90 /* TemplateTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemplateTest.entitlements; sourceTree = "<group>"; };
+		C5A7AFC11F95BFBF00F1C315 /* MLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSearchBar.h; sourceTree = "<group>"; };
+		C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSearchBar.m; sourceTree = "<group>"; };
 		C5B4AA131F6E5C170083E8C5 /* MapContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapContentView.h; sourceTree = "<group>"; };
 		C5B4AA141F6E5C170083E8C5 /* MapContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapContentView.m; sourceTree = "<group>"; };
 		C5B4AA1A1F6E71B20083E8C5 /* DoctorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailViewController.h; sourceTree = "<group>"; };
@@ -2064,6 +2067,7 @@
 		C24E7DDC1ADE5E9700BA8ECC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				C5A7AFC01F95BFBF00F1C315 /* MLSearchBar */,
 				B0E5E43C1F7DC10200FBEA9D /* alipay */,
 				B0381CF81F7A401400C5E172 /* basicClass */,
 				B0381C8C1F7A1B6B00C5E172 /* DisplayModule */,
@@ -2464,6 +2468,15 @@
 				C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C5A7AFC01F95BFBF00F1C315 /* MLSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				C5A7AFC11F95BFBF00F1C315 /* MLSearchBar.h */,
+				C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */,
+			);
+			path = MLSearchBar;
 			sourceTree = "<group>";
 		};
 		C5B4AA161F6E715D0083E8C5 /* DoctorDetail */ = {
@@ -3212,6 +3225,7 @@
 				B05FF24E1F73B47000F06366 /* HWAppointDetailModel.m in Sources */,
 				C587E36C1F6ED88C009509CB /* PatientDetailDateView.m in Sources */,
 				C50821251F6834B6004B2221 /* CaseListCell.m in Sources */,
+				C5A7AFC31F95BFBF00F1C315 /* MLSearchBar.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
 				C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */,
 				B06506BE1F6659050069652A /* CALayer+xibConfigure.m in Sources */,

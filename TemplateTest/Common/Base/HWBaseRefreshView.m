@@ -159,7 +159,9 @@
         [self.refreshHeadView egoRefreshScrollViewDidScroll:scrollView];
     }
     [_refreshFooterView egoRefreshScrollViewDidScroll:scrollView];
-
+    if (self.didScroll) {
+        self.didScroll(self.baseTable);
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate

@@ -11,6 +11,7 @@
 #import "RecommandDoctorViewModel.h"
 #import "RDoctorListCell.h"
 #import "DoctorDetailViewModel.h"
+#import "MLSearchBar.h"
 
 @interface RecommandDoctorVC () <UIAlertViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) MapContentView *mapView;
@@ -65,26 +66,32 @@
             [[ViewControllersRouter shareInstance]pushViewModel:model animated:YES];
         }
     };
+    self.listView.didScroll = ^(UITableView *tableView) {
+        @strongify(self);
+        @weakify(self);
+        [self.listView.baseTable.visibleCells enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            @strongify(self);
+            CGRect result = [self.listView.baseTable convertRect:obj.frame toView:self.contentView];
+            obj.alpha = (CGRectGetMaxY(result) - self.listView.top)/(CGFloat)kRate(108);
+        }];
+    };
     self.listView.baseTable.layer.masksToBounds = false;
     if (self.viewModel.needSearchBar) {
-        UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-kRate(60), 30)];
+        self.navigationItem.rightBarButtonItem = nil;
+        UIView *contentV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-kRate(60), 44)];
+        MLSearchBar *searchBar = [[MLSearchBar alloc]initWithFrame:CGRectMake(0, 7, contentV.width, 30) boardColor:[UIColor whiteColor] placeholderString:@"附近的口腔医生"];
         self.searchBar = searchBar;
+        [contentV.heightAnchor constraintEqualToConstant: 44].active = YES;
+        [contentV.widthAnchor constraintEqualToConstant:contentV.width].active=YES;
+        [contentV addSubview:searchBar];
+        
         UIImage *clearImage = [Utility imageWithColor:[UIColor clearColor] andSize:CGSizeMake(1, 1)];
         [self.searchBar setBackgroundImage:clearImage];
-        self.navigationItem.titleView=self.searchBar;
+        self.navigationItem.titleView=contentV;
         self.navigationItem.rightBarButtonItem.width = kRate(10);
         self.navigationItem.rightBarButtonItem.customView.width = kRate(10);
         self.searchBar.delegate = self;
         self.searchBar.placeholder = @"附近的口腔医生";
-
-        UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
-        if (searchField) {
-            [searchField setBackgroundColor:[UIColor whiteColor]];
-            searchField.layer.cornerRadius = searchBar.height/2.0;
-            searchField.layer.borderColor = [UIColor whiteColor].CGColor;
-            searchField.layer.borderWidth = 1;
-            searchField.layer.masksToBounds = YES;
-        }
     }
     
 }
