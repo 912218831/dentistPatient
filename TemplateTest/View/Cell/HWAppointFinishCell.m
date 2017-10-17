@@ -39,7 +39,7 @@
     self.viewModel = viewModel;
     HWAppointDetailModel * detailModel = self.viewModel.detailModel;
     self.nameLab.text = detailModel.dentistName;
-    self.addressLab.text = detailModel.clinicName;
+    self.addressLab.text = detailModel.address;
     self.appointCountLab.text = detailModel.patientCount;
     self.appointStateLab.text = detailModel.stateDes;
     self.payMoneyLab.text = detailModel.payInfo;

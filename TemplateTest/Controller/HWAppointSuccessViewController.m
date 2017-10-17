@@ -53,7 +53,16 @@
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointSuccessCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointSuccessCell"];
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointCouponCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointCouponCell"];
         [_collectionView registerNib:[UINib nibWithNibName:@"HWHomePageSecondHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HWHomePageSecondHeader"];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header01"];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer01"];
+
         _collectionView.backgroundColor = COLOR_FFFFFF;
+        UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT)];
+        UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
+        imgV.centerX = kScreenWidth/2.0f;
+        imgV.image = ImgWithName(@"我的预约bg");
+        [bg addSubview:imgV];
+        _collectionView.backgroundView = bg;
     }
     return _collectionView;
 }
@@ -94,8 +103,18 @@
     }
     else
     {
-        return CGSizeZero;
+        return CGSizeMake(kScreenWidth, kRate(168));
+    }
+}
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return CGSizeMake(kScreenWidth, 20);
+    }
+    else
+    {
+        return CGSizeZero;
     }
 }
 
@@ -166,6 +185,24 @@
             header.title = @"可用优惠券";
             return header;
             
+        }
+        else if (indexPath.section == 0)
+        {
+            UICollectionReusableView * header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header01" forIndexPath:indexPath];
+            header.backgroundColor = [UIColor clearColor];
+            return header;
+        }
+    }
+    else if([kind isEqualToString:UICollectionElementKindSectionFooter])
+    {
+        if (indexPath.section == 1) {
+            UICollectionReusableView * footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer01" forIndexPath:indexPath];
+            footer.backgroundColor = [UIColor clearColor];
+            return footer;
+        }
+        else
+        {
+            return nil;
         }
     }
     return nil;
