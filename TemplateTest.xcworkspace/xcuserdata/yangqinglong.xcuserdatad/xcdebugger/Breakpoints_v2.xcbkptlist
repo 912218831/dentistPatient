@@ -68,7 +68,7 @@
                   moduleName = "TemplateTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/AppDelegate.m"
-                  timestampString = "529902136.711235"
+                  timestampString = "529914471.372603"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
@@ -83,7 +83,7 @@
                   moduleName = "TemplateTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/AppDelegate.m"
-                  timestampString = "529902136.713732"
+                  timestampString = "529914471.375192"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "160"
@@ -292,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppShare.m"
-            timestampString = "529907984.893195"
+            timestampString = "529914218.45756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -314,6 +314,38 @@
             startingLineNumber = "127"
             endingLineNumber = "127"
             landmarkName = "-locationManager:didFailWithError:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/Login/Model/HWUserLogin.m"
+            timestampString = "529914471.151473"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-loadData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/Controller/HWHomePageViewController.m"
+            timestampString = "529914471.151542"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

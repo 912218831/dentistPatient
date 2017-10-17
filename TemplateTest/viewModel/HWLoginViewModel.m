@@ -45,8 +45,8 @@
                     [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
                         loginUser.key = [dic stringObjectForKey:@"userkey"];
                     }];
+                    [subscriber sendNext:@"登录成功"];
                 });
-                [subscriber sendNext:@"登录成功"];
             } failure:^(NSString * error) {
                 [subscriber sendError:[NSError errorWithDomain:@"com.getLoginCode" code:100 userInfo:@{NSLocalizedDescriptionKey:error}]];
             }];

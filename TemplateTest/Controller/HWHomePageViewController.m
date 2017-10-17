@@ -35,7 +35,9 @@
     [self.viewModel execute];
     self.netWorkManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
     [self.netWorkManager startMonitoring];
+    @weakify(self);
     [self.netWorkManager  setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        @strongify(self);
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:
                 NSLog(@"不可用");
