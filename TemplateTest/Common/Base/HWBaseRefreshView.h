@@ -27,6 +27,7 @@
 @property (nonatomic, copy  ) CGFloat        (^footerHeight)(NSInteger section);
 @property (nonatomic, copy  ) UIView*        (^headerView)(NSInteger section);
 @property (nonatomic, copy  ) void           (^didSelected)(NSIndexPath *indexPath);
+@property (nonatomic, copy  ) void           (^didScroll)(UITableView *tableView);
 @property (nonatomic, assign) id<HWBaseRefreshViewObserverProtocol>
                                            observer;
 - (void)queryListData;

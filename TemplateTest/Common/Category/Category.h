@@ -11,6 +11,7 @@
 #ifndef _CATEGORY_
 #define _CATEGORY_
 
+#import "UITableView+ContentSize.h"
 #import "UIAlertAction+Undefined.h"
 #import "UIButton+Utils.h"
 #import "NSDictionary+Utils.h"

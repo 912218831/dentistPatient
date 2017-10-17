@@ -107,6 +107,11 @@
     
     [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
+        if (self.viewModel.currentPage == 1) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.listView setContentOffset:CGPointZero animated:false];
+            });
+        }
         [self.listView reloadData];
     } error:^(NSError *error) {
         [Utility showToastWithMessage:error.domain];
