@@ -21,4 +21,5 @@
 @property (nonatomic, copy) NSString *doctor;
 @property (nonatomic, copy) NSString *clinicName;
 @property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, copy) NSString *expectedTime;
 @end

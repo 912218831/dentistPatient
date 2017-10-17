@@ -123,7 +123,7 @@
     self.uploadImageBtn.titleLabel.font = FONT(TF16);
     self.uploadImageBtn.backgroundColor = CD_MainColor;
     
-    self.subjectTitleLabel.text = @"项目名称:";
+    self.subjectTitleLabel.text = @"病人名称:";
     self.captureTitleLabel.text = @"拍照时间:";
     self.clinicTitleLabel.text = @"所属诊所:";
     self.doctorTitleLabel.text = @"诊断医生:";
@@ -141,6 +141,7 @@
         self.captureLabel.text = model.time;
         self.doctorLabel.text = model.doctor;
         self.clinicLabel.text = model.clinicName;
+        self.visitLabel.text = model.expectedTime;
     }];
     
     self.uploadImageSignal = [self.uploadImageBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
