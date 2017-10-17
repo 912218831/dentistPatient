@@ -113,11 +113,6 @@
                 if (self.listView.contentOffset.y > 0) {
                     [self.listView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:false];
                 }
-                if (!self.viewModel.dataArray.count) {
-                    [self.listView showEmptyView];
-                } else {
-                    [self.listView hideEmptyView];
-                }
             }];
         }
         [self.listView reloadData];

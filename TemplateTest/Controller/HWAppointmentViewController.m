@@ -152,11 +152,6 @@
         {
             [self.collectionView.mj_header endRefreshing];
             self.dataArr = [x copy];
-            if (!self.dataArr.count) {
-                [self.collectionView showEmptyView];
-            } else {
-                [self.collectionView hideEmptyView];
-            }
             [Utility hideMBProgress:self.view];
             [self.collectionView reloadData];
         }

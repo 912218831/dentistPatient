@@ -14,6 +14,20 @@
 
 - (void)setNeedShowEmpty:(BOOL)needShowEmpty {
     objc_setAssociatedObject(self, _cmd, @(needShowEmpty), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (needShowEmpty) {
+        @weakify(self);
+        [[self rac_signalForSelector:@selector(reloadData)]subscribeNext:^(id x) {
+            @strongify(self);
+            if (self.dataSource) {
+               NSInteger n = [self.dataSource tableView:self numberOfRowsInSection:0];
+                if (n) {
+                    [self hideEmptyView];
+                } else {
+                    [self showEmptyView];
+                }
+            }
+        }];
+    }
 }
 
 - (BOOL)needShowEmpty {
