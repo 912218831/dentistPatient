@@ -39,7 +39,7 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
     [[ViewControllersRouter shareInstance] luanchRootViewController];
 //    HWTabBarViewController * t = [[HWTabBarViewController alloc] init];
 //    [self.window setRootViewController:t];
-    [AMapServices sharedServices].apiKey = @"8b06485d0cb11f6130930a32a8461b5a";
+    [AMapServices sharedServices].apiKey = kDevelopmentCertificate?@"1cbaad55e914bbd6cf9623880471c29b":@"8b06485d0cb11f6130930a32a8461b5a";
     
     
     return YES;

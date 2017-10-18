@@ -88,7 +88,10 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define IOS83                           ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.3 ? YES : NO)
 #define IOS10                            ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0 ? YES : NO)
 
-
+/*
+ 个人 0  企业 1
+ */
+#define kDevelopmentCertificate   1
 /*  屏幕尺寸
  */
 #define IPHONE4                         ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
