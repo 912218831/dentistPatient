@@ -74,6 +74,8 @@
 #define kFamilyMembers               @"fam/loadMyFamily" //家庭成员列表
 #define kPayCallBack                 @"order/orderCheck"//支付回调
 
+#define kPersonCenterInfo            @"acc/getUserInfo"// 获取用户信息
+#define kPersonCenterLogout          @"acc/logout" // 退出登录
 #endif
 
 

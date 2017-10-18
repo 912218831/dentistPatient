@@ -14,6 +14,7 @@
         self.homePageViewModel = [HWHomePageViewModel new];
         self.appointViewModel = [HWAppointmentViewModel new];
         self.casesViewModel = [HWCasesViewModel new];
+        self.settingViewModel = [HWPeopleCenterViewModel new];
     }
     return self;
 }

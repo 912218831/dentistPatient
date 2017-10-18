@@ -315,6 +315,12 @@
 		C587E37C1F6F6A62009509CB /* detectionPhotoDelete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37B1F6F6A62009509CB /* detectionPhotoDelete@3x.png */; };
 		C587E37E1F6F6A68009509CB /* detectionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */; };
 		C587E3801F6F6A6F009509CB /* detectionPhotoDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */; };
+		C58BECB71F96EFC700BB05B1 /* HWPeopleCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BECAD1F96EFA000BB05B1 /* HWPeopleCenterCell.m */; };
+		C58BECB81F96EFC700BB05B1 /* HWPeopleCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BECAF1F96EFA000BB05B1 /* HWPeopleCenterHeadView.m */; };
+		C58BECB91F96EFC700BB05B1 /* HWPeopleCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BECB11F96EFA000BB05B1 /* HWPeopleCenterViewController.m */; };
+		C58BECBA1F96EFC700BB05B1 /* HWPeopleCenterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BECB41F96EFA000BB05B1 /* HWPeopleCenterViewModel.m */; };
+		C58BECBD1F96F32100BB05B1 /* personalCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C58BECBB1F96F2FA00BB05B1 /* personalCenter@2x.png */; };
+		C58BECBE1F96F32100BB05B1 /* personalCenter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C58BECBC1F96F30200BB05B1 /* personalCenter@3x.png */; };
 		C5A7AFC31F95BFBF00F1C315 /* MLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */; };
 		C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA141F6E5C170083E8C5 /* MapContentView.m */; };
 		C5B4AA1C1F6E71B20083E8C5 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */; };
@@ -1007,6 +1013,16 @@
 		C587E37D1F6F6A68009509CB /* detectionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionCapture@2x.png"; sourceTree = "<group>"; };
 		C587E37F1F6F6A6F009509CB /* detectionPhotoDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detectionPhotoDelete@2x.png"; sourceTree = "<group>"; };
 		C58A4C481F76B4D1002B1F90 /* TemplateTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemplateTest.entitlements; sourceTree = "<group>"; };
+		C58BECAC1F96EFA000BB05B1 /* HWPeopleCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWPeopleCenterCell.h; sourceTree = "<group>"; };
+		C58BECAD1F96EFA000BB05B1 /* HWPeopleCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWPeopleCenterCell.m; sourceTree = "<group>"; };
+		C58BECAE1F96EFA000BB05B1 /* HWPeopleCenterHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWPeopleCenterHeadView.h; sourceTree = "<group>"; };
+		C58BECAF1F96EFA000BB05B1 /* HWPeopleCenterHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWPeopleCenterHeadView.m; sourceTree = "<group>"; };
+		C58BECB01F96EFA000BB05B1 /* HWPeopleCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWPeopleCenterViewController.h; sourceTree = "<group>"; };
+		C58BECB11F96EFA000BB05B1 /* HWPeopleCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWPeopleCenterViewController.m; sourceTree = "<group>"; };
+		C58BECB31F96EFA000BB05B1 /* HWPeopleCenterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWPeopleCenterViewModel.h; sourceTree = "<group>"; };
+		C58BECB41F96EFA000BB05B1 /* HWPeopleCenterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWPeopleCenterViewModel.m; sourceTree = "<group>"; };
+		C58BECBB1F96F2FA00BB05B1 /* personalCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personalCenter@2x.png"; sourceTree = "<group>"; };
+		C58BECBC1F96F30200BB05B1 /* personalCenter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personalCenter@3x.png"; sourceTree = "<group>"; };
 		C5A7AFC11F95BFBF00F1C315 /* MLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSearchBar.h; sourceTree = "<group>"; };
 		C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSearchBar.m; sourceTree = "<group>"; };
 		C5B4AA131F6E5C170083E8C5 /* MapContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapContentView.h; sourceTree = "<group>"; };
@@ -1626,6 +1642,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C58BECBB1F96F2FA00BB05B1 /* personalCenter@2x.png */,
 				B00099E51F8CF77100E13DCF /* answer@2x.png */,
 				B00099DC1F8CC09200E13DCF /* tabbar_2_s@2x.png */,
 				B00099DD1F8CC09200E13DCF /* tabbar_3_s@2x.png */,
@@ -1685,6 +1702,7 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C58BECBC1F96F30200BB05B1 /* personalCenter@3x.png */,
 				B00099E61F8CF79200E13DCF /* answer@3x.png */,
 				B00099DA1F8CC07F00E13DCF /* tabbar_2_s@3x.png */,
 				B00099DB1F8CC08000E13DCF /* tabbar_3_s@3x.png */,
@@ -1963,6 +1981,7 @@
 			isa = PBXGroup;
 			children = (
 				C58A4C481F76B4D1002B1F90 /* TemplateTest.entitlements */,
+				C58BECA11F96EFA000BB05B1 /* PeopleCenter */,
 				C50029B21F6C102B0064DFEE /* HomePage */,
 				C546B0421F680DD3000C99A1 /* Case */,
 				B06506C21F66789E0069652A /* viewModel */,
@@ -2476,6 +2495,45 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C58BECA11F96EFA000BB05B1 /* PeopleCenter */ = {
+			isa = PBXGroup;
+			children = (
+				C58BECA21F96EFA000BB05B1 /* Model */,
+				C58BECAB1F96EFA000BB05B1 /* View */,
+				C58BECB21F96EFA000BB05B1 /* ViewModel */,
+			);
+			path = PeopleCenter;
+			sourceTree = "<group>";
+		};
+		C58BECA21F96EFA000BB05B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C58BECAB1F96EFA000BB05B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C58BECAC1F96EFA000BB05B1 /* HWPeopleCenterCell.h */,
+				C58BECAD1F96EFA000BB05B1 /* HWPeopleCenterCell.m */,
+				C58BECAE1F96EFA000BB05B1 /* HWPeopleCenterHeadView.h */,
+				C58BECAF1F96EFA000BB05B1 /* HWPeopleCenterHeadView.m */,
+				C58BECB01F96EFA000BB05B1 /* HWPeopleCenterViewController.h */,
+				C58BECB11F96EFA000BB05B1 /* HWPeopleCenterViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C58BECB21F96EFA000BB05B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C58BECB31F96EFA000BB05B1 /* HWPeopleCenterViewModel.h */,
+				C58BECB41F96EFA000BB05B1 /* HWPeopleCenterViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C5A7AFC01F95BFBF00F1C315 /* MLSearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -2886,6 +2944,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58BECBD1F96F32100BB05B1 /* personalCenter@2x.png in Resources */,
+				C58BECBE1F96F32100BB05B1 /* personalCenter@3x.png in Resources */,
 				C5CFB9721F8DEE65006ECB4B /* arrow_down_black.png in Resources */,
 				B00099E71F8CF7A400E13DCF /* answer@2x.png in Resources */,
 				B00099E81F8CF7A400E13DCF /* answer@3x.png in Resources */,
@@ -3127,6 +3187,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58BECB71F96EFC700BB05B1 /* HWPeopleCenterCell.m in Sources */,
+				C58BECB81F96EFC700BB05B1 /* HWPeopleCenterHeadView.m in Sources */,
+				C58BECB91F96EFC700BB05B1 /* HWPeopleCenterViewController.m in Sources */,
+				C58BECBA1F96EFC700BB05B1 /* HWPeopleCenterViewModel.m in Sources */,
 				B0381D021F7A454300C5E172 /* lm_yuv2rgb.c in Sources */,
 				B0381D011F7A44F900C5E172 /* CocoaPCMPlayer.m in Sources */,
 				B0381D001F7A44CB00C5E172 /* AQRecorder.mm in Sources */,

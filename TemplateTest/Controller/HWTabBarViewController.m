@@ -11,7 +11,7 @@
 #import "HWHomePageViewController.h"
 #import "HWCasesViewController.h"
 #import "HWAppointmentViewController.h"
-#import "HWSettingViewController.h"
+#import "HWPeopleCenterViewController.h"
 
 @interface HWTabBarViewController ()
 
@@ -46,7 +46,7 @@
     UIViewController *caseViewController = [[HWCasesViewController alloc] initWithViewModel:self.viewModel.casesViewModel];
     
     UIViewController *appointmentViewController = [[HWAppointmentViewController alloc] initWithViewModel:self.viewModel.appointViewModel];
-    UIViewController *settingViewController = [[HWSettingViewController alloc] initWithViewModel:self.viewModel.settingViewModel];
+    UIViewController *settingViewController = [[HWPeopleCenterViewController alloc] initWithViewModel:self.viewModel.settingViewModel];
     
     HWBaseNavigationController * firstNav = [[HWBaseNavigationController alloc] initWithRootViewController:homePageController];
     HWBaseNavigationController * secondNav = [[HWBaseNavigationController alloc] initWithRootViewController:caseViewController];
