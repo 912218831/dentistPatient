@@ -48,6 +48,11 @@
         {
             //预约成功
             HWAppointSuccessViewModel * successViewModel = [[HWAppointSuccessViewModel alloc] initWithAppointId:model.appointId];
+            @weakify(self);
+            [RACObserve(successViewModel, payState)  subscribeNext:^(id x) {
+                @strongify(self);
+                self.isNeedRefresh = YES;
+            }];
             [[ViewControllersRouter shareInstance] pushViewModel:successViewModel animated:YES];
         }
         else if([model.state isEqualToString:@"4"])
@@ -97,28 +102,27 @@
                 [accumulator addObject:model];
                 return accumulator;
             }];
-//            if(self.currentPage.integerValue == 1)
-//            {
-//                //第一页
-//                self.dataArr = [tempDataArr copy];
-//            }
-//            else
-//            {
-//                NSMutableArray * tempMutArr = [NSMutableArray arrayWithArray:self.dataArr];
-//                [tempMutArr addObjectsFromArray:tempDataArr];
-//                if (tempDataArr.count < kPageCount.integerValue) {
-//                    //没有下一页
-//                    self.isLastPage = YES;
-//                }
-//                else
-//                {
-//                    //有下一页
-//                    self.isLastPage = NO;
-//                    self.currentPage = [NSString stringWithFormat:@"%ld",self.currentPage.integerValue+1];
-//                }
-//
-//            }
-            [subscriber sendNext:tempDataArr];
+            if(self.currentPage.integerValue == 1)
+            {
+                //第一页
+                self.dataArr = [tempDataArr copy];
+            }
+            else
+            {
+                NSMutableArray * tempMutArr = [NSMutableArray arrayWithArray:self.dataArr];
+                [tempMutArr addObjectsFromArray:tempDataArr];
+                self.dataArr = [tempMutArr copy];
+            }
+            if (tempDataArr.count < kPageCount.integerValue) {
+                //没有下一页
+                self.isLastPage = YES;
+            }
+            else
+            {
+                //有下一页
+                self.isLastPage = NO;
+            }
+            [subscriber sendNext:self.dataArr];
 //            [subscriber sendCompleted];
         } failure:^(NSString *error) {
            
