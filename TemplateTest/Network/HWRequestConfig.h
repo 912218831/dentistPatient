@@ -10,7 +10,7 @@
 #define Template_OC_HWRequestConfig_h
 
 
-#define kPageCount                     @"10"                   //每页请求数据数
+#define kPageCount                     @"6"                   //每页请求数据数
 #define kFirstPage                     @"1"                   // 默认第一页
 
 #define kNetworkFailedMessage           @"网络不给力,请稍后再试!"

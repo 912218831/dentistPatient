@@ -46,10 +46,18 @@
         self.viewModel.currentPage = @"1";
         [self fetchData];
     }];
-//    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        @strongify(self);
-//        [self fetchData];
-//    }];
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        @strongify(self);
+        if (self.viewModel.isLastPage) {
+            [self.collectionView.mj_footer endRefreshing];
+        }
+        else
+        {
+            self.viewModel.currentPage = [NSString stringWithFormat:@"%ld",self.viewModel.currentPage.integerValue+1];
+            [self fetchData];
+        }
+    }];
+    self.collectionView.mj_footer.hidden = YES;
 }
 - (UICollectionView *)collectionView
 {
@@ -154,12 +162,25 @@
             self.dataArr = [x copy];
             [Utility hideMBProgress:self.view];
             [self.collectionView reloadData];
+            if (self.viewModel.isLastPage) {
+                self.collectionView.mj_footer.hidden = YES;
+                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+
+            }
+            else
+            {
+                self.collectionView.mj_footer.hidden = NO;
+                [self.collectionView.mj_footer endRefreshing];
+
+            }
         }
     } error:^(NSError *error) {
         @strongify(self);
         [Utility hideMBProgress:self.view];
         [Utility showToastWithMessage:error.localizedDescription];
         [self.collectionView.mj_header endRefreshing];
+        self.collectionView.mj_footer.hidden = YES;
+        [self.collectionView.mj_footer endRefreshing];
     }];
     
 }
