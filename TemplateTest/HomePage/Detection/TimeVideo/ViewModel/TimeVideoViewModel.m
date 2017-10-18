@@ -155,7 +155,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         //============初始化解码器
         self.decodeSDK = [[HKDecodeSDK alloc] initWithDelegate:self];
         self.displayView = [[HKDisplayView alloc] init];
-        self.displayView.delegate = self;
+//        self.displayView.delegate = self;
         //============初始化局域网回调
         hk_InitLAN((__bridge void *)(self), &HKLanDataCallback);
         InitGetWifiSid((__bridge void *)(self), &HKWifiDataCallback);
@@ -549,16 +549,4 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
     [_displayView playListenAudio:frameDesc->media length:frameDesc->length];
 }
 
-- (void)snapShotFailed:(NSError *)error
-{
-    [Utility showToastWithMessage:error.localizedDescription];
-}
-
-- (void)snapShotSuccess:(UIImage *)captureImg
-{
-//    self.captureImage = [UIImage imageWithData:UIImagePNGRepresentation(captureImg)];
-    [Utility showToastWithMessage:@"抓拍成功"];
-    self.takePhoto([UIImage imageWithData:UIImagePNGRepresentation(captureImg)]);
-    [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
-}
 @end

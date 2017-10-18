@@ -144,13 +144,10 @@
     
     [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
-        [[ViewControllersRouter shareInstance] presentViewModel:tabbarViewModel animated:YES completion:^(UIViewController *targetVC) {
-            
-            //            self.view.hidden = true;
-            [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
-                SHARED_APP_DELEGATE.viewController = targetVC;
-                [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
-            }];
+        SHARED_APP_DELEGATE.viewController = [[HWTabBarViewController alloc] initWithViewModel:tabbarViewModel];
+        //    SHARED_APP_DELEGATE.viewController.transitioningDelegate = self;
+        [SHARED_APP_DELEGATE.window.rootViewController presentViewController:SHARED_APP_DELEGATE.viewController animated:YES completion:^{
+            [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
         }];
     }];
     [self.viewModel.loginCommand.errors subscribeNext:^(NSError * error) {

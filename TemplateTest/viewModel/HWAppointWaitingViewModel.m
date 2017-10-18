@@ -35,8 +35,7 @@
             [subscriber sendNext:@"请求中..."];
             [params setPObject:self.detailModel.appointId forKey:@"applyId"];
             NSURLSessionTask * task = [self post:kCancelAppoint params:params success:^(id response) {
-                [subscriber sendCompleted];
-                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+                [subscriber sendNext:@"取消成功"];
             } failure:^(NSString * error) {
                 [subscriber sendError:customRACError(@"取消失败")];
             }];

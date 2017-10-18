@@ -12,7 +12,8 @@
 #import<SystemConfiguration/CaptiveNetwork.h>
 #import<SystemConfiguration/SystemConfiguration.h>
 #import<CoreFoundation/CoreFoundation.h>
-
+#import "HWLoginViewModel.h"
+#import "HWLoginViewController.h"
 @implementation AppShare
 
 + (instancetype)shareInstance
@@ -171,6 +172,23 @@
         NSLog(@"wifiName:%@", wifiName);
     }
     return wifiName;
+}
+
+- (void)logout
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [[HWUserLogin currentUserLogin] userLogout];
+        HWLoginViewModel * viewModel = [HWLoginViewModel new];
+        HWLoginViewController * loginCtrl = [[HWLoginViewController alloc] initWithViewModel:viewModel];
+        HWBaseNavigationController * nav = [[HWBaseNavigationController alloc] initWithRootViewController:loginCtrl];
+        nav.view.backgroundColor = [UIColor whiteColor];
+        [(SHARED_APP_DELEGATE).window.rootViewController presentViewController:nav animated:YES completion:^{
+            [SHARED_APP_DELEGATE.window setRootViewController:nav];
+        }];
+        
+    });
+
 }
 
 @end

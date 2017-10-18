@@ -23,7 +23,7 @@
         self.canReGain = YES;
         self.title = @"验证码";
         @weakify(self);
-        __block NSInteger count = 10;
+        __block NSInteger count = 60;
         __block RACSignal * signal = [[[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]] doNext:^(NSDate * _Nullable x) {
             @strongify(self);
             count--;
@@ -39,7 +39,7 @@
                 @strongify(self);
                 if (![x integerValue]) {
                     self.canReGain = YES;
-                    count = 10;
+                    count = 60;
                     self.title = @"重新获取";
                     [dispose dispose];
                 }
@@ -57,15 +57,15 @@
                 [self post:kGetVerifyCode type:1 params:params success:^(id response) {
                     [subscriber sendNext:@"获取验证码成功"];
                 } failure:^(NSString *error) {
-                    [subscriber sendError:[NSError errorWithDomain:@"com.getLoginCode" code:100 userInfo:@{NSLocalizedDescriptionKey:error}]];
+                    [subscriber sendError:customRACError(error)];
                 }];
-                [subscriber sendCompleted];
             });
             return nil;
         }];
         self.verifyCodeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return gainCodeSignal;
         }];
+        self.verifyCodeCommand.allowsConcurrentExecution = YES;
 
         
     }

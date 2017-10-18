@@ -7,7 +7,20 @@
 //
 
 #import "HWSettingViewModel.h"
-
+#import "HWLoginViewController.h"
+#import "HWLoginViewModel.h"
 @implementation HWSettingViewModel
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.logoutCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            [[AppShare shareInstance] logout];
+            return [RACSignal empty];
+        }];
+    }
+    return self;
+}
 
 @end

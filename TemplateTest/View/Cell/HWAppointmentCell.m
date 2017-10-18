@@ -23,6 +23,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.headerImgV.layer.cornerRadius = 40.0f;
+    self.headerImgV.layer.masksToBounds = YES;
 }
 
 - (void)setModel:(HWAppointListModel *)model

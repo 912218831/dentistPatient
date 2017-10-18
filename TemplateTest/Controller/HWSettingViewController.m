@@ -7,16 +7,33 @@
 //  设置
 
 #import "HWSettingViewController.h"
-
+#import "HWSettingViewModel.h"
 @interface HWSettingViewController ()
-
+@property(nonatomic,strong)HWSettingViewModel * viewModel;
+@property(strong,nonatomic)UIButton * logoutBtn;
 @end
 
 @implementation HWSettingViewController
-
+@dynamic viewModel;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.titleView = [Utility navTitleView:@"设置"];
+}
+
+- (void)configContentView
+{
+    [super configContentView];
+    self.logoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 50, 20)];
+    [self.logoutBtn setTintColor:[UIColor whiteColor]];
+    [self.logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    self.logoutBtn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.logoutBtn];
+}
+
+- (void)bindViewModel
+{
+    self.logoutBtn.rac_command = self.viewModel.logoutCommand;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

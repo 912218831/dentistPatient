@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppDelegate.m"
-            timestampString = "529896696.758697"
+            timestampString = "529984654.662848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "201"
@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppDelegate.m"
-            timestampString = "529896696.761199"
+            timestampString = "529984654.662943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "195"
@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppDelegate.m"
-            timestampString = "529896696.761529"
+            timestampString = "529984654.663007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -68,7 +68,7 @@
                   moduleName = "TemplateTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/AppDelegate.m"
-                  timestampString = "529914471.372603"
+                  timestampString = "529986993.608686"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
@@ -83,7 +83,7 @@
                   moduleName = "TemplateTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yangqinglong/Documents/GitHub/dentistPatient/TemplateTest/AppDelegate.m"
-                  timestampString = "529914471.375192"
+                  timestampString = "529986993.612015"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "160"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppDelegate.m"
-            timestampString = "529896696.761857"
+            timestampString = "529984654.663055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppDelegate.m"
-            timestampString = "529896696.762172"
+            timestampString = "529984654.6631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppDelegate.m"
-            timestampString = "529896696.762479"
+            timestampString = "529984654.663145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "192"
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/Controller/HWAppointSuccessViewController.m"
-            timestampString = "529907984.891757"
+            timestampString = "529948419.333989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "-bindViewModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/Controller/HWAppointSuccessViewController.m"
-            timestampString = "529907984.892159"
+            timestampString = "529948419.334109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "-bindViewModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/Controller/HWAppointSuccessViewController.m"
-            timestampString = "529907984.892436"
+            timestampString = "529948419.3342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "-bindViewModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/Controller/HWAppointSuccessViewController.m"
-            timestampString = "529907984.892703"
+            timestampString = "529948419.334332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "-bindViewModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529832106.181507"
+            timestampString = "529948419.334423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "184"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529832106.18158"
+            timestampString = "529948419.334524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
@@ -244,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529832106.181651"
+            timestampString = "529948419.334596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
@@ -260,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/HomePage/Detection/TimeVideo/ViewModel/TimeVideoViewModel.m"
-            timestampString = "529832106.181717"
+            timestampString = "529948419.334679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "219"
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TemplateTest/AppShare.m"
-            timestampString = "529914218.45756"
+            timestampString = "529986993.370771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-startLocation:locactionFail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -323,13 +323,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TemplateTest/Login/Model/HWUserLogin.m"
-            timestampString = "529914471.151473"
+            filePath = "TemplateTest/HomePage/Detection/TimeVideo/View/TimeVideoViewController.m"
+            timestampString = "529948419.334864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-loadData"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-snapShotSuccess:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -339,13 +339,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TemplateTest/Controller/HWHomePageViewController.m"
-            timestampString = "529914471.151542"
+            filePath = "TemplateTest/HomePage/Detection/Capture/ViewModel/DetectionCaptureViewModel.m"
+            timestampString = "529948419.335023"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-takePhotoSuccess:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/viewModel/HWAppointmentViewModel.m"
+            timestampString = "529948419.335143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "-viewDidLoad"
+            landmarkName = "-bindViewWithSignal"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/Common/Base/BaseView/BaseServers/ViewControllersRouter.m"
+            timestampString = "529986993.371074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-setRootViewController:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/viewModel/HWLoginCellViewModel.m"
+            timestampString = "529986993.371175"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-init"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TemplateTest/viewModel/HWLoginCellViewModel.m"
+            timestampString = "529986993.371233"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

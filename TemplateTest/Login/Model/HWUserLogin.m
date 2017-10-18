@@ -52,10 +52,10 @@ static HWUserLogin *userLogin = nil;
         [HWLoginUser MR_truncateAll];
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     });
-
-    self.usertype = @"";
     self.username = @"";
     self.userkey = @"";
+    self.usertype = @"";
+    self.cityName = @"";
 }
 
 -(void)loadData

@@ -14,6 +14,7 @@
 @property(strong,nonatomic)UIButton * cancelBtn;
 @property(strong,nonatomic)HWAppointWaitingViewModel * viewModel;
 @property(strong,nonatomic)UIButton * answerBtn;
+@property(strong,nonatomic)UIImageView * headerImgV;
 @end
 
 @implementation HWAppointWaitingViewController
@@ -45,10 +46,10 @@
         _table.dataSource = self;
         [_table registerNib:[UINib nibWithNibName:@"HWAppointWaitingCell" bundle:nil] forCellReuseIdentifier:@"HWAppointWaitingCell"];
         UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT)];
-        UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
-        imgV.centerX = kScreenWidth/2.0f;
-        imgV.image = ImgWithName(@"我的预约bg");
-        [bg addSubview:imgV];
+        self.headerImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
+        self.headerImgV.centerX = kScreenWidth/2.0f;
+//        self.headerImgV.image = ImgWithName(@"我的预约bg");
+        [bg addSubview:self.headerImgV];
         _table.backgroundView = bg;
 
     }
@@ -101,15 +102,27 @@
         [Utility showToastWithMessage:error.localizedDescription];
     } completed:^{
         [Utility hideMBProgress:self.view];
+        [self.headerImgV sd_setImageWithURL:[NSURL URLWithString:self.viewModel.detailModel.headImgUrl] placeholderImage:ImgWithName(@"我的预约bg")];
         [self.table reloadData];
     }];
     [self.viewModel execute];
     self.cancelBtn.rac_command = self.viewModel.cancelCommand;
     self.cancelBtn.rac_command = self.viewModel.cancelCommand;
     [[self.cancelBtn.rac_command.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSString * x) {
-        [Utility showMBProgress:self.view message:x];
-    } completed:^{
-        [Utility hideMBProgress:self.view];
+        if ([x isEqualToString:@"取消成功"]) {
+            [Utility hideMBProgress:self.view];
+            [Utility showToastWithMessage:x];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            });
+            
+        }
+        else
+        {
+            [Utility showMBProgress:self.view message:x];
+            
+        }
+
     }];
     [[[self.cancelBtn.rac_command  errors] deliverOnMainThread] subscribeNext:^(NSError * x) {
         [Utility hideMBProgress:self.view];

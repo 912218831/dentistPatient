@@ -15,6 +15,8 @@
 @property(strong,nonatomic)HWAppointFailViewModel * viewModel;
 @property(strong,nonatomic)UIButton * cancelBtn;
 @property(strong,nonatomic)UIButton * answerBtn;//问答
+@property(strong,nonatomic)UIImageView * headerImgV;
+
 @end
 
 @implementation HWAppointmentFailViewController
@@ -52,10 +54,10 @@
         _table.dataSource = self;
         [_table registerNib:[UINib nibWithNibName:@"HWAppoitmentFailCell" bundle:nil] forCellReuseIdentifier:@"HWAppoitmentFailCell"];
         UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT)];
-        UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
-        imgV.centerX = kScreenWidth/2.0f;
-        imgV.image = ImgWithName(@"我的预约bg");
-        [bg addSubview:imgV];
+        self.headerImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
+        self.headerImgV.centerX = kScreenWidth/2.0f;
+//        self.headerImgV.image = ImgWithName(@"我的预约bg");
+        [bg addSubview:self.headerImgV];
         _table.backgroundView = bg;
     }
     
@@ -121,6 +123,7 @@
     [self.viewModel.requestSignal subscribeNext:^(id x) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.headerImgV sd_setImageWithURL:[NSURL URLWithString:self.viewModel.detailModel.headImgUrl] placeholderImage:ImgWithName(@"我的预约bg")];
             [self.table reloadData];
         });
     } error:^(NSError *error) {
