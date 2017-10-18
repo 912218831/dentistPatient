@@ -36,7 +36,7 @@
             [params setPObject:self.payType forKey:@"payType"];
             NSURLSessionTask * task = [self post:kCreateOrder params:params success:^(id response) {
                 NSDictionary * dataDic = [response objectForKey:@"data"];
-                self.orderCode = [dataDic objectForKey:@"payEncodeString"];
+                self.orderCode = [dataDic objectForKey:@"orderCode"];
                 [subscriber sendNext:[dataDic objectForKey:@"payEncodeString"]];
             } failure:^(NSString * error) {
                 [subscriber sendError:customRACError(error)];
