@@ -316,5 +316,6 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kAppointFinishVM        @"HWAppointFinishViewModel"
 #define kSelectCityVM           @"HWCitySelectViewModel"
 #define kBaseWebViewModel       @"BaseWebViewModel"
+#define kSetPasswordViewModel   @"SetPasswordViewModel"
 #endif
 

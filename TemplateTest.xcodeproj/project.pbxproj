@@ -321,6 +321,7 @@
 		C58BECBA1F96EFC700BB05B1 /* HWPeopleCenterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BECB41F96EFA000BB05B1 /* HWPeopleCenterViewModel.m */; };
 		C58BECBD1F96F32100BB05B1 /* personalCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C58BECBB1F96F2FA00BB05B1 /* personalCenter@2x.png */; };
 		C58BECBE1F96F32100BB05B1 /* personalCenter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C58BECBC1F96F30200BB05B1 /* personalCenter@3x.png */; };
+		C58BECC11F96F9E300BB05B1 /* HWPeopleCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BECC01F96F9E300BB05B1 /* HWPeopleCenterModel.m */; };
 		C5A7AFC31F95BFBF00F1C315 /* MLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */; };
 		C5B4AA151F6E5C170083E8C5 /* MapContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA141F6E5C170083E8C5 /* MapContentView.m */; };
 		C5B4AA1C1F6E71B20083E8C5 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA1B1F6E71B20083E8C5 /* DoctorDetailViewController.m */; };
@@ -334,6 +335,8 @@
 		C5B4AA301F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA2F1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m */; };
 		C5B4AA331F6EAD500083E8C5 /* DoctorDetailDateMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */; };
 		C5B4AA361F6EB3350083E8C5 /* DashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA351F6EB3350083E8C5 /* DashLineView.m */; };
+		C5C22AC91F97543800B495FD /* SetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C22AC51F97541800B495FD /* SetPasswordViewController.m */; };
+		C5C22ACA1F97543800B495FD /* SetPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C22AC81F97541800B495FD /* SetPasswordViewModel.m */; };
 		C5CCBB421F6968A7003A4B8C /* CaseDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB411F6968A7003A4B8C /* CaseDetailViewModel.m */; };
 		C5CCBB451F6968D1003A4B8C /* CaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB441F6968D1003A4B8C /* CaseDetailViewController.m */; };
 		C5CCBB481F6968E1003A4B8C /* CaseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB471F6968E1003A4B8C /* CaseDetailModel.m */; };
@@ -367,6 +370,7 @@
 		C5DE29411F77AE1000D8973B /* tabbar_2_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DE293F1F77AE1000D8973B /* tabbar_2_n@3x.png */; };
 		C5DE29421F77AE1000D8973B /* tabbar_3_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DE29401F77AE1000D8973B /* tabbar_3_n@3x.png */; };
 		C5E9C3A71F8C9EC600943835 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E9C3A51F8C9EC500943835 /* BaseWebViewController.m */; };
+		C5F306461F9748A100FBD4F5 /* 积分.png in Resources */ = {isa = PBXBuildFile; fileRef = C5F306451F97411600FBD4F5 /* 积分.png */; };
 		D2C28F0C1B7CC2AB00E2716D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */; };
 		D2C28F0E1B7CC5BB00E2716D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */; };
 		D2C28F101B7CC5D900E2716D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C28F0F1B7CC5D900E2716D /* CoreGraphics.framework */; };
@@ -1023,6 +1027,8 @@
 		C58BECB41F96EFA000BB05B1 /* HWPeopleCenterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWPeopleCenterViewModel.m; sourceTree = "<group>"; };
 		C58BECBB1F96F2FA00BB05B1 /* personalCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personalCenter@2x.png"; sourceTree = "<group>"; };
 		C58BECBC1F96F30200BB05B1 /* personalCenter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personalCenter@3x.png"; sourceTree = "<group>"; };
+		C58BECBF1F96F9E300BB05B1 /* HWPeopleCenterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWPeopleCenterModel.h; sourceTree = "<group>"; };
+		C58BECC01F96F9E300BB05B1 /* HWPeopleCenterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWPeopleCenterModel.m; sourceTree = "<group>"; };
 		C5A7AFC11F95BFBF00F1C315 /* MLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSearchBar.h; sourceTree = "<group>"; };
 		C5A7AFC21F95BFBF00F1C315 /* MLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSearchBar.m; sourceTree = "<group>"; };
 		C5B4AA131F6E5C170083E8C5 /* MapContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapContentView.h; sourceTree = "<group>"; };
@@ -1045,6 +1051,10 @@
 		C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailDateMapCell.m; sourceTree = "<group>"; };
 		C5B4AA341F6EB3350083E8C5 /* DashLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashLineView.h; sourceTree = "<group>"; };
 		C5B4AA351F6EB3350083E8C5 /* DashLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashLineView.m; sourceTree = "<group>"; };
+		C5C22AC41F97541800B495FD /* SetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordViewController.h; sourceTree = "<group>"; };
+		C5C22AC51F97541800B495FD /* SetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordViewController.m; sourceTree = "<group>"; };
+		C5C22AC71F97541800B495FD /* SetPasswordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordViewModel.h; sourceTree = "<group>"; };
+		C5C22AC81F97541800B495FD /* SetPasswordViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordViewModel.m; sourceTree = "<group>"; };
 		C5CCBB401F6968A7003A4B8C /* CaseDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseDetailViewModel.h; sourceTree = "<group>"; };
 		C5CCBB411F6968A7003A4B8C /* CaseDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseDetailViewModel.m; sourceTree = "<group>"; };
 		C5CCBB431F6968D1003A4B8C /* CaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseDetailViewController.h; sourceTree = "<group>"; };
@@ -1093,6 +1103,7 @@
 		C5E9C3A41F8C9EC500943835 /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		C5E9C3A51F8C9EC500943835 /* BaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		C5E9C3A61F8C9EC600943835 /* BaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		C5F306451F97411600FBD4F5 /* 积分.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "积分.png"; sourceTree = "<group>"; };
 		D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		D2C28F0F1B7CC5D900E2716D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1589,6 +1600,7 @@
 		B06506BF1F66698F0069652A /* @1X */ = {
 			isa = PBXGroup;
 			children = (
+				C5F306451F97411600FBD4F5 /* 积分.png */,
 				C5CFB9711F8DEE0C006ECB4B /* arrow_down_black.png */,
 				B06506C01F66699C0069652A /* loginBG.png */,
 			);
@@ -2498,6 +2510,7 @@
 		C58BECA11F96EFA000BB05B1 /* PeopleCenter */ = {
 			isa = PBXGroup;
 			children = (
+				C5C22AC11F97541800B495FD /* SetPassword */,
 				C58BECA21F96EFA000BB05B1 /* Model */,
 				C58BECAB1F96EFA000BB05B1 /* View */,
 				C58BECB21F96EFA000BB05B1 /* ViewModel */,
@@ -2508,6 +2521,8 @@
 		C58BECA21F96EFA000BB05B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C58BECBF1F96F9E300BB05B1 /* HWPeopleCenterModel.h */,
+				C58BECC01F96F9E300BB05B1 /* HWPeopleCenterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2588,6 +2603,41 @@
 			children = (
 				C5B4AA1D1F6E71CA0083E8C5 /* DoctorDetailViewModel.h */,
 				C5B4AA1E1F6E71CA0083E8C5 /* DoctorDetailViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C5C22AC11F97541800B495FD /* SetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				C5C22AC21F97541800B495FD /* Model */,
+				C5C22AC31F97541800B495FD /* View */,
+				C5C22AC61F97541800B495FD /* ViewModel */,
+			);
+			path = SetPassword;
+			sourceTree = "<group>";
+		};
+		C5C22AC21F97541800B495FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5C22AC31F97541800B495FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5C22AC41F97541800B495FD /* SetPasswordViewController.h */,
+				C5C22AC51F97541800B495FD /* SetPasswordViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5C22AC61F97541800B495FD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5C22AC71F97541800B495FD /* SetPasswordViewModel.h */,
+				C5C22AC81F97541800B495FD /* SetPasswordViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2944,6 +2994,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F306461F9748A100FBD4F5 /* 积分.png in Resources */,
 				C58BECBD1F96F32100BB05B1 /* personalCenter@2x.png in Resources */,
 				C58BECBE1F96F32100BB05B1 /* personalCenter@3x.png in Resources */,
 				C5CFB9721F8DEE65006ECB4B /* arrow_down_black.png in Resources */,
@@ -3187,6 +3238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C22AC91F97543800B495FD /* SetPasswordViewController.m in Sources */,
+				C5C22ACA1F97543800B495FD /* SetPasswordViewModel.m in Sources */,
 				C58BECB71F96EFC700BB05B1 /* HWPeopleCenterCell.m in Sources */,
 				C58BECB81F96EFC700BB05B1 /* HWPeopleCenterHeadView.m in Sources */,
 				C58BECB91F96EFC700BB05B1 /* HWPeopleCenterViewController.m in Sources */,
@@ -3304,6 +3357,7 @@
 				C5A7AFC31F95BFBF00F1C315 /* MLSearchBar.m in Sources */,
 				B0F675251F2B2F7C0019086E /* AppShare.m in Sources */,
 				C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */,
+				C58BECC11F96F9E300BB05B1 /* HWPeopleCenterModel.m in Sources */,
 				B06506BE1F6659050069652A /* CALayer+xibConfigure.m in Sources */,
 				C50821221F682D47004B2221 /* CaseItemModel.m in Sources */,
 				B0F8EF961EF3C55000F38770 /* HWCustomDrawImg.m in Sources */,

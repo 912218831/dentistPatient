@@ -7,8 +7,15 @@
 //
 
 #import "HWPeopleCenterViewModel.h"
+#import "BaseWebViewModel.h"
+#import "SetPasswordViewModel.h"
+
+@interface HWPeopleCenterViewModel ()
+
+@end
 
 @implementation HWPeopleCenterViewModel
+@dynamic model;
 
 - (void)bindViewWithSignal {
     @weakify(self);
@@ -19,6 +26,7 @@
             self.userName = [data stringObjectForKey:@"nickName"];
             self.userPhone = weakUserLogin.username;
             self.headImageUrl = [NSURL URLWithString:[data stringObjectForKey:@"headimage"]];
+            self.model = [[HWPeopleCenterModel alloc]initWithDictionary:data error:nil];
             [subscriber sendCompleted];
         } failure:^(NSString *error) {
             
@@ -38,6 +46,30 @@
             }];
             return nil;
         }];
+    }];
+    
+    self.scoreTouch = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        NSLog(@"积分");
+        return [RACSignal empty];
+    }];
+    
+    self.setPassword = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        // 跳转到设置密码页面
+        SetPasswordViewModel *vm = [SetPasswordViewModel new];
+        vm.phoneNumberStr = self.userPhone;
+        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
+        return [RACSignal empty];
+    }];
+    
+    self.familyJump = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
+        model.url = kFamily;
+        model.title = @"我的家庭";
+        [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+        return [RACSignal empty];
     }];
 }
 

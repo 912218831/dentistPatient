@@ -76,6 +76,7 @@
 
 #define kPersonCenterInfo            @"acc/getUserInfo"// 获取用户信息
 #define kPersonCenterLogout          @"acc/logout" // 退出登录
+#define kPersonCenterChangePwd       @"" // 修改密码
 #endif
 
 

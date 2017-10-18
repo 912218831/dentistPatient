@@ -39,7 +39,8 @@
              kAppointSuccessVM:self.appointSuccess,
              kAppointFinishVM:self.appointFinish,
              kSelectCityVM:self.selectCity,
-             kBaseWebViewModel:self.webView
+             kBaseWebViewModel:self.webView,
+             kSetPasswordViewModel:self.setPassword
              };
 }
 
@@ -151,6 +152,13 @@
              @"title":@"webView",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
+             };
+}
++ (NSDictionary *)setPassword {
+    
+    return @{
+             @"title":@"设置密码",
+             @"leftImageName":@"TOP_ARROW",
              };
 }
 

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) HWPeopleCenterHeadView *headView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) HWPeopleCenterCell *cell;
+@property (nonatomic, strong) UIButton *logoutBtn;
 @end
 
 @implementation HWPeopleCenterViewController
@@ -49,43 +50,56 @@
     [super bindViewModel];
     [self.viewModel bindViewWithSignal];
     
+    // 请求个人信息
     [self.viewModel.requestSignal  subscribeError:^(NSError *error) {
         [Utility showToastWithMessage:error.domain];
     } completed:^{
-        [self.headView.headerImageView sd_setImageWithURL:self.viewModel.headImageUrl];
+        [self.headView.headerImageView sd_setImageWithURL:self.viewModel.headImageUrl placeholderImage:[UIImage imageNamed:@"selectPeople"]];
         self.headView.phoneLabel.text = self.viewModel.userPhone;
         self.headView.nameLabel.text = self.viewModel.userName;
+        [self.headView.scoreBtn setTitle:[NSString stringWithFormat:@"积分%@",self.viewModel.model.score] forState:UIControlStateNormal];
+        self.headView.scoreBtn.spaceX = self.headView.scoreBtn.spaceX;
     }];
     @weakify(self);
-    [[RACScheduler mainThreadScheduler]schedule:^{
-        @strongify(self);
-        [[self.cell rac_signalForSelector:@selector(touchesBegan:withEvent:)]subscribeNext:^(RACTuple *x) {
-            
-            UIEvent *event = x.last;
-            UITouch *touch = event.allTouches.anyObject;
-            CGPoint eventPoint = [touch locationInView:self.cell];
-            BOOL eventContain = CGRectContainsPoint(kSetPasswordControlRect(self.cell), eventPoint);
-            if (eventContain) {
-                // 跳转到设置密码页面kPersonCenterLogout
-            }
-        }];
-        self.cell.logoutBtn.rac_command = self.viewModel.loginOutCommand;
-        [self.viewModel.loginOutCommand.executionSignals.newSwitchToLatest subscribeNext:^(id x) {
-            [[ViewControllersRouter shareInstance]setRootViewController:@"LoginViewModel"];
-        } error:nil completed:nil];
-        
-        [[self.viewModel.loginOutCommand.executing skip:1] subscribeNext:^(NSNumber *x) {
-            if (x.boolValue) {
-                [Utility showMBProgress:self.contentView message:nil];
-            } else {
-                [Utility hideMBProgress:self.contentView];
-            }
-        }];
-        [self.viewModel.loginOutCommand.errors subscribeNext:^(NSError *x) {
-            [Utility showToastWithMessage:x.domain];
-        }];
+    // 退出登录绑定
+    self.logoutBtn.rac_command = self.viewModel.loginOutCommand;
+    // 积分点击事件绑定
+    self.headView.scoreBtn.rac_command = self.viewModel.scoreTouch;
+    
+    // 退出登录
+    [self.viewModel.loginOutCommand.executionSignals.newSwitchToLatest subscribeNext:^(id x) {
+        [[ViewControllersRouter shareInstance]setRootViewController:@"LoginViewModel"];
+    } error:nil completed:nil];
+    
+    [[self.viewModel.loginOutCommand.executing skip:1] subscribeNext:^(NSNumber *x) {
+        if (x.boolValue) {
+            [Utility showMBProgress:self.contentView message:nil];
+        } else {
+            [Utility hideMBProgress:self.contentView];
+        }
     }];
     
+    [self.viewModel.loginOutCommand.errors subscribeNext:^(NSError *x) {
+        [Utility showToastWithMessage:x.domain];
+    }];
+    
+    self.cell.touchEvent = ^(EventType type) {
+        @strongify(self);
+        switch (type) {
+            case ChangePW:
+            {// 修改密码
+                [self.viewModel.setPassword execute:nil];
+            }
+                break;
+            case Family:
+            {// 我的家庭
+                [self.viewModel.familyJump execute:nil];
+            }
+                break;
+            default:
+                break;
+        }
+    };
 }
 
 - (void)configContentView {
@@ -106,7 +120,7 @@
     [self.listView addSubview:self.headView];
     
     HWPeopleCenterCell *cell = [[HWPeopleCenterCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellId"];
-    cell.frame = CGRectMake(0, kRate(249), self.listView.width, kRate(176));
+    cell.frame = CGRectMake(0, kRate(249), self.listView.width, kRate(100));
     [self.listView addSubview:cell];
     self.cell = cell;
     
@@ -123,6 +137,20 @@
         make.left.right.equalTo(self.contentView);
         make.height.mas_equalTo(44);
     }];
+    
+    self.logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.listView addSubview:self.logoutBtn];
+    [self.logoutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(cell.mas_bottom).with.offset(kRate(56/2.0));
+        make.left.mas_equalTo(kRate(33));
+        make.width.mas_equalTo(self.listView.width-kRate(66));
+        make.height.mas_equalTo(kRate(40));
+    }];
+    self.logoutBtn.backgroundColor = UIColorFromRGB(0xfa6c36);
+    [self.logoutBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
+    [self.logoutBtn setTitle:@"退出" forState:UIControlStateNormal];
+    self.logoutBtn.titleLabel.font = FONT(TF16);
+
 }
 
 - (void)didReceiveMemoryWarning {

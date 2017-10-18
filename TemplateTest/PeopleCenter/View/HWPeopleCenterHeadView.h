@@ -7,10 +7,12 @@
 //
 
 #import "BaseView.h"
+#import "DoctorAbstractInfoView.h"
 
 @interface HWPeopleCenterHeadView : BaseView
 @property (nonatomic, strong) UIImageView *headerImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *phoneLabel;
 @property (nonatomic, strong) UIImageView *backImageView;
+@property (nonatomic, strong) DoctorAbstractButton *scoreBtn;
 @end

@@ -11,9 +11,11 @@
 
 @interface HWPeopleCenterCell ()
 @property (nonatomic, strong, readwrite) UIView *contentV;
-@property (nonatomic, strong, readwrite) UILabel *titleLabel;
+@property (nonatomic, strong, readwrite) UILabel *passwordLabel;
+@property (nonatomic, strong) UILabel *familyLabel;
 @property (nonatomic, strong) DashLineView *lineView;
-@property (nonatomic, strong) UIImageView *arrowImageView;
+@property (nonatomic, strong) UIImageView *passwordArrowImg;
+@property (nonatomic, strong) UIImageView *familyArrowImg;
 @end
 
 @implementation HWPeopleCenterCell
@@ -22,17 +24,20 @@
     self.contentV = [UIView new];
     [self addSubview:self.contentV];
     
-    self.titleLabel = [UILabel new];
-    [self.contentV addSubview:self.titleLabel];
+    self.passwordLabel = [UILabel new];
+    [self.contentV addSubview:self.passwordLabel];
     
-    self.logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.contentV addSubview:self.logoutBtn];
+    self.familyLabel = [UILabel new];
+    [self.contentV addSubview:self.familyLabel];
     
     self.lineView = [[DashLineView alloc]initWithLineHeight:0 space:0 direction:Horizontal strokeColor:UIColorFromRGB(0xcccccc)];
     [self.contentV addSubview:self.lineView];
     
-    self.arrowImageView = [UIImageView new];
-    [self.contentV addSubview:self.arrowImageView];
+    self.passwordArrowImg = [UIImageView new];
+    [self.contentV addSubview:self.passwordArrowImg];
+    
+    self.familyArrowImg = [UIImageView new];
+    [self.contentV addSubview:self.familyArrowImg];
 }
 
 - (void)layoutSubViews {
@@ -43,27 +48,33 @@
         make.bottom.equalTo(self).with.offset(-1);
     }];
     CGFloat offX = kRate(17);
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.passwordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.equalTo(self.contentV);
-        make.height.mas_equalTo(kRate(kRate(50)));
+        make.bottom.equalTo(self.mas_centerY);
         make.left.equalTo(self.contentV).with.offset(offX);
     }];
-    [self.logoutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.familyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentV);
+        make.top.equalTo(self.mas_centerY);
+        make.bottom.equalTo(self);
         make.left.equalTo(self.contentV).with.offset(offX);
-        make.right.equalTo(self.contentV).with.offset(-offX);
-        make.bottom.equalTo(self.contentV).with.offset(-kRate(24));
-        make.height.mas_equalTo(kRate(40));
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentV);
         make.height.mas_equalTo(0.6);
-        make.top.equalTo(self.titleLabel.mas_bottom).with.offset(-0.2);
+        make.top.equalTo(self.passwordLabel.mas_bottom).with.offset(-0.2);
     }];
-    [self.arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.passwordArrowImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentV).with.offset(-offX);
         make.width.mas_equalTo(kRate(8));
         make.height.mas_equalTo(kRate(15));
-        make.centerY.equalTo(self.titleLabel);
+        make.centerY.equalTo(self.passwordLabel);
+    }];
+    [self.familyArrowImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentV).with.offset(-offX);
+        make.width.mas_equalTo(kRate(8));
+        make.height.mas_equalTo(kRate(15));
+        make.centerY.equalTo(self.familyLabel);
     }];
 }
 
@@ -73,16 +84,38 @@
     self.contentV.layer.borderWidth = 0.6;
     self.contentV.layer.backgroundColor = COLOR_FFFFFF.CGColor;
     
-    self.titleLabel.font = FONT(TF16);
-    self.titleLabel.textColor = CD_Text;
+    self.passwordLabel.font = FONT(TF16);
+    self.passwordLabel.textColor = CD_Text;
+    self.passwordLabel.text = @"设置密码";
+    self.passwordLabel.userInteractionEnabled = true;
     
-    self.logoutBtn.backgroundColor = UIColorFromRGB(0xfa6c36);
-    [self.logoutBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
-    [self.logoutBtn setTitle:@"退出" forState:UIControlStateNormal];
-    self.logoutBtn.titleLabel.font = FONT(TF16);
-    self.titleLabel.text = @"设置密码";
+    self.familyLabel.font = FONT(TF16);
+    self.familyLabel.textColor = CD_Text;
+    self.familyLabel.text = @"我的家庭";
+    self.familyLabel.userInteractionEnabled = true;
     
-    self.arrowImageView.image = [UIImage imageNamed:@"arrow"];
+    self.passwordArrowImg.image = [UIImage imageNamed:@"arrow"];
+    self.familyArrowImg.image = [UIImage imageNamed:@"arrow"];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = touches.anyObject;
+    UIView *eventView = touch.view;
+    if (eventView == self.passwordLabel) {
+        if (self.touchEvent) {
+            self.touchEvent(ChangePW);
+        }
+    } else if (eventView == self.familyLabel) {
+        if (self.touchEvent) {
+            self.touchEvent(Family);
+        }
+    }
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *view = [super hitTest:point withEvent:event];
+    NSLog(@"view=%@",view);
+    return view;
 }
 
 

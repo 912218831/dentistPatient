@@ -7,11 +7,15 @@
 //
 
 #import "BaseViewModel.h"
+#import "HWPeopleCenterModel.h"
 
 @interface HWPeopleCenterViewModel : BaseViewModel
+@property (nonatomic, strong) HWPeopleCenterModel *model;
 @property (nonatomic, copy) NSURL *headImageUrl;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *userPhone;
 @property (nonatomic, strong) RACCommand *loginOutCommand;
-@property (nonatomic, strong) RACSignal *requestSignal;
+@property (nonatomic, strong) RACCommand *setPassword;
+@property (nonatomic, strong) RACCommand *familyJump;
+@property (nonatomic, strong) RACCommand *scoreTouch;
 @end

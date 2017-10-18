@@ -9,9 +9,11 @@
 #import "BaseListViewCell.h"
 
 #define kSetPasswordControlRect(cell) CGRectMake(0,0,cell.contentV.bounds.size.width,cell.titleLabel.bounds.size.height)
-
+typedef NS_ENUM(NSInteger, EventType){
+    ChangePW,
+    Family
+};
 @interface HWPeopleCenterCell : BaseListViewCell
-@property (nonatomic, strong) UIButton *logoutBtn;
 @property (nonatomic, strong, readonly) UIView *contentV;
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonatomic, copy) void (^touchEvent)(EventType type);
 @end
