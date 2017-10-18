@@ -59,13 +59,13 @@
                 } failure:^(NSString *error) {
                     [subscriber sendError:customRACError(error)];
                 }];
-                [subscriber sendCompleted];
             });
             return nil;
         }];
         self.verifyCodeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return gainCodeSignal;
         }];
+        self.verifyCodeCommand.allowsConcurrentExecution = YES;
 
         
     }

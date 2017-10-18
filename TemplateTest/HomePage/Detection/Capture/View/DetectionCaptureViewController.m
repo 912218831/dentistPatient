@@ -11,7 +11,7 @@
 #import "HZPhotoBrowser.h"
 #import "DetectionCaptureViewModel.h"
 #import "DetectionResultViewModel.h"
-
+#import "TimeVideoViewModel.h"
 #define kOffX       (kRate(14))
 #define kHeaderId    @"headerId"
 #define kFooterId    @"footerId"
@@ -173,7 +173,6 @@
         [browser show];
     } else {
         // 拍照
-<<<<<<< HEAD
         TimeVideoViewModel *vm = [TimeVideoViewModel new];
         @weakify(self);
         vm.takePhoto = ^(UIImage *image) {
@@ -183,8 +182,6 @@
             });
         };
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:YES];
-=======
->>>>>>> 49c114cc72fa0c9e917f00d60c9c9d0595211a14
     }
     
 }

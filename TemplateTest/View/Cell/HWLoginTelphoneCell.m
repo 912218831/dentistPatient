@@ -42,8 +42,8 @@
         }
         
     }];
-    [self.viewModel.verifyCodeCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
-        NSLog(@"%@",x);
+    [self.viewModel.verifyCodeCommand.executionSignals.switchToLatest subscribeNext:^(NSString * x) {
+        [Utility showToastWithMessage:x];
     }];
     [self.viewModel.verifyCodeCommand.errors subscribeNext:^(NSError *x) {
         [Utility showToastWithMessage:x.localizedDescription];

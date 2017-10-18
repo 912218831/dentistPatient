@@ -9,7 +9,7 @@
 #import "HWGuideViewController.h"
 #import "AppDelegate.h"
 #import "HWLoginViewModel.h"
-
+#import "HWLoginViewController.h"
 @interface HWGuideViewController ()
 
 @end
@@ -38,16 +38,23 @@
 {
     HWLoginViewModel *viewModel = [HWLoginViewModel new];
     self.view.backgroundColor = [UIColor whiteColor];
-    [[ViewControllersRouter shareInstance]presentViewModel:viewModel animated:_isGuide completion:^(id targetVC) {
-        if (![targetVC isKindOfClass:[UINavigationController class]]) {
-            [SHARED_APP_DELEGATE.window setRootViewController:[[HWBaseNavigationController alloc] initWithRootViewController:targetVC]];
-        }
-        else
-        {
-            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
-
-        }
+//    [[ViewControllersRouter shareInstance]presentViewModel:viewModel animated:_isGuide completion:^(id targetVC) {
+//        if (![targetVC isKindOfClass:[UINavigationController class]]) {
+//            [SHARED_APP_DELEGATE.window setRootViewController:[[HWBaseNavigationController alloc] initWithRootViewController:targetVC]];
+//        }
+//        else
+//        {
+//            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+//
+//        }
+//    }];
+    HWLoginViewController * loginCtrl = [[HWLoginViewController alloc] initWithViewModel:viewModel];
+    HWBaseNavigationController * nav = [[HWBaseNavigationController alloc] initWithRootViewController:loginCtrl];
+    nav.view.backgroundColor = [UIColor whiteColor];
+    [SHARED_APP_DELEGATE.window.rootViewController presentViewController:nav animated:_isGuide completion:^{
+        [SHARED_APP_DELEGATE.window setRootViewController:nav];
     }];
+
 }
 
 

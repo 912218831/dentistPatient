@@ -22,4 +22,5 @@
 - (UIViewController *)checkUserType;
 - (NSString *)getCurrentWifiName;
 - (NSString *)getIPAddress;
+- (void)logout;
 @end

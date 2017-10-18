@@ -94,11 +94,7 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
             if([[dict objectForKey:@"status"] intValue] == kStatusLogout)
             {
                 //  未登录
-                [Utility isThirdPartyUserLogin:^{
-                    [Utility gotoBindPhone];
-                } guestlogin:^{
-                    [Utility gotoLogin:YES isForceLogin:YES];
-                }];
+                [[AppShare shareInstance] logout];
             }
             else
             {

@@ -113,20 +113,23 @@ static ViewControllersRouter *router;
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         HWTabBarViewController *tab = [[HWTabBarViewController alloc]initWithViewModel:tabbarViewModel];
         SHARED_APP_DELEGATE.viewController = tab;
-        SHARED_APP_DELEGATE.window.rootViewController = tab;
+        [SHARED_APP_DELEGATE.window setRootViewController:tab];
     }
     if ([viewModelName isEqualToString:@"LoginViewModel"]) {
-        Class viewModelClass = [self classNameForViewModel:viewModelName];
-        Class vcClass        = [self viewControllerClassNameForViewModel:viewModelName];
-        BaseViewModel *viewModel = [[viewModelClass alloc]init];
-        
-        BaseViewController *login = [[vcClass alloc]initWithViewModel:viewModel];
-        HWBaseNavigationController *nav = [[HWBaseNavigationController alloc]initWithRootViewController:login];
-        SHARED_APP_DELEGATE.window.rootViewController = nav;
+//        Class viewModelClass = [self classNameForViewModel:viewModelName];
+//        Class vcClass        = [self viewControllerClassNameForViewModel:viewModelName];
+//        BaseViewModel *viewModel = [[viewModelClass alloc]init];
+//
+//        BaseViewController *login = [[vcClass alloc]initWithViewModel:viewModel];
+//        HWBaseNavigationController *nav = [[HWBaseNavigationController alloc]initWithRootViewController:login];
+//        SHARED_APP_DELEGATE.window.rootViewController = nav;
+        HWGuideViewController *guide = [[HWGuideViewController alloc]init];
+        guide.isGuide = NO;
+        [SHARED_APP_DELEGATE.window setRootViewController:guide];
+
     }
     if ([viewModelName isEqualToString:@"GuideMainViewController"]) {
-        HWGuideViewController *guide = [[HWGuideViewController alloc]init];
-        SHARED_APP_DELEGATE.window.rootViewController = guide;
+        
     }
 }
 
