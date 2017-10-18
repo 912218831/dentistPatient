@@ -51,10 +51,18 @@
         [self post:kCaseList type:0 params:param success:^(NSDictionary* response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             NSArray *list = [data arrayObjectForKey:@"list"];
-            for (int i=0; i<list.count; i++) {
-                CaseItemModel *model = [[CaseItemModel alloc]initWithDictionary:[list pObjectAtIndex:i] error:nil];
-                [self.dataArray addObject:model];
+            if (1) {
+                for (int i=0; i<list.count; i++) {
+                    CaseItemModel *model = [[CaseItemModel alloc]initWithDictionary:[list pObjectAtIndex:i] error:nil];
+                    [self.dataArray addObject:model];
+                }
+            } else {
+                for (int i=0; i<10; i++) {
+                    CaseItemModel *model = [[CaseItemModel alloc]initWithDictionary:@{} error:nil];
+                    [self.dataArray addObject:model];
+                }
             }
+            
              [subscriber sendNext:[RACSignal return:@1]];
         } failure:^(NSString *error) {
             [subscriber sendNext:[RACSignal error:Error]];

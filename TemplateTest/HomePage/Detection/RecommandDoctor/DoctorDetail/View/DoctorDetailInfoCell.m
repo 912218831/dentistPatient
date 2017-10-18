@@ -131,11 +131,11 @@
     self.headImageView.layer.cornerRadius = kRate(30);
     self.headImageView.layer.masksToBounds = true;
     
-    self.nameLabel.font = BOLDFONT(TF16);
+    self.nameLabel.font = BOLDFONT(kRate(TF16));
     self.nameLabel.textColor = CD_Text;
     self.hospitalLabel.textColor = COLOR_999999;
-    self.hospitalLabel.font = FONT(TF14);
-    self.orderedLabel.font = FONT(TF14);
+    self.hospitalLabel.font = FONT(kRate(TF14));
+    self.orderedLabel.font = FONT(kRate(TF14));
     self.orderedLabel.textColor = COLOR_999999;
     
     self.leftView.direction = Left;
@@ -155,7 +155,7 @@
         [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.headImgUrl]];
         self.nameLabel.text = model.name;
         self.hospitalLabel.text = model.clinicName;
-        self.orderedLabel.text = [NSString stringWithFormat:@"%@人预约过",model.patientCount];
+        self.orderedLabel.text = [NSString stringWithFormat:@"%@",model.address];
         self.headImageView.backgroundColor = CD_LIGHT_BACKGROUND;
         NSString *text = [NSString stringWithFormat:@"已有%@预约成功",model.patientCount];
         NSString *price = [NSString stringWithFormat:@"¥%@",model.averagePaice];

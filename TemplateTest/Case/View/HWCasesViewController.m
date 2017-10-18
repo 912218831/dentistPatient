@@ -57,6 +57,7 @@
     self.listView.delegate = self;
     self.listView.backgroundColor = UIColorFromRGB(0xf0f0f0);
     self.listView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.listView.needShowEmpty = true;
     headView.backgroundColor = COLOR_FFFFFF;
     [headView drawBottomLine];
     self.segmentButton.backgroundColor = headView.backgroundColor;
@@ -108,9 +109,11 @@
     [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
         if (self.viewModel.currentPage == 1) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.listView setContentOffset:CGPointZero animated:false];
-            });
+            [[RACQueueScheduler mainThreadScheduler]schedule:^{
+                if (self.listView.contentOffset.y > 0) {
+                    [self.listView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:false];
+                }
+            }];
         }
         [self.listView reloadData];
     } error:^(NSError *error) {
@@ -152,8 +155,10 @@
         return [value integerValue];
     }]subscribeNext:^(id x) {
         @strongify(self);
-        if ([x integerValue] > 1) {
+        if ([x integerValue] > 1 || self.viewModel.dataArray.count > [kPageCount integerValue]) {
             [self.createFooterSignal subscribe:[RACSubject subject]];
+        } else {
+            self.listView.mj_footer = nil;
         }
     }];
     //

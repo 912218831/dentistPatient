@@ -49,33 +49,11 @@
     
     [self.contentView bringSubviewToFront:self.listView];
     self.listView.top = kRate(220);
-    self.listView.baseTable.height = self.listView.height = CONTENT_HEIGHT - self.listView.top;
-    self.listView.baseTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    self.listView.isNeedHeadRefresh = false;
+    self.listView.height = self.listView.height = CONTENT_HEIGHT - self.listView.top;
+    self.listView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.listView.clipsToBounds = false;
     self.listView.backgroundColor = [UIColor clearColor];
-    self.listView.cellHeight = ^(NSIndexPath *indexPath){
-        return (CGFloat)kRate(108);//indexPath.row==0?kRate(308):
-    };
-    self.listView.didSelected = ^(NSIndexPath *indexPath){
-        @strongify(self);
-        if (self.viewModel.dataArray.count) {
-            DoctorDetailViewModel *model = [DoctorDetailViewModel new];
-            model.doctorModel = self.viewModel.dataArray[indexPath.row];
-            model.checkId = self.viewModel.checkId;
-            [[ViewControllersRouter shareInstance]pushViewModel:model animated:YES];
-        }
-    };
-    self.listView.didScroll = ^(UITableView *tableView) {
-        @strongify(self);
-        @weakify(self);
-        [self.listView.baseTable.visibleCells enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            @strongify(self);
-            CGRect result = [self.listView.baseTable convertRect:obj.frame toView:self.contentView];
-            obj.alpha = (CGRectGetMaxY(result) - self.listView.top)/(CGFloat)kRate(108);
-        }];
-    };
-    self.listView.baseTable.layer.masksToBounds = false;
+    self.listView.layer.masksToBounds = true;
     if (self.viewModel.needSearchBar) {
         self.navigationItem.rightBarButtonItem = nil;
         UIView *contentV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-kRate(60), 44)];
@@ -108,7 +86,7 @@
         @strongify(self);
         [Utility showToastWithMessage:error.domain];
     } completed:nil]finally:^{
-         [self.listView.baseTable reloadData];
+         [self.listView reloadData];
         [Utility hideMBProgress:self.contentView];
     }];
     
@@ -131,13 +109,35 @@
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
-    RDoctorListCell *cell = [self.listView.baseTable dequeueReusableCellWithIdentifier:kRDoctorVM];
+    RDoctorListCell *cell = [self.listView dequeueReusableCellWithIdentifier:kRDoctorVM];
     if (cell == nil) {
         cell = [[RDoctorListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kRDoctorVM];
         cell.backgroundColor = [UIColor clearColor];
     }
     cell.valueSignal = [RACSignal return:self.viewModel.dataArray[indexPath.row]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+     return (CGFloat)kRate(108);//indexPath.row==0?kRate(308):
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.viewModel.dataArray.count) {
+        DoctorDetailViewModel *model = [DoctorDetailViewModel new];
+        model.doctorModel = self.viewModel.dataArray[indexPath.row];
+        model.checkId = self.viewModel.checkId;
+        [[ViewControllersRouter shareInstance]pushViewModel:model animated:YES];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    @weakify(self);
+    [self.listView.visibleCells enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        CGRect result = [self.listView convertRect:obj.frame toView:self.contentView];
+        obj.alpha = (CGRectGetMaxY(result) - self.listView.top)/(CGFloat)kRate(108);
+    }];
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {

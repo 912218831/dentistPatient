@@ -41,7 +41,7 @@
     }];
     [self.descripLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel);
-        make.top.equalTo(self.titleLabel.mas_bottom).with.offset(kRate(10));
+        make.top.equalTo(self.titleLabel.mas_bottom).with.offset(kRate(8));
         make.right.mas_equalTo(-kRate(28));
     }];
     [self.collectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,10 +57,10 @@
         self.iconView.layer.cornerRadius = self.iconView.width/2.0;
         self.iconView.layer.backgroundColor = CD_MainColor.CGColor;
     }];
-    self.titleLabel.font = FONT(TF16);
+    self.titleLabel.font = FONT(kRate(TF16));
     self.titleLabel.textColor = CD_Text33;
     self.descripLabel.textColor = CD_Text99;
-    self.descripLabel.font = FONT(TF14);
+    self.descripLabel.font = FONT(kRate(TF14));
     self.descripLabel.numberOfLines = 2;
     
     [self.collectBtn setTitle:@"收藏我的医生" forState:UIControlStateNormal];
@@ -68,7 +68,7 @@
     self.collectBtn.layer.borderWidth = 1;
     self.collectBtn.layer.borderColor = CD_MainColor.CGColor;
     self.collectBtn.imageEdgeInsets = UIEdgeInsetsMake(kRate(7), 0, kRate(-6), 0);
-    self.collectBtn.titleLabel.font = FONT(TF14);
+    self.collectBtn.titleLabel.font = FONT(kRate(TF14));
     self.collectBtn.spaceX = kRate(7);
     self.collectBtn.iconSize = CGSizeMake(kRate(20), kRate(18));
     [self.collectBtn setImage:[UIImage imageNamed:@"collect"]];

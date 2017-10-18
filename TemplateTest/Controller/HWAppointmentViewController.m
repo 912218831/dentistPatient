@@ -60,6 +60,7 @@
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = COLOR_F0F0F0;
+        _collectionView.needShowEmpty = true;
         [_collectionView registerNib:[UINib nibWithNibName:@"HWAppointmentCell" bundle:nil] forCellWithReuseIdentifier:@"HWAppointmentCell"];
     }
     return _collectionView;

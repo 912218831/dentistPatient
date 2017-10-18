@@ -23,23 +23,15 @@
 - (void)configContentView {
     [super configContentView];
     
-    self.listView.isNeedHeadRefresh = false;
     @weakify(self);
-    self.listView.cellHeight = ^(NSIndexPath *indexPath){
-        @strongify(self);
-        if (indexPath.row == 0) {
-            return (CGFloat)kRate(325-86);
-        }
-        return (CGFloat)(self.viewModel.timesHeight+kRate(160));
-    };
-    
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.listView.width, kRate(60))];
-    self.listView.baseTable.tableFooterView = footerView;
+    self.listView.height -= kRate(50);
+//    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.listView.width, kRate(60))];
+//    self.listView.baseTable.tableFooterView = footerView;
     
     self.orderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [footerView addSubview:self.orderBtn];
+    [self addSubview:self.orderBtn];
     
-    self.orderBtn.frame = CGRectMake(0, kRate(10), footerView.width, footerView.height-kRate(10));
+    self.orderBtn.frame = CGRectMake(0, self.contentView.height-kRate(50), self.contentView.width, kRate(50));
     
     self.orderBtn.backgroundColor = CD_MainColor;
     self.orderBtn.titleLabel.font = FONT(TF17);
@@ -55,8 +47,7 @@
     [Utility showMBProgress:self.contentView message:nil];
     [[self.viewModel.requestSignal.newSwitchToLatest subscribeNext:^(id x) {
         @strongify(self);
-        self.listView.isLastPage = true;
-        [self.listView.baseTable reloadData];
+        [self.listView reloadData];
     } error:^(NSError *error) {
         
     } completed:nil]finally:^{
@@ -74,14 +65,22 @@
         [[self.viewModel.orderSignal.newSwitchToLatest subscribeNext:nil error:^(NSError *error) {
             [Utility showToastWithMessage:error.domain];
         } completed:^{
-            [Utility showToastWithMessage:@"预约成功"];
-            [[NSNotificationCenter defaultCenter]postNotificationName:kRefreshReservedList object:nil];
-            [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:false];
-            [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setSelectedIndex:2];
+            [Utility showToastWithMessage:@"预约成功" complete:^{
+                [[NSNotificationCenter defaultCenter]postNotificationName:kRefreshReservedList object:nil];
+                [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:false];
+                [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setSelectedIndex:2];
+            }];
         }]finally:^{
             [Utility hideMBProgress:self.contentView];
         }];
     }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return (CGFloat)kRate(266);
+    }
+    return (CGFloat)(self.viewModel.timesHeight+kRate(160));
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {

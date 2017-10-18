@@ -288,7 +288,6 @@
 		C531FBC51F66D5E30008A17A /* HWUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBBE1F66D5E30008A17A /* HWUserLogin.m */; };
 		C531FBC91F66D5E70008A17A /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBC81F66D5E70008A17A /* LoginViewModel.m */; };
 		C531FBCC1F66D6750008A17A /* HWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C531FBCB1F66D6750008A17A /* HWLoginViewController.m */; };
-		C532871D1F95D5AF007A9AA5 /* UITableView+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C532871C1F95D5AF007A9AA5 /* UITableView+ContentSize.m */; };
 		C533F9A91F7E76C700F95CA3 /* 进行中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */; };
 		C533F9AA1F7E76C700F95CA3 /* 完成@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9A81F7E76C700F95CA3 /* 完成@3x.png */; };
 		C533F9AD1F7E76D700F95CA3 /* 完成@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */; };
@@ -298,6 +297,8 @@
 		C546B04A1F680DD3000C99A1 /* HWCasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0461F680DD3000C99A1 /* HWCasesViewController.m */; };
 		C546B04B1F680DD3000C99A1 /* HWCasesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */; };
 		C546B04E1F681307000C99A1 /* CaseSegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C546B04D1F681307000C99A1 /* CaseSegmentButton.m */; };
+		C5562EC21F963B7E00470336 /* UITableView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = C5562EBF1F963B7D00470336 /* UITableView+Empty.m */; };
+		C5562EC31F963B7E00470336 /* UICollectionView+EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5562EC11F963B7D00470336 /* UICollectionView+EmptyView.m */; };
 		C55A7C4A1F7BD5EF00B381A4 /* beautiful.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C55A7C491F7BD09800B381A4 /* beautiful.jpg */; };
 		C57C9E691F8CBFAA008416B0 /* searchBarBackImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57C9E671F8CBEBB008416B0 /* searchBarBackImage@2x.png */; };
 		C57C9E6A1F8CBFAA008416B0 /* searchBarBackImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57C9E681F8CBEC1008416B0 /* searchBarBackImage@3x.png */; };
@@ -969,8 +970,6 @@
 		C531FBC81F66D5E70008A17A /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		C531FBCA1F66D6750008A17A /* HWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLoginViewController.h; sourceTree = "<group>"; };
 		C531FBCB1F66D6750008A17A /* HWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLoginViewController.m; sourceTree = "<group>"; };
-		C532871B1F95D5AF007A9AA5 /* UITableView+ContentSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+ContentSize.h"; sourceTree = "<group>"; };
-		C532871C1F95D5AF007A9AA5 /* UITableView+ContentSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ContentSize.m"; sourceTree = "<group>"; };
 		C533F9A71F7E76C700F95CA3 /* 进行中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进行中@3x.png"; sourceTree = "<group>"; };
 		C533F9A81F7E76C700F95CA3 /* 完成@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@3x.png"; sourceTree = "<group>"; };
 		C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@2x.png"; sourceTree = "<group>"; };
@@ -984,6 +983,10 @@
 		C546B0491F680DD3000C99A1 /* HWCasesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCasesViewModel.m; sourceTree = "<group>"; };
 		C546B04C1F681307000C99A1 /* CaseSegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseSegmentButton.h; sourceTree = "<group>"; };
 		C546B04D1F681307000C99A1 /* CaseSegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseSegmentButton.m; sourceTree = "<group>"; };
+		C5562EBE1F963B7D00470336 /* UITableView+Empty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Empty.h"; sourceTree = "<group>"; };
+		C5562EBF1F963B7D00470336 /* UITableView+Empty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Empty.m"; sourceTree = "<group>"; };
+		C5562EC01F963B7D00470336 /* UICollectionView+EmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+EmptyView.h"; sourceTree = "<group>"; };
+		C5562EC11F963B7D00470336 /* UICollectionView+EmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+EmptyView.m"; sourceTree = "<group>"; };
 		C55A7C491F7BD09800B381A4 /* beautiful.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beautiful.jpg; sourceTree = "<group>"; };
 		C57C9E671F8CBEBB008416B0 /* searchBarBackImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBarBackImage@2x.png"; sourceTree = "<group>"; };
 		C57C9E681F8CBEC1008416B0 /* searchBarBackImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBarBackImage@3x.png"; sourceTree = "<group>"; };
@@ -2655,8 +2658,10 @@
 				C50899721F6AC2B60013AE02 /* RACSignal+Extend.m */,
 				C5DE29241F779F5000D8973B /* UIAlertAction+Undefined.h */,
 				C5DE29251F779F5000D8973B /* UIAlertAction+Undefined.m */,
-				C532871B1F95D5AF007A9AA5 /* UITableView+ContentSize.h */,
-				C532871C1F95D5AF007A9AA5 /* UITableView+ContentSize.m */,
+				C5562EBE1F963B7D00470336 /* UITableView+Empty.h */,
+				C5562EBF1F963B7D00470336 /* UITableView+Empty.m */,
+				C5562EC01F963B7D00470336 /* UICollectionView+EmptyView.h */,
+				C5562EC11F963B7D00470336 /* UICollectionView+EmptyView.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3131,6 +3136,7 @@
 				C50899821F6AD82B0013AE02 /* PopoverAction.m in Sources */,
 				B06506C81F6679030069652A /* HWLoginCellViewModel.m in Sources */,
 				B007EA051F6A56D700498824 /* HWAppointSuccessCell.m in Sources */,
+				C5562EC31F963B7E00470336 /* UICollectionView+EmptyView.m in Sources */,
 				C50029C61F6C10830064DFEE /* DetectionCaptureViewController.m in Sources */,
 				B0F8EF8E1EF3C39F00F38770 /* Drawing-Gradient.m in Sources */,
 				C50899831F6AD82B0013AE02 /* PopoverView.m in Sources */,
@@ -3161,6 +3167,7 @@
 				B0D26B051BDF7B920012A093 /* HWCustomViewItem.m in Sources */,
 				B09807D21F6ABF4F009C0FE1 /* HWAppointCouponCell.m in Sources */,
 				C587E3691F6EBA10009509CB /* DoctorAbstractInfoView.m in Sources */,
+				C5562EC21F963B7E00470336 /* UITableView+Empty.m in Sources */,
 				B07EE4BB1F67D6ED00FCA22D /* HWHomePageLayout.m in Sources */,
 				B000234B1F729EF000284AF7 /* HWHomePageBannerModel.m in Sources */,
 				B0B0B52D1F273803002FE127 /* EmptyControl.m in Sources */,
@@ -3181,7 +3188,6 @@
 				29BC1DFC1B57788B00C7B1AD /* MTCustomActionSheet.m in Sources */,
 				C50029CF1F6C20F70064DFEE /* DetectionCaptureModel.m in Sources */,
 				B07EE4E81F69086E00FCA22D /* HWAppointmentCell.m in Sources */,
-				C532871D1F95D5AF007A9AA5 /* UITableView+ContentSize.m in Sources */,
 				C531FBC31F66D5E30008A17A /* HWLoginTranstionAnimation.m in Sources */,
 				B07EE4DE1F68DCB100FCA22D /* HWHomePageSecondHeader.m in Sources */,
 				B00A28851CF294C9002480FE /* HWHTTPSessionManger.m in Sources */,

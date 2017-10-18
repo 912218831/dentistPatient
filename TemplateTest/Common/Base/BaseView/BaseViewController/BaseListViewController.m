@@ -9,9 +9,8 @@
 #import "BaseListViewController.h"
 #import "BaseListViewModel.h"
 
-@interface BaseListViewController () <UITableViewDataSource,
-                                     HWBaseRefreshViewObserverProtocol>
-@property (nonatomic, strong, readwrite) HWBaseRefreshView   *listView;
+@interface BaseListViewController () <UITableViewDataSource>
+@property (nonatomic, strong, readwrite) UITableView   *listView;
 @property (nonatomic, strong) BaseListViewModel *viewModel;
 @end
 
@@ -25,26 +24,17 @@
 - (void)configContentView {
     [super configContentView];
     
-    self.listView = [[HWBaseRefreshView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.width, CONTENT_HEIGHT)];
+    self.listView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.width, CONTENT_HEIGHT) style:UITableViewStylePlain];
     [self addSubview:self.listView];
-    self.listView.baseTable.dataSource = self;
-    self.listView.baseTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.listView.isLastPage = true;
-    self.listView.currentPage = 1;
-    self.listView.isNeedHeadRefresh = true;
-    self.listView.observer = self;
+    self.listView.dataSource = self;
+    self.listView.delegate = self;
+    self.listView.alwaysBounceVertical = true;
+    self.listView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.listView.backgroundColor = self.view.backgroundColor;
 }
 
 - (void)bindViewModel {
     [super bindViewModel];
-    RAC(self.listView, isLastPage) = RACObserve(self.viewModel, isLastPage);
-}
-
-- (void)sendAction:(NSString *)selectorString {
-    self.viewModel.currentPage = self.listView.currentPage;
-    [Utility showMBProgress:self.contentView message:nil];
-    [self.viewModel execute];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -56,10 +46,6 @@
         return [self tableViewCell:indexPath];
     }
     return nil;
-}
-
-- (void)reloadviewWhenDatasourceChange {
-    [self.listView.baseTable reloadData];
 }
 
 - (UITableViewCell *)tableViewCell:(NSIndexPath *)indexPath {
