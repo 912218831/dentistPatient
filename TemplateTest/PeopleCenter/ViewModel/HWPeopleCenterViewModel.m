@@ -29,15 +29,8 @@
     
     self.loginOutCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
-        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [self post:kPersonCenterLogout type:0 params:@{} success:^(id response) {
-                [weakUserLogin userLogout];
-                [subscriber sendNext:@1];
-            } failure:^(NSString *error) {
-                [subscriber sendError:Error];
-            }];
-            return nil;
-        }];
+        [[AppShare shareInstance] logout];
+        return [RACSignal empty];
     }];
 }
 
