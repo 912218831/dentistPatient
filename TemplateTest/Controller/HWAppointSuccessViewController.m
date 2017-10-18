@@ -268,6 +268,8 @@
                     @weakify(self);
                     [[AlipaySDK defaultService] payOrder:x fromScheme:kAliPay callback:^(NSDictionary *resultDic) {
                         @strongify(self);
+                        
+                        self.viewModel.payState = [resultDic objectForKey:@"resultStatus"];
 //                        if([[resultDic objectForKey:@"resultStatus"] isEqualToString:@"6001"] || [[resultDic objectForKey:@"resultStatus"] isEqualToString:@"6002"])
 //                        {
 //                            //6001用户取消 6002网络错误 可以重新支付
@@ -281,6 +283,7 @@
                             {
                                 //支付成功
                                 [params setPObject:@"1" forKey:@"state"];
+                                [Utility showToastWithMessage:@"支付成功"];
 
                             }
                             else

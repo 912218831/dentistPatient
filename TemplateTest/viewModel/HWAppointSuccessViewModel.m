@@ -31,7 +31,7 @@
             NSMutableDictionary * params = [NSMutableDictionary dictionary];
             [params setPObject:self.detailModel.checkId forKey:@"checkID"];
             [params setPObject:self.detailModel.appointId forKey:@"applyId"];
-            [params setPObject:self.selectCoupontModel.couponId forKey:@"couponID"];
+            [params setPObject:self.selectCoupontModel.couponId forKey:@"couponId"];
             [params setPObject:self.sumMoney forKey:@"totalAmount"];
             [params setPObject:self.payType forKey:@"payType"];
             NSURLSessionTask * task = [self post:kCreateOrder params:params success:^(id response) {

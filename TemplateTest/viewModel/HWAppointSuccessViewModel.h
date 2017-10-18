@@ -18,6 +18,7 @@
 @property(strong,nonatomic)RACCommand * payCommand;
 @property(strong,nonatomic)HWAppointCouponModel * selectCoupontModel;
 @property(strong,nonatomic)RACCommand * answerCommand;
+@property(strong,nonatomic)NSString * payState;
 
 - (instancetype)initWithAppointId:(NSString *)appointId;
 

@@ -48,6 +48,11 @@
         {
             //预约成功
             HWAppointSuccessViewModel * successViewModel = [[HWAppointSuccessViewModel alloc] initWithAppointId:model.appointId];
+            @weakify(self);
+            [[RACObserve(successViewModel, payState) skip:1] subscribeNext:^(id x) {
+                @strongify(self);
+                self.isNeedRefresh = YES;
+            }];
             [[ViewControllersRouter shareInstance] pushViewModel:successViewModel animated:YES];
         }
         else if([model.state isEqualToString:@"4"])
