@@ -112,28 +112,28 @@
 
 + (NSDictionary*)appointFail{
     return @{
-             @"title":@"预约失败",
+             @"title":@"预约详情",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
 }
 + (NSDictionary*)appointWaiting{
     return @{
-             @"title":@"等待预约",
+             @"title":@"预约详情",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
 }
 + (NSDictionary*)appointSuccess{
     return @{
-             @"title":@"预约成功",
+             @"title":@"预约详情",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };
 }
 + (NSDictionary *)appointFinish{
     return @{
-             @"title":@"支付完成",
+             @"title":@"预约详情",
              @"leftImageName":@"TOP_ARROW",
              @"rightImageName":@"right"
              };

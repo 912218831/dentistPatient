@@ -75,7 +75,7 @@
     
     NSArray *unSelectedImages = @[@"tabbar_1_n", @"tabbar_2_n", @"tabbar_3_n",@"tabbar_4_n"];
     NSArray *selectedImages = @[@"tabbar_1_s",@"tabbar_2_s",@"tabbar_3_s",@"tabbar_4_s"];
-    NSArray * titles = @[@"首页",@"病例",@"我的预约",@"设置"];
+    NSArray * titles = @[@"首页",@"病历",@"我的预约",@"设置"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];

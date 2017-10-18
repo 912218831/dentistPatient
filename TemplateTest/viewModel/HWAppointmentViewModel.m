@@ -32,11 +32,16 @@
 {
     [super bindViewWithSignal];
     self.itemClickCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(HWAppointListModel* model) {
-        
+        @weakify(self);
         if ([model.state isEqualToString:@"1"]) {
             //等待医生确认
-            HWAppointWaitingViewModel * successViewModel = [[HWAppointWaitingViewModel alloc] initWithAppointId:model.appointId];
-            [[ViewControllersRouter shareInstance] pushViewModel:successViewModel animated:YES];
+            HWAppointWaitingViewModel * waitingViewModel = [[HWAppointWaitingViewModel alloc] initWithAppointId:model.appointId];
+            [waitingViewModel.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
+                @strongify(self);
+                self.isNeedRefresh = YES;
+
+            }];
+            [[ViewControllersRouter shareInstance] pushViewModel:waitingViewModel animated:YES];
 
         }
         else if([model.state isEqualToString:@"3"])

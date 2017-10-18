@@ -20,6 +20,7 @@
 @property(strong,nonatomic)UIButton * payBtn;
 @property(strong,nonatomic)UIButton * answerBtn;
 @property(strong,nonatomic)HWAppointCouponModel * selectCouponModel;
+@property(strong,nonatomic)UIImageView * headerImgV;
 @end
 
 @implementation HWAppointSuccessViewController
@@ -58,10 +59,10 @@
 
         _collectionView.backgroundColor = COLOR_FFFFFF;
         UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT)];
-        UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
-        imgV.centerX = kScreenWidth/2.0f;
-        imgV.image = ImgWithName(@"我的预约bg");
-        [bg addSubview:imgV];
+        self.headerImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, kRate(117), kRate(150))];
+        self.headerImgV.centerX = kScreenWidth/2.0f;
+//        self.headerImgV.image = ImgWithName(@"我的预约bg");
+        [bg addSubview:self.headerImgV];
         _collectionView.backgroundView = bg;
     }
     return _collectionView;
@@ -248,6 +249,8 @@
         @strongify(self);
         [Utility hideMBProgress:self.view];
         [self.collectionView reloadData];
+        [self.headerImgV sd_setImageWithURL:[NSURL URLWithString:self.viewModel.detailModel.headImgUrl] placeholderImage:ImgWithName(@"我的预约bg")];
+
     }];
     [self.viewModel execute];
     

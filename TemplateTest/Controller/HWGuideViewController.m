@@ -42,6 +42,11 @@
         if (![targetVC isKindOfClass:[UINavigationController class]]) {
             [SHARED_APP_DELEGATE.window setRootViewController:[[HWBaseNavigationController alloc] initWithRootViewController:targetVC]];
         }
+        else
+        {
+            [SHARED_APP_DELEGATE.window setRootViewController:targetVC];
+
+        }
     }];
 }
 

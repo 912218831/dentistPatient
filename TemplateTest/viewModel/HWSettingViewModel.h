@@ -9,5 +9,5 @@
 #import "BaseViewModel.h"
 
 @interface HWSettingViewModel : BaseViewModel
-
+@property(strong,nonatomic)RACCommand * logoutCommand;
 @end

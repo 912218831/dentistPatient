@@ -178,7 +178,9 @@
         @weakify(self);
         vm.takePhoto = ^(UIImage *image) {
             @strongify(self);
-            [self.viewModel takePhotoSuccess:image];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.viewModel takePhotoSuccess:image];
+            });
         };
         [[ViewControllersRouter shareInstance]pushViewModel:vm animated:YES];
     }
