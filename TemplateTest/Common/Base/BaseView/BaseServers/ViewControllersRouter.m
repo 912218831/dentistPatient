@@ -61,7 +61,8 @@ static ViewControllersRouter *router;
              kRDoctorDetailVM:objc_getClass(kRDoctorDetailVM.UTF8String),
              kSelectCityVM:objc_getClass(kSelectCityVM.UTF8String),
              kBaseWebViewModel:objc_getClass(kBaseWebViewModel.UTF8String),
-             kSetPasswordViewModel:objc_getClass(kSetPasswordViewModel.UTF8String)
+             kSetPasswordViewModel:objc_getClass(kSetPasswordViewModel.UTF8String),
+             kTimeVideoVM:objc_getClass(kTimeVideoVM.UTF8String),
              };
     
 }
@@ -86,7 +87,8 @@ static ViewControllersRouter *router;
              kRDoctorDetailVM:objc_getClass("DoctorDetailViewController"),
              kSelectCityVM:objc_getClass("HWCitySelectViewController"),
              kBaseWebViewModel:objc_getClass("BaseWebViewController"),
-             kSetPasswordViewModel:objc_getClass("SetPasswordViewController")
+             kSetPasswordViewModel:objc_getClass("SetPasswordViewController"),
+             kTimeVideoVM:objc_getClass("TimeVideoViewController"),
              };
 }
 
