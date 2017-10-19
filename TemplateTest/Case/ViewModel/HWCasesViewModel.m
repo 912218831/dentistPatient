@@ -45,7 +45,7 @@
         @strongify(self);
         FamilyMemberModel *model = [self.familyMember pObjectAtIndex:self.familyMemberIndex-1];
         NSDictionary *param = nil;
-        if (![model.patientId isEqualToString:@"-1"]) {
+        if (![model.patientId isEqualToString:@"-1"]&&model) {
             param = @{@"patientId":model.patientId};
         }
         [self post:kCaseList type:0 params:param success:^(NSDictionary* response) {
