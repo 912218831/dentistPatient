@@ -49,6 +49,7 @@
     UIView *emptyView = [self viewWithTag:kEmptyTag];
     if (!emptyView) {
         emptyView = [UIView new];
+        emptyView.tag = kEmptyTag;
         
         UIImageView *iconImageView = [UIImageView new];
         iconImageView.image = [UIImage imageNamed:@"无数据"];
@@ -69,7 +70,6 @@
         label.text = @"暂无数据";
         label.textColor = CD_Text33;
         label.font = FONT(kRate(TF15));
-        label.tag = kEmptyTag;
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         [emptyView addSubview:label];
