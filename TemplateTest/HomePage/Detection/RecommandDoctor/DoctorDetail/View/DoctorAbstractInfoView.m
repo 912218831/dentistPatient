@@ -121,6 +121,9 @@
     }
     if (self.contentW>0) {
         CGFloat x = (contentRect.size.width - self.contentW)/2.0;
+        if (self.offX) {
+            x = self.offX;
+        }
         return CGRectMake(x, (CGRectGetHeight(contentRect)-self.iconSize.height)/2.0, self.iconSize.width, self.iconSize.height);
     }
     return [super imageRectForContentRect:contentRect];
