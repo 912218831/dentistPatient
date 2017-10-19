@@ -12,7 +12,7 @@
 #import "RDoctorListCell.h"
 #import "DoctorDetailViewModel.h"
 #import "MLSearchBar.h"
-
+#import <IQUIWindow+Hierarchy.h>
 @interface RecommandDoctorVC () <UIAlertViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) MapContentView *mapView;
 @property (nonatomic, strong) RecommandDoctorViewModel *viewModel;
@@ -93,9 +93,12 @@
     // 定位
     [self.mapView.locationFail subscribeNext:^(id x) {
         @strongify(self);
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"隐私" message:@"定位服务尚未打开" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alertView show];
-        [Utility hideMBProgress:self.contentView];
+        //只在当前页面弹出
+        if ([SHARED_APP_DELEGATE.window.currentViewController isKindOfClass:[RecommandDoctorVC class]]) {
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"隐私" message:@"定位服务尚未打开" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alertView show];
+            [Utility hideMBProgress:self.contentView];
+        }
     }];
     [self.mapView.locationSuccess subscribeNext:^(NSValue *x) {
         @strongify(self);

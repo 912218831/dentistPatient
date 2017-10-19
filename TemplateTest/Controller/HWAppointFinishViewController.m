@@ -104,4 +104,9 @@
     self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
 
+- (void)backMethod
+{
+    [[ViewControllersRouter shareInstance] popToRootViewModelAnimated:YES];
+}
+
 @end

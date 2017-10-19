@@ -13,6 +13,7 @@
 #import "HWAppointCouponCell.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "HWHomePageSecondHeader.h"
+#import "HWAppointFinishViewModel.h"
 @interface HWAppointSuccessViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIActionSheetDelegate>
 
 @property(strong,nonatomic)UICollectionView * collectionView;
@@ -294,7 +295,8 @@
                             }
                             HWHTTPSessionManger * manager = [HWHTTPSessionManger manager];
                             [manager HWPOST:kPayCallBack parameters:params success:^(id responese) {
-                                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+                                HWAppointFinishViewModel * finishViewModel = [[HWAppointFinishViewModel alloc] initWithAppointId:self.viewModel.detailModel.appointId];
+                                [[ViewControllersRouter shareInstance] pushViewModel:finishViewModel animated:NO];
                             } failure:^(NSString *code, NSString *error) {
                                 [Utility showToastWithMessage:error];
                                 [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];

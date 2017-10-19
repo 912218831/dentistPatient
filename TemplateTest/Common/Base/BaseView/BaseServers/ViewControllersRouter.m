@@ -156,7 +156,7 @@ static ViewControllersRouter *router;
     Class vcClass = [self viewControllerClassNameForViewModel:NSStringFromClass(viewModel.class)];
     BaseViewController *baseVC = [[vcClass alloc]initWithViewModel:viewModel];
     [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setTabBarHidden:true];
-    [vc.navigationController pushViewController:baseVC animated:YES];
+    [vc.navigationController pushViewController:baseVC animated:animated];
     
     return baseVC;
 }
