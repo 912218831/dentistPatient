@@ -41,6 +41,7 @@
 @property(strong,nonatomic)WifiListView * wifiListView;
 @property(strong,nonatomic)NSArray * wifiList;
 @property(strong,nonatomic)AFNetworkReachabilityManager * networkManager;
+@property(strong,nonatomic)NSString * currentWifiName;
 
 @end
 
@@ -129,6 +130,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
     if (self) {
         self.networkManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
         [self.networkManager startMonitoring];
+        @weakify(self);
         [self.networkManager  setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
             switch (status) {
                 case AFNetworkReachabilityStatusNotReachable:
@@ -139,6 +141,10 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
                     break;
                 case AFNetworkReachabilityStatusReachableViaWiFi:
                     NSLog(@"无线网络");
+                {
+                    @strongify(self);
+                    self.currentWifiName = [[AppShare shareInstance] getCurrentWifiName];
+                }
                     break;
                 case AFNetworkReachabilityStatusReachableViaWWAN:
                     NSLog(@"4g");
@@ -152,6 +158,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
 //        _isLocal = YES;
         self.lanDeviceDict = [NSMutableDictionary dictionaryWithCapacity:0];
         self.WanDeviceDict = [NSMutableDictionary dictionaryWithCapacity:0];
+        self.currentWifiName = [[AppShare shareInstance] getCurrentWifiName];
         //============初始化解码器
         self.decodeSDK = [[HKDecodeSDK alloc] initWithDelegate:self];
         self.displayView = [[HKDisplayView alloc] init];
@@ -161,7 +168,6 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         InitGetWifiSid((__bridge void *)(self), &HKWifiDataCallback);
         hk_InitWAN((__bridge void *)(self), &HKSystemCallback);
         hk_LanRefresh_EX(1);
-        @weakify(self);
         self.refreshCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             @strongify(self);
             [_lanDeviceDict removeAllObjects];
@@ -173,7 +179,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         self.selectDeviceCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString * input) {
             @strongify(self);
             self.selectedDeviceID  = input;
-            if (![[[AppShare shareInstance] getCurrentWifiName] isEqualToString:@"HD99S-10"]) {
+            if (![[[AppShare shareInstance] getCurrentWifiName] isEqualToString:kDeviceWifiName]) {
                 //网络可用
                 [self playVideo];
                 [self.startVideoCommand execute:nil];
@@ -249,9 +255,18 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         device.deviceDesc = desc;
         [_lanDeviceDict setObject:device forKey:deviceID];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.listDataChannel.followingTerminal sendNext:_lanDeviceDict];
-        });
+        if ([self.currentWifiName isEqualToString:kDeviceWifiName]) {
+            //如果是AP模式
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.listDataChannel.followingTerminal sendNext:_lanDeviceDict];
+            });
+        }
+        else
+        {
+            //局域网模式
+            [self playVideo];
+            return;
+        }
     }
     char deviceInfo[1024];
     GetLanSysInfo(deviceInfo,201,[deviceID UTF8String]);
@@ -495,7 +510,8 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         if (ret < 0) {
             self.operationDevice = nil;
             self.cameraControl = nil;
-            [Utility showToastWithMessage:@"局域网设备呼叫视频失败"];
+            [Utility showToastWithMessage:@"视频初始化失败,正在重试"];
+            [self.refreshCommand execute:nil];
         } else {
             _operationDevice.videoCallid = [NSString stringWithUTF8String:callid];
             [self openVideoSuccess];

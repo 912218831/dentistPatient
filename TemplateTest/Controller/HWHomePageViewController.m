@@ -57,6 +57,11 @@
                 break;
         }
     }];
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [Utility showMBProgress:self.view message:@"请求中..."];
+        [self fetchData];
+    }];
 
 }
 
@@ -260,8 +265,9 @@
     @weakify(self);
     [[self.viewModel.requestSignal deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self);
+        [Utility hideMBProgress:self.view];
         [self.collectionView reloadData];
-        
+        [self.collectionView.mj_header endRefreshing];
     } error:^(NSError *error) {
         [Utility showToastWithMessage:error.localizedDescription];
     }];
@@ -278,7 +284,6 @@
     UIImage * searchImg = [HWCustomDrawImg drawAutoSizeTextAndImg:[UIImage imageNamed:@"搜索"] text:@"附近的口腔医生" grap:10 strconfig:@{NSForegroundColorAttributeName:COLOR_999999,NSFontAttributeName:FONT(13)} strContainerSize:CGSizeZero imgPosition:HWCustomDrawLeft];
     self.searchBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -(self.searchBtn.width-searchImg.width)/2.0f, 0, 0);
     [self.searchBtn setImage:searchImg forState:UIControlStateNormal];
-
 }
 
 - (void)didReceiveMemoryWarning {

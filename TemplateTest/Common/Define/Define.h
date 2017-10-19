@@ -252,8 +252,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define APP_ID                          @"1018136206"
 
 #define App_Version                     @"16"     // 强制更新版本号6.5.0 是18
-#define KCurrentGuideVersionStr         @"guideVersion_6.0"
-
+#define kDeviceWifiName                 @"HD99S-10"
 
 #define kAliPay                         @"kouqiangalipay"
 
@@ -270,6 +269,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define kSubmitNeedSuccess                      @"SubmitNeedSuccess" //购房需求成功
 #define kChangeLoactionName                     @"kChangeLoactionName"//定位成功后弹框
 #define kCollectionSuccess                      @"collectionSuccess"//收藏成功
+
 
 /*
  各种key值

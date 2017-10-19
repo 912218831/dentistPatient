@@ -654,6 +654,14 @@
 		B05FF2531F73E3FC00F06366 /* HWAppointSuccessViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointSuccessViewModel.m; sourceTree = "<group>"; };
 		B05FF2551F748EAE00F06366 /* HWAppointCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAppointCouponModel.h; sourceTree = "<group>"; };
 		B05FF2561F748EAE00F06366 /* HWAppointCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWAppointCouponModel.m; sourceTree = "<group>"; };
+		B062D6DD1F9884C5005DEC2D /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SXRuntime.h"; sourceTree = "<group>"; };
+		B062D6DE1F9884C5005DEC2D /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SXRuntime.m"; sourceTree = "<group>"; };
+		B062D6DF1F9884C5005DEC2D /* UIBarButtonItem+SXCreate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SXCreate.h"; sourceTree = "<group>"; };
+		B062D6E01F9884C5005DEC2D /* UIBarButtonItem+SXCreate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SXCreate.m"; sourceTree = "<group>"; };
+		B062D6E11F9884C5005DEC2D /* UINavigation+SXFixSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigation+SXFixSpace.h"; sourceTree = "<group>"; };
+		B062D6E21F9884C5005DEC2D /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
+		B062D6E31F9884C5005DEC2D /* UINavigationController+SXFullScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+SXFullScreen.h"; sourceTree = "<group>"; };
+		B062D6E41F9884C5005DEC2D /* UINavigationController+SXFullScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SXFullScreen.m"; sourceTree = "<group>"; };
 		B064A7931EBF23080064F727 /* TemplateTest 6. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TemplateTest 6. 4.xcdatamodel"; sourceTree = "<group>"; };
 		B064A7B01EC068980064F727 /* HWFileManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWFileManger.h; sourceTree = "<group>"; };
 		B064A7B11EC068980064F727 /* HWFileManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWFileManger.m; sourceTree = "<group>"; };
@@ -1586,6 +1594,21 @@
 				B0431C441F6A20D4001A2FD4 /* HCSStarRatingView.m */,
 			);
 			path = HWStarLevelView;
+			sourceTree = "<group>";
+		};
+		B062D6DC1F9884C5005DEC2D /* adaptation_iOS11 */ = {
+			isa = PBXGroup;
+			children = (
+				B062D6DD1F9884C5005DEC2D /* NSObject+SXRuntime.h */,
+				B062D6DE1F9884C5005DEC2D /* NSObject+SXRuntime.m */,
+				B062D6DF1F9884C5005DEC2D /* UIBarButtonItem+SXCreate.h */,
+				B062D6E01F9884C5005DEC2D /* UIBarButtonItem+SXCreate.m */,
+				B062D6E11F9884C5005DEC2D /* UINavigation+SXFixSpace.h */,
+				B062D6E21F9884C5005DEC2D /* UINavigation+SXFixSpace.m */,
+				B062D6E31F9884C5005DEC2D /* UINavigationController+SXFullScreen.h */,
+				B062D6E41F9884C5005DEC2D /* UINavigationController+SXFullScreen.m */,
+			);
+			path = adaptation_iOS11;
 			sourceTree = "<group>";
 		};
 		B064A7AF1EC068760064F727 /* HWFileManager */ = {
@@ -2770,6 +2793,7 @@
 				C5562EBF1F963B7D00470336 /* UITableView+Empty.m */,
 				C5562EC01F963B7D00470336 /* UICollectionView+EmptyView.h */,
 				C5562EC11F963B7D00470336 /* UICollectionView+EmptyView.m */,
+				B062D6DC1F9884C5005DEC2D /* adaptation_iOS11 */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2946,7 +2970,7 @@
 				TargetAttributes = {
 					C24E7DA31ADE51AA00BA8ECC = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = CMYJ8LA292;
+						DevelopmentTeam = X6VE6Z688G;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3581,11 +3605,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMYJ8LA292;
+				DEVELOPMENT_TEAM = X6VE6Z688G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
@@ -3645,10 +3669,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
-				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
+				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
+				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3660,11 +3684,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMYJ8LA292;
+				DEVELOPMENT_TEAM = X6VE6Z688G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3727,10 +3751,10 @@
 				MACH_O_TYPE = mh_execute;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
-				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
+				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
+				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
