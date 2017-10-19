@@ -350,6 +350,10 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
         memset(&_snapShotStruct, 0, sizeof(_snapShotStruct));
         _snapShotStruct.bNeedSnapShot = YES;
     }
+    if(self.delegate != nil && [self.delegate respondsToSelector:@selector(snapStart)])
+    {
+        [self.delegate snapStart];
+    }
     [_snapShotLock unlock];
 }
 

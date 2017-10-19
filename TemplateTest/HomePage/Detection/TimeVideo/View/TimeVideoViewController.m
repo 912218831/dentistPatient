@@ -146,17 +146,24 @@
 }
 - (void)snapShotFailed:(NSError *)error
 {
+    [Utility hideMBProgress:self.view];
     [Utility showToastWithMessage:error.localizedDescription];
 }
 
 - (void)snapShotSuccess:(UIImage *)captureImg
 {
+    [Utility hideMBProgress:self.view];
     [Utility showToastWithMessage:@"抓拍成功"];
 //    UIImage * img = [UIImage imageWithData:UIImagePNGRepresentation(captureImg)];
         self.viewModel.takePhoto([UIImage imageWithData:UIImagePNGRepresentation(captureImg)]);
     dispatch_async(dispatch_get_main_queue(), ^{
         [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
     });
+}
+
+- (void)snapStart
+{
+    [Utility showMBProgress:self.view message:@"抓怕中..."];
 }
 
 - (void)dealloc

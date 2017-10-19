@@ -137,10 +137,12 @@
         
     }] subscribeNext:^(id x) {
         @strongify(self);
+        self.viewModel.currentPage = @"1";
         [self fetchData];
        
     }];
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kRefreshReservedList object:nil] subscribeNext:^(id x) {
+        self.viewModel.currentPage = @"1";
         [self fetchData];
     }];
 }
