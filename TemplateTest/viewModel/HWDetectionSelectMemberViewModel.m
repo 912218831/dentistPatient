@@ -15,6 +15,7 @@
 
 - (void)bindViewWithSignal {
     [super bindViewWithSignal];
+    self.type = 1;
     
     RACSubject *subject = [RACSubject subject];
     
@@ -23,7 +24,9 @@
     RACSignal *caseSiganl = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
         FamilyMemberModel *model = [self.dataArray objectAtIndex:self.selectIndexPath.row];
-        [self post:kDetectionCreateCase params:@{@"patientId":model.patientId} success:^(NSDictionary *response) {
+        [self post:kDetectionCreateCase params:@{@"patientId":model.patientId,
+                                                 @"checkType":@(self.type)
+                                                 } success:^(NSDictionary *response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             [subscriber sendNext:[data stringObjectForKey:@"checkId"]];
             [subscriber sendCompleted];

@@ -12,4 +12,5 @@
 @property(nonatomic, strong)NSIndexPath *selectIndexPath;
 @property(nonatomic, strong)dispatch_block_t detectActionBlock;
 @property (nonatomic, strong) RACSignal *createCaseSignal;
+@property(nonatomic, assign) NSInteger type;
 @end
