@@ -146,9 +146,28 @@
         HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
         SHARED_APP_DELEGATE.viewController = [[HWTabBarViewController alloc] initWithViewModel:tabbarViewModel];
         //    SHARED_APP_DELEGATE.viewController.transitioningDelegate = self;
+//        [SHARED_APP_DELEGATE.window.rootViewController presentViewController:SHARED_APP_DELEGATE.viewController animated:YES completion:^{
+//            [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
+//        }];
+        
         [SHARED_APP_DELEGATE.window.rootViewController presentViewController:SHARED_APP_DELEGATE.viewController animated:YES completion:^{
-            [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
+            
+            if (SHARED_APP_DELEGATE.window.rootViewController.presentingViewController) {
+                [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:false completion:^{
+                    [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
+                }];
+                
+            }
+            else
+            {
+                [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
+            }
+            
         }];
+
+        
+        
+        
     }];
     [self.viewModel.loginCommand.errors subscribeNext:^(NSError * error) {
         dispatch_async(dispatch_get_main_queue(), ^{

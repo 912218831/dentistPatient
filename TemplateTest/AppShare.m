@@ -183,9 +183,25 @@
         HWLoginViewController * loginCtrl = [[HWLoginViewController alloc] initWithViewModel:viewModel];
         HWBaseNavigationController * nav = [[HWBaseNavigationController alloc] initWithRootViewController:loginCtrl];
         nav.view.backgroundColor = [UIColor whiteColor];
-        [(SHARED_APP_DELEGATE).window.rootViewController presentViewController:nav animated:YES completion:^{
-            [SHARED_APP_DELEGATE.window setRootViewController:nav];
+//        [(SHARED_APP_DELEGATE).window.rootViewController presentViewController:nav animated:YES completion:^{
+//            [SHARED_APP_DELEGATE.window setRootViewController:nav];
+//        }];
+//
+        
+        
+        [SHARED_APP_DELEGATE.window.rootViewController presentViewController:nav animated:YES completion:^{
+            if(SHARED_APP_DELEGATE.window.rootViewController.presentingViewController) {
+                [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:NO completion:^{
+                    [SHARED_APP_DELEGATE.window setRootViewController:nav];
+                }];
+            }
+            else
+            {
+                [SHARED_APP_DELEGATE.window setRootViewController:nav];
+            }
         }];
+
+        
         
     });
 
