@@ -50,6 +50,7 @@
     @weakify(self);
     UIAlertAction *detectAction = [UIAlertAction actionWithTitle:@"牙龈检测" style:UIAlertActionStyleDefault handler:^ (UIAlertAction *action){
         @strongify(self);
+        self.viewModel.type = 1;
         if (self.viewModel.detectActionBlock) {
             self.viewModel.detectActionBlock();
         }
@@ -58,10 +59,10 @@
     
     UIAlertAction *recordAction = [UIAlertAction actionWithTitle:@"仅记录" style:UIAlertActionStyleDefault handler:^ (UIAlertAction *action){
         @strongify(self);
-        BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
-        model.url = kHistory;
-        model.title = @"记录";
-        [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+        self.viewModel.type = 2;
+        if (self.viewModel.detectActionBlock) {
+            self.viewModel.detectActionBlock();
+        }
     }];
     [alertController addAction:recordAction];
     

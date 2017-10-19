@@ -20,6 +20,8 @@
 @property (nonatomic, strong) RACSignal *terribleViewCreateSignal;
 @property (nonatomic, strong) UIButton  *seeDoctorBtn;
 @property (nonatomic, strong) UIButton  *notSendBtn;
+@property (nonatomic, strong) UIButton *lookBtn;// 查看附近医院
+@property (nonatomic, strong) UIButton *endBtn;// 完成
 @end
 
 @implementation DetectionResultViewController
@@ -33,6 +35,40 @@
         _scrollView.showsVerticalScrollIndicator = true;
     }
     return _scrollView;
+}
+
+- (UIButton *)lookBtn {
+    if (_lookBtn == nil) {
+        _lookBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.contentView addSubview:_lookBtn];
+        [_lookBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(self.contentView.mas_bottom).with.offset(-kRate(120));
+            make.width.mas_equalTo(kRate(200));
+        }];
+        [_lookBtn setTitle:@"查看附近医生" forState:UIControlStateNormal];
+        [_lookBtn setTitleColor:CD_MainColor forState:UIControlStateNormal];
+        _lookBtn.titleLabel.font =FONT(TF18);
+        _lookBtn.titleLabel.textAlignment =NSTextAlignmentCenter;
+    }
+    return _lookBtn;
+}
+
+- (UIButton *)endBtn {
+    if (!_endBtn) {
+        _endBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.contentView addSubview:_endBtn];
+        [_endBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(self.lookBtn.mas_bottom).with.offset(kRate(4));
+            make.width.equalTo(self.lookBtn);
+        }];
+        [_endBtn setTitle:@"完成" forState:UIControlStateNormal];
+        [_endBtn setTitleColor:CD_MainColor forState:UIControlStateNormal];
+        _endBtn.titleLabel.font =FONT(TF18);
+        _endBtn.titleLabel.textAlignment =NSTextAlignmentCenter;
+    }
+    return _endBtn;
 }
 
 - (void)configContentView {
@@ -72,7 +108,7 @@
         [self addSubview:stateGoodView];
         [stateGoodView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contentView);
-            make.top.mas_equalTo(kRate(171));
+            make.top.mas_equalTo(kRate(171-20));
             make.height.mas_equalTo(kRate(138));
         }];
         return nil;
@@ -103,6 +139,10 @@
         @strongify(self);
         if (x.boolValue) {
             [self.stateGoodViewCreateSignal subscribe:[RACSubject subject]];
+            self.viewModel.seeDoctorSignal = [self.lookBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
+            [[self.endBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+                [[ViewControllersRouter shareInstance]popToRootViewModelAnimated:true];
+            }];
         } else {
             [self.terribleViewCreateSignal subscribe:[RACSubject subject]];
             [self.seeDoctorBtnCreateSignal subscribe:[RACSubject subject]];
