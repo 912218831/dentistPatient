@@ -41,6 +41,24 @@
         //
         self.complementStateLab.backgroundColor = COLOR_999999;
     }
+    else if([model.state isEqualToString:@"4"])
+    {
+        self.complementStateLab.backgroundColor = COLOR_00BF55;//
+    }
+    else if ([model.state isEqualToString:@"1"])
+    {
+        self.complementStateLab.backgroundColor = COLOR_00BF55;//
+    }
+    else if([model.state isEqualToString:@"3"])
+    {
+        self.complementStateLab.backgroundColor = COLOR_EC7E33;
+
+    }
+    else if([model.state isEqualToString:@"5"])
+    {
+        self.complementStateLab.backgroundColor = COLOR_4FB3DE;
+
+    }
     else
     {
         self.complementStateLab.backgroundColor = COLOR_00BF55;
