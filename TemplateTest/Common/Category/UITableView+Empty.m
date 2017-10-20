@@ -41,20 +41,38 @@
 }
 
 - (void)showEmptyView {
-    UILabel *label = [self viewWithTag:kEmptyTag];
-    if (!label) {
-        label = [UILabel new];
+    UIView *emptyView = [self viewWithTag:kEmptyTag];
+    if (!emptyView) {
+        emptyView = [UIView new];
+        emptyView.tag = kEmptyTag;
+        
+        UIImageView *iconImageView = [UIImageView new];
+        iconImageView.image = [UIImage imageNamed:@"无数据"];
+        [emptyView addSubview:iconImageView];
+        [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.centerX.equalTo(emptyView);
+            make.size.mas_equalTo(CGSizeMake(kRate(120), kRate(72)));
+        }];
+        [self addSubview:emptyView];
+        
+        [emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.top.equalTo(self).with.offset(kRate(170));
+            make.size.mas_equalTo(CGSizeMake(kRate(120), kRate(140)));
+        }];
+        
+        UILabel *label = [UILabel new];
         label.text = @"暂无数据";
-        label.textColor = CD_Text99;
+        label.textColor = CD_Text33;
         label.font = FONT(kRate(TF15));
-        label.tag = kEmptyTag;
         label.backgroundColor = [UIColor clearColor];
-        [self addSubview:label];
+        label.textAlignment = NSTextAlignmentCenter;
+        [emptyView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self);
+            make.bottom.centerX.equalTo(emptyView);
         }];
     } else {
-        [self bringSubviewToFront:label];
+        [self bringSubviewToFront:emptyView];
     }
 }
 

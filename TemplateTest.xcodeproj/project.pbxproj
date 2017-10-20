@@ -336,6 +336,8 @@
 		C5B4AA301F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA2F1F6EAD3F0083E8C5 /* DoctorDetailInfoCell.m */; };
 		C5B4AA331F6EAD500083E8C5 /* DoctorDetailDateMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */; };
 		C5B4AA361F6EB3350083E8C5 /* DashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4AA351F6EB3350083E8C5 /* DashLineView.m */; };
+		C5B6163D1F98A25700113493 /* 无数据@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B6163C1F98A0B100113493 /* 无数据@2x.png */; };
+		C5B6163E1F98A25700113493 /* 无数据@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B6163B1F98A0AA00113493 /* 无数据@3x.png */; };
 		C5C22AC91F97543800B495FD /* SetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C22AC51F97541800B495FD /* SetPasswordViewController.m */; };
 		C5C22ACA1F97543800B495FD /* SetPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C22AC81F97541800B495FD /* SetPasswordViewModel.m */; };
 		C5CCBB421F6968A7003A4B8C /* CaseDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCBB411F6968A7003A4B8C /* CaseDetailViewModel.m */; };
@@ -1062,6 +1064,8 @@
 		C5B4AA321F6EAD500083E8C5 /* DoctorDetailDateMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailDateMapCell.m; sourceTree = "<group>"; };
 		C5B4AA341F6EB3350083E8C5 /* DashLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashLineView.h; sourceTree = "<group>"; };
 		C5B4AA351F6EB3350083E8C5 /* DashLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashLineView.m; sourceTree = "<group>"; };
+		C5B6163B1F98A0AA00113493 /* 无数据@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "无数据@3x.png"; sourceTree = "<group>"; };
+		C5B6163C1F98A0B100113493 /* 无数据@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "无数据@2x.png"; sourceTree = "<group>"; };
 		C5C22AC41F97541800B495FD /* SetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordViewController.h; sourceTree = "<group>"; };
 		C5C22AC51F97541800B495FD /* SetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordViewController.m; sourceTree = "<group>"; };
 		C5C22AC71F97541800B495FD /* SetPasswordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordViewModel.h; sourceTree = "<group>"; };
@@ -1680,6 +1684,7 @@
 		B0B0B5751F287302002FE127 /* @2X */ = {
 			isa = PBXGroup;
 			children = (
+				C5B6163C1F98A0B100113493 /* 无数据@2x.png */,
 				C58BECBB1F96F2FA00BB05B1 /* personalCenter@2x.png */,
 				B00099E51F8CF77100E13DCF /* answer@2x.png */,
 				B00099DC1F8CC09200E13DCF /* tabbar_2_s@2x.png */,
@@ -1740,6 +1745,7 @@
 		B0B0B5801F287302002FE127 /* @3X */ = {
 			isa = PBXGroup;
 			children = (
+				C5B6163B1F98A0AA00113493 /* 无数据@3x.png */,
 				C58BECBC1F96F30200BB05B1 /* personalCenter@3x.png */,
 				B00099E61F8CF79200E13DCF /* answer@3x.png */,
 				B00099DA1F8CC07F00E13DCF /* tabbar_2_s@3x.png */,
@@ -3023,6 +3029,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B6163D1F98A25700113493 /* 无数据@2x.png in Resources */,
+				C5B6163E1F98A25700113493 /* 无数据@3x.png in Resources */,
 				C5F306461F9748A100FBD4F5 /* 积分.png in Resources */,
 				C58BECBD1F96F32100BB05B1 /* personalCenter@2x.png in Resources */,
 				C58BECBE1F96F32100BB05B1 /* personalCenter@3x.png in Resources */,

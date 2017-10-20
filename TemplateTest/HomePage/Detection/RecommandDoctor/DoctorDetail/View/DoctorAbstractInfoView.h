@@ -13,6 +13,7 @@
 @end
 
 @interface DoctorAbstractButton : UIButton
+@property (nonatomic, assign) CGFloat offX;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) CGFloat spaceX;
 @property (nonatomic, assign) CGSize iconSize;
