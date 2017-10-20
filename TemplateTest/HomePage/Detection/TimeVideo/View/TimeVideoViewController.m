@@ -74,7 +74,7 @@
 //    [self.view addSubview:self.openLightBtn];
 
     self.listView = [[[NSBundle mainBundle] loadNibNamed:@"WifiListView" owner:self options:nil] firstObject];
-    self.listView.frame = CGRectMake(0, kScreenHeight - 300, kScreenWidth, 300);
+    self.listView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 300);
     [self.view addSubview:self.listView];
     self.listView.delegate = self;
 
@@ -90,7 +90,9 @@
         return [RACSignal empty];
     }];
     [self.viewModel.listDataChannel.leadingTerminal subscribeNext:^(id x) {
-        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.listView.top = kScreenHeight - 300;
+        }];
         if ([x isKindOfClass:[NSArray class]]) {
             //wifi列表
             self.listView.dataArr = [x copy];
@@ -113,7 +115,7 @@
     }];
     self.viewModel.startVideoCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [UIView animateWithDuration:0.25 animations:^{
-            self.listView.top = CONTENT_HEIGHT;
+            self.listView.top = kScreenHeight;
         }];
         return [RACSignal empty];
     }];
@@ -138,11 +140,11 @@
 }
 
 - (void)backMethod {
-//    [super backMethod];
+    [super backMethod];
 //    UIImage * img = [UIImage imageWithData:UIImagePNGRepresentation(self.viewModel.captureImage)];
 //    self.viewModel.takePhoto(img);
-//    [self.viewModel.quitVideo execute:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.viewModel.quitVideo execute:nil];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)snapShotFailed:(NSError *)error
 {

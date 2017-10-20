@@ -254,19 +254,25 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         HekaiDeviceDesc *device = [[HekaiDeviceDesc alloc] init];
         device.deviceDesc = desc;
         [_lanDeviceDict setObject:device forKey:deviceID];
-        
-        if ([self.currentWifiName isEqualToString:kDeviceWifiName]) {
-            //如果是AP模式
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.listDataChannel.followingTerminal sendNext:_lanDeviceDict];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if ([self.currentWifiName isEqualToString:kDeviceWifiName]) {
+                        //如果是AP模式
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.listDataChannel.followingTerminal sendNext:_lanDeviceDict];
+                        });
+                    }
+                    else
+                    {
+                        //局域网模式
+                        [self playVideo];
+                        [self.startVideoCommand execute:nil];
+                        return;
+                    }
+
             });
-        }
-        else
-        {
-            //局域网模式
-            [self playVideo];
-            return;
-        }
+        });
+
     }
     char deviceInfo[1024];
     GetLanSysInfo(deviceInfo,201,[deviceID UTF8String]);
@@ -511,7 +517,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
             self.operationDevice = nil;
             self.cameraControl = nil;
             [Utility showToastWithMessage:@"视频初始化失败,正在重试"];
-            [self.refreshCommand execute:nil];
+//            [self.refreshCommand execute:nil];
         } else {
             _operationDevice.videoCallid = [NSString stringWithUTF8String:callid];
             [self openVideoSuccess];

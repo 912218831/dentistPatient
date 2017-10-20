@@ -14,7 +14,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "DisplayManagerView.h"
 #import "avrecord.h"
-
+#import "UIImage+Rotate.h"
 @interface HKDisplayView () <DisplayManagerViewDelegate>
 {
         AudioRecordController _recordControl;//
@@ -261,8 +261,8 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
      */
     
     UIImage *bmpImage = nil;
-    bmpImage = [UIImage imageWithCGImage:imageRef scale:[[UIScreen mainScreen] scale] orientation:UIImageOrientationUp];
-
+    bmpImage = [UIImage imageWithCGImage:imageRef scale:[[UIScreen mainScreen] scale] orientation:UIImageOrientationLeftMirrored];
+    bmpImage = [bmpImage flipVertical];
 //    if (0 == flip) {
 //    } else if (1 == flip) {
 //        bmpImage = [UIImage imageWithCGImage:imageRef scale:1.0f orientation:UIImageOrientationUp];
@@ -350,11 +350,12 @@ static void recodeCallbackFunc(void *userData, uint8_t *samplesBuffer, uint32_t 
         memset(&_snapShotStruct, 0, sizeof(_snapShotStruct));
         _snapShotStruct.bNeedSnapShot = YES;
     }
-    if(self.delegate != nil && [self.delegate respondsToSelector:@selector(snapStart)])
-    {
-        [self.delegate snapStart];
-    }
     [_snapShotLock unlock];
+//    if(self.delegate != nil && [self.delegate respondsToSelector:@selector(snapStart)])
+//    {
+//        [self.delegate snapStart];
+//    }
+
 }
 
 - (void)snapShotToPath:(NSString *)filePath withPhotoAlbum:(BOOL)bAlbum withAudio:(BOOL)bAudio
