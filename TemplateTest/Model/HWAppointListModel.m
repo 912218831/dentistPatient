@@ -17,6 +17,7 @@
     [dic setPObject:@"id" forKey:@"appointId"];
     return dic;
 }
+
 - (id)copyWithZone:(NSZone *)zone
 {
     HWAppointListModel * model = [[HWAppointListModel alloc] init];
