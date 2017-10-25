@@ -21,7 +21,21 @@
 - (void)bindModel
 {
     self.viewModel = [[HWLoginCellViewModel alloc] init];
+    RAC(self.telphoneTF, text) = [self.telphoneTF.rac_textSignal map:^id(NSString *value) {
+        if (value.length>11) {
+            return [value substringToIndex:11];
+        } else {
+            return value;
+        }
+    }];
     RAC(self.viewModel,telphone) = [self.telphoneTF.rac_textSignal skip:1];
+    RAC(self.verifyCodeTF, text) = [self.verifyCodeTF.rac_textSignal map:^id(NSString *value) {
+        if (value.length>8) {
+            return [value substringToIndex:8];
+        } else {
+            return value;
+        }
+    }];
     RAC(self.viewModel,verifyCode) = [self.verifyCodeTF.rac_textSignal skip:1];
     @weakify(self);
     [RACObserve(self.viewModel, title) subscribeNext:^(id x) {
