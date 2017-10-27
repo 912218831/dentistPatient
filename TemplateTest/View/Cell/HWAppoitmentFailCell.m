@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *patientCountLab;
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;//采纳医生建议
 @property(strong,nonatomic)HWAppointFailViewModel * viewModel;
+@property (weak, nonatomic) IBOutlet UILabel *exceptDateLab;
 
 @end
 
@@ -39,11 +40,12 @@
     self.viewModel = viewModel;
     HWAppointDetailModel * detailModel = self.viewModel.detailModel;
     self.docNameLab.text = detailModel.dentistName;
-    self.addressLab.text = detailModel.clinicName;
+    self.addressLab.text = detailModel.address;
     self.patientCountLab.text = detailModel.patientCount;
     self.starView.value = detailModel.docLevel.integerValue;
     self.acceptBtn.rac_command = self.viewModel.acceptCommand;
     self.rejectBtn.rac_command = self.viewModel.rejectCommand;
+    self.exceptDateLab.text = detailModel.docExpectedTime;
 }
 
 

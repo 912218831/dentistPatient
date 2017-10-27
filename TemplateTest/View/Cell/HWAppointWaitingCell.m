@@ -32,7 +32,7 @@
     self.viewModel = viewModel;
     HWAppointDetailModel * detailModel = self.viewModel.detailModel;
     self.docNameLab.text = detailModel.dentistName;
-    self.addressLab.text = detailModel.clinicName;
+    self.addressLab.text = detailModel.address;
     self.patientCountLab.text = detailModel.patientCount;
     self.starView.value = detailModel.docLevel.integerValue;
 }

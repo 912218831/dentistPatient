@@ -62,12 +62,16 @@
             @weakify(self);
             [failViewModel.cancelCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
                 @strongify(self);
-                self.isNeedRefresh = YES;
+                if ([x isEqualToString:@"取消预约"]) {
+                    self.isNeedRefresh = YES;
+                }
             }];
             
-            [failViewModel.acceptCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
+            [failViewModel.acceptCommand.executionSignals.switchToLatest subscribeNext:^(NSString * x) {
                 @strongify(self);
-                self.isNeedRefresh = YES;
+                if ([x isEqualToString:@"采纳医生建议"]) {
+                    self.isNeedRefresh = YES;
+                }
             }];
             
             [[ViewControllersRouter shareInstance] pushViewModel:failViewModel animated:YES];

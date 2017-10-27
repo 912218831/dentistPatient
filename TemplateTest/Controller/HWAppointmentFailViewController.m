@@ -70,12 +70,12 @@
     self.table.tableHeaderView = header;
     
     UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kRate(100))];
-    UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, kScreenWidth - 30, kRate(100))];
-    lab.text = @"医生会尽量跟你联系确定时间";
-    lab.font = FONT(14.0f);
-    lab.textColor = COLOR_999999;
-    lab.textAlignment = NSTextAlignmentCenter;
-    [footer addSubview:lab];
+//    UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, kScreenWidth - 30, kRate(100))];
+//    lab.text = @"医生会尽量跟你联系确定时间";
+//    lab.font = FONT(14.0f);
+//    lab.textColor = COLOR_999999;
+//    lab.textAlignment = NSTextAlignmentCenter;
+//    [footer addSubview:lab];
     self.table.tableFooterView = footer;
 }
 
@@ -101,10 +101,17 @@
     @weakify(self);
     [[cell.acceptBtn.rac_command.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSString * x) {
         @strongify(self);
-        [Utility showMBProgress:self.view message:x];
-    } completed:^{
-        @strongify(self);
-        [Utility hideMBProgress:self.view];
+        if ([x isEqualToString:@"采纳医生建议"]) {
+            [Utility hideMBProgress:self.view];
+            [Utility showToastWithMessage:x];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            });
+        }
+        else
+        {
+            [Utility showMBProgress:self.view message:x];
+        }
     }];
     [[cell.acceptBtn.rac_command errors] subscribeNext:^(NSError * error) {
         @strongify(self);
@@ -132,9 +139,20 @@
     [self.viewModel execute];
     self.cancelBtn.rac_command = self.viewModel.cancelCommand;
     [[self.cancelBtn.rac_command.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSString * x) {
-        [Utility showMBProgress:self.view message:x];
-    } completed:^{
-        [Utility hideMBProgress:self.view];
+        if ([x isEqualToString:@"取消预约"]) {
+            [Utility hideMBProgress:self.view];
+            [Utility showToastWithMessage:x];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            });
+            
+        }
+        else
+        {
+            [Utility showMBProgress:self.view message:x];
+            
+        }
+        
     }];
     [[[self.cancelBtn.rac_command  errors] deliverOnMainThread] subscribeNext:^(NSError * x) {
         [Utility hideMBProgress:self.view];

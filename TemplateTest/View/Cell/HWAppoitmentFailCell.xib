@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -188,6 +188,7 @@
                 <outlet property="acceptBtn" destination="ZfM-Ux-ybJ" id="oYO-Xv-e7X"/>
                 <outlet property="addressLab" destination="jbk-aS-mAS" id="xRm-dn-X1r"/>
                 <outlet property="docNameLab" destination="vB3-hD-DvN" id="CMP-dv-0eT"/>
+                <outlet property="exceptDateLab" destination="CKv-GX-ZRh" id="zWP-s6-NDb"/>
                 <outlet property="patientCountLab" destination="djr-Ru-kNb" id="uuA-p1-9qi"/>
                 <outlet property="rejectBtn" destination="nPU-LD-zXw" id="A4f-io-6NG"/>
                 <outlet property="starView" destination="XEp-rD-WJh" id="ItG-RG-pJJ"/>

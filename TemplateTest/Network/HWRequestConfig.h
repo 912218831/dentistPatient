@@ -15,7 +15,7 @@
 
 #define kNetworkFailedMessage           @"网络不给力,请稍后再试!"
 
-#define kStatusLogout                   -99
+#define kStatusLogout                   99
 #define kStatusSuccess                  0 //请求成功
 #define kStatusNetworkFailed            404
 

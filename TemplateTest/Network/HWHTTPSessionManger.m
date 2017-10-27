@@ -91,7 +91,7 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
     {
         if(self.queryFail)
         {
-            if([[dict objectForKey:@"status"] intValue] == kStatusLogout)
+            if([[dict stringObjectForKey:@"status"] intValue] == kStatusLogout)
             {
                 //  未登录
                 [[AppShare shareInstance] logout];

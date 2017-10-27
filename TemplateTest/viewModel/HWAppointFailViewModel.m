@@ -29,9 +29,7 @@
             [subscriber sendNext:@"请求中..."];
             [params setPObject:self.detailModel.appointId forKey:@"applyId"];
             NSURLSessionTask * task = [self post:kAccecptAppoint params:params success:^(id response) {
-//                [subscriber sendNext:@"采纳医生建议"];
-                [subscriber sendCompleted];
-                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+                [subscriber sendNext:@"采纳医生建议"];
             } failure:^(NSString * error) {
                 [subscriber sendError:customRACError(@"采纳医生建议失败")];
             }];
@@ -58,9 +56,7 @@
             [subscriber sendNext:@"请求中..."];
             [params setPObject:self.detailModel.appointId forKey:@"applyId"];
             NSURLSessionTask * task = [self post:kCancelAppoint params:params success:^(id response) {
-//                [subscriber sendNext:@"取消预约"];
-                [subscriber sendCompleted];
-                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+                [subscriber sendNext:@"取消预约"];
             } failure:^(NSString * error) {
                 [subscriber sendError:customRACError(@"取消失败")];
             }];
