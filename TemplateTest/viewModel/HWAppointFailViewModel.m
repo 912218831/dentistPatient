@@ -73,7 +73,7 @@
             //咨询
             BaseWebViewModel * model = [[BaseWebViewModel alloc] init];
             model.title = @"咨询";
-            model.url = [NSString stringWithFormat:@"%@&checkId=%@",kAnswer,self.detailModel.checkId];
+            model.url = [NSString stringWithFormat:@"%@&checkId=%@&dentistId=%@",kAnswer,self.detailModel.checkId,self.detailModel.dentistId];
             [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
             return [RACSignal empty];
         }];
