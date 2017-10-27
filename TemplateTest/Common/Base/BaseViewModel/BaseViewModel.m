@@ -25,6 +25,7 @@
 
 - (void)post:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
     @weakify(self);
+    [HWHTTPSessionManger shareHttpClient].responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
     NSURLSessionDataTask *task = [self.tasks objectForKey:url];
     if (task.state != NSURLSessionTaskStateCompleted) {
         [task cancel];
@@ -56,25 +57,8 @@
     return task;
 }
 
-- (void)postImage:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
-    NSError* error = NULL;
-    __block NSData *imageData = nil;
-    [params enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[NSData class]]) {
-            imageData = obj;
-            *stop = true;
-        }
-    }];
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[kUrlBase stringByAppendingString:url] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:imageData name:@"imageFile" fileName:@".jpg" mimeType:@"multipart/form-data"];
-    } error:&error];
-    
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
-    //, @"text/json", @"text/javascript", @"text/html", @"text/plain"
-    serializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json",nil];
-    //manager.responseSerializer = serializer;
-    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
+static NSURLSessionUploadTask * extracted(void (^failure)(NSString *), AFURLSessionManager *manager, NSMutableURLRequest *request, void (^success)(id)) {
+    return [manager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
         NSLog(@"进度=%@",uploadProgress);
     } completionHandler:^(NSURLResponse * _Nonnull response, id responseObject, NSError * _Nullable error) {
         if (![responseObject isKindOfClass:[NSDictionary class]]) {
@@ -95,6 +79,27 @@
             }
         }
     }];
+}
+
+- (void)postImage:(NSString *)url type:(int)type params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSString *))failure {
+    NSError* error = NULL;
+    __block NSData *imageData = nil;
+    [params enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[NSData class]]) {
+            imageData = obj;
+            *stop = true;
+        }
+    }];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[kUrlBase stringByAppendingString:url] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"imageFile" fileName:@".jpg" mimeType:@"multipart/form-data"];
+    } error:&error];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
+    //, @"text/json", @"text/javascript", @"text/html", @"text/plain"
+    serializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json",nil];
+    //manager.responseSerializer = serializer;
+    NSURLSessionUploadTask *uploadTask = extracted(failure, manager, request, success);
     [uploadTask resume];
 }
 

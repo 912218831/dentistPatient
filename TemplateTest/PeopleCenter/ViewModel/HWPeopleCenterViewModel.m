@@ -24,7 +24,7 @@
         [self post:kPersonCenterInfo type:0 params:@{} success:^(NSDictionary* response) {
             NSDictionary *data = [response dictionaryObjectForKey:@"data"];
             self.userName = [data stringObjectForKey:@"nickName"];
-            self.userPhone = weakUserLogin.username;
+            self.userPhone = weakUserLogin.userPhone;
             self.headImageUrl = [NSURL URLWithString:[data stringObjectForKey:@"headimage"]];
             self.model = [[HWPeopleCenterModel alloc]initWithDictionary:data error:nil];
             [subscriber sendCompleted];

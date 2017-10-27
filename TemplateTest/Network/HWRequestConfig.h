@@ -36,6 +36,8 @@
 
 #define kUploadImage                 @"" //上传图片
 #define kLogin                      @"acc/loginByCode"//登录
+#define kWechatLogin                @"acc/loginByWechat"// 微信登录
+#define kBindPhone                  @"acc/bindWechatMobile"//绑定手机
 //#define kRegister                   @"Account/DoRegister"//注册
 #define kGetVerifyCode              @"acc/getVerifyCode"//获取验证码
 #define kModifyPassword             @"Member/DoUpMember" //修改密码

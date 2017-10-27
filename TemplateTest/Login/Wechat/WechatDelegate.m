@@ -9,6 +9,7 @@
 #import "WechatDelegate.h"
 
 @interface WechatDelegate ()
+@property (nonatomic, copy, readwrite) NSString *expires_in;
 @property (nonatomic, copy, readwrite) NSString *access_token;
 @property (nonatomic, copy, readwrite) NSString *refresh_token;
 @property (nonatomic, copy, readwrite) NSString *openid;
@@ -46,7 +47,7 @@
                                              self.refresh_token = [responese stringObjectForKey:@"refresh_token"];
                                              self.unionid = [responese stringObjectForKey:@"unionid"];
                                              self.openid = [responese stringObjectForKey:@"openid"];
-                                             
+                                             self.expires_in = [responese stringObjectForKey:@"expires_in"];
                                              [self requestUserInfo];
                                           }
                                          failure:^(NSString *code, NSString *error) {
@@ -60,6 +61,9 @@
        @"openid":self.openid}
                                          success:^(NSDictionary *responese) {
                                              self.userInfo = [[WechatUserInfo alloc]initWithDictionary:responese error:nil];
+                                             if (self.getInfoSuccess) {
+                                                 self.getInfoSuccess();
+                                             }
                                          }
                                          failure:^(NSString *code, NSString *error) {
                                              NSLog(@"error-%@",error);

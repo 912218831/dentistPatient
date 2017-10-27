@@ -16,7 +16,6 @@
 #import "HWLoginViewModel.h"
 #import "HWLoginTelphoneCell.h"
 #import "DoctorAbstractInfoView.h"
-#import "LoginViewModel.h"
 
 @interface HWLoginViewController ()<UIViewControllerTransitioningDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView * table;
@@ -28,14 +27,29 @@
 @implementation HWLoginViewController
 @dynamic viewModel;
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.titleView  = [Utility navTitleView:@"手机号登录"];
+    
 }
 
 - (void)configContentView {
     [super configContentView];
+    
+    switch (self.viewModel.type) {
+        case Login:
+        {
+            self.navigationItem.titleView  = [Utility navTitleView:@"手机号登录"];
+        }
+            break;
+        case Bind:
+        {
+            self.navigationItem.titleView  = [Utility navTitleView:@"绑定手机号"];
+            self.navigationItem.leftBarButtonItem = [Utility navButton:self action:@selector(backMethod) image:[UIImage imageNamed:@"TOP_ARROW"]];
+        }
+            break;
+        default:
+            break;
+    }
     
     [self addSubview:self.table];
     [[RACScheduler mainThreadScheduler]schedule:^{
@@ -48,12 +62,29 @@
     
     @weakify(self);
     [[self.wechatBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        @strongify(self);
-        SendAuthReq *req = [[SendAuthReq alloc] init];
-        req.scope = @"snsapi_userinfo";
-        req.state = @"App";
-        [WXApi sendReq:req];
+        loginAction();
     }];
+    if (self.viewModel.type == Login) {
+        [WechatDelegate shareWechatDelegate].getInfoSuccess = ^{
+            @strongify(self);
+            [Utility showMBProgress:self.contentView message:nil];
+            [self.viewModel wechatLogin:^(NSString *error) {
+                [Utility hideMBProgress:self.contentView];
+                if (error) {
+                    [Utility showToastWithMessage:error];
+                } else {
+                    if (self.viewModel.firstFlag) {
+                        HWLoginViewModel *vm = [HWLoginViewModel new];
+                        vm.type = Bind;
+                        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
+                    } else {
+                        [self resetRootViewController];
+                    }
+                }
+            }];
+            
+        };
+    }
 }
 
 - (UITableView *)table
@@ -86,21 +117,22 @@
     footerView.backgroundColor = [UIColor clearColor];
     
     self.loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, kRate(35), kScreenWidth - 30, 50)];
-    [self.loginBtn setImage:[HWCustomDrawImg drawTextImg:CGSizeMake(kScreenWidth - 30, 50) backgroundColor:COLOR_FFFFFF content:@"登录" contentConfig:@{NSForegroundColorAttributeName:COLOR_144271,NSFontAttributeName:FONT(19)}] forState:UIControlStateNormal];
+    [self.loginBtn setImage:[HWCustomDrawImg drawTextImg:CGSizeMake(kScreenWidth - 30, 50) backgroundColor:COLOR_FFFFFF content:(self.viewModel.type==Login?@"登录":@"下一步") contentConfig:@{NSForegroundColorAttributeName:COLOR_144271,NSFontAttributeName:FONT(19)}] forState:UIControlStateNormal];
     [footerView addSubview:self.loginBtn];
     
-    self.wechatBtn = [DoctorAbstractButton buttonWithType:UIButtonTypeCustom];
-    [footerView addSubview:self.wechatBtn];
-    CGSize wechatSize = CGSizeMake(kRate(74), kRate(73));
-    self.wechatBtn.frame = CGRectMake((footerView.width-wechatSize.width)/2.0, (footerView.height)-(kRate(25)+wechatSize.height), wechatSize.width, wechatSize.height);
-    [self.wechatBtn setImage:[UIImage imageNamed:@"wechatIcon"] forState:UIControlStateNormal];
-    [self.wechatBtn setTitle:@"微信登录" forState:UIControlStateNormal];
-    [self.wechatBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
-    self.wechatBtn.titleLabel.font = FONT(TF14);
-    self.wechatBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.wechatBtn.imageFrame = CGRectMake((wechatSize.width-kRate(42))/2.0, 0, kRate(42), kRate(42));
-    self.wechatBtn.titleFrame = CGRectMake(0, wechatSize.height - TF14, wechatSize.width, TF14);
-    
+    if (self.viewModel.type == Login) {
+        self.wechatBtn = [DoctorAbstractButton buttonWithType:UIButtonTypeCustom];
+        [footerView addSubview:self.wechatBtn];
+        CGSize wechatSize = CGSizeMake(kRate(74), kRate(73));
+        self.wechatBtn.frame = CGRectMake((footerView.width-wechatSize.width)/2.0, (footerView.height)-(kRate(25)+wechatSize.height), wechatSize.width, wechatSize.height);
+        [self.wechatBtn setImage:[UIImage imageNamed:@"wechatIcon"] forState:UIControlStateNormal];
+        [self.wechatBtn setTitle:@"微信登录" forState:UIControlStateNormal];
+        [self.wechatBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
+        self.wechatBtn.titleLabel.font = FONT(TF14);
+        self.wechatBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.wechatBtn.imageFrame = CGRectMake((wechatSize.width-kRate(42))/2.0, 0, kRate(42), kRate(42));
+        self.wechatBtn.titleFrame = CGRectMake(0, wechatSize.height - TF14, wechatSize.width, TF14);
+    }
     return footerView;
 }
 
@@ -141,33 +173,9 @@
         [self.viewModel.loginCommand execute:nil];
     }];
    
-    
     [self.viewModel.loginCommand.executionSignals.switchToLatest subscribeNext:^(id x) {
-        HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
-        SHARED_APP_DELEGATE.viewController = [[HWTabBarViewController alloc] initWithViewModel:tabbarViewModel];
-        //    SHARED_APP_DELEGATE.viewController.transitioningDelegate = self;
-//        [SHARED_APP_DELEGATE.window.rootViewController presentViewController:SHARED_APP_DELEGATE.viewController animated:YES completion:^{
-//            [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
-//        }];
-        
-        [SHARED_APP_DELEGATE.window.rootViewController presentViewController:SHARED_APP_DELEGATE.viewController animated:YES completion:^{
-            
-            if (SHARED_APP_DELEGATE.window.rootViewController.presentingViewController) {
-                [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:false completion:^{
-                    [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
-                }];
-                
-            }
-            else
-            {
-                [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
-            }
-            
-        }];
-
-        
-        
-        
+        @strongify(self);
+        [self resetRootViewController];
     }];
     [self.viewModel.loginCommand.errors subscribeNext:^(NSError * error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -176,6 +184,26 @@
     }];
 
     return cell;
+}
+
+- (void)resetRootViewController {
+    HWTabbarViewModel * tabbarViewModel = [[HWTabbarViewModel alloc] init];
+    SHARED_APP_DELEGATE.viewController = [[HWTabBarViewController alloc] initWithViewModel:tabbarViewModel];
+    
+    [SHARED_APP_DELEGATE.window.rootViewController presentViewController:SHARED_APP_DELEGATE.viewController animated:YES completion:^{
+        
+        if (SHARED_APP_DELEGATE.window.rootViewController.presentingViewController) {
+            [SHARED_APP_DELEGATE.window.rootViewController.presentingViewController dismissViewControllerAnimated:false completion:^{
+                [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
+            }];
+            
+        }
+        else
+        {
+            [SHARED_APP_DELEGATE.window setRootViewController:SHARED_APP_DELEGATE.viewController];
+        }
+        
+    }];
 }
 
 @end
