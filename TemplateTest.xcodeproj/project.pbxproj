@@ -2981,7 +2981,7 @@
 				TargetAttributes = {
 					C24E7DA31ADE51AA00BA8ECC = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = CMYJ8LA292;
+						DevelopmentTeam = X6VE6Z688G;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3619,11 +3619,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMYJ8LA292;
+				DEVELOPMENT_TEAM = X6VE6Z688G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
@@ -3683,10 +3683,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
-				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
+				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
+				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3698,11 +3698,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMYJ8LA292;
+				DEVELOPMENT_TEAM = X6VE6Z688G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3765,10 +3765,10 @@
 				MACH_O_TYPE = mh_execute;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
-				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
+				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
+				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @interface HWUserLogin : NSObject
-
+@property(strong,nonatomic)NSString * userPhone;
 @property(strong,nonatomic)NSString * username;
 @property(strong,nonatomic)NSString * usertype;
 @property(strong,nonatomic)NSString * userkey;
