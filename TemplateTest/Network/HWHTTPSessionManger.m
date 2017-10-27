@@ -149,7 +149,6 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
     [self.requestSerializer setTimeoutInterval:15.0f];
 
    return [self POST:URLString parameters:parDict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        
        if (success) {
            self.querySuccess = [success copy];
        }
@@ -159,8 +158,11 @@ typedef void(^QueryFail)(NSString *code, NSString *error);
        [self handleResponse:responseObject];
        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if(failure)
+        if(failure){
+            NSData *data = [[error userInfo]objectForKey:@"com.alamofire.serialization.response.error.data"];
+        NSString *dataStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];;
             failure([NSString stringWithFormat:@"%d", kStatusNetworkFailed], kNetworkFailedMessage);
+        }
 
     }];
 }

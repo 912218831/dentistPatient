@@ -212,6 +212,9 @@ static NSString * kHaowuStoreName = @"TemplateTest1.sqlite";
             }
             NSLog(@"授权结果 authCode = %@", authCode?:@"");
         }];
+    }else
+    {
+        return [WXApi handleOpenURL:url delegate:[WechatDelegate shareWechatDelegate]];
     }
     return YES;
 }

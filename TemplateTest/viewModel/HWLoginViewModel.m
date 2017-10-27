@@ -36,14 +36,28 @@
                 return nil;
             }
             NSMutableDictionary * params = [NSMutableDictionary dictionary];
-            [params setObject:_loginCellModel.telphone forKey:@"mobile"];
-            [params setObject:_loginCellModel.verifyCode forKey:@"randCode"];
-            
-            [self post:kLogin type:1 params:params success:^(id response) {
+            if (self.type == Login) {
+                [params setObject:_loginCellModel.telphone forKey:@"mobile"];
+                [params setObject:_loginCellModel.verifyCode forKey:@"randCode"];
+            } else {
+                [params setObject:[WechatDelegate shareWechatDelegate].userInfo.unionid forKey:@"unionId"];
+                [params setObject:[WechatDelegate shareWechatDelegate].userInfo.headimgurl forKey:@"headImageUrl"];
+                [params setObject:[WechatDelegate shareWechatDelegate].userInfo.sex forKey:@"gender"];
+                [params setObject:[WechatDelegate shareWechatDelegate].userInfo.nickname forKey:@"name"];
+                [params setObject:[WechatDelegate shareWechatDelegate].access_token forKey:@"accessToken"];
+                [params setObject:[WechatDelegate shareWechatDelegate].expires_in forKey:@"expiration"];
+                NSString *sigStr = [NSString stringWithFormat:@"%@%@",[WechatDelegate shareWechatDelegate].userInfo.nickname,@"sxm1125"];
+                NSString *sig = [sigStr md5:sigStr];
+                [params setObject:sig forKey:@"sig"];
+                [params setObject:_loginCellModel.telphone  forKey:@"mobile"];
+                [params setObject:_loginCellModel.verifyCode forKey:@"verifyCode"];
+            }
+            [self post:self.type==Login?kLogin:kBindPhone type:1 params:params success:^(id response) {
                 NSDictionary * dic = [response objectForKey:@"data"];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
                         loginUser.key = [dic stringObjectForKey:@"userkey"];
+                        loginUser.userPhone = _loginCellModel.telphone;
                     }];
                     [subscriber sendNext:@"登录成功"];
                 });
@@ -60,6 +74,33 @@
         }];
 
     }
+}
+
+- (void)wechatLogin:(void(^)(NSString *error))finished {
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    [params setObject:[WechatDelegate shareWechatDelegate].userInfo.unionid forKey:@"unionId"];
+    [params setObject:[WechatDelegate shareWechatDelegate].userInfo.headimgurl forKey:@"headImageUrl"];
+    [params setObject:[WechatDelegate shareWechatDelegate].userInfo.sex forKey:@"gender"];
+    [params setObject:[WechatDelegate shareWechatDelegate].userInfo.nickname forKey:@"name"];
+    [params setObject:[WechatDelegate shareWechatDelegate].access_token forKey:@"accessToken"];
+    [params setObject:[WechatDelegate shareWechatDelegate].expires_in forKey:@"expiration"];
+    NSString *sigStr = [NSString stringWithFormat:@"%@%@",[WechatDelegate shareWechatDelegate].userInfo.nickname,@"sxm1125"];
+    NSString *sig = [sigStr md5:sigStr];
+    [params setObject:sig forKey:@"sig"];
+    @weakify(self);
+    [self post:kWechatLogin type:1 params:params success:^(NSDictionary *response) {
+        @strongify(self);
+        NSDictionary *data = [response dictionaryObjectForKey:@"data"];
+        [[AppShare shareInstance] handelCurrentCoreDataLoginUser:^(HWLoginUser *loginUser) {
+            loginUser.key = [data stringObjectForKey:@"userkey"];
+            loginUser.userPhone = _loginCellModel.telphone;
+        }];
+        NSString *firstFlag = [data stringObjectForKey:@"firstFlag"];
+        self.firstFlag = [firstFlag isEqualToString:@"true"]||[firstFlag integerValue];
+        finished(nil);
+    } failure:^(NSString *error) {
+        finished(error);
+    }];
 }
 
 @end
