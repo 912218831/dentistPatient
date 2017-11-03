@@ -41,6 +41,25 @@
     self.answerBtn.contentMode = UIViewContentModeCenter;
     [self.answerBtn setImage:ImgWithName(@"answer") forState:UIControlStateNormal];
     [self.view addSubview:self.answerBtn];
+    
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kWechatPayCallBack object:nil] subscribeNext:^(NSNotification * notify) {
+        if ([notify.object isKindOfClass:[PayResp class]]) {
+            PayResp * resq = notify.object;
+            //支付返回结果，实际支付结果需要去微信服务器端查询
+            NSMutableDictionary * params = [NSMutableDictionary dictionary];
+            [params setPObject:self.viewModel.orderCode forKey:@"orderCode"];
+            HWHTTPSessionManger * manager = [HWHTTPSessionManger manager];
+            [manager HWPOST:kPayCallBack parameters:params success:^(id responese) {
+                HWAppointFinishViewModel * finishViewModel = [[HWAppointFinishViewModel alloc] initWithAppointId:self.viewModel.detailModel.appointId];
+                [[ViewControllersRouter shareInstance] pushViewModel:finishViewModel animated:NO];
+            } failure:^(NSString *code, NSString *error) {
+                [Utility showToastWithMessage:error];
+                [[ViewControllersRouter shareInstance] popViewModelAnimated:YES];
+            }];
+
+        }
+    }];
+    
 }
 
 - (UICollectionView *)collectionView
@@ -312,6 +331,25 @@
                 //微信
                 [[[self.viewModel.payCommand execute:x] deliverOnMainThread] subscribeNext:^(id x) {
                     
+                    if ([x isKindOfClass:[NSDictionary class]]) {
+                        NSDictionary * dict = [x copy];
+                        NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
+                        PayReq* req             = [[PayReq alloc] init];
+                        req.partnerId           = [dict objectForKey:@"partnerid"];
+                        req.prepayId            = [dict objectForKey:@"prepayid"];
+                        req.nonceStr            = [dict objectForKey:@"noncestr"];
+                        req.timeStamp           = stamp.intValue;
+                        req.package             = [dict objectForKey:@"packageCode"];
+                        req.sign                = [dict objectForKey:@"sign"];
+                        [WXApi sendReq:req];
+                        NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    
                 } error:^(NSError *error) {
                     [Utility showToastWithMessage:error.localizedDescription];
 
@@ -325,6 +363,7 @@
     RAC(self.viewModel,selectCoupontModel) = RACObserve(self, selectCouponModel);
     self.answerBtn.rac_command = self.viewModel.answerCommand;
 }
+
 
 
 

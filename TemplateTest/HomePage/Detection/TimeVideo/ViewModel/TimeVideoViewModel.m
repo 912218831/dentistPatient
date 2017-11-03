@@ -203,6 +203,8 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
                 //设置成功
                 UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"请在设备重启后->连接%@->点击刷新",input.first]  preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    self.lanDeviceDict = [NSMutableDictionary dictionary];
+                    self.selectedDeviceID = nil;
                     hk_LanRefresh_EX(1);
                 }];
                 [alertCtrl addAction:sureAction];

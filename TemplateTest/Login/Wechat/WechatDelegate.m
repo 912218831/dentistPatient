@@ -36,23 +36,30 @@
 
 - (void)onResp:(SendAuthResp *)resp {
     
-    [HWHTTPSessionManger shareHttpClient].responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
-    [[HWHTTPSessionManger shareHttpClient]HWPOST:kWechatAccessToken parameters:
-            @{@"appid":kWechatAppId,
-              @"secret":kWechatSecret,
-              @"code":resp.code,
-              @"grant_type":kWechatGrant_type}
-                                         success:^(NSDictionary *responese) {
-                                             self.access_token = [responese stringObjectForKey:@"access_token"];
-                                             self.refresh_token = [responese stringObjectForKey:@"refresh_token"];
-                                             self.unionid = [responese stringObjectForKey:@"unionid"];
-                                             self.openid = [responese stringObjectForKey:@"openid"];
-                                             self.expires_in = [responese stringObjectForKey:@"expires_in"];
-                                             [self requestUserInfo];
-                                          }
-                                         failure:^(NSString *code, NSString *error) {
-                                               NSLog(@"error-%@",error);
-                                         }];
+    if ([resp isKindOfClass:[PayResp class]]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWechatPayCallBack object:resp];
+    }
+    else
+    {
+        [HWHTTPSessionManger shareHttpClient].responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+        [[HWHTTPSessionManger shareHttpClient]HWPOST:kWechatAccessToken parameters:
+         @{@"appid":kWechatAppId,
+           @"secret":kWechatSecret,
+           @"code":resp.code,
+           @"grant_type":kWechatGrant_type}
+                                             success:^(NSDictionary *responese) {
+                                                 self.access_token = [responese stringObjectForKey:@"access_token"];
+                                                 self.refresh_token = [responese stringObjectForKey:@"refresh_token"];
+                                                 self.unionid = [responese stringObjectForKey:@"unionid"];
+                                                 self.openid = [responese stringObjectForKey:@"openid"];
+                                                 self.expires_in = [responese stringObjectForKey:@"expires_in"];
+                                                 [self requestUserInfo];
+                                             }
+                                             failure:^(NSString *code, NSString *error) {
+                                                 NSLog(@"error-%@",error);
+                                             }];
+
+    }
 }
 
 - (void)requestUserInfo {

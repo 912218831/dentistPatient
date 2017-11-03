@@ -181,6 +181,7 @@
 		B0B0B59E1F287302002FE127 /* 注册成功@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B0B5891F287302002FE127 /* 注册成功@3x.png */; };
 		B0B0B59F1F287302002FE127 /* 订单@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B0B58A1F287302002FE127 /* 订单@3x.png */; };
 		B0B0B5A01F287302002FE127 /* 首页@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B0B58B1F287302002FE127 /* 首页@3x.png */; };
+		B0C429CD1FA81F9A00DBADBC /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C429CC1FA81F9900DBADBC /* libWeChatSDK.a */; };
 		B0D26AFD1BDF7B920012A093 /* HWCountDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D26ADC1BDF7B920012A093 /* HWCountDownCell.m */; };
 		B0D26AFE1BDF7B920012A093 /* HWCustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D26ADE1BDF7B920012A093 /* HWCustomViewCell.m */; };
 		B0D26B001BDF7B920012A093 /* HWPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D26AE21BDF7B920012A093 /* HWPickerCell.m */; };
@@ -783,6 +784,7 @@
 		B0B0B5891F287302002FE127 /* 注册成功@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册成功@3x.png"; sourceTree = "<group>"; };
 		B0B0B58A1F287302002FE127 /* 订单@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订单@3x.png"; sourceTree = "<group>"; };
 		B0B0B58B1F287302002FE127 /* 首页@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页@3x.png"; sourceTree = "<group>"; };
+		B0C429CC1FA81F9900DBADBC /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		B0D26ADB1BDF7B920012A093 /* HWCountDownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCountDownCell.h; sourceTree = "<group>"; };
 		B0D26ADC1BDF7B920012A093 /* HWCountDownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCountDownCell.m; sourceTree = "<group>"; };
 		B0D26ADD1BDF7B920012A093 /* HWCustomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCustomViewCell.h; sourceTree = "<group>"; };
@@ -997,7 +999,6 @@
 		C533F9A81F7E76C700F95CA3 /* 完成@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@3x.png"; sourceTree = "<group>"; };
 		C533F9AB1F7E76D700F95CA3 /* 完成@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成@2x.png"; sourceTree = "<group>"; };
 		C533F9AC1F7E76D700F95CA3 /* 进行中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进行中@2x.png"; sourceTree = "<group>"; };
-		C533F9AF1F7E802C00F95CA3 /* libjpush-ios-3.0.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.6.a"; path = "Pods/JPush/libjpush-ios-3.0.6.a"; sourceTree = "<group>"; };
 		C53EEB3B1F75478500B4F3B5 /* wechatIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechatIcon@2x.png"; sourceTree = "<group>"; };
 		C53EEB3D1F75478E00B4F3B5 /* wechatIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechatIcon@3x.png"; sourceTree = "<group>"; };
 		C546B0451F680DD3000C99A1 /* HWCasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCasesViewController.h; sourceTree = "<group>"; };
@@ -1129,7 +1130,6 @@
 		D2C8F8C51B67684400628D96 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D2C8F8C71B67685B00628D96 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		D2C8F8C91B67686A00628D96 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		D2C8F8CB1B67687F00628D96 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D2C8F8CD1B6768A900628D96 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D45177F8F846934BC061CE1E /* Pods-TemplateTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateTest/Pods-TemplateTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DA3DFEE71ADE775300C4E99A /* HWRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWRequestConfig.h; sourceTree = "<group>"; };
@@ -1190,6 +1190,7 @@
 			files = (
 				B066574A1D94F3AD00C51061 /* WebKit.framework in Frameworks */,
 				B0E5E4431F7DDFE500FBEA9D /* AlipaySDK.framework in Frameworks */,
+				B0C429CD1FA81F9A00DBADBC /* libWeChatSDK.a in Frameworks */,
 				B0E5E4421F7DDFCD00FBEA9D /* CoreText.framework in Frameworks */,
 				B0E5E4401F7DDF9C00FBEA9D /* libc++.tbd in Frameworks */,
 				B0E886AE1F7AA2D50074E2F8 /* AssetsLibrary.framework in Frameworks */,
@@ -1352,7 +1353,6 @@
 				B03644331F7A99C900C3C323 /* libstdc++.tbd */,
 				B03644311F7A992700C3C323 /* AudioToolbox.framework */,
 				B036442F1F7A991700C3C323 /* CoreMedia.framework */,
-				C533F9AF1F7E802C00F95CA3 /* libjpush-ios-3.0.6.a */,
 				B07E7C101E8F95DE005189C9 /* UMMobClick.framework */,
 				75C741771DC71A0A0072D0ED /* libz.tbd */,
 				75C741751DC7199D0072D0ED /* UserNotifications.framework */,
@@ -1376,7 +1376,6 @@
 				D2C28F0D1B7CC5BB00E2716D /* CoreFoundation.framework */,
 				D2C28F0B1B7CC2AB00E2716D /* CFNetwork.framework */,
 				D2C8F8CD1B6768A900628D96 /* SystemConfiguration.framework */,
-				D2C8F8CB1B67687F00628D96 /* libz.dylib */,
 				D2C8F8C91B67686A00628D96 /* AdSupport.framework */,
 				D2C8F8C71B67685B00628D96 /* CoreTelephony.framework */,
 				D2C8F8C51B67684400628D96 /* Security.framework */,
@@ -2136,6 +2135,7 @@
 		C24E7DDC1ADE5E9700BA8ECC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B0C429CC1FA81F9900DBADBC /* libWeChatSDK.a */,
 				C5A7AFC01F95BFBF00F1C315 /* MLSearchBar */,
 				B0E5E43C1F7DC10200FBEA9D /* alipay */,
 				B0381CF81F7A401400C5E172 /* basicClass */,
@@ -2981,7 +2981,7 @@
 				TargetAttributes = {
 					C24E7DA31ADE51AA00BA8ECC = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = CMYJ8LA292;
+						DevelopmentTeam = X6VE6Z688G;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3619,11 +3619,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMYJ8LA292;
+				DEVELOPMENT_TEAM = X6VE6Z688G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
@@ -3683,10 +3683,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
-				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
+				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
+				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3698,11 +3698,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai HAOWU Information Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sheng gu (M78252NS8H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sheng gu (M78252NS8H)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMYJ8LA292;
+				DEVELOPMENT_TEAM = X6VE6Z688G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3765,10 +3765,10 @@
 				MACH_O_TYPE = mh_execute;
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentists.patient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haowu.haowuagency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76e1938e-d42f-4d79-b1a6-034ca086a4d2";
-				PROVISIONING_PROFILE_SPECIFIER = doctor_patient;
+				PROVISIONING_PROFILE = "74bd5de6-f60a-4915-a08c-4a037ed93da3";
+				PROVISIONING_PROFILE_SPECIFIER = TemplateTest;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

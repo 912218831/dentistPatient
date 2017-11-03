@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface HWAppointSuccessViewController : BaseViewController
+@interface HWAppointSuccessViewController : BaseViewController<WXApiDelegate>
 
 @end

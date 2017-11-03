@@ -35,9 +35,23 @@
             [params setPObject:self.sumMoney forKey:@"totalAmount"];
             [params setPObject:self.payType forKey:@"payType"];
             NSURLSessionTask * task = [self post:kCreateOrder params:params success:^(id response) {
-                NSDictionary * dataDic = [response objectForKey:@"data"];
-                self.orderCode = [dataDic objectForKey:@"orderCode"];
-                [subscriber sendNext:[dataDic objectForKey:@"payEncodeString"]];
+                if ([self.payType isEqualToString:@"ALI"]) {
+                    //支付宝
+                    NSDictionary * dataDic = [response objectForKey:@"data"];
+                    self.orderCode = [dataDic objectForKey:@"orderCode"];
+                    [subscriber sendNext:[dataDic objectForKey:@"payEncodeString"]];
+                }
+                else if([self.payType isEqualToString:@"WEI"])
+                {
+                    //微信
+                    NSDictionary * dataDic = [response objectForKey:@"data"];
+                    self.orderCode = [dataDic objectForKey:@"orderCode"];
+                    [subscriber sendNext:[dataDic dictionaryObjectForKey:@"weichatParam"]];
+                }
+                else
+                {
+                    [subscriber sendError:customRACError([response objectForKey:@"detail"])];
+                }
             } failure:^(NSString * error) {
                 [subscriber sendError:customRACError(error)];
             }];
@@ -47,7 +61,15 @@
         }];
         self.payCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber * input) {
             @strongify(self);
-            self.payType = @"ALI";
+            if (input.integerValue == 0) {
+                //支付宝
+                self.payType = @"ALI";
+            }
+            else if(input.integerValue == 1)
+            {
+                //微信
+                self.payType = @"WEI";
+            }
             return paySignal;
         }];
         self.payCommand.allowsConcurrentExecution = YES;
