@@ -252,7 +252,7 @@ NSLog(@"%@,\n%s:%d\n",__VA_ARGS__,__FUNCTION__,__LINE__);
 #define APP_ID                          @"1018136206"
 
 #define App_Version                     @"16"     // 强制更新版本号6.5.0 是18
-#define kDeviceWifiName                 @"zhuyaqi"
+#define kDeviceWifiName                 @"Tooth"
 
 #define kAliPay                         @"kouqiangalipay"
 
