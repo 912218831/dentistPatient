@@ -107,13 +107,13 @@
 
 - (UIView *)tableViewHeaderView
 {
-    UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kRate(260))];
+    UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kRate(200))];
     headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
 
 - (UIView *)tableViewFooterView{
-    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT - kRate(260+55) )];
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, CONTENT_HEIGHT - kRate(200)-115 )];
     footerView.backgroundColor = [UIColor clearColor];
     
     self.loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, kRate(35), kScreenWidth - 30, 50)];
