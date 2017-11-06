@@ -174,6 +174,7 @@
     } else {
         // 拍照
         TimeVideoViewModel *vm = [TimeVideoViewModel new];
+        vm.needInitConfig = true;
         @weakify(self);
         vm.takePhoto = ^(UIImage *image) {
             @strongify(self);

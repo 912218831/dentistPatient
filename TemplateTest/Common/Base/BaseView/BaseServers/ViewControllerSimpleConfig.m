@@ -40,7 +40,8 @@
              kAppointFinishVM:self.appointFinish,
              kSelectCityVM:self.selectCity,
              kBaseWebViewModel:self.webView,
-             kSetPasswordViewModel:self.setPassword
+             kSetPasswordViewModel:self.setPassword,
+             kSettingDeviceVM:self.settingAutoDevice
              };
 }
 
@@ -161,5 +162,10 @@
              @"leftImageName":@"TOP_ARROW",
              };
 }
-
++ (NSDictionary *)settingAutoDevice {
+    return @{
+             @"title":@"设置智能设备",
+             @"leftImageName":@"TOP_ARROW",
+             };
+}
 @end

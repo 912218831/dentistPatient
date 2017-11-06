@@ -14,19 +14,7 @@
 #import "WifiInfoModel.h"
 @interface TimeVideoViewController ()<WifiListViewDelegate,HKDisplayViewDelegate>
 {
-    enum {ConnectingTypeNone,
-        ConnectingTypeVideoWait105,
-        ConnectingTypeVideoWait106,
-        ConnectingTypeListenAudioWait105,
-        ConnectingTypeListenAudioWait106,
-        ConnectingTypeSpeakerAudioWait105,
-        ConnectingTypeSpeakerAudioWait106,
-        ConnectingTypeRegistServerSuccess,      //注册监控服务成功
-        ConnectingTypeRegistServerFail,         //注册监控服务失败
-        ConnectingTypeLoginSuccess,             //登陆成功
-        ConnectingTypeLoginFail,                //登陆失败
-    } _connectingType;
-
+    
 }
 //@property(strong,nonatomic)HKDisplayView * displayView;
 @property(strong,nonatomic)UIButton * captureBtn;

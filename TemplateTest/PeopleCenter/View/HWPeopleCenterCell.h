@@ -11,7 +11,8 @@
 #define kSetPasswordControlRect(cell) CGRectMake(0,0,cell.contentV.bounds.size.width,cell.titleLabel.bounds.size.height)
 typedef NS_ENUM(NSInteger, EventType){
     ChangePW,
-    Family
+    Family,
+    Setting
 };
 @interface HWPeopleCenterCell : BaseListViewCell
 @property (nonatomic, strong, readonly) UIView *contentV;

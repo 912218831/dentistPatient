@@ -63,6 +63,7 @@ static ViewControllersRouter *router;
              kBaseWebViewModel:objc_getClass(kBaseWebViewModel.UTF8String),
              kSetPasswordViewModel:objc_getClass(kSetPasswordViewModel.UTF8String),
              kTimeVideoVM:objc_getClass(kTimeVideoVM.UTF8String),
+             kSettingDeviceVM:objc_getClass(kSettingDeviceVM.UTF8String)
              };
     
 }
@@ -89,6 +90,7 @@ static ViewControllersRouter *router;
              kBaseWebViewModel:objc_getClass("BaseWebViewController"),
              kSetPasswordViewModel:objc_getClass("SetPasswordViewController"),
              kTimeVideoVM:objc_getClass("TimeVideoViewController"),
+             kSettingDeviceVM:objc_getClass("SettingDeviceViewController")
              };
 }
 

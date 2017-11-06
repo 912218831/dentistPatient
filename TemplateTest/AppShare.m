@@ -158,7 +158,7 @@
     NSString *wifiName = @"Not Found";
     CFArrayRef myArray = CNCopySupportedInterfaces();
     
-    if (myArray != nil) {
+    if (1) {//myArray != nil
         
         CFDictionaryRef myDict =CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(myArray, 0));
         

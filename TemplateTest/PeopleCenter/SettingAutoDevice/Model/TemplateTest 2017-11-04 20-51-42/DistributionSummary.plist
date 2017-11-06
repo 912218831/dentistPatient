@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TemplateTest.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>DEC2C4CF662B360B81720061A67886D016AF3371</string>
+				<key>dateExpires</key>
+				<string>2020/9/7</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>CMYJ8LA292.com.dentists.patient</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>CMYJ8LA292</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>CMYJ8LA292.com.dentists.patient</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>TemplateTest.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>76e1938e-d42f-4d79-b1a6-034ca086a4d2</string>
+				<key>name</key>
+				<string>doctor_patient</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>CMYJ8LA292</string>
+				<key>name</key>
+				<string>Shanghai HAOWU Information Technology Co., Ltd.</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -12,7 +12,6 @@
 #import <IQUIView+Hierarchy.h>
 @interface WifiListView()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property(assign,nonatomic)BOOL isWifiList;
 @property(strong,nonatomic)NSString * wifiPWD;
 @end
 

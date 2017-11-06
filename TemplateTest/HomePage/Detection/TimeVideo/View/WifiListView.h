@@ -17,6 +17,7 @@
 @end
 
 @interface WifiListView : UIView
+@property(assign,nonatomic)BOOL isWifiList;
 @property(strong,nonatomic)NSDictionary * lanDeviceDic;
 @property(strong,nonatomic)NSArray * dataArr;
 @property(strong,nonatomic)id<WifiListViewDelegate>  delegate;
@@ -24,5 +25,4 @@
 @property(strong,nonatomic)RACCommand * selectWifiCommand;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIButton *refreshBtn;
-
 @end

@@ -9,6 +9,7 @@
 #import "HWPeopleCenterViewModel.h"
 #import "BaseWebViewModel.h"
 #import "SetPasswordViewModel.h"
+#import "SettingDeviceViewModel.h"
 
 @interface HWPeopleCenterViewModel ()
 
@@ -62,6 +63,13 @@
         model.url = kFamily;
         model.title = @"我的家庭";
         [[ViewControllersRouter shareInstance] pushViewModel:model animated:YES];
+        return [RACSignal empty];
+    }];
+    
+    self.setting = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        SettingDeviceViewModel *vm = [SettingDeviceViewModel new];
+        [[ViewControllersRouter shareInstance]pushViewModel:vm animated:true];
         return [RACSignal empty];
     }];
 }

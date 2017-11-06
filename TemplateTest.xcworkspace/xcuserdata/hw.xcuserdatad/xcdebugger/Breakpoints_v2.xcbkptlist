@@ -64,16 +64,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TemplateTest/PeopleCenter/View/HWPeopleCenterViewController.m"
-            timestampString = "530775832.927194"
+            filePath = "TemplateTest/PeopleCenter/ViewModel/HWPeopleCenterViewModel.m"
+            timestampString = "531494866.110512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-bindViewModel"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-bindViewWithSignal"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

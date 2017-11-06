@@ -7,41 +7,9 @@
 //
 
 #import "TimeVideoViewModel.h"
-#import "HKCameraControl.h"
-#import "HKDecodeSDK.h"
-#import "hkipc.h"
-#import "HKDisplayView.h"
-#import "avrecord.h"
-#import <sys/time.h>
-#import "WifiInfoModel.h"
-#import "WifiListView.h"
+
 @interface TimeVideoViewModel()<HKDecodeSDKDelegate, HKDisplayViewDelegate,WifiListViewDelegate,UIWebViewDelegate>
-{
-    enum {ConnectingTypeNone,
-        ConnectingTypeVideoWait105,
-        ConnectingTypeVideoWait106,
-        ConnectingTypeListenAudioWait105,
-        ConnectingTypeListenAudioWait106,
-        ConnectingTypeSpeakerAudioWait105,
-        ConnectingTypeSpeakerAudioWait106,
-        ConnectingTypeRegistServerSuccess,      //注册监控服务成功
-        ConnectingTypeRegistServerFail,         //注册监控服务失败
-        ConnectingTypeLoginSuccess,             //登陆成功
-        ConnectingTypeLoginFail,                //登陆失败
-    } _connectingType;
-}
-@property(strong,nonatomic,readwrite)HKDisplayView * displayView;
-@property (nonatomic, strong) HKDecodeSDK *decodeSDK;
-@property (nonatomic, strong) NSMutableDictionary *lanDeviceDict;
-@property (nonatomic, strong) NSMutableDictionary *WanDeviceDict;//外网设备列表
-@property (nonatomic, strong) HKCameraControl *cameraControl;
-@property (nonatomic, strong) HekaiDeviceDesc *operationDevice;
-@property (nonatomic, copy) NSString *selectedDeviceID;
-@property(strong,nonatomic)NSString * macWifi;
-@property(strong,nonatomic)WifiListView * wifiListView;
-@property(strong,nonatomic)NSArray * wifiList;
-@property(strong,nonatomic)AFNetworkReachabilityManager * networkManager;
-@property(strong,nonatomic)NSString * currentWifiName;
+
 
 @end
 
@@ -49,7 +17,7 @@
 
 
 //局域网设备节点回调函数
-static void HKLanDataCallback(void *userData, char *devid, char *devType, int hkid, int iCount,int iStatus,char *audioType )
+void HKLanDataCallback(void *userData, char *devid, char *devType, int hkid, int iCount,int iStatus,char *audioType )
 {
     if (userData == NULL) {
         return;
@@ -88,7 +56,7 @@ static void HKLanDataCallback(void *userData, char *devid, char *devType, int hk
 }
 /*typedef void (*HKWIFISIDCALLBACK)(void *userData, char *cBuf, int iLen );
  */
-static void HKWifiDataCallback(void *userData, char *cBuf, int iLen)
+void HKWifiDataCallback(void *userData, char *cBuf, int iLen)
 {
     TimeVideoViewModel *p = (__bridge TimeVideoViewModel *)userData;
     if (cBuf != NULL) {
@@ -116,18 +84,15 @@ static void HKWifiDataCallback(void *userData, char *cBuf, int iLen)
         }
     }
 }
-static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
+void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
 {
     TimeVideoViewModel *p = (__bridge TimeVideoViewModel *)userData;
     [p handleSystemCallback:nCmd withBuf:cBuf withiLen:iLen];
 }
 
-
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
+- (void)setNeedInitConfig:(BOOL)needInitConfig {
+    _needInitConfig = needInitConfig;
+    if (needInitConfig) {
         self.networkManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
         [self.networkManager startMonitoring];
         @weakify(self);
@@ -153,16 +118,16 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
                     break;
             }
         }];
-
+        
         _connectingType = ConnectingTypeNone;
-//        _isLocal = YES;
+        //        _isLocal = YES;
         self.lanDeviceDict = [NSMutableDictionary dictionaryWithCapacity:0];
         self.WanDeviceDict = [NSMutableDictionary dictionaryWithCapacity:0];
         self.currentWifiName = [[AppShare shareInstance] getCurrentWifiName];
         //============初始化解码器
         self.decodeSDK = [[HKDecodeSDK alloc] initWithDelegate:self];
         self.displayView = [[HKDisplayView alloc] init];
-//        self.displayView.delegate = self;
+        //        self.displayView.delegate = self;
         //============初始化局域网回调
         hk_InitLAN((__bridge void *)(self), &HKLanDataCallback);
         InitGetWifiSid((__bridge void *)(self), &HKWifiDataCallback);
@@ -188,9 +153,9 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
             {
                 HekaiDeviceDesc *device = [self.lanDeviceDict objectForKey:input];
                 DoLanGetWifiSid(device.deviceDesc.localDeviceId, [self.macWifi UTF8String], 0);
-
+                
             }
-//            [self playVideo];
+            //            [self playVideo];
             return [RACSignal empty];
         }];
         self.setLanCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(RACTuple * input) {
@@ -201,7 +166,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
             int state = SetLanWifi(1, 1, device.deviceDesc.localDeviceId, [str UTF8String]);
             if (state == 0) {
                 //设置成功
-                UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"请在设备重启后->连接%@->点击刷新",input.first]  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"智能硬件正在加入到网络，请将手机的WI-FI连接设置回%@",input.first]  preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     self.lanDeviceDict = [NSMutableDictionary dictionary];
                     self.selectedDeviceID = nil;
@@ -209,7 +174,7 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
                 }];
                 [alertCtrl addAction:sureAction];
                 [(SHARED_APP_DELEGATE).window.rootViewController presentViewController:alertCtrl animated:YES completion:nil];
-
+                
             }else
             {
                 
@@ -235,7 +200,6 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         }];
         self.listDataChannel = [[RACChannel alloc] init];
     }
-    return self;
 }
 
 - (void)handleHKLanDataCallback:(HEKAI_DEVICE_DESC)desc
@@ -258,10 +222,10 @@ static void HKSystemCallback(void *userData, int nCmd, char *cBuf, int iLen)
         [_lanDeviceDict setObject:device forKey:deviceID];
         dispatch_async(dispatch_get_main_queue(), ^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    if ([self.currentWifiName isEqualToString:kDeviceWifiName]) {
+                    if ([self.currentWifiName isEqualToString:kDeviceWifiName]) {//
                         //如果是AP模式
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [self.listDataChannel.followingTerminal sendNext:_lanDeviceDict];
+                            [self.listDataChannel.followingTerminal sendNext:self.lanDeviceDict];
                         });
                     }
                     else

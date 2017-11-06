@@ -17,5 +17,6 @@
 @property (nonatomic, strong) RACCommand *loginOutCommand;
 @property (nonatomic, strong) RACCommand *setPassword;
 @property (nonatomic, strong) RACCommand *familyJump;
+@property (nonatomic, strong) RACCommand *setting;
 @property (nonatomic, strong) RACCommand *scoreTouch;
 @end

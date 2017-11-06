@@ -13,9 +13,12 @@
 @property (nonatomic, strong, readwrite) UIView *contentV;
 @property (nonatomic, strong, readwrite) UILabel *passwordLabel;
 @property (nonatomic, strong) UILabel *familyLabel;
-@property (nonatomic, strong) DashLineView *lineView;
+@property (nonatomic, strong) UILabel *settingLabel;
+@property (nonatomic, strong) DashLineView *lineOneView;
+@property (nonatomic, strong) DashLineView *lineTwoView;
 @property (nonatomic, strong) UIImageView *passwordArrowImg;
 @property (nonatomic, strong) UIImageView *familyArrowImg;
+@property (nonatomic, strong) UIImageView *settingArrowImg;
 @end
 
 @implementation HWPeopleCenterCell
@@ -30,14 +33,23 @@
     self.familyLabel = [UILabel new];
     [self.contentV addSubview:self.familyLabel];
     
-    self.lineView = [[DashLineView alloc]initWithLineHeight:0 space:0 direction:Horizontal strokeColor:UIColorFromRGB(0xcccccc)];
-    [self.contentV addSubview:self.lineView];
+    self.settingLabel = [UILabel new];
+    [self.contentV addSubview:self.settingLabel];
+    
+    self.lineOneView = [[DashLineView alloc]initWithLineHeight:0 space:0 direction:Horizontal strokeColor:UIColorFromRGB(0xcccccc)];
+    [self.contentV addSubview:self.lineOneView];
+    
+    self.lineTwoView = [[DashLineView alloc]initWithLineHeight:0 space:0 direction:Horizontal strokeColor:UIColorFromRGB(0xcccccc)];
+    [self.contentV addSubview:self.lineTwoView];
     
     self.passwordArrowImg = [UIImageView new];
     [self.contentV addSubview:self.passwordArrowImg];
     
     self.familyArrowImg = [UIImageView new];
     [self.contentV addSubview:self.familyArrowImg];
+    
+    self.settingArrowImg = [UIImageView new];
+    [self.contentV addSubview:self.settingArrowImg];
 }
 
 - (void)layoutSubViews {
@@ -50,19 +62,30 @@
     CGFloat offX = kRate(17);
     [self.passwordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.equalTo(self.contentV);
-        make.bottom.equalTo(self.mas_centerY);
+        make.height.mas_equalTo(kRate(50));
         make.left.equalTo(self.contentV).with.offset(offX);
     }];
     [self.familyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentV);
-        make.top.equalTo(self.mas_centerY);
+        make.top.equalTo(self.passwordLabel.mas_bottom);
+        make.height.mas_equalTo(kRate(50));
+        make.left.equalTo(self.contentV).with.offset(offX);
+    }];
+    [self.settingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentV);
+        make.height.mas_equalTo(kRate(50));
         make.bottom.equalTo(self);
         make.left.equalTo(self.contentV).with.offset(offX);
     }];
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineOneView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentV);
         make.height.mas_equalTo(0.6);
         make.top.equalTo(self.passwordLabel.mas_bottom).with.offset(-0.2);
+    }];
+    [self.lineTwoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentV);
+        make.height.mas_equalTo(0.6);
+        make.top.equalTo(self.familyLabel.mas_bottom).with.offset(-0.2);
     }];
     [self.passwordArrowImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentV).with.offset(-offX);
@@ -75,6 +98,12 @@
         make.width.mas_equalTo(kRate(8));
         make.height.mas_equalTo(kRate(15));
         make.centerY.equalTo(self.familyLabel);
+    }];
+    [self.settingArrowImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentV).with.offset(-offX);
+        make.width.mas_equalTo(kRate(8));
+        make.height.mas_equalTo(kRate(15));
+        make.centerY.equalTo(self.settingLabel);
     }];
 }
 
@@ -94,8 +123,14 @@
     self.familyLabel.text = @"我的家庭";
     self.familyLabel.userInteractionEnabled = true;
     
+    self.settingLabel.font = FONT(TF16);
+    self.settingLabel.textColor = CD_Text;
+    self.settingLabel.text = @"设置智能设备";
+    self.settingLabel.userInteractionEnabled = true;
+    
     self.passwordArrowImg.image = [UIImage imageNamed:@"arrow"];
     self.familyArrowImg.image = [UIImage imageNamed:@"arrow"];
+    self.settingArrowImg.image = [UIImage imageNamed:@"arrow"];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -108,6 +143,10 @@
     } else if (eventView == self.familyLabel) {
         if (self.touchEvent) {
             self.touchEvent(Family);
+        }
+    } else if (eventView == self.settingLabel) {
+        if (self.touchEvent) {
+            self.touchEvent(Setting);
         }
     }
 }

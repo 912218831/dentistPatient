@@ -96,6 +96,11 @@
                 [self.viewModel.familyJump execute:nil];
             }
                 break;
+            case Setting:
+            {
+                [self.viewModel.setting execute:nil];
+            }
+                break;
             default:
                 break;
         }
@@ -120,7 +125,7 @@
     [self.listView addSubview:self.headView];
     
     HWPeopleCenterCell *cell = [[HWPeopleCenterCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellId"];
-    cell.frame = CGRectMake(0, kRate(249), self.listView.width, kRate(100));
+    cell.frame = CGRectMake(0, kRate(249), self.listView.width, kRate(150));
     [self.listView addSubview:cell];
     self.cell = cell;
     
