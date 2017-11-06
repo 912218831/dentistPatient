@@ -27,7 +27,7 @@
         __block RACSignal * signal = [[[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]] doNext:^(NSDate * _Nullable x) {
             @strongify(self);
             count--;
-            self.title = [NSString stringWithFormat:@"%lds后从新获取",(long)count];
+            self.title = [NSString stringWithFormat:@"%lds后重新获取",(long)count];
 
         }] map:^id _Nullable(NSDate * _Nullable value) {
             
