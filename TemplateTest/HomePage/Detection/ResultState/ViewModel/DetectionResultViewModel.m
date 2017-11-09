@@ -31,14 +31,12 @@
 - (void)initRequestSignal {
     @weakify(self);
     self.requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @strongify(self);
-        [self post:kDetectionResult type:0 params:@{@"checkId":self.checkId} success:^(id response) {
+        @strongify(self);//
+        [self post:kDetectionResult type:0 params:@{@"checkId":self.checkId} success:^(NSDictionary *response) {
             NSLog(@"%@",response);
-            for (int i=0; i<6; i++) {
-                NSDictionary *dic = @{
-                                      @"imageUrl": @"http://imgUrl",
-                                      @"title": @"牙菌斑"
-                                      };
+            NSArray *data = [response arrayObjectForKey:@"data"];
+            for (int i=0; i<data.count; i++) {
+                NSDictionary *dic = [data objectAtIndex:i];
                 DetectionIssueItemModel *model = [[DetectionIssueItemModel alloc]initWithDictionary:dic error:nil];
                 [self.dataArray addObject:model];
             }

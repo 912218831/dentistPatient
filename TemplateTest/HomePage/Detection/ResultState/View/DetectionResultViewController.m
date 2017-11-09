@@ -41,15 +41,18 @@
     if (_lookBtn == nil) {
         _lookBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:_lookBtn];
+        @weakify(self);
         [_lookBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
             make.centerX.equalTo(self.contentView);
             make.top.equalTo(self.contentView.mas_bottom).with.offset(-kRate(120));
-            make.width.mas_equalTo(kRate(200));
+            make.width.mas_equalTo(self.scrollView.width-kRate(30));
         }];
         [_lookBtn setTitle:@"查看附近医生" forState:UIControlStateNormal];
         [_lookBtn setTitleColor:CD_MainColor forState:UIControlStateNormal];
         _lookBtn.titleLabel.font =FONT(TF18);
         _lookBtn.titleLabel.textAlignment =NSTextAlignmentCenter;
+        _lookBtn.backgroundColor = CD_MainColor;
     }
     return _lookBtn;
 }
@@ -67,6 +70,7 @@
         [_endBtn setTitleColor:CD_MainColor forState:UIControlStateNormal];
         _endBtn.titleLabel.font =FONT(TF18);
         _endBtn.titleLabel.textAlignment =NSTextAlignmentCenter;
+        _endBtn.backgroundColor = CD_MainColor;
     }
     return _endBtn;
 }
