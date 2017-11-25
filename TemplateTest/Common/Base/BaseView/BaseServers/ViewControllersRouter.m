@@ -177,6 +177,12 @@ static ViewControllersRouter *router;
     [(HWTabBarViewController*)SHARED_APP_DELEGATE.viewController setTabBarHidden:false];
 }
 
+- (void)popToSpecialViewModelAnimated:(BOOL)animated index:(NSInteger)indexPath {
+    UIViewController *vc = [BaseViewController currentViewController];
+    UIViewController *sVC = [[vc.navigationController viewControllers]objectAtIndex:indexPath];
+    [vc.navigationController popToViewController:sVC animated:animated];
+}
+
 - (void)presentViewModel:(BaseViewModel *)viewModel animated:(BOOL)animated completion:(VoidBlock)completion {
     UIViewController *vc = [BaseViewController currentViewController];
     Class vcClass = [self viewControllerClassNameForViewModel:NSStringFromClass(viewModel.class)];

@@ -84,7 +84,7 @@
             @strongify(model);
             if (model.uploadFinished) {
                 NSDictionary *data = [responseObject dictionaryObjectForKey:@"data"];
-                model.Id =  [data stringObjectForKey:@"imgId"];
+                model.Id =  [data stringObjectForKey:@"ImgId"];
                 model.needUpload = false;
                 model.uploadSuccess = true;
                 model.uploadFinished(true);

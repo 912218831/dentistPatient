@@ -45,11 +45,11 @@
         [_lookBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             @strongify(self);
             make.centerX.equalTo(self.contentView);
-            make.top.equalTo(self.contentView.mas_bottom).with.offset(-kRate(120));
+            make.top.equalTo(self.contentView.mas_bottom).with.offset(-kRate(115));
             make.width.mas_equalTo(self.scrollView.width-kRate(30));
         }];
         [_lookBtn setTitle:@"查看附近医生" forState:UIControlStateNormal];
-        [_lookBtn setTitleColor:CD_MainColor forState:UIControlStateNormal];
+        [_lookBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
         _lookBtn.titleLabel.font =FONT(TF18);
         _lookBtn.titleLabel.textAlignment =NSTextAlignmentCenter;
         _lookBtn.backgroundColor = CD_MainColor;
@@ -63,11 +63,11 @@
         [self.contentView addSubview:_endBtn];
         [_endBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contentView);
-            make.top.equalTo(self.lookBtn.mas_bottom).with.offset(kRate(4));
+            make.top.equalTo(self.lookBtn.mas_bottom).with.offset(kRate(10));
             make.width.equalTo(self.lookBtn);
         }];
         [_endBtn setTitle:@"完成" forState:UIControlStateNormal];
-        [_endBtn setTitleColor:CD_MainColor forState:UIControlStateNormal];
+        [_endBtn setTitleColor:COLOR_FFFFFF forState:UIControlStateNormal];
         _endBtn.titleLabel.font =FONT(TF18);
         _endBtn.titleLabel.textAlignment =NSTextAlignmentCenter;
         _endBtn.backgroundColor = CD_MainColor;
@@ -181,6 +181,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)backMethod {
+    [[ViewControllersRouter shareInstance]popToSpecialViewModelAnimated:true index:1];
 }
 
 - (void)dealloc {

@@ -50,6 +50,8 @@ typedef void (^VoidBlock)(UIViewController *targetVC);
 
 @protocol NavigationProtocol <NSObject>
 
+- (void)popToSpecialViewModelAnimated:(BOOL)animated index:(NSInteger)indexPath;
+
 - (void)pushViewModel:(BaseViewModel *)viewModel animated:(BOOL)animated;
 
 - (void)popViewModelAnimated:(BOOL)animated;
